@@ -18,6 +18,7 @@
     <orderEntry type="library" name="Gradle: com.badlogicgames.box2dlights:box2dlights:1.4" level="project" />
     <orderEntry type="library" name="Gradle: com.badlogicgames.ashley:ashley:1.7.0" level="project" />
     <orderEntry type="library" name="Gradle: com.badlogicgames.gdx:gdx-ai:1.8.0" level="project" />
+    <orderEntry type="library" name="kryonet-2.21-all" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="core_main" />
 </module>
