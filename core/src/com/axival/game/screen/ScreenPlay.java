@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -77,23 +78,26 @@ public class ScreenPlay implements Screen, InputProcessor {
         prototype.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         prototype.start();
 
+        //set value from network
+        statusPhase = new int[13];
+        statusInput();
+
         //set parameter other class
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay, this);
-        this.mapScreen = new MapScreen(this.cardPlay);
+        this.mapScreen = new MapScreen(this.cardPlay, this);
         this.calculatorManager = new CalculatorManager(this, mapScreen);
-
-        //set value from network
-        this.statusPhase = new int[13];
-        statusInput();
 
         //check phase
         phaseAll();
 
         //check memory
         cardPlay.javaFreeMem();
+
+        statusPhase[0] = 1;
+        System.out.println("statusPhase"+ Arrays.toString(statusPhase));
     }
 
     @Override
@@ -332,7 +336,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         Vector2 goal = mapScreen.click.getRowCol(x, y);
 
         if (!mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() && mapScreen.walker.getRoute() == 0
-                && area.contains(rowcol) && mapScreen.statusPhase[6] == 2) {
+                && area.contains(rowcol) && statusPhase[6] == 2) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
 //                System.out.println("Mouse clicked!");
@@ -349,8 +353,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
             }
-        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.statusPhase[6] == 1 ||
-                mapScreen.statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1) {
+        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && statusPhase[6] == 1 ||
+                statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1) {
             mapScreen.player[mapScreen.idx].resetElapsedTime();
             mapScreen.player[mapScreen.idx].setStartTime();
             mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
@@ -360,8 +364,8 @@ public class ScreenPlay implements Screen, InputProcessor {
 //            System.out.println("Kuy 0/0 left click");
 //            int k = 0/0;
         }
-        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In screenPlay");
-        if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
+        System.out.println("statusPhase = " + statusPhase[6] + " In screenPlay");
+        if (statusPhase[6] == 1 || statusPhase[6] == 3) {
             if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) && mapScreen.player[mapScreen.idx].attacking == false) {
                 System.out.println("Skill is used.");
                 mapScreen.player[mapScreen.idx].setTarget(goal);

@@ -1,6 +1,7 @@
 package com.axival.game.MapPlay;
 
 import com.axival.game.CardPlay;
+import com.axival.game.screen.ScreenPlay;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -16,6 +17,8 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Math.sqrt;
@@ -23,6 +26,9 @@ import static java.lang.Math.sqrt;
 public class MapScreen implements Screen {
     //status phase variable
     public int[] statusPhase;
+
+    //define screenPlay
+    private ScreenPlay screenPlay;
 
     //order variable
     int order;
@@ -74,7 +80,7 @@ public class MapScreen implements Screen {
 
     int ipctrl = 0;
 
-    public MapScreen(CardPlay game) {
+    public MapScreen(CardPlay game, ScreenPlay screenPlay) {
 
         this.game = game;
         //create cam used to follow hero through cam world
@@ -125,6 +131,7 @@ public class MapScreen implements Screen {
         font = new BitmapFont();
         font.setColor(255, 255, 255, 1);
 
+        /*
         //create phase status
         statusPhase = new int[9];
         statusPhase[1] = 4;
@@ -135,6 +142,13 @@ public class MapScreen implements Screen {
 
         //set actionPhase
         statusPhase[6] = 1;
+        */
+
+        //set ScreenPlay
+        this.screenPlay = screenPlay;
+
+        //set statusPhase
+        System.out.println("statusPhase"+ Arrays.toString(screenPlay.statusPhase));
 
         //create hero and set spritesheet
         player = new Hero[4];
@@ -144,11 +158,11 @@ public class MapScreen implements Screen {
     public void settingHero() {
         int job;
         for (int i = 1; i < 5; i++) {
-            if (statusPhase[i] > 3) {
-                order = statusPhase[i] - 3;
+            if (screenPlay.statusPhase[i] > 3) {
+                order = screenPlay.statusPhase[i] - 3;
                 job = order;
             } else {
-                job = statusPhase[i];
+                job = screenPlay.statusPhase[i];
             }
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
@@ -376,7 +390,7 @@ public class MapScreen implements Screen {
     }
 
     public void renderingHero(int idx, float delta) {
-        if (statusPhase[5] == idx && statusPhase[6] == 2 && player[idx].attacking == false && player[idx].live == true) {
+        if (screenPlay.statusPhase[5] == idx && screenPlay.statusPhase[6] == 2 && player[idx].attacking == false && player[idx].live == true) {
             //render walking overlay
             overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
         }
@@ -444,6 +458,8 @@ public class MapScreen implements Screen {
         renderingHero(3, delta);
 
         game.batch.end();
+
+        System.out.println("statusPhase loop"+ Arrays.toString(screenPlay.statusPhase));
     }
 
     @Override
