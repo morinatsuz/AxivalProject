@@ -85,7 +85,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         //set parameter other class
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
-        this.cardAction = new CardAction(this);
+        this.cardAction = new CardAction(this, randomCard);
         this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay, this);
         this.calculatorManager = new CalculatorManager(this, mapScreen);
@@ -96,7 +96,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         //check memory
         cardPlay.javaFreeMem();
 
-        statusPhase[0] = 1;
+        //statusPhase[0] = 0;
         System.out.println("statusPhase"+ Arrays.toString(statusPhase));
     }
 
@@ -135,6 +135,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     @Override
     public void render(float delta) {
+        statusPhase[8] = chooseCard;
         if(solveUp) {
             /*
             cardHandR.getChildren().get(0).addAction(Actions.parallel(Actions.moveTo(200, 0, 5),
@@ -233,6 +234,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                 randomCard.setCardInHandIndex(currentCard);
             }
         }
+
         //Testing all animation
         if (keycode == Input.Keys.Q) {
             System.out.println("N.Atk is Activated");
@@ -422,10 +424,10 @@ public class ScreenPlay implements Screen, InputProcessor {
     //Phase control
     public void statusInput(){
         statusPhase[0] = 0; //Amount turn
-        statusPhase[1] = 0; //character class
-        statusPhase[2] = 0; //character class
-        statusPhase[3] = 0; //character class
-        statusPhase[4] = 0; //character class
+        statusPhase[1] = 1; //character class
+        statusPhase[2] = 2; //character class
+        statusPhase[3] = 3; //character class
+        statusPhase[4] = 4; //character class
         statusPhase[5] = 0; //who's in turn
         statusPhase[6] = 0; //turn 0=draw, 1,3=action, 2=travel, 4=end
         statusPhase[7] = 0; //action start player default=0
@@ -457,7 +459,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseAll(){
-        if (statusPhase[2]==0){
+        if (statusPhase[5]==0){
             phaseInTurn();
         }
         else{
@@ -466,16 +468,16 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseInTurn(){
-        if(statusPhase[3]%5==0){
+        if(statusPhase[6]%5==0){
             drawPhase();
         }
-        if(statusPhase[3]%5==1 || statusPhase[3]%5==3){
+        if(statusPhase[6]%5==1 || statusPhase[6]%5==3){
             actionPhase();
         }
-        if(statusPhase[3]%5==2){
+        if(statusPhase[6]%5==2){
             travelPhase();
         }
-        if(statusPhase[3]%5==4){
+        if(statusPhase[6]%5==4){
             endPhase();
         }
     }
@@ -562,5 +564,18 @@ public class ScreenPlay implements Screen, InputProcessor {
         pixmap.drawRectangle(0,0,1,1);
 
         return new Texture(pixmap);
+    }
+
+    public int getChooseSkill(){
+        return chooseSkill;
+    }
+    public int getChooseCard(){
+        return chooseCard;
+    }
+    public void setChooseSkill(int choose){
+        this.chooseSkill = choose;
+    }
+    public void setChooseCard(int choose){
+        this.chooseCard = choose;
     }
 }

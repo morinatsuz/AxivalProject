@@ -166,15 +166,15 @@ public class MapScreen implements Screen {
             }
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
+                        1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas", screenPlay);
 //                player[i - 1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
             } else if (job == 2) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
+                        2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas", screenPlay);
 //                player[i - 1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
             } else {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
+                        3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas", screenPlay);
 //                player[i - 1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
             }
             if (i % 2 == 0) {
