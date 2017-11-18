@@ -10,16 +10,18 @@ import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Connection;
 import java.io.IOException;
+import java.nio.file.Watchable;
 
 
 public class ClientListener extends Listener {
+    FadeScence fadeScence;
     private Client client;
     private CardPlay cardPlay;
 
     private boolean connected;
 
-    public ClientListener(){
-
+    public ClientListener(FadeScence fadeScence){
+        this.fadeScence = fadeScence;
     }
 
     public void init(Client client) {
@@ -41,6 +43,14 @@ public class ClientListener extends Listener {
 
     if (o instanceof Packets.BufferLobbyPlayer){
         WaitingScreen.lobbyStatus = "Waiting for player (" + ((Packets.BufferLobbyPlayer) o).playerCount + "/4)";
+    }
+
+    if (o instanceof Packets.BufferTellReady){
+        if (((Packets.BufferTellReady) o).ready = true){
+            WaitingScreen.lobbyStatus = "Player Enough!, Game starting...";
+            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
+                    "select", 0);
+        }
     }
 
     }

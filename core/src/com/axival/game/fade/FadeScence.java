@@ -71,7 +71,7 @@ public class FadeScence {
 
     private void connect() {
         client = new Client();
-        cnl = new ClientListener();
+        cnl = new ClientListener(this);
 
         cnl.init(client);
 
