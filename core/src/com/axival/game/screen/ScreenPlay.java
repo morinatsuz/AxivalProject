@@ -335,15 +335,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                 && area.contains(rowcol) && mapScreen.statusPhase[6] == 2) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
-//                System.out.println("Mouse clicked!");
-//                float x = Gdx.input.getX();
-//                float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
                 mapScreen.path = new LinkedList<Vector2>();
-//                Vector2 goal = mapScreen.click.getRowCol(x, y);
-
-                mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col,
-                        mapScreen.player[mapScreen.idx].row);
-
+                mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col,mapScreen.player[mapScreen.idx].row);
                 System.out.println("Column-Row = " + goal.x + "," + goal.y);
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
@@ -457,7 +450,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void phaseInTurn(){
         if(statusPhase[3]%5==0){
-            drawPhase();
+            //drawPhase();
         }
         if(statusPhase[3]%5==1 || statusPhase[3]%5==3){
             actionPhase();

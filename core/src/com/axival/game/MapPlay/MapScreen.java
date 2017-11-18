@@ -134,7 +134,7 @@ public class MapScreen implements Screen {
         statusPhase[5] = 0;
 
         //set actionPhase
-        statusPhase[6] = 1;
+        statusPhase[6] = 2;
 
         //create hero and set spritesheet
         player = new Hero[4];
@@ -153,15 +153,12 @@ public class MapScreen implements Screen {
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
                         1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
-//                player[i - 1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
             } else if (job == 2) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
                         2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
-//                player[i - 1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
             } else {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
                         3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
-//                player[i - 1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
             }
             if (i % 2 == 0) {
                 player[i - 1].setFacing(Hero.State.LEFT);
@@ -376,8 +373,8 @@ public class MapScreen implements Screen {
     }
 
     public void renderingHero(int idx, float delta) {
+        //render walking overlay
         if (statusPhase[5] == idx && statusPhase[6] == 2 && player[idx].attacking == false && player[idx].live == true) {
-            //render walking overlay
             overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
         }
 
@@ -388,7 +385,6 @@ public class MapScreen implements Screen {
             game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
                     tile[idx].getWidth() * 0.75f, tile[idx].getHeight() * 0.75f);
         }
-
 
         //render hero every action
         player[idx].useSkill();

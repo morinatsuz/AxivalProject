@@ -63,7 +63,7 @@ public class Navigator {
             System.out.println("In Turn of player " + (screen.idx+1));
             System.out.println("Don't change turn");
             screen.statusPhase[6] = 1;
-            System.out.println("statusPhase = " + screen.statusPhase[6] + " Navitor");
+            System.out.println("statusPhase = " + screen.statusPhase[6] + " Navigator");
 //            if (screen.idx  == 3) {
 //                screen.idx = 0;
 //            }
