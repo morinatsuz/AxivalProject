@@ -86,7 +86,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         this.calculatorManager = new CalculatorManager(this, mapScreen);
 
         //set value from network
-        this.statusPhase = new int[10];
+        this.statusPhase = new int[13];
         statusInput();
 
         //check phase
@@ -417,16 +417,19 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     //Phase control
     public void statusInput(){
-        statusPhase[0] = 0;
-        statusPhase[1] = 0;
-        statusPhase[2] = 0;
-        statusPhase[3] = 0;
-        statusPhase[4] = 0;
-        statusPhase[5] = 0;
-        statusPhase[6] = 0;
-        statusPhase[7] = 0;
-        statusPhase[8] = 0;
-        statusPhase[9] = 0;
+        statusPhase[0] = 0; //Amount turn
+        statusPhase[1] = 0; //character class
+        statusPhase[2] = 0; //character class
+        statusPhase[3] = 0; //character class
+        statusPhase[4] = 0; //character class
+        statusPhase[5] = 0; //who's in turn
+        statusPhase[6] = 0; //turn 0=draw, 1,3=action, 2=travel, 4=end
+        statusPhase[7] = 0; //action start player default=0
+        statusPhase[8] = 0; //action attacker default=0
+        statusPhase[9] = 0; //action target default=0
+        statusPhase[10] = 0; //Travel phase who default= -1
+        statusPhase[11] = 0; //Travel phase to col default= -1
+        statusPhase[12] = 0; //Travel phase to row default= -1
     }
 
     public void editStatusPhase(int index, int condition, int value){
