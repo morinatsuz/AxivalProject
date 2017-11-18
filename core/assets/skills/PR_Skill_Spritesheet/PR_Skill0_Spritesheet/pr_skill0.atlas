@@ -1,0 +1,55 @@
+
+pr_skill0.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+pr0
+  rotate: false
+  xy: 2, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 0
+pr0
+  rotate: false
+  xy: 2, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 6
+pr0
+  rotate: false
+  xy: 236, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 1
+pr0
+  rotate: false
+  xy: 236, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 4
+pr0
+  rotate: false
+  xy: 470, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 2
+pr0
+  rotate: false
+  xy: 470, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 5
+pr0
+  rotate: false
+  xy: 704, 2
+  size: 232, 192
+  orig: 232, 192
+  offset: 0, 0
+  index: 3

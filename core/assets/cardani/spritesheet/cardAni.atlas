@@ -1,0 +1,80 @@
+
+cardAni.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+000
+  rotate: false
+  xy: 2, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+001
+  rotate: false
+  xy: 744, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+
+cardAni2.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+002
+  rotate: false
+  xy: 2, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+003
+  rotate: false
+  xy: 744, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+
+cardAni3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+004
+  rotate: false
+  xy: 2, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+005
+  rotate: false
+  xy: 744, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+
+cardAni4.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+006
+  rotate: false
+  xy: 2, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1
+007
+  rotate: false
+  xy: 744, 2
+  size: 740, 1079
+  orig: 740, 1079
+  offset: 0, 0
+  index: -1

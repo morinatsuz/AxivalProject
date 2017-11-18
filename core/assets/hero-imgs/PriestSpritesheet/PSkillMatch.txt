@@ -1,0 +1,5 @@
+Priest Skills
+Normal Attack -> swingO1
+1st  Heal -> heal
+2nd Heal(AOE) -> swingO2
+3rd  Ultimate -> stabO1

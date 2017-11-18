@@ -1,0 +1,5 @@
+Wizard Skills
+Normal Attack -> swingO1
+1st   Meteor -> swingO2
+2nd  Passive -x no akill animation
+3rd   Blizzard -> swingO3

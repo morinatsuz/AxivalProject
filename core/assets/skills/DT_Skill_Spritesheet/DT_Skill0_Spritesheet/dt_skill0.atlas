@@ -1,0 +1,41 @@
+
+dt_skill0.png
+size: 1024,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+dt0
+  rotate: false
+  xy: 2, 2
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: 0
+dt0
+  rotate: false
+  xy: 125, 2
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: 1
+dt0
+  rotate: false
+  xy: 248, 2
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: 2
+dt0
+  rotate: false
+  xy: 371, 2
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: 3
+dt0
+  rotate: false
+  xy: 494, 2
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: 4

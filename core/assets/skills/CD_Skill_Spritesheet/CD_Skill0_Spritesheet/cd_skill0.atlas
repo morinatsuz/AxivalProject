@@ -1,0 +1,167 @@
+
+cd_skill0.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cd0
+  rotate: false
+  xy: 2, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 10
+cd0
+  rotate: false
+  xy: 2, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 11
+cd0
+  rotate: false
+  xy: 304, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 12
+cd0
+  rotate: false
+  xy: 2, 908
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 13
+cd0
+  rotate: false
+  xy: 304, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 14
+cd0
+  rotate: false
+  xy: 606, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 15
+cd0
+  rotate: false
+  xy: 2, 606
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 16
+cd0
+  rotate: false
+  xy: 304, 908
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 17
+cd0
+  rotate: false
+  xy: 606, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 18
+cd0
+  rotate: false
+  xy: 908, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 19
+cd0
+  rotate: false
+  xy: 2, 304
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 0
+cd0
+  rotate: false
+  xy: 304, 606
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+cd0
+  rotate: false
+  xy: 606, 908
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 2
+cd0
+  rotate: false
+  xy: 908, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 3
+cd0
+  rotate: false
+  xy: 1210, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 4
+cd0
+  rotate: false
+  xy: 2, 2
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 5
+cd0
+  rotate: false
+  xy: 304, 304
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 6
+cd0
+  rotate: false
+  xy: 606, 606
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 7
+cd0
+  rotate: false
+  xy: 908, 908
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 8
+cd0
+  rotate: false
+  xy: 1210, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 9
+cd0
+  rotate: false
+  xy: 1512, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 20
+cd0
+  rotate: false
+  xy: 304, 2
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 21
+cd0
+  rotate: false
+  xy: 606, 304
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 22

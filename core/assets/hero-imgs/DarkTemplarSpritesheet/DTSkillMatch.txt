@@ -1,0 +1,5 @@
+Dark Templar Skills
+Normal Attack -> swingOF
+1st  fortify -> fortify
+2nd counter -> stabOF
+3rd  bloody strike -> swingO1

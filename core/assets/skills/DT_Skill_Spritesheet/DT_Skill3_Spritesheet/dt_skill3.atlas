@@ -1,0 +1,97 @@
+
+dt_skill3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+dt3
+  rotate: false
+  xy: 2, 1494
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 7
+dt3
+  rotate: false
+  xy: 2, 1121
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 8
+dt3
+  rotate: false
+  xy: 518, 1494
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 9
+dt3
+  rotate: false
+  xy: 2, 748
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 10
+dt3
+  rotate: false
+  xy: 518, 1121
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 11
+dt3
+  rotate: false
+  xy: 1034, 1494
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 12
+dt3
+  rotate: false
+  xy: 2, 375
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 0
+dt3
+  rotate: false
+  xy: 518, 748
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 1
+dt3
+  rotate: false
+  xy: 1034, 1121
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 2
+dt3
+  rotate: false
+  xy: 2, 2
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 3
+dt3
+  rotate: false
+  xy: 518, 375
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 4
+dt3
+  rotate: false
+  xy: 1034, 748
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 5
+dt3
+  rotate: false
+  xy: 518, 2
+  size: 514, 371
+  orig: 514, 371
+  offset: 0, 0
+  index: 6

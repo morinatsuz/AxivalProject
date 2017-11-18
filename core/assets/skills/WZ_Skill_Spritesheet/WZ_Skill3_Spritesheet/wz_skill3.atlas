@@ -1,0 +1,48 @@
+
+wz_skill3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+wz3
+  rotate: false
+  xy: 2, 1190
+  size: 674, 592
+  orig: 674, 592
+  offset: 0, 0
+  index: 0
+wz3
+  rotate: false
+  xy: 2, 596
+  size: 674, 592
+  orig: 674, 592
+  offset: 0, 0
+  index: 1
+wz3
+  rotate: false
+  xy: 678, 1190
+  size: 674, 592
+  orig: 674, 592
+  offset: 0, 0
+  index: 2
+wz3
+  rotate: false
+  xy: 2, 2
+  size: 674, 592
+  orig: 674, 592
+  offset: 0, 0
+  index: 3
+wz3
+  rotate: false
+  xy: 678, 596
+  size: 674, 592
+  orig: 674, 592
+  offset: 0, 0
+  index: 4
+wz3
+  rotate: false
+  xy: 1354, 1190
+  size: 674, 592
+  orig: 674, 592
+  offset: 0, 0
+  index: 5

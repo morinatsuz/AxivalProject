@@ -1,0 +1,151 @@
+
+cd_skill3.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cd3
+  rotate: false
+  xy: 2, 1186
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 16
+cd3
+  rotate: false
+  xy: 2, 594
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 17
+cd3
+  rotate: false
+  xy: 588, 1186
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 18
+cd3
+  rotate: false
+  xy: 2, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 0
+cd3
+  rotate: false
+  xy: 588, 594
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 1
+cd3
+  rotate: false
+  xy: 1174, 1186
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 2
+cd3
+  rotate: false
+  xy: 588, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 3
+cd3
+  rotate: false
+  xy: 1174, 594
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 4
+cd3
+  rotate: false
+  xy: 1174, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 5
+
+cd_skill32.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cd3
+  rotate: false
+  xy: 2, 1186
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 6
+cd3
+  rotate: false
+  xy: 2, 594
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 7
+cd3
+  rotate: false
+  xy: 588, 1186
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 8
+cd3
+  rotate: false
+  xy: 2, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 9
+cd3
+  rotate: false
+  xy: 588, 594
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 10
+cd3
+  rotate: false
+  xy: 1174, 1186
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 11
+cd3
+  rotate: false
+  xy: 588, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 12
+cd3
+  rotate: false
+  xy: 1174, 594
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 13
+cd3
+  rotate: false
+  xy: 1174, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 14
+
+cd_skill33.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cd3
+  rotate: false
+  xy: 2, 2
+  size: 584, 590
+  orig: 584, 590
+  offset: 0, 0
+  index: 15

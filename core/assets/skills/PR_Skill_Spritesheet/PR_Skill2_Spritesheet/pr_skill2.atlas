@@ -1,0 +1,145 @@
+
+pr_skill2.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+pr2
+  rotate: false
+  xy: 2, 1166
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 10
+pr2
+  rotate: false
+  xy: 2, 584
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 11
+pr2
+  rotate: false
+  xy: 359, 1166
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 12
+pr2
+  rotate: false
+  xy: 2, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 13
+pr2
+  rotate: false
+  xy: 359, 584
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 14
+pr2
+  rotate: false
+  xy: 716, 1166
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 15
+pr2
+  rotate: false
+  xy: 359, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 16
+pr2
+  rotate: false
+  xy: 716, 584
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 17
+pr2
+  rotate: false
+  xy: 1073, 1166
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 18
+pr2
+  rotate: false
+  xy: 716, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 0
+pr2
+  rotate: false
+  xy: 1073, 584
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 1
+pr2
+  rotate: false
+  xy: 1430, 1166
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 2
+pr2
+  rotate: false
+  xy: 1073, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 3
+pr2
+  rotate: false
+  xy: 1430, 584
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 4
+pr2
+  rotate: false
+  xy: 1430, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 5
+
+pr_skill22.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+pr2
+  rotate: false
+  xy: 2, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 6
+pr2
+  rotate: false
+  xy: 359, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 7
+pr2
+  rotate: false
+  xy: 716, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 8
+pr2
+  rotate: false
+  xy: 1073, 2
+  size: 355, 580
+  orig: 355, 580
+  offset: 0, 0
+  index: 9
