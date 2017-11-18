@@ -2,116 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75b18ca-4b8d-4762-a001-5b7955d6d9cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_ashley_ashley_1_7_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_box2dlights_box2dlights_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_ai_1_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_headless_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_lwjgl_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_platform_natives_desktop_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_bullet_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_bullet_platform_natives_desktop_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_controllers_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_controllers_desktop_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_controllers_platform_natives_desktop_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_platform_natives_desktop_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_platform_natives_desktop_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_tools_1_9_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_jlayer_jlayer_1_0_1_gdx.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_2_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_linux_2_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_osx_2_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_windows_2_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jutils_jutils_1_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jcraft_jorbis_0_0_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_2_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_linux_2_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_osx_2_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_windows_2_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_util_2_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/core/core.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AxivalProject.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/axival/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/axival/game/._.DS_Store" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/alert_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/alert_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/alert_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/alert_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/alert_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/alert_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_3.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/dead_3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/fortify_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/fortify_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/fortify_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/fortify_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/pain_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/pain_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/pain_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/pain_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/pain_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/pain_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stabOF_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stabOF_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stabOF_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stabOF_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stabOF_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stabOF_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stand1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stand1_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stand1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stand1_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stand1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/stand1_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingO1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingO1_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingO1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingO1_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingO1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingO1_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_3.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/swingOF_3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_3.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarRaw/walk1_3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.png" afterPath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_0.png" afterPath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_0.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_1.png" afterPath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_2.png" afterPath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_3.png" afterPath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_4.png" afterPath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_5.png" afterPath="$PROJECT_DIR$/core/assets/skills/cd1/cd1_5.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/MapScreen.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/MapScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/axival/game/desktop/DesktopLauncher.class" afterPath="$PROJECT_DIR$/desktop/out/production/classes/com/axival/game/desktop/DesktopLauncher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill0_Spritesheet/cd_skill0.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill0_Spritesheet/cd_skill0.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill2_Spritesheet/cd_skill2.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill2_Spritesheet/cd_skill2.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/DT_Skill_Spritesheet/DT_Skill1_Spritesheet/dt_skill1.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/DT_Skill_Spritesheet/DT_Skill1_Spritesheet/dt_skill1.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill0_Spritesheet/pr_skill0.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill0_Spritesheet/pr_skill0.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill1_Spritesheet/pr_skill1.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill1_Spritesheet/pr_skill1.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill2_Spritesheet/pr_skill2.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill2_Spritesheet/pr_skill2.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill3_Spritesheet/pr_skill3.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/PR_Skill_Spritesheet/PR_Skill3_Spritesheet/pr_skill3.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/WZ_Skill_Spritesheet/WZ_Skill0_Spritesheet/wz_skill0.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/WZ_Skill_Spritesheet/WZ_Skill0_Spritesheet/wz_skill0.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/WZ_Skill_Spritesheet/WZ_Skill1_Spritesheet/wz_skill1.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/WZ_Skill_Spritesheet/WZ_Skill1_Spritesheet/wz_skill1.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas" afterPath="$PROJECT_DIR$/core/assets/skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java" afterPath="$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -168,45 +61,45 @@
       <file leaf-file-name="Hero.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="339" column="5" lean-forward="true" selection-start-line="339" selection-start-column="5" selection-end-line="339" selection-end-column="5" />
+            <state relative-caret-position="312">
+              <caret line="334" column="62" lean-forward="false" selection-start-line="334" selection-start-column="62" selection-end-line="334" selection-end-column="62" />
               <folding>
-                <element signature="e#6767#6768#0" expanded="true" />
-                <element signature="e#6811#6812#0" expanded="true" />
-                <element signature="e#6848#6849#0" expanded="true" />
-                <element signature="e#6880#6881#0" expanded="true" />
-                <element signature="e#6911#6912#0" expanded="true" />
-                <element signature="e#6941#6942#0" expanded="true" />
-                <element signature="e#6993#6994#0" expanded="true" />
-                <element signature="e#7049#7050#0" expanded="true" />
-                <element signature="e#7093#7094#0" expanded="true" />
-                <element signature="e#7127#7128#0" expanded="true" />
-                <element signature="e#7256#7257#0" expanded="true" />
-                <element signature="e#7304#7305#0" expanded="true" />
-                <element signature="e#7335#7336#0" expanded="true" />
-                <element signature="e#7366#7367#0" expanded="true" />
-                <element signature="e#7405#7406#0" expanded="true" />
-                <element signature="e#7444#7445#0" expanded="true" />
-                <element signature="e#7475#7476#0" expanded="true" />
-                <element signature="e#7506#7507#0" expanded="true" />
-                <element signature="e#7540#7541#0" expanded="true" />
-                <element signature="e#7594#7595#0" expanded="true" />
-                <element signature="e#7635#7636#0" expanded="true" />
-                <element signature="e#7686#7687#0" expanded="true" />
-                <marker date="1511034484403" expanded="false" signature="13909:13920" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="13941:13947" ph=" }" />
-                <marker date="1511034484403" expanded="false" signature="14143:14154" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="14177:14183" ph=" }" />
-                <marker date="1511034484403" expanded="false" signature="14215:14226" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="14237:14243" ph=" }" />
-                <marker date="1511034484403" expanded="false" signature="14286:14297" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="14318:14324" ph=" }" />
-                <marker date="1511034484403" expanded="false" signature="14360:14371" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="14387:14393" ph=" }" />
-                <marker date="1511034484403" expanded="false" signature="14425:14436" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="14460:14466" ph=" }" />
-                <marker date="1511034484403" expanded="false" signature="14497:14508" ph=" { " />
-                <marker date="1511034484403" expanded="false" signature="14520:14526" ph=" }" />
+                <element signature="e#6769#6770#0" expanded="true" />
+                <element signature="e#6813#6814#0" expanded="true" />
+                <element signature="e#6850#6851#0" expanded="true" />
+                <element signature="e#6882#6883#0" expanded="true" />
+                <element signature="e#6913#6914#0" expanded="true" />
+                <element signature="e#6943#6944#0" expanded="true" />
+                <element signature="e#6995#6996#0" expanded="true" />
+                <element signature="e#7051#7052#0" expanded="true" />
+                <element signature="e#7095#7096#0" expanded="true" />
+                <element signature="e#7129#7130#0" expanded="true" />
+                <element signature="e#7258#7259#0" expanded="true" />
+                <element signature="e#7306#7307#0" expanded="true" />
+                <element signature="e#7337#7338#0" expanded="true" />
+                <element signature="e#7368#7369#0" expanded="true" />
+                <element signature="e#7407#7408#0" expanded="true" />
+                <element signature="e#7446#7447#0" expanded="true" />
+                <element signature="e#7477#7478#0" expanded="true" />
+                <element signature="e#7508#7509#0" expanded="true" />
+                <element signature="e#7542#7543#0" expanded="true" />
+                <element signature="e#7596#7597#0" expanded="true" />
+                <element signature="e#7637#7638#0" expanded="true" />
+                <element signature="e#7688#7689#0" expanded="true" />
+                <marker date="1511036669445" expanded="false" signature="14138:14149" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14170:14176" ph=" }" />
+                <marker date="1511036669445" expanded="false" signature="14372:14383" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14406:14412" ph=" }" />
+                <marker date="1511036669445" expanded="false" signature="14444:14455" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14466:14472" ph=" }" />
+                <marker date="1511036669445" expanded="false" signature="14515:14526" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14547:14553" ph=" }" />
+                <marker date="1511036669445" expanded="false" signature="14589:14600" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14616:14622" ph=" }" />
+                <marker date="1511036669445" expanded="false" signature="14654:14665" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14689:14695" ph=" }" />
+                <marker date="1511036669445" expanded="false" signature="14726:14737" ph=" { " />
+                <marker date="1511036669445" expanded="false" signature="14749:14755" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -1219,12 +1112,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511018529257</updated>
       <workItem from="1511018534016" duration="617000" />
-      <workItem from="1511019405348" duration="12846000" />
+      <workItem from="1511019405348" duration="14677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13463000" />
+    <option name="totallyTimeSpent" value="15294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
@@ -1303,42 +1196,42 @@
         <state relative-caret-position="1343">
           <caret line="84" column="65" lean-forward="false" selection-start-line="84" selection-start-column="65" selection-end-line="84" selection-end-column="65" />
           <folding>
-            <element signature="e#6767#6768#0" expanded="true" />
-            <element signature="e#6811#6812#0" expanded="true" />
-            <element signature="e#6848#6849#0" expanded="true" />
-            <element signature="e#6880#6881#0" expanded="true" />
-            <element signature="e#6911#6912#0" expanded="true" />
-            <element signature="e#6941#6942#0" expanded="true" />
-            <element signature="e#6993#6994#0" expanded="true" />
-            <element signature="e#7049#7050#0" expanded="true" />
-            <element signature="e#7093#7094#0" expanded="true" />
-            <element signature="e#7127#7128#0" expanded="true" />
-            <element signature="e#7256#7257#0" expanded="true" />
-            <element signature="e#7304#7305#0" expanded="true" />
-            <element signature="e#7335#7336#0" expanded="true" />
-            <element signature="e#7366#7367#0" expanded="true" />
-            <element signature="e#7405#7406#0" expanded="true" />
-            <element signature="e#7444#7445#0" expanded="true" />
-            <element signature="e#7475#7476#0" expanded="true" />
-            <element signature="e#7506#7507#0" expanded="true" />
-            <element signature="e#7540#7541#0" expanded="true" />
-            <element signature="e#7594#7595#0" expanded="true" />
-            <element signature="e#7635#7636#0" expanded="true" />
-            <element signature="e#7686#7687#0" expanded="true" />
-            <marker date="1511034484403" expanded="false" signature="13909:13920" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="13941:13947" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14143:14154" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14177:14183" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14215:14226" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14237:14243" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14286:14297" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14318:14324" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14360:14371" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14387:14393" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14425:14436" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14460:14466" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14497:14508" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14520:14526" ph=" }" />
+            <element signature="e#6769#6770#0" expanded="true" />
+            <element signature="e#6813#6814#0" expanded="true" />
+            <element signature="e#6850#6851#0" expanded="true" />
+            <element signature="e#6882#6883#0" expanded="true" />
+            <element signature="e#6913#6914#0" expanded="true" />
+            <element signature="e#6943#6944#0" expanded="true" />
+            <element signature="e#6995#6996#0" expanded="true" />
+            <element signature="e#7051#7052#0" expanded="true" />
+            <element signature="e#7095#7096#0" expanded="true" />
+            <element signature="e#7129#7130#0" expanded="true" />
+            <element signature="e#7258#7259#0" expanded="true" />
+            <element signature="e#7306#7307#0" expanded="true" />
+            <element signature="e#7337#7338#0" expanded="true" />
+            <element signature="e#7368#7369#0" expanded="true" />
+            <element signature="e#7407#7408#0" expanded="true" />
+            <element signature="e#7446#7447#0" expanded="true" />
+            <element signature="e#7477#7478#0" expanded="true" />
+            <element signature="e#7508#7509#0" expanded="true" />
+            <element signature="e#7542#7543#0" expanded="true" />
+            <element signature="e#7596#7597#0" expanded="true" />
+            <element signature="e#7637#7638#0" expanded="true" />
+            <element signature="e#7688#7689#0" expanded="true" />
+            <marker date="1511036669445" expanded="false" signature="14138:14149" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14170:14176" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14372:14383" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14406:14412" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14444:14455" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14466:14472" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14515:14526" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14547:14553" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14589:14600" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14616:14622" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14654:14665" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14689:14695" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14726:14737" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14749:14755" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1430,45 +1323,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="339" column="5" lean-forward="true" selection-start-line="339" selection-start-column="5" selection-end-line="339" selection-end-column="5" />
+        <state relative-caret-position="312">
+          <caret line="334" column="62" lean-forward="false" selection-start-line="334" selection-start-column="62" selection-end-line="334" selection-end-column="62" />
           <folding>
-            <element signature="e#6767#6768#0" expanded="true" />
-            <element signature="e#6811#6812#0" expanded="true" />
-            <element signature="e#6848#6849#0" expanded="true" />
-            <element signature="e#6880#6881#0" expanded="true" />
-            <element signature="e#6911#6912#0" expanded="true" />
-            <element signature="e#6941#6942#0" expanded="true" />
-            <element signature="e#6993#6994#0" expanded="true" />
-            <element signature="e#7049#7050#0" expanded="true" />
-            <element signature="e#7093#7094#0" expanded="true" />
-            <element signature="e#7127#7128#0" expanded="true" />
-            <element signature="e#7256#7257#0" expanded="true" />
-            <element signature="e#7304#7305#0" expanded="true" />
-            <element signature="e#7335#7336#0" expanded="true" />
-            <element signature="e#7366#7367#0" expanded="true" />
-            <element signature="e#7405#7406#0" expanded="true" />
-            <element signature="e#7444#7445#0" expanded="true" />
-            <element signature="e#7475#7476#0" expanded="true" />
-            <element signature="e#7506#7507#0" expanded="true" />
-            <element signature="e#7540#7541#0" expanded="true" />
-            <element signature="e#7594#7595#0" expanded="true" />
-            <element signature="e#7635#7636#0" expanded="true" />
-            <element signature="e#7686#7687#0" expanded="true" />
-            <marker date="1511034484403" expanded="false" signature="13909:13920" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="13941:13947" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14143:14154" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14177:14183" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14215:14226" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14237:14243" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14286:14297" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14318:14324" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14360:14371" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14387:14393" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14425:14436" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14460:14466" ph=" }" />
-            <marker date="1511034484403" expanded="false" signature="14497:14508" ph=" { " />
-            <marker date="1511034484403" expanded="false" signature="14520:14526" ph=" }" />
+            <element signature="e#6769#6770#0" expanded="true" />
+            <element signature="e#6813#6814#0" expanded="true" />
+            <element signature="e#6850#6851#0" expanded="true" />
+            <element signature="e#6882#6883#0" expanded="true" />
+            <element signature="e#6913#6914#0" expanded="true" />
+            <element signature="e#6943#6944#0" expanded="true" />
+            <element signature="e#6995#6996#0" expanded="true" />
+            <element signature="e#7051#7052#0" expanded="true" />
+            <element signature="e#7095#7096#0" expanded="true" />
+            <element signature="e#7129#7130#0" expanded="true" />
+            <element signature="e#7258#7259#0" expanded="true" />
+            <element signature="e#7306#7307#0" expanded="true" />
+            <element signature="e#7337#7338#0" expanded="true" />
+            <element signature="e#7368#7369#0" expanded="true" />
+            <element signature="e#7407#7408#0" expanded="true" />
+            <element signature="e#7446#7447#0" expanded="true" />
+            <element signature="e#7477#7478#0" expanded="true" />
+            <element signature="e#7508#7509#0" expanded="true" />
+            <element signature="e#7542#7543#0" expanded="true" />
+            <element signature="e#7596#7597#0" expanded="true" />
+            <element signature="e#7637#7638#0" expanded="true" />
+            <element signature="e#7688#7689#0" expanded="true" />
+            <marker date="1511036669445" expanded="false" signature="14138:14149" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14170:14176" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14372:14383" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14406:14412" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14444:14455" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14466:14472" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14515:14526" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14547:14553" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14589:14600" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14616:14622" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14654:14665" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14689:14695" ph=" }" />
+            <marker date="1511036669445" expanded="false" signature="14726:14737" ph=" { " />
+            <marker date="1511036669445" expanded="false" signature="14749:14755" ph=" }" />
           </folding>
         </state>
       </provider>

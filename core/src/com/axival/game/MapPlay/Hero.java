@@ -122,8 +122,8 @@ public class Hero extends TextureAtlas {
     }
 
     public void update(float delta) {
-        if (health < 0 && live == true) {
-            health = 0;
+        if (health <= 0 && live == true) {
+            health = -1;
             live = false;
             this.resetElapsedTime();
             this.setStartTime();
@@ -318,24 +318,26 @@ public class Hero extends TextureAtlas {
 
 
         //dead animation
-        if (elapsedTime < 5 && live == false && health == 0)
+        if (elapsedTime < 5 && live == false && health == -1)
         {
             if (facing.compareTo(State.RIGHT) == 0)
             {
                 game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
-                        coordinates.x - 120f + elapsedTime,
-                        coordinates.y - 50f  + elapsedTime * 100);
+                        coordinates.x + ( heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()/2)
+                        + 40f, coordinates.y - 50f + elapsedTime* 100,
+                        -( heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()),
+                        heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionHeight());
             }
             else
             {
                 game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
-                        coordinates.x - 120f + elapsedTime,
-                        coordinates.y - 50f  + elapsedTime * 100);
+                        coordinates.x - 120f,
+                        coordinates.y - 50f + elapsedTime * 100);
             }
         }
-        else if (elapsedTime >= 5 && live == false && health == 0)
+        else if (elapsedTime >= 5 && live == false && health == -1)
         {
-            health = -1;
+            health = -2;
         }
     }
 
