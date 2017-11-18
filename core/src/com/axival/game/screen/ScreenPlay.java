@@ -433,7 +433,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void editStatusPhase(int index, int condition, int value){
-        //condition 0:+, 1:-, 2:*, 3:/
+        //condition 0:+, 1:-, 2:*, 3:/, 4:=
         if (condition==0) {
             statusPhase[index] += value;
         }
@@ -445,6 +445,9 @@ public class ScreenPlay implements Screen, InputProcessor {
         }
         else if (condition==3) {
             statusPhase[index] -= value;
+        }
+        else if (condition==4){
+            statusPhase[index] = value;
         }
         phaseAll();
     }
@@ -486,13 +489,19 @@ public class ScreenPlay implements Screen, InputProcessor {
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
-                    if(currentCard<maxCard) {
+                    if(currentCard<5) {
                         setCardHandR(currentCard);
                         randomCard.setCardInHandIndex(currentCard);
                         cardHandAction(0);
+                        System.out.println("run time");
+                    }
+                    else if(currentCard==5){
+                        Timer.instance().clear();
+                        System.out.println("run time clear");
                     }
                     else {
                         Timer.instance().stop();
+                        System.out.println("run time stop");
                     }
                     currentCard++;
                 }

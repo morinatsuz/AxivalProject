@@ -44,7 +44,7 @@ public class WaitingScreen implements Screen {
         cardPlay.batch.begin();
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         cardPlay.batch.end();
-        if (statusAlready || timePlay>10){
+        if (statusAlready || timePlay>5){
             timePlay = 0;
             //cardPlay.fadeScreenStage.act(delta);
             //cardPlay.fadeScreenStage.draw();
