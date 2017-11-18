@@ -1,5 +1,10 @@
 package com.axival.Network;
 
+import com.axival.game.CardPlay;
+import com.axival.game.SelectHeroScreen;
+import com.axival.game.fade.FadeScence;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Connection;
@@ -8,6 +13,13 @@ import java.io.IOException;
 
 public class ClientListener extends Listener {
     private Client client;
+    private CardPlay cardPlay;
+
+    private boolean connected;
+
+    public ClientListener(CardPlay cardPlay){
+        this.cardPlay = cardPlay;
+    }
 
     public void init(Client client) {
         this.client = client;
@@ -15,12 +27,9 @@ public class ClientListener extends Listener {
 
     public void connected(Connection c){
         System.out.println("You're connected to server!");
-
-        Packets.Packet02PlayerInfo playerData = new Packets.Packet02PlayerInfo();
-        playerData.playerName = "Ton";
-        playerData.playerMessage = "Hello Server!";
-        c.sendTCP(playerData);
-        System.out.println("Data Sent");
+        connected = true;
+        c.setKeepAliveTCP(1000);
+        c.setTimeout(1000);
     }
 
     public void disconnected(Connection c){
@@ -37,5 +46,11 @@ public class ClientListener extends Listener {
 
             }
         }
+
+    public boolean getConnected() {
+        return connected;
     }
+}
+
+
 

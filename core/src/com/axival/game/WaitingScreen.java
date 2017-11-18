@@ -62,8 +62,9 @@ public class WaitingScreen implements Screen {
 
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         cardPlay.batch.end();
-        if (statusAlready || timePlay>5000){
+        if (statusAlready){
             timePlay = 0;
+            statusAlready = false;
             //cardPlay.fadeScreenStage.act(delta);
             //cardPlay.fadeScreenStage.draw();
             fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
@@ -76,8 +77,9 @@ public class WaitingScreen implements Screen {
 
     private void connect() {
         client = new Client();
-        cnl = new ClientListener();
+        cnl = new ClientListener(cardPlay);
 
+        statusAlready =true;
 
         cnl.init(client);
 
@@ -88,7 +90,8 @@ public class WaitingScreen implements Screen {
 
         System.out.println("Axival is connecting to: " + MyTextInputListener.networkId);
 
-        client.start();
+        new Thread(client).start();
+
         try {
             client.connect(30000, MyTextInputListener.networkId, 25565);
         } catch (IOException e) {
