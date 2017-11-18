@@ -2,6 +2,7 @@ package com.axival.Network;
 
 import com.axival.game.CardPlay;
 import com.axival.game.SelectHeroScreen;
+import com.axival.game.WaitingScreen;
 import com.axival.game.fade.FadeScence;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -17,8 +18,8 @@ public class ClientListener extends Listener {
 
     private boolean connected;
 
-    public ClientListener(CardPlay cardPlay){
-        this.cardPlay = cardPlay;
+    public ClientListener(){
+
     }
 
     public void init(Client client) {
@@ -27,9 +28,7 @@ public class ClientListener extends Listener {
 
     public void connected(Connection c){
         System.out.println("You're connected to server!");
-        connected = true;
-        c.setKeepAliveTCP(1000);
-        c.setTimeout(1000);
+
     }
 
     public void disconnected(Connection c){
@@ -38,14 +37,13 @@ public class ClientListener extends Listener {
 
     }
 
-    public void received(Connection c, Object o){
+    public void received(Connection c, Object o) {
 
-        if (o instanceof Packets.Packet01NetworkStatus){
-            System.out.println("Network status recieved");
-            boolean accepted = ((Packets.Packet01NetworkStatus) o).accepted;
+    if (o instanceof Packets.BufferLobbyPlayer){
+        WaitingScreen.lobbyStatus = "Waiting for player (" + ((Packets.BufferLobbyPlayer) o).playerCount + "/4)";
+    }
 
-            }
-        }
+    }
 
     public boolean getConnected() {
         return connected;

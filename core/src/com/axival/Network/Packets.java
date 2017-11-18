@@ -4,31 +4,17 @@ import java.lang.reflect.Array;
 
 public class Packets {
 
-    public static class Packet01NetworkStatus{
+    public static class BufferPlayerClass{
         //Sending on connection occurred
-        Boolean accepted;
+        public Integer heroSelect;
     }
 
-    public static class Packet02PlayerInfo{
-        //Sending on connection accept, Send Once!
-        String playerName;
-        String playerMessage;
+    public static class BufferTellReady{
+        boolean ready;
     }
 
-    public static class Packet03StageStatus{
-        //Let the game know which stage to go
-        String stageStatus;
+    public static class BufferLobbyPlayer{
+        Integer playerCount;
     }
 
-    public static class Packet04GameData{
-        //Action in round
-        Array gameData;
-    }
-
-    public static class Packet05TeamData{
-        //Team Info - Server act as switch Save data and broadcast it to other team
-        Integer playerNo;
-        String teamSign; //A or B
-    }
 }
-

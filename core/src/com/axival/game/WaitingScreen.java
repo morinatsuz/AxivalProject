@@ -21,6 +21,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import java.io.IOException;
 
 public class WaitingScreen implements Screen {
+    public static String lobbyStatus = "null";
     public Client client;
     private ClientListener cnl;
     private BitmapFont font;
@@ -35,7 +36,7 @@ public class WaitingScreen implements Screen {
     private FadeScence fadeScence;
 
     public WaitingScreen(CardPlay cardPlay){
-        connect();
+
         font = new BitmapFont();
         font.setColor(Color.WHITE);
         this.cardPlay = cardPlay;
@@ -61,6 +62,7 @@ public class WaitingScreen implements Screen {
         //draw font
 
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
+        font.draw(cardPlay.batch,lobbyStatus, 635, 100);
         cardPlay.batch.end();
         if (statusAlready){
             timePlay = 0;
@@ -75,32 +77,7 @@ public class WaitingScreen implements Screen {
         cardPlay.fadeScreenStage.draw();
     }
 
-    private void connect() {
-        client = new Client();
-        cnl = new ClientListener(cardPlay);
 
-        statusAlready =true;
-
-        cnl.init(client);
-
-        Kryo kryo = client.getKryo();
-        kryo.register(Packets.Packet01NetworkStatus.class);
-
-        client.addListener(cnl);
-
-        System.out.println("Axival is connecting to: " + MyTextInputListener.networkId);
-
-        new Thread(client).start();
-
-        try {
-            client.connect(30000, MyTextInputListener.networkId, 25565);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-    }
 
     public void update(float delta){
         cardPlay.fadeScreenStage.act(delta);

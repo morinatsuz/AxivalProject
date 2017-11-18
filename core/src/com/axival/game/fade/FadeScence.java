@@ -1,14 +1,23 @@
 package com.axival.game.fade;
 
+import com.axival.Network.ClientListener;
+import com.axival.Network.Packets;
 import com.axival.game.CardPlay;
 import com.axival.game.Menu;
 import com.axival.game.SelectHeroScreen;
 import com.axival.game.WaitingScreen;
+import com.axival.game.input.MyTextInputListener;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryonet.Client;
+
+import java.io.IOException;
 
 public class FadeScence {
+    public Client client;
+    private ClientListener cnl;
     private CardPlay cardPlay;
     private Image toneWhite, toneBlack;
     public FadeScence(CardPlay cardPlay){
@@ -33,6 +42,7 @@ public class FadeScence {
             image.addAction(Actions.sequence(Actions.alpha(0), Actions.fadeIn(1f), Actions.run(new Runnable() {
                 @Override
                 public void run() {
+                    connect();
                     cardPlay.setScreen(new WaitingScreen(cardPlay));
                     System.out.println("in fade wait");
                 }
@@ -42,7 +52,7 @@ public class FadeScence {
             image.addAction(Actions.sequence(Actions.alpha(0), Actions.fadeIn(1f), Actions.run(new Runnable() {
                 @Override
                 public void run() {
-                    cardPlay.setScreen(new SelectHeroScreen(cardPlay));
+                    cardPlay.setScreen(new SelectHeroScreen(cardPlay, client));
                     System.out.println("in fade select");
                 }
             }), Actions.removeActor()));
@@ -57,6 +67,33 @@ public class FadeScence {
         image.setColor(color, color, color, 1);
         image.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
         cardPlay.fadeScreenStage.addActor(image);
+    }
+
+    private void connect() {
+        client = new Client();
+        cnl = new ClientListener();
+
+        cnl.init(client);
+
+        Kryo kryo = client.getKryo();
+        kryo.register(Packets.BufferPlayerClass.class);
+        kryo.register(Packets.BufferTellReady.class);
+        kryo.register(Packets.BufferLobbyPlayer.class);
+
+        client.addListener(cnl);
+
+        System.out.println("Axival is connecting to: " + MyTextInputListener.networkId);
+
+        new Thread(client).start();
+
+        try {
+            client.connect(30000, MyTextInputListener.networkId, 25565);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 }
 
