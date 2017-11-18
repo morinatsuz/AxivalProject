@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
 public class MyTextInputListener implements Input.TextInputListener {
     private Stage stage;
-    private String networkId;
+    public static String networkId;
     private CardPlay cardPlay;
     public boolean successInput;
     public MyTextInputListener(Stage stage, CardPlay cardPlay){
