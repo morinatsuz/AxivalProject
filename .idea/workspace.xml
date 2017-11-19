@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a4ab49-14f9-4330-bbf4-782cd7f328c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/UI_Assets/pack/packUI.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/UI_Assets/pack/packUI.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$2.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$3.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$4.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/UIplay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -39,8 +29,8 @@
       <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="451" column="62" lean-forward="true" selection-start-line="451" selection-start-column="62" selection-end-line="451" selection-end-column="62" />
+            <state relative-caret-position="184">
+              <caret line="455" column="44" lean-forward="false" selection-start-line="455" selection-start-column="44" selection-end-line="455" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -1146,12 +1136,12 @@
       <updated>1511015403142</updated>
       <workItem from="1511015406800" duration="23077000" />
       <workItem from="1511062665874" duration="9071000" />
-      <workItem from="1511112229451" duration="10616000" />
+      <workItem from="1511112229451" duration="11196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72207000" />
+    <option name="totallyTimeSpent" value="72787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="23" width="1440" height="787" extended-state="0" />
@@ -1590,8 +1580,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="451" column="62" lean-forward="true" selection-start-line="451" selection-start-column="62" selection-end-line="451" selection-end-column="62" />
+        <state relative-caret-position="184">
+          <caret line="455" column="44" lean-forward="false" selection-start-line="455" selection-start-column="44" selection-end-line="455" selection-end-column="44" />
           <folding />
         </state>
       </provider>

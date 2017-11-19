@@ -423,7 +423,6 @@ public class UIplay implements Screen {
         screenPlay.stage.addActor(skill03);
         screenPlay.stage.addActor(attackOn);
         screenPlay.stage.addActor(defenceImg);
-        //screenPlay.stage.addActor(drawBar);
     }
 
     public void render(){
@@ -440,8 +439,8 @@ public class UIplay implements Screen {
 
     //draw assets
     public void runningDraw(){
-        if(screenPlay.statusPhase[6]==0){
-            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+        if(screenPlay.statusPhase[6]%6==0){
+            chainBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(drawBar);
         }
         else if(screenPlay.statusPhase[6]==1){
@@ -459,6 +458,10 @@ public class UIplay implements Screen {
         else if(screenPlay.statusPhase[6]==4){
             actionBar2.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(endBar);
+        }
+        else if(screenPlay.statusPhase[6]==5){
+            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(chainBar);
         }
         cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
         cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
