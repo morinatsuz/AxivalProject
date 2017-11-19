@@ -44,7 +44,7 @@ public class Hero extends TextureAtlas {
     public boolean live = true;
     public int health;
 
-    private int countIn = 0;
+    private int countAction = 0;
 
     public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, String path, ScreenPlay screenPlay) {
         this.job = job;
@@ -293,7 +293,7 @@ public class Hero extends TextureAtlas {
            // screenPlay.statusPhase[8] = 0;
             //System.out.println("cardUsing : " + cardUsing);
         //System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));
-            if (cardUsing > -1 && skillUsing == -1 && elapsedTime < startTime +
+            if (skillUsing > 3 && skillUsing  < 9 && elapsedTime < startTime +
                     ability[cardUsing].getSkillAction(1f).getAnimationDuration()
                     && live == true) {
                 //cardUsing = screenPlay.statusPhase[8]-1;
@@ -302,8 +302,8 @@ public class Hero extends TextureAtlas {
                         board.map[(int) target.y][(int) target.x].corX,
                         board.map[(int) target.y][(int) target.x].corY);
                 System.out.println("drw skill"+cardUsing);
-            } else if (skillUsing == -1 && startTime + deltaTime <= elapsedTime && live == true) {
-                cardUsing = -1;
+            } else if (skillUsing > 3 && skillUsing < 9 && startTime + deltaTime <= elapsedTime && live == true) {
+                skillUsing = -1;
                 attacking = false;
             }
         //}

@@ -315,6 +315,7 @@ public class CardAction {
         popupYes.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                System.out.println("currentCardListener : "+currentCardListener);
                 cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
                 popupDel();
                 screenPlay.setChooseCard(indexUse);

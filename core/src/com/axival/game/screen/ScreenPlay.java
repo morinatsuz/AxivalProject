@@ -135,7 +135,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     @Override
     public void render(float delta) {
-        statusPhase[8] = chooseCard;
+        statusPhase[8] = chooseCard+4;
         if(solveUp) {
             /*
             cardHandR.getChildren().get(0).addAction(Actions.parallel(Actions.moveTo(200, 0, 5),
@@ -256,27 +256,22 @@ public class ScreenPlay implements Screen, InputProcessor {
         if (keycode == Input.Keys.Z) {
             System.out.println("Potion is Activated");
             chooseSkill = 4;
-            chooseCard = 0;
         }
         if (keycode == Input.Keys.X) {
             System.out.println("Mega Potion is Activated");
             chooseSkill = 5;
-            chooseCard = 1;
         }
         if (keycode == Input.Keys.C) {
             System.out.println("Shield is Activated");
             chooseSkill = 6;
-            chooseCard = 2;
         }
         if (keycode == Input.Keys.V) {
             System.out.println("Super Armor is Activated");
             chooseSkill = 7;
-            chooseCard = 3;
         }
         if (keycode == Input.Keys.B) {
             System.out.println("Thunder Bolt is Activated");
             chooseSkill = 8;
-            chooseCard = 4;
         }
         if (keycode == Input.Keys.NUM_1) {
             System.out.println("Changed to 1st Player");
@@ -340,6 +335,8 @@ public class ScreenPlay implements Screen, InputProcessor {
 
         if (!mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() && mapScreen.walker.getRoute() == 0
                 && area.contains(rowcol) && statusPhase[6] == 2) {
+            //walk
+            /*
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
 //                System.out.println("Mouse clicked!");
@@ -355,16 +352,16 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
-            }
+            }*/
 
 
-        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && statusPhase[6]==1||
-                statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1
+        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && statusPhase[6]%5==1||
+                statusPhase[6]%5 == 3 && mapScreen.player[mapScreen.idx].skillUsing > 3 &&
+                        mapScreen.player[mapScreen.idx].skillUsing < 9
                 && statusPhase[8]>0) {
             mapScreen.player[mapScreen.idx].resetElapsedTime();
             mapScreen.player[mapScreen.idx].setStartTime();
-            mapScreen.player[mapScreen.idx].skillUsing = statusPhase[8]+4; //chooseSkill
-            mapScreen.player[mapScreen.idx].cardUsing = statusPhase[8]; //chooseCard
+            mapScreen.player[mapScreen.idx].skillUsing = statusPhase[8]; //chooseSkill
             mapScreen.player[mapScreen.idx].attacking = true;
             System.out.println("cardUsing = " + mapScreen.player[mapScreen.idx].cardUsing);
             //statusPhase[8] = 0;
@@ -489,7 +486,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void phaseOutTurn(){
         waitPhase();
-        if (statusPhase[6]==1){
+        if (statusPhase[8]==1){
             chainPhase();
         }
     }
