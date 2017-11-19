@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a4ab49-14f9-4330-bbf4-782cd7f328c4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/hero-select/Select bg.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
@@ -28,11 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="357" column="84" lean-forward="false" selection-start-line="357" selection-start-column="84" selection-end-line="357" selection-end-column="84" />
+            <state relative-caret-position="863">
+              <caret line="138" column="37" lean-forward="false" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,8 +60,18 @@
       <file leaf-file-name="MapScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="4278">
               <caret line="456" column="6" lean-forward="false" selection-start-line="456" selection-start-column="6" selection-end-line="456" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4635">
+              <caret line="349" column="0" lean-forward="true" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,13 +90,13 @@
       <file leaf-file-name="CardAction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/CardAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            <state relative-caret-position="1133">
+              <caret line="284" column="147" lean-forward="false" selection-start-line="284" selection-start-column="147" selection-end-line="284" selection-end-column="147" />
               <folding>
-                <element signature="e#22847#23257#0" expanded="true" />
-                <element signature="e#23256#23257#0" expanded="true" />
-                <element signature="e#23288#23453#0" expanded="true" />
-                <element signature="e#23452#23453#0" expanded="true" />
+                <element signature="e#22859#23269#0" expanded="true" />
+                <element signature="e#23268#23269#0" expanded="true" />
+                <element signature="e#23300#23465#0" expanded="true" />
+                <element signature="e#23464#23465#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,12 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CardAc</find>
-      <find>statusPh</find>
-      <find>use</find>
-      <find>using</find>
-      <find>statusPhase[</find>
-      <find>car</find>
       <find>Potion is Activated</find>
       <find>cardU</find>
       <find>screenPlay.stat</find>
@@ -107,12 +128,21 @@
       <find>randomCard</find>
       <find>statusPhase[8]</find>
       <find>statusPhase[8]==1</find>
-      <find>statusPhase[6]==1</find>
       <find>Remo</find>
+      <find>cardUsi</find>
+      <find>statusPhase[6]==1</find>
+      <find>victoryCutIn</find>
+      <find>end</find>
+      <find>.17f</find>
+      <find>-50</find>
+      <find>-70</find>
     </findStrings>
     <replaceStrings>
       <replace>limit</replace>
       <replace>heroAnimation</replace>
+      <replace>.12f</replace>
+      <replace>-30</replace>
+      <replace>-51</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -816,12 +846,13 @@
         <option value="$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/RandomCard.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
       </list>
     </option>
   </component>
@@ -832,7 +863,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="29" />
+    <option name="x" value="-4" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="787" />
   </component>
@@ -878,24 +910,15 @@
               <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="skills" type="462c0819:PsiDirectoryNode" />
+              <item name="skill Icon" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="skills" type="462c0819:PsiDirectoryNode" />
-              <item name="CD_Skill_Spritesheet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="skills" type="462c0819:PsiDirectoryNode" />
-              <item name="CD_Skill_Spritesheet" type="462c0819:PsiDirectoryNode" />
-              <item name="CD_Skill3_Spritesheet" type="462c0819:PsiDirectoryNode" />
+              <item name="skill Icon" type="462c0819:PsiDirectoryNode" />
+              <item name="Dark Templar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
@@ -948,6 +971,12 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/assets/hero-select" />
+      <recent name="$PROJECT_DIR$/core/assets" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1082,10 +1111,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37418000" />
+    <option name="totallyTimeSpent" value="44814000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="29" width="1440" height="787" extended-state="0" />
+    <frame x="-4" y="23" width="1440" height="787" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1186,10 +1215,10 @@
         <state relative-caret-position="4545">
           <caret line="314" column="22" lean-forward="false" selection-start-line="314" selection-start-column="22" selection-end-line="314" selection-end-column="22" />
           <folding>
-            <element signature="e#22847#23257#0" expanded="true" />
-            <element signature="e#23256#23257#0" expanded="true" />
-            <element signature="e#23288#23453#0" expanded="true" />
-            <element signature="e#23452#23453#0" expanded="true" />
+            <element signature="e#22859#23269#0" expanded="true" />
+            <element signature="e#23268#23269#0" expanded="true" />
+            <element signature="e#23300#23465#0" expanded="true" />
+            <element signature="e#23464#23465#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1214,43 +1243,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3945">
           <caret line="291" column="92" lean-forward="true" selection-start-line="291" selection-start-column="92" selection-end-line="291" selection-end-column="92" />
-          <folding>
-            <element signature="e#6999#7000#0" expanded="true" />
-            <element signature="e#7043#7044#0" expanded="true" />
-            <element signature="e#7080#7081#0" expanded="true" />
-            <element signature="e#7112#7113#0" expanded="true" />
-            <element signature="e#7143#7144#0" expanded="true" />
-            <element signature="e#7173#7174#0" expanded="true" />
-            <element signature="e#7225#7226#0" expanded="true" />
-            <element signature="e#7281#7282#0" expanded="true" />
-            <element signature="e#7325#7326#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7488#7489#0" expanded="true" />
-            <element signature="e#7536#7537#0" expanded="true" />
-            <element signature="e#7575#7576#0" expanded="true" />
-            <element signature="e#7614#7615#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7710#7711#0" expanded="true" />
-            <element signature="e#7764#7765#0" expanded="true" />
-            <element signature="e#7795#7796#0" expanded="true" />
-            <element signature="e#7826#7827#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7918#7919#0" expanded="true" />
-            <marker date="1511079800943" expanded="false" signature="13784:13795" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="13816:13822" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14018:14029" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14052:14058" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14090:14101" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14112:14118" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14161:14172" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14193:14199" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14262:14268" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14300:14311" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14335:14341" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14372:14383" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14395:14401" ph=" }" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,10 +1327,10 @@
         <state relative-caret-position="-723">
           <caret line="272" column="5" lean-forward="true" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
           <folding>
-            <element signature="e#22847#23257#0" expanded="true" />
-            <element signature="e#23256#23257#0" expanded="true" />
-            <element signature="e#23288#23453#0" expanded="true" />
-            <element signature="e#23452#23453#0" expanded="true" />
+            <element signature="e#22859#23269#0" expanded="true" />
+            <element signature="e#23268#23269#0" expanded="true" />
+            <element signature="e#23300#23465#0" expanded="true" />
+            <element signature="e#23464#23465#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1354,43 +1347,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="280" column="25" lean-forward="false" selection-start-line="280" selection-start-column="25" selection-end-line="280" selection-end-column="25" />
-          <folding>
-            <element signature="e#6999#7000#0" expanded="true" />
-            <element signature="e#7043#7044#0" expanded="true" />
-            <element signature="e#7080#7081#0" expanded="true" />
-            <element signature="e#7112#7113#0" expanded="true" />
-            <element signature="e#7143#7144#0" expanded="true" />
-            <element signature="e#7173#7174#0" expanded="true" />
-            <element signature="e#7225#7226#0" expanded="true" />
-            <element signature="e#7281#7282#0" expanded="true" />
-            <element signature="e#7325#7326#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7488#7489#0" expanded="true" />
-            <element signature="e#7536#7537#0" expanded="true" />
-            <element signature="e#7575#7576#0" expanded="true" />
-            <element signature="e#7614#7615#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7710#7711#0" expanded="true" />
-            <element signature="e#7764#7765#0" expanded="true" />
-            <element signature="e#7795#7796#0" expanded="true" />
-            <element signature="e#7826#7827#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7918#7919#0" expanded="true" />
-            <marker date="1511079800943" expanded="false" signature="13784:13795" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="13816:13822" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14018:14029" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14052:14058" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14090:14101" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14112:14118" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14161:14172" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14193:14199" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14262:14268" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14300:14311" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14335:14341" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14372:14383" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14395:14401" ph=" }" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1427,10 +1384,10 @@
         <state relative-caret-position="4545">
           <caret line="314" column="22" lean-forward="false" selection-start-line="314" selection-start-column="22" selection-end-line="314" selection-end-column="22" />
           <folding>
-            <element signature="e#22847#23257#0" expanded="true" />
-            <element signature="e#23256#23257#0" expanded="true" />
-            <element signature="e#23288#23453#0" expanded="true" />
-            <element signature="e#23452#23453#0" expanded="true" />
+            <element signature="e#22859#23269#0" expanded="true" />
+            <element signature="e#23268#23269#0" expanded="true" />
+            <element signature="e#23300#23465#0" expanded="true" />
+            <element signature="e#23464#23465#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1455,43 +1412,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3945">
           <caret line="291" column="92" lean-forward="true" selection-start-line="291" selection-start-column="92" selection-end-line="291" selection-end-column="92" />
-          <folding>
-            <element signature="e#6999#7000#0" expanded="true" />
-            <element signature="e#7043#7044#0" expanded="true" />
-            <element signature="e#7080#7081#0" expanded="true" />
-            <element signature="e#7112#7113#0" expanded="true" />
-            <element signature="e#7143#7144#0" expanded="true" />
-            <element signature="e#7173#7174#0" expanded="true" />
-            <element signature="e#7225#7226#0" expanded="true" />
-            <element signature="e#7281#7282#0" expanded="true" />
-            <element signature="e#7325#7326#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7488#7489#0" expanded="true" />
-            <element signature="e#7536#7537#0" expanded="true" />
-            <element signature="e#7575#7576#0" expanded="true" />
-            <element signature="e#7614#7615#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7710#7711#0" expanded="true" />
-            <element signature="e#7764#7765#0" expanded="true" />
-            <element signature="e#7795#7796#0" expanded="true" />
-            <element signature="e#7826#7827#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7918#7919#0" expanded="true" />
-            <marker date="1511079800943" expanded="false" signature="13784:13795" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="13816:13822" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14018:14029" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14052:14058" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14090:14101" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14112:14118" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14161:14172" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14193:14199" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14262:14268" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14300:14311" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14335:14341" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14372:14383" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14395:14401" ph=" }" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1560,80 +1481,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="303" column="39" lean-forward="false" selection-start-line="303" selection-start-column="39" selection-end-line="303" selection-end-column="39" />
-          <folding>
-            <element signature="e#6999#7000#0" expanded="true" />
-            <element signature="e#7043#7044#0" expanded="true" />
-            <element signature="e#7080#7081#0" expanded="true" />
-            <element signature="e#7112#7113#0" expanded="true" />
-            <element signature="e#7143#7144#0" expanded="true" />
-            <element signature="e#7173#7174#0" expanded="true" />
-            <element signature="e#7225#7226#0" expanded="true" />
-            <element signature="e#7281#7282#0" expanded="true" />
-            <element signature="e#7325#7326#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7488#7489#0" expanded="true" />
-            <element signature="e#7536#7537#0" expanded="true" />
-            <element signature="e#7575#7576#0" expanded="true" />
-            <element signature="e#7614#7615#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7710#7711#0" expanded="true" />
-            <element signature="e#7764#7765#0" expanded="true" />
-            <element signature="e#7795#7796#0" expanded="true" />
-            <element signature="e#7826#7827#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7918#7919#0" expanded="true" />
-            <marker date="1511079800943" expanded="false" signature="13784:13795" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="13816:13822" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14018:14029" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14052:14058" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14090:14101" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14112:14118" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14161:14172" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14193:14199" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14262:14268" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14300:14311" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14335:14341" ph=" }" />
-            <marker date="1511079800943" expanded="false" signature="14372:14383" ph=" { " />
-            <marker date="1511079800943" expanded="false" signature="14395:14401" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-565">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/RandomCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="357" column="84" lean-forward="false" selection-start-line="357" selection-start-column="84" selection-end-line="357" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="456" column="6" lean-forward="false" selection-start-line="456" selection-start-column="6" selection-end-line="456" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1646,15 +1497,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4635">
+          <caret line="349" column="0" lean-forward="true" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="138" column="37" lean-forward="false" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4278">
+          <caret line="456" column="6" lean-forward="false" selection-start-line="456" selection-start-column="6" selection-end-line="456" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/CardAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="1133">
+          <caret line="284" column="147" lean-forward="false" selection-start-line="284" selection-start-column="147" selection-end-line="284" selection-end-column="147" />
           <folding>
-            <element signature="e#22847#23257#0" expanded="true" />
-            <element signature="e#23256#23257#0" expanded="true" />
-            <element signature="e#23288#23453#0" expanded="true" />
-            <element signature="e#23452#23453#0" expanded="true" />
+            <element signature="e#22859#23269#0" expanded="true" />
+            <element signature="e#23268#23269#0" expanded="true" />
+            <element signature="e#23300#23465#0" expanded="true" />
+            <element signature="e#23464#23465#0" expanded="true" />
           </folding>
         </state>
       </provider>

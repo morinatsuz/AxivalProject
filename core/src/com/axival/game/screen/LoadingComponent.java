@@ -80,10 +80,10 @@ public class LoadingComponent implements Screen {
         //progress + (get-pro)*lerp
         progress = MathUtils.lerp(progress, cardPlay.assetManager.getProgress(), .1f);
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
-            //cardPlay.setScreen(new ScreenPlay(cardPlay));
+            cardPlay.setScreen(new ScreenPlay(cardPlay));
             //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
             //cardPlay.setScreen(new TransitionScreen(cardPlay));
-            cardPlay.fadeScreenStage.act(delta);
+            //cardPlay.fadeScreenStage.act(delta);
             //cardPlay.setScreen(new Menu(cardPlay));
         }
     }

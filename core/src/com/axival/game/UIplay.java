@@ -28,6 +28,10 @@ public class UIplay implements Screen {
 
     private Image victoryImg, defeatImg;
 
+    private Image attackImg, defenceImg, attackOn, defenceOn;
+
+    private Image skill01, skill02, skill03, skill01on, skill02on, skill03on;
+
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         this.cardPlay = cardPlay;
         this.screenPlay = screenPlay;
@@ -50,8 +54,6 @@ public class UIplay implements Screen {
         turn_line = new Texture("UI_Assets/Axival_UI_Assets/Turn Line@1x.png");
         Heart_colour = new Texture("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png");
         Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
-        skill1 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
-        skill2 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
 
         //skill cut in load asset
         skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
@@ -61,6 +63,23 @@ public class UIplay implements Screen {
         //result game cut in load asset
         victoryImg = new Image(new Texture("result/win.png"));
         defeatImg = new Image(new Texture("result/defeat.png"));
+
+        //atk dff button
+        attackImg = new Image(new Texture("skill Icon/Attack button BW.jpg"));
+        defenceImg = new Image(new Texture("skill Icon/Defence button BW.jpg"));
+        attackOn = new Image(new Texture("skill Icon/Attack button.jpg"));
+        defenceOn = new Image(new Texture("skill Icon/Defence button.jpg"));
+
+        //skill button
+        if(true){
+            skill01 = new Image(new Texture("skill Icon/Dark Templar/Fortify BW.jpg"));
+            skill02 = new Image(new Texture("skill Icon/Dark Templar/Sword of Aggression Bw.jpg"));
+            skill01on = new Image(new Texture("skill Icon/Dark Templar/Fortify.jpg"));
+            skill02on = new Image(new Texture("skill Icon/Dark Templar/Sword of Aggression.jpg"));
+            skill03 = new Image(new Texture("skill Icon/Defence button BW.jpg"));
+            skill03on = new Image(new Texture("skill Icon/Defence button.jpg"));
+        }
+
         victoryImg.setScale(.1f);
         defeatImg.setScale(.1f);
         victoryImg.setPosition(6 - victoryImg.getWidth()/2, 360 - victoryImg.getHeight()/2);
@@ -97,15 +116,14 @@ public class UIplay implements Screen {
         rightPlayerImg1.setPosition(878, 646);
         rightPlayerImg2.setPosition(1024,646);
 
-        skillImg1 = new Image(skill1);
-        skillImg2 = new Image(skill2);
+        skill01.setPosition(860,10);
+        skill01.setSize(62,55);
+        skill02.setPosition(860, 65);
+        skill02.setSize(62,55);
+        skill03.setPosition(1000, 50);
+        skill03.setSize(62,55);
 
-        skillImg1.setPosition(860,10);
-        skillImg1.setSize(62,55);
-        skillImg2.setPosition(860, 65);
-        skillImg2.setSize(62,55);
-
-        skillImg1.addListener(new ClickListener(){
+        skill01.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
@@ -115,17 +133,17 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skillImg1.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+                skill01.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
-                skillImg1.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+                skill01.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
             }
         });
 
-        skillImg2.addListener(new ClickListener(){
+        skill02.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
@@ -135,23 +153,46 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skillImg2.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+                skill02.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
-                skillImg2.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+                skill02.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
             }
         });
+
+        skill03.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+                skillCutIn(0);
+
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                skill03.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                skill03.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+            }
+        });
+
+
 
         screenPlay.stage.addActor(nextPhaseImg);
         screenPlay.stage.addActor(leftPlayerImg1);
         screenPlay.stage.addActor(leftPlayerImg2);
         screenPlay.stage.addActor(rightPlayerImg1);
         screenPlay.stage.addActor(rightPlayerImg2);
-        screenPlay.stage.addActor(skillImg1);
-        screenPlay.stage.addActor(skillImg2);
+        screenPlay.stage.addActor(skill01);
+        screenPlay.stage.addActor(skill02);
+        screenPlay.stage.addActor(skill03);
     }
 
     public void render(){

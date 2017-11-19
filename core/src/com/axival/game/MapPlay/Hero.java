@@ -293,7 +293,8 @@ public class Hero extends TextureAtlas {
            // screenPlay.statusPhase[8] = 0;
             //System.out.println("cardUsing : " + cardUsing);
         //System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));
-            if (skillUsing > 3 && skillUsing  < 9 && elapsedTime < startTime +
+
+        /*if (skillUsing > 3 && skillUsing  < 9 && elapsedTime < startTime +
                     ability[cardUsing].getSkillAction(1f).getAnimationDuration()
                     && live == true) {
                 //cardUsing = screenPlay.statusPhase[8]-1;
@@ -305,7 +306,7 @@ public class Hero extends TextureAtlas {
             } else if (skillUsing > 3 && skillUsing < 9 && startTime + deltaTime <= elapsedTime && live == true) {
                 skillUsing = -1;
                 attacking = false;
-            }
+            }*/
         //}
 
         //Pain animation

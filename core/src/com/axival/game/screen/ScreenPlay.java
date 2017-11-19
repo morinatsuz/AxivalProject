@@ -135,7 +135,8 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     @Override
     public void render(float delta) {
-        statusPhase[8] = chooseCard+4;
+        //statusPhase[8] = chooseCard+4;
+        statusPhase[8] = chooseSkill;
         if(solveUp) {
             /*
             cardHandR.getChildren().get(0).addAction(Actions.parallel(Actions.moveTo(200, 0, 5),
@@ -358,7 +359,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && statusPhase[6]%5==1||
                 statusPhase[6]%5 == 3 && mapScreen.player[mapScreen.idx].skillUsing > 3 &&
                         mapScreen.player[mapScreen.idx].skillUsing < 9
-                && statusPhase[8]>0) {
+                && statusPhase[8]>3) {
             mapScreen.player[mapScreen.idx].resetElapsedTime();
             mapScreen.player[mapScreen.idx].setStartTime();
             mapScreen.player[mapScreen.idx].skillUsing = statusPhase[8]; //chooseSkill
