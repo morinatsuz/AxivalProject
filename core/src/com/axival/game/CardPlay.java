@@ -17,26 +17,31 @@ public class CardPlay extends Game {
     public static final int V_WIDTH = 1280;
     public static final int V_HEIGHT = 720;
 
+    //main camera
     public OrthographicCamera camera;
+
+    //main render
     public SpriteBatch batch;
 
+    //main font
     public BitmapFont bitmapFont;
 
+    //Loading all assets in game
     public AssetManager assetManager;
 
+    //Loading all sound in game and manage
     public SoundManager soundManager;
 
-    public Stage transitionStage, fadeScreenStage;
-
-    //public FadingGame fadingGame;
+    //effect stage between 2 screen
+    public Stage fadeScreenStage;
 
     @Override
     public void create(){
+        //create construct
         assetManager = new AssetManager();
         soundManager = new SoundManager();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-        transitionStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         fadeScreenStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         batch = new SpriteBatch();
         bitmapFont = new BitmapFont();
@@ -45,22 +50,19 @@ public class CardPlay extends Game {
         //check memory
         javaFreeMem();
 
-        //fadingGame = new FadingGame(this.batch);
-        //fadingGame.create();
+        //change screen to LoadingComponent class
         this.setScreen(new LoadingComponent(this));
     }
 
     @Override
     public void render(){
-        //fadingGame.render();
-        //Gdx.gl.glClearColor(.25f,.25f,.25f,1f);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         super.render();
     }
 
     @Override
     public void dispose() {
-       // fadingGame.dispose();
+        //dispose main
+        fadeScreenStage.dispose();
         batch.dispose();
         bitmapFont.dispose();
         assetManager.dispose();
@@ -68,9 +70,9 @@ public class CardPlay extends Game {
     }
 
     public void javaFreeMem() {
-            // check memory
-            System.out.println("Total Memory"+Runtime.getRuntime().totalMemory());
-            // Java's garbage-collected clean Memory Not use
-            System.out.println("Free Memory"+Runtime.getRuntime().freeMemory());
+        // check memory
+        System.out.println("Total Memory"+Runtime.getRuntime().totalMemory());
+        // Java's garbage-collected clean Memory Not use
+        System.out.println("Free Memory"+Runtime.getRuntime().freeMemory());
     }
 }

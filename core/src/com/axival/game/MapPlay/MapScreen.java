@@ -449,7 +449,7 @@ public class MapScreen implements Screen {
         //render map
         game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT);
 
-        fontDrawDebugging();
+        //fontDrawDebugging();
 
         //render hero
         renderingHero(0, delta);

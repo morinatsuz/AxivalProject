@@ -1,0 +1,27 @@
+
+classLabel.png
+size: 512,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cd
+  rotate: false
+  xy: 2, 316
+  size: 472, 155
+  orig: 472, 155
+  offset: 0, 0
+  index: -1
+cp
+  rotate: false
+  xy: 2, 159
+  size: 286, 155
+  orig: 286, 155
+  offset: 0, 0
+  index: -1
+cw
+  rotate: false
+  xy: 2, 2
+  size: 286, 155
+  orig: 286, 155
+  offset: 0, 0
+  index: -1

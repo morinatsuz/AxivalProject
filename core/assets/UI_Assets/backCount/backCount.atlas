@@ -1,0 +1,27 @@
+
+backCount.png
+size: 256,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+s25
+  rotate: false
+  xy: 78, 2
+  size: 74, 57
+  orig: 74, 57
+  offset: 0, 0
+  index: -1
+s30
+  rotate: false
+  xy: 154, 2
+  size: 74, 57
+  orig: 74, 57
+  offset: 0, 0
+  index: -1
+s35
+  rotate: false
+  xy: 2, 2
+  size: 74, 57
+  orig: 74, 57
+  offset: 0, 0
+  index: -1

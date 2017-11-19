@@ -82,11 +82,8 @@ public class LoadingComponent implements Screen {
         progress = MathUtils.lerp(progress, cardPlay.assetManager.getProgress(), .1f);
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
             cardPlay.setScreen(new SelectHeroScreen(cardPlay));
-            //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
-            //cardPlay.setScreen(new TransitionScreen(cardPlay));
             cardPlay.soundManager.playBgm(0);
-            //cardPlay.fadeScreenStage.act(delta);
-            //cardPlay.setScreen(new Menu(cardPlay));
+            cardPlay.fadeScreenStage.act(delta);
         }
     }
 
@@ -148,6 +145,7 @@ public class LoadingComponent implements Screen {
         // Place the image that will hide the bar on top of the bar, adjusted a few px
         loadingBarHidden.setX(loadingBar.getX() + 35);
         loadingBarHidden.setY(loadingBar.getY() - 3);
+
         // The start position and how far to move the hidden loading bar
         startX = loadingBarHidden.getX();
         endX = 440;
@@ -179,22 +177,7 @@ public class LoadingComponent implements Screen {
     }
 
     private void queueAssets(){
-        /*
-        textureBg = new Texture("bg1.jpg");
-        logoMenu = new Image(new Texture("Main-Menu/Game Logo.png"));
-        logoMenu.setPosition(59, 630);
-        buttonImgPlay = new Image(new Texture("Main-Menu/Play.png"));
-        buttonImgPlay.setScale(.95f);
-        buttonImgPlay.setPosition(40, 15);
-        buttonImgSetting = new Image(new Texture("Main-Menu/Setting.png"));
-        buttonImgSetting.setScale(.95f);
-        buttonImgSetting.setPosition(620, 15);
-        buttonImgTutorial = new Image(new Texture("Main-Menu/Tutorial.png"));
-        buttonImgTutorial.setScale(.95f);
-        buttonImgTutorial.setPosition(390, 15);
-        buttonImgExit = new Image(new Texture("Main-Menu/Exit.png"));
-        buttonImgExit.setScale(.95f);
-         */
+
         //cardPlay.assetManager.load("card01.png", Texture.class);
         cardPlay.assetManager.load("cardani/001.png", Texture.class);
         cardPlay.assetManager.load("cardani/002.png", Texture.class);
@@ -204,7 +187,6 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("effect01.party", ParticleEffect.class);
 
         //loading Menu Component
-        //cardPlay.assetManager.load("bg1.jpg", Texture.class);
         cardPlay.assetManager.load("Main-Menu/Game Logo.png", Texture.class);
         cardPlay.assetManager.load("Main-Menu/Play.png", Texture.class);
         cardPlay.assetManager.load("Main-Menu/Setting.png", Texture.class);
