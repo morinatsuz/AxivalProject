@@ -76,9 +76,11 @@ public class FadeScence {
         cnl.init(client);
 
         Kryo kryo = client.getKryo();
-        kryo.register(Packets.BufferPlayerClass.class);
         kryo.register(Packets.BufferTellReady.class);
         kryo.register(Packets.BufferLobbyPlayer.class);
+        kryo.register(Packets.BufferPlayerData.class);
+        kryo.register(Packets.BufferPhasePlay.class);
+        kryo.register(Packets.BufferRequestPlayerData.class);
 
         client.addListener(cnl);
 

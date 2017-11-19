@@ -64,10 +64,10 @@ public class SelectHeroScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 selectHero = 0;
 
-                Packets.BufferPlayerClass playerClass = new Packets.BufferPlayerClass();
-                playerClass.heroSelect = selectHero;
-                System.out.println("Test");
-                client.sendTCP(playerClass);
+//                Packets.BufferPlayerClass playerClass = new Packets.BufferPlayerClass();
+//                playerClass.heroSelect = selectHero;
+//                System.out.println("Test");
+//                client.sendTCP(playerClass);
 //                System.out.println("Class send");
 
                 cardPlay.setScreen(new ScreenPlay(cardPlay));
