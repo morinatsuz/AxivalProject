@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa05633c-f3b5-41db-ae2f-e82bf1013e78" name="Default" comment="" />
+    <list default="true" id="aa05633c-f3b5-41db-ae2f-e82bf1013e78" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/kryonet_2_21_all.xml" afterPath="$PROJECT_DIR$/.idea/libraries/kryonet_2_21_all.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
     <ignored path="$PROJECT_DIR$/core/out/" />
@@ -23,7 +26,7 @@
     </projectState>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="DesktopLauncher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,10 +42,13 @@
       <file leaf-file-name="WaitingScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+            <state relative-caret-position="1365">
+              <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1511077041329" expanded="false" signature="2831:2841" ph=" { " />
+                <marker date="1511077041329" expanded="false" signature="2877:2883" ph=" }" />
+                <marker date="1511077041329" expanded="true" signature="2945:2953" ph="{}" />
               </folding>
             </state>
           </provider>
@@ -51,9 +57,16 @@
       <file leaf-file-name="FadeScence.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/fade/FadeScence.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="82" column="61" lean-forward="false" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding>
+                <element signature="e#1248#1474#0" expanded="true" />
+                <element signature="e#1473#1474#0" expanded="true" />
+                <element signature="e#1648#1914#0" expanded="true" />
+                <element signature="e#1913#1914#0" expanded="true" />
+                <element signature="e#2090#2338#0" expanded="true" />
+                <element signature="e#2337#2338#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,10 +74,42 @@
       <file leaf-file-name="SelectHeroScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="1218">
+              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1511077041314" expanded="true" signature="3088:3218" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="3088:3640" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="3088:6746" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="3336:3352" ph="{}" />
+                <marker date="1511077041314" expanded="true" signature="3469:3630" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="3893:4499" ph="{...}" />
+                <marker date="1511077041314" expanded="false" signature="3984:4002" ph=" { " />
+                <marker date="1511077041314" expanded="false" signature="4017:4031" ph=" }" />
+                <marker date="1511077041314" expanded="true" signature="4149:4281" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="4398:4489" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="4550:5106" ph="{...}" />
+                <marker date="1511077041314" expanded="false" signature="4641:4659" ph=" { " />
+                <marker date="1511077041314" expanded="false" signature="4674:4688" ph=" }" />
+                <marker date="1511077041314" expanded="true" signature="4806:4822" ph="{}" />
+                <marker date="1511077041314" expanded="true" signature="4939:5096" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="5417:6023" ph="{...}" />
+                <marker date="1511077041314" expanded="false" signature="5508:5526" ph=" { " />
+                <marker date="1511077041314" expanded="false" signature="5541:5555" ph=" }" />
+                <marker date="1511077041314" expanded="true" signature="5673:5805" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="5922:6013" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="6074:6630" ph="{...}" />
+                <marker date="1511077041314" expanded="false" signature="6165:6183" ph=" { " />
+                <marker date="1511077041314" expanded="false" signature="6198:6212" ph=" }" />
+                <marker date="1511077041314" expanded="true" signature="6330:6346" ph="{}" />
+                <marker date="1511077041314" expanded="true" signature="6463:6620" ph="{...}" />
+                <marker date="1511077041314" expanded="true" signature="6785:6793" ph="{}" />
+                <marker date="1511077041314" expanded="true" signature="6845:7067" ph="{...}" />
+                <marker date="1511077041314" expanded="false" signature="7104:7114" ph=" { " />
+                <marker date="1511077041314" expanded="false" signature="7131:7137" ph=" }" />
+                <marker date="1511077041314" expanded="false" signature="7198:7209" ph=" { " />
+                <marker date="1511077041314" expanded="false" signature="7258:7264" ph=" }" />
+                <marker date="1511077041314" expanded="true" signature="7304:7312" ph="{}" />
               </folding>
             </state>
           </provider>
@@ -75,7 +120,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding />
+              <folding>
+                <marker date="1511077041320" expanded="true" signature="456:525" ph="{...}" />
+                <marker date="1511077041320" expanded="false" signature="575:586" ph=" { " />
+                <marker date="1511077041320" expanded="false" signature="603:609" ph=" }" />
+                <marker date="1511077041320" expanded="false" signature="639:649" ph=" { " />
+                <marker date="1511077041320" expanded="false" signature="666:672" ph=" }" />
+                <marker date="1511077041320" expanded="true" signature="716:891" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,31 +135,9 @@
       <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
+            <state relative-caret-position="105">
               <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Packets.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/Packets.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/ClientListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="50" column="11" lean-forward="true" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +145,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="1407">
               <caret line="67" column="57" lean-forward="false" selection-start-line="67" selection-start-column="57" selection-end-line="67" selection-end-column="57" />
               <folding />
             </state>
@@ -712,8 +742,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="9066020053794" />
+        <entry key="$PROJECT_DIR$" value="9066447372775" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3618357875" />
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="3808161812" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -861,6 +892,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -889,13 +922,6 @@
             <path>
               <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -915,16 +941,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propGUI" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/kryonet-2.21/kryonet-2.21/jars/debug/onejar/kryonet-2.21-all.jar!/" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/kryonet-2.21/kryonet-2.21/javadoc" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -1072,14 +1096,14 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33936653" sideWeight="0.5064447" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33936653" sideWeight="0.5085929" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33936653" sideWeight="0.4935553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33936653" sideWeight="0.4914071" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14876477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.150913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1105,6 +1129,117 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1511077041329" expanded="false" signature="2831:2841" ph=" { " />
+            <marker date="1511077041329" expanded="false" signature="2877:2883" ph=" }" />
+            <marker date="1511077041329" expanded="true" signature="2945:2953" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1218">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1511077041314" expanded="true" signature="3088:3218" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3088:3640" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3088:6746" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3336:3352" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="3469:3630" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3893:4499" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="3984:4002" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="4017:4031" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="4149:4281" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="4398:4489" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="4550:5106" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="4641:4659" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="4674:4688" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="4806:4822" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="4939:5096" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="5417:6023" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="5508:5526" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="5541:5555" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="5673:5805" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="5922:6013" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="6074:6630" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="6165:6183" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="6198:6212" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="6330:6346" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="6463:6620" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="6785:6793" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="6845:7067" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="7104:7114" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="7131:7137" ph=" }" />
+            <marker date="1511077041314" expanded="false" signature="7198:7209" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="7258:7264" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="7304:7312" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/input/MyTextInputListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <marker date="1511077041320" expanded="true" signature="456:525" ph="{...}" />
+            <marker date="1511077041320" expanded="false" signature="575:586" ph=" { " />
+            <marker date="1511077041320" expanded="false" signature="603:609" ph=" }" />
+            <marker date="1511077041320" expanded="false" signature="639:649" ph=" { " />
+            <marker date="1511077041320" expanded="false" signature="666:672" ph=" }" />
+            <marker date="1511077041320" expanded="true" signature="716:891" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1407">
+          <caret line="67" column="57" lean-forward="false" selection-start-line="67" selection-start-column="57" selection-end-line="67" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/fade/FadeScence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="e#1248#1474#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1648#1914#0" expanded="true" />
+            <element signature="e#1913#1914#0" expanded="true" />
+            <element signature="e#2090#2338#0" expanded="true" />
+            <element signature="e#2337#2338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
@@ -1119,6 +1254,9 @@
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1511077041329" expanded="false" signature="2831:2841" ph=" { " />
+            <marker date="1511077041329" expanded="false" signature="2877:2883" ph=" }" />
+            <marker date="1511077041329" expanded="true" signature="2945:2953" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -1127,7 +1265,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
+          <folding>
+            <marker date="1511077041320" expanded="true" signature="456:525" ph="{...}" />
+            <marker date="1511077041320" expanded="false" signature="575:586" ph=" { " />
+            <marker date="1511077041320" expanded="false" signature="603:609" ph=" }" />
+            <marker date="1511077041320" expanded="false" signature="639:649" ph=" { " />
+            <marker date="1511077041320" expanded="false" signature="666:672" ph=" }" />
+            <marker date="1511077041320" expanded="true" signature="716:891" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1139,14 +1284,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/Packets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/Packets.java" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1386">
@@ -1155,16 +1293,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/ClientListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/ClientListener.java" />
     <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1175,7 +1304,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
+        <state relative-caret-position="1407">
           <caret line="67" column="57" lean-forward="false" selection-start-line="67" selection-start-column="57" selection-end-line="67" selection-end-column="57" />
           <folding />
         </state>
@@ -1185,7 +1314,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
+          <folding>
+            <marker date="1511077041320" expanded="true" signature="456:525" ph="{...}" />
+            <marker date="1511077041320" expanded="false" signature="575:586" ph=" { " />
+            <marker date="1511077041320" expanded="false" signature="603:609" ph=" }" />
+            <marker date="1511077041320" expanded="false" signature="639:649" ph=" { " />
+            <marker date="1511077041320" expanded="false" signature="666:672" ph=" }" />
+            <marker date="1511077041320" expanded="true" signature="716:891" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1199,17 +1335,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/Packets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/Packets.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
+        <state relative-caret-position="105">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
@@ -1217,39 +1346,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="1218">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1511077041314" expanded="true" signature="3088:3218" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3088:3640" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3088:6746" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3336:3352" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="3469:3630" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="3893:4499" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="3984:4002" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="4017:4031" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="4149:4281" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="4398:4489" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="4550:5106" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="4641:4659" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="4674:4688" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="4806:4822" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="4939:5096" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="5417:6023" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="5508:5526" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="5541:5555" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="5673:5805" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="5922:6013" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="6074:6630" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="6165:6183" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="6198:6212" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="6330:6346" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="6463:6620" ph="{...}" />
+            <marker date="1511077041314" expanded="true" signature="6785:6793" ph="{}" />
+            <marker date="1511077041314" expanded="true" signature="6845:7067" ph="{...}" />
+            <marker date="1511077041314" expanded="false" signature="7104:7114" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="7131:7137" ph=" }" />
+            <marker date="1511077041314" expanded="false" signature="7198:7209" ph=" { " />
+            <marker date="1511077041314" expanded="false" signature="7258:7264" ph=" }" />
+            <marker date="1511077041314" expanded="true" signature="7304:7312" ph="{}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/ClientListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="50" column="11" lean-forward="true" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/Network/ClientListener.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+        <state relative-caret-position="1365">
+          <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1511077041329" expanded="false" signature="2831:2841" ph=" { " />
+            <marker date="1511077041329" expanded="false" signature="2877:2883" ph=" }" />
+            <marker date="1511077041329" expanded="true" signature="2945:2953" ph="{}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/fade/FadeScence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="82" column="61" lean-forward="false" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding>
+            <element signature="e#1248#1474#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1648#1914#0" expanded="true" />
+            <element signature="e#1913#1914#0" expanded="true" />
+            <element signature="e#2090#2338#0" expanded="true" />
+            <element signature="e#2337#2338#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
