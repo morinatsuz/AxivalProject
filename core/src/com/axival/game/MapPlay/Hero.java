@@ -198,20 +198,29 @@ public class Hero extends TextureAtlas {
     public void renderWalking() {
         errX = new float[2];
         errY = new float[2];
-        errX[0] = 0;
-        errX[1] = 0;
-        errY[0] = 0;
-        errY[1] = 0;
-        if (job == 1) {
-            errX[0] = -120f;
-            errY[0] = -50f;
-            errX[1] = -120f;
-            errY[1] = -50f;
-        }
-        if (job == 2) {
-        }
-        if (job == 3) {
-        }
+        errX[0] = -120f;
+        errY[0] = -50f;
+        errX[1] = -120f;
+        errY[1] = -50f;
+//        errY[1] = -50f;
+//        if (job == 1) {
+//            errX[0] = -120f;
+//            errY[0] = -50f;
+//            errX[1] = -120f;
+//            errY[1] = -50f;
+//        }
+//        if (job == 2) {
+//            errX[0] = -120f;
+//            errY[0] = -50f;
+//            errX[1] = -120f;
+//            errY[1] = -50f;
+//        }
+//        if (job == 3) {
+//            errX[0] = -120f;
+//            errY[0] = -50f;
+//            errX[1] = -120f;
+//            errY[1] = -50f;
+//        }
 
         //Hero Action
         if (facing.compareTo(Hero.State.RIGHT) == 0) {

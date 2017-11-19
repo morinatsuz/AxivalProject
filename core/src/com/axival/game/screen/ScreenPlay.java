@@ -56,7 +56,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     private CalculatorManager calculatorManager;
 
     private int chooseSkill = 0;
-    private int chooseCard = 0;
+    private int chooseCard = -1;
 
     public ScreenPlay(final CardPlay cardPlay){
         //set main render object and Input
@@ -342,16 +342,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
             }
-        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.statusPhase[6] == 1 ||
-                mapScreen.statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1) {
-            mapScreen.player[mapScreen.idx].resetElapsedTime();
-            mapScreen.player[mapScreen.idx].setStartTime();
-            mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
-            mapScreen.player[mapScreen.idx].cardUsing = chooseCard;
-            mapScreen.player[mapScreen.idx].attacking = true;
-            System.out.println("cardUsing = " + mapScreen.player[mapScreen.idx].cardUsing);
-//            System.out.println("Kuy 0/0 left click");
-//            int k = 0/0;
         }
         System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In screenPlay");
         if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
@@ -371,7 +361,14 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.player[mapScreen.idx].setStartTime();
                 mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
                 mapScreen.player[mapScreen.idx].attacking = true;
-//                mapScreen.statusPhase[6] = 2;
+            }
+            if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.player[mapScreen.idx].skillUsing == -1) {
+                mapScreen.player[mapScreen.idx].resetElapsedTime();
+                mapScreen.player[mapScreen.idx].setStartTime();
+                mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
+                mapScreen.player[mapScreen.idx].cardUsing = chooseCard;
+                mapScreen.player[mapScreen.idx].attacking = true;
+                System.out.println("cardUsing = " + mapScreen.player[mapScreen.idx].cardUsing);
             }
         }
         return false;

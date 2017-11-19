@@ -2,9 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75b18ca-4b8d-4762-a001-5b7955d6d9cd" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/dead_3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/heal_2.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/alert_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/alert_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/alert_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/alert_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/alert_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/alert_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/dead_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/dead_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/dead_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/dead_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/fly_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/fly_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/fly_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/fly_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/heal_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/heal_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stabO1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stabO1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stabO1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stabO1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stand1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stand1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stand1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stand1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stand1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/stand1_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO1_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO2_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO2_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO2_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO2_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO2_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/swingO2_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_3.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestRaw/walk1_3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestSpritesheet/PriestSpritesheet.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestSpritesheet/PriestSpritesheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/alert_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/alert_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/alert_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/alert_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/alert_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/alert_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_3.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/dead_3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/pain_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/pain_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/pain_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/pain_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/pain_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/pain_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/stand1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/stand1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/stand1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/stand1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/stand1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/stand1_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO1_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO2_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO2_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO2_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO2_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO2_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO2_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO3_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO3_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO3_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO3_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO3_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO3_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO4_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO4_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO4_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO4_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO4_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/swingO4_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_0.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_0.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_1.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_2.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_3.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardRaw/walk1_3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardSpritesheet/WizardSpritesheet.png" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardSpritesheet/WizardSpritesheet.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -58,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="334" column="62" lean-forward="false" selection-start-line="334" selection-start-column="62" selection-end-line="334" selection-end-column="62" />
+            <state relative-caret-position="65">
+              <caret line="251" column="13" lean-forward="true" selection-start-line="251" selection-start-column="13" selection-end-line="251" selection-end-column="13" />
               <folding>
                 <element signature="e#6769#6770#0" expanded="true" />
                 <element signature="e#6813#6814#0" expanded="true" />
@@ -86,30 +147,30 @@
                 <element signature="e#7596#7597#0" expanded="true" />
                 <element signature="e#7637#7638#0" expanded="true" />
                 <element signature="e#7688#7689#0" expanded="true" />
-                <marker date="1511036669445" expanded="false" signature="14138:14149" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14170:14176" ph=" }" />
-                <marker date="1511036669445" expanded="false" signature="14372:14383" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14406:14412" ph=" }" />
-                <marker date="1511036669445" expanded="false" signature="14444:14455" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14466:14472" ph=" }" />
-                <marker date="1511036669445" expanded="false" signature="14515:14526" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14547:14553" ph=" }" />
-                <marker date="1511036669445" expanded="false" signature="14589:14600" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14616:14622" ph=" }" />
-                <marker date="1511036669445" expanded="false" signature="14654:14665" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14689:14695" ph=" }" />
-                <marker date="1511036669445" expanded="false" signature="14726:14737" ph=" { " />
-                <marker date="1511036669445" expanded="false" signature="14749:14755" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="14442:14453" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="14474:14480" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="14676:14687" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="14710:14716" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="14748:14759" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="14770:14776" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="14819:14830" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="14851:14857" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="14893:14904" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="14920:14926" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="14958:14969" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="14993:14999" ph=" }" />
+                <marker date="1511072072100" expanded="false" signature="15030:15041" ph=" { " />
+                <marker date="1511072072100" expanded="false" signature="15053:15059" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Navigator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Navigator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="65" column="82" lean-forward="false" selection-start-line="65" selection-start-column="82" selection-end-line="65" selection-end-column="82" />
+            <state relative-caret-position="238">
+              <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -118,7 +179,7 @@
       <file leaf-file-name="MapScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1751">
+            <state relative-caret-position="-1836">
               <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="12" />
               <folding>
                 <element signature="method#updateAllplayer#0;class#MapScreen#0" expanded="false" />
@@ -131,11 +192,11 @@
       <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-178">
-              <caret line="338" column="94" lean-forward="false" selection-start-line="338" selection-start-column="94" selection-end-line="338" selection-end-column="94" />
+            <state relative-caret-position="279">
+              <caret line="334" column="43" lean-forward="false" selection-start-line="334" selection-start-column="43" selection-end-line="334" selection-end-column="73" />
               <folding>
-                <element signature="e#16574#16575#0" expanded="true" />
-                <element signature="e#16619#16620#0" expanded="true" />
+                <element signature="e#16397#16398#0" expanded="true" />
+                <element signature="e#16442#16443#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,9 +208,11 @@
     <findStrings>
       <find>idx</find>
       <find>font</find>
-      <find>status</find>
       <find>skillAni</find>
       <find>skillAnimation</find>
+      <find>upda</find>
+      <find>status</find>
+      <find>choose</find>
     </findStrings>
     <replaceStrings>
       <replace>heroAnimation</replace>
@@ -856,10 +919,10 @@
         <option value="$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
       </list>
     </option>
   </component>
@@ -1112,12 +1175,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511018529257</updated>
       <workItem from="1511018534016" duration="617000" />
-      <workItem from="1511019405348" duration="14677000" />
+      <workItem from="1511019405348" duration="20875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15294000" />
+    <option name="totallyTimeSpent" value="21492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
@@ -1218,20 +1281,20 @@
             <element signature="e#7596#7597#0" expanded="true" />
             <element signature="e#7637#7638#0" expanded="true" />
             <element signature="e#7688#7689#0" expanded="true" />
-            <marker date="1511036669445" expanded="false" signature="14138:14149" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14170:14176" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14372:14383" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14406:14412" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14444:14455" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14466:14472" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14515:14526" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14547:14553" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14589:14600" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14616:14622" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14654:14665" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14689:14695" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14726:14737" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14749:14755" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14442:14453" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14474:14480" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14676:14687" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14710:14716" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14748:14759" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14770:14776" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14819:14830" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14851:14857" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14893:14904" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14920:14926" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14958:14969" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14993:14999" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="15030:15041" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="15053:15059" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1275,25 +1338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1751">
-          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="12" />
-          <folding>
-            <element signature="method#updateAllplayer#0;class#MapScreen#0" expanded="false" />
-            <element signature="method#render#0;class#MapScreen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="65" column="82" lean-forward="false" selection-start-line="65" selection-start-column="82" selection-end-line="65" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
@@ -1310,21 +1354,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
-          <caret line="338" column="94" lean-forward="false" selection-start-line="338" selection-start-column="94" selection-end-line="338" selection-end-column="94" />
-          <folding>
-            <element signature="e#16574#16575#0" expanded="true" />
-            <element signature="e#16619#16620#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="334" column="62" lean-forward="false" selection-start-line="334" selection-start-column="62" selection-end-line="334" selection-end-column="62" />
+        <state relative-caret-position="65">
+          <caret line="251" column="13" lean-forward="true" selection-start-line="251" selection-start-column="13" selection-end-line="251" selection-end-column="13" />
           <folding>
             <element signature="e#6769#6770#0" expanded="true" />
             <element signature="e#6813#6814#0" expanded="true" />
@@ -1348,21 +1381,51 @@
             <element signature="e#7596#7597#0" expanded="true" />
             <element signature="e#7637#7638#0" expanded="true" />
             <element signature="e#7688#7689#0" expanded="true" />
-            <marker date="1511036669445" expanded="false" signature="14138:14149" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14170:14176" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14372:14383" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14406:14412" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14444:14455" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14466:14472" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14515:14526" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14547:14553" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14589:14600" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14616:14622" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14654:14665" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14689:14695" ph=" }" />
-            <marker date="1511036669445" expanded="false" signature="14726:14737" ph=" { " />
-            <marker date="1511036669445" expanded="false" signature="14749:14755" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14442:14453" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14474:14480" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14676:14687" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14710:14716" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14748:14759" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14770:14776" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14819:14830" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14851:14857" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14893:14904" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14920:14926" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="14958:14969" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="14993:14999" ph=" }" />
+            <marker date="1511072072100" expanded="false" signature="15030:15041" ph=" { " />
+            <marker date="1511072072100" expanded="false" signature="15053:15059" ph=" }" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1836">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="12" />
+          <folding>
+            <element signature="method#updateAllplayer#0;class#MapScreen#0" expanded="false" />
+            <element signature="method#render#0;class#MapScreen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="334" column="43" lean-forward="false" selection-start-line="334" selection-start-column="43" selection-end-line="334" selection-end-column="73" />
+          <folding>
+            <element signature="e#16397#16398#0" expanded="true" />
+            <element signature="e#16442#16443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
