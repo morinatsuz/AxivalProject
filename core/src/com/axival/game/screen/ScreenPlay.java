@@ -57,7 +57,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     private CalculatorManager calculatorManager;
 
     private int chooseSkill = 0;
-    private int chooseCard = 0;
+    private int chooseCard = -1;
 
     public ScreenPlay(final CardPlay cardPlay){
         //set main render object and Input
@@ -159,6 +159,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         if(prototype.isComplete()){
             prototype.reset();
         }
+        System.out.println("statusphase : "+Arrays.toString(statusPhase));
     }
 
     public void update(float delta)

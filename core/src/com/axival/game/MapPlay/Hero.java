@@ -292,7 +292,7 @@ public class Hero extends TextureAtlas {
             System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));*/
            // screenPlay.statusPhase[8] = 0;
             //System.out.println("cardUsing : " + cardUsing);
-        System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));
+        //System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));
             if (cardUsing > -1 && skillUsing == -1 && elapsedTime < startTime +
                     ability[cardUsing].getSkillAction(1f).getAnimationDuration()
                     && live == true) {

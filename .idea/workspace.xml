@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a4ab49-14f9-4330-bbf4-782cd7f328c4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/MapPlay/Hero.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/ScreenPlay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
@@ -33,15 +27,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-538">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="371" column="9" lean-forward="true" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+            <state relative-caret-position="264">
+              <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#16681#17446#0" expanded="true" />
-                <element signature="e#17445#17446#0" expanded="true" />
+                <element signature="e#16757#17522#0" expanded="true" />
+                <element signature="e#17521#17522#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,8 +54,8 @@
       <file leaf-file-name="Hero.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="299" column="48" lean-forward="true" selection-start-line="299" selection-start-column="48" selection-end-line="299" selection-end-column="48" />
+            <state relative-caret-position="284">
+              <caret line="294" column="10" lean-forward="false" selection-start-line="294" selection-start-column="10" selection-end-line="294" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -85,7 +89,7 @@
       <file leaf-file-name="MapScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
+            <state relative-caret-position="1117">
               <caret line="461" column="10" lean-forward="false" selection-start-line="461" selection-start-column="10" selection-end-line="461" selection-end-column="10" />
               <folding />
             </state>
@@ -106,7 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>limt</find>
       <find>statusP</find>
       <find>status</find>
       <find>phaseAll</find>
@@ -128,13 +131,15 @@
       <find>cardUsing status</find>
       <find>status loop</find>
       <find>cardUsing statusPhase: 6</find>
-      <find>statusPhase loo</find>
       <find>show</find>
       <find>drw</find>
       <find>randomCard.getIdenCardAll()[currentCard]</find>
-      <find>statusPhase</find>
-      <find>randomCard</find>
       <find>screenPlay.sta</find>
+      <find>statusPhase</find>
+      <find>statusPhase loo</find>
+      <find>randomCard</find>
+      <find>&quot;statusPhase&quot;</find>
+      <find>statusPhase :</find>
     </findStrings>
     <replaceStrings>
       <replace>limit</replace>
@@ -844,9 +849,9 @@
         <option value="$PROJECT_DIR$/core/src/com/axival/game/RandomCard.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
       </list>
     </option>
   </component>
@@ -1102,12 +1107,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511015403142</updated>
       <workItem from="1511015406800" duration="23077000" />
-      <workItem from="1511062665874" duration="7804000" />
+      <workItem from="1511062665874" duration="9071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30881000" />
+    <option name="totallyTimeSpent" value="32148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1440" height="787" extended-state="0" />
@@ -1126,7 +1131,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1202,8 +1207,8 @@
           <caret line="276" column="14" lean-forward="false" selection-start-line="276" selection-start-column="14" selection-end-line="276" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16681#17446#0" expanded="true" />
-            <element signature="e#17445#17446#0" expanded="true" />
+            <element signature="e#16757#17522#0" expanded="true" />
+            <element signature="e#17521#17522#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1312,18 +1317,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="461" column="10" lean-forward="false" selection-start-line="461" selection-start-column="10" selection-end-line="461" selection-end-column="10" />
+        <state relative-caret-position="284">
+          <caret line="294" column="10" lean-forward="false" selection-start-line="294" selection-start-column="10" selection-end-line="294" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="1117">
+          <caret line="461" column="10" lean-forward="false" selection-start-line="461" selection-start-column="10" selection-end-line="461" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1341,22 +1346,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="299" column="48" lean-forward="true" selection-start-line="299" selection-start-column="48" selection-end-line="299" selection-end-column="48" />
+        <state relative-caret-position="-538">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="371" column="9" lean-forward="true" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+        <state relative-caret-position="264">
+          <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16681#17446#0" expanded="true" />
-            <element signature="e#17445#17446#0" expanded="true" />
+            <element signature="e#16757#17522#0" expanded="true" />
+            <element signature="e#17521#17522#0" expanded="true" />
           </folding>
         </state>
       </provider>
