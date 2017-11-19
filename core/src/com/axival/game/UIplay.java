@@ -116,12 +116,22 @@ public class UIplay implements Screen {
         rightPlayerImg1.setPosition(878, 646);
         rightPlayerImg2.setPosition(1024,646);
 
-        skill01.setPosition(860,10);
-        skill01.setSize(62,55);
-        skill02.setPosition(860, 65);
-        skill02.setSize(62,55);
-        skill03.setPosition(1000, 50);
-        skill03.setSize(62,55);
+        skill01.setPosition(860+60,5);
+        skill01.setScale(.1f);
+        skill02.setPosition(860+60, 55);
+        skill02.setScale(.1f);
+        skill03.setPosition(860+110, 25);
+        skill03.setScale(.1f);
+
+        attackImg.setPosition(300,55);
+        attackImg.setScale(.1f);
+        attackOn.setPosition(300,55);
+        attackOn.setScale(.1f);
+
+        defenceImg.setPosition(300,5);
+        defenceImg.setScale(.1f);
+        defenceOn.setPosition(300,5);
+        defenceOn.setScale(.1f);
 
         skill01.addListener(new ClickListener(){
             @Override
@@ -133,13 +143,13 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill01.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+                skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
-                skill01.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+                skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
             }
         });
 
@@ -153,13 +163,13 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill02.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+                skill02.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
-                skill02.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+                skill02.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
             }
         });
 
@@ -173,13 +183,13 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill03.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+                skill03.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
-                skill03.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+                skill03.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
             }
         });
 
@@ -193,6 +203,8 @@ public class UIplay implements Screen {
         screenPlay.stage.addActor(skill01);
         screenPlay.stage.addActor(skill02);
         screenPlay.stage.addActor(skill03);
+        screenPlay.stage.addActor(attackImg);
+        screenPlay.stage.addActor(defenceImg);
     }
 
     public void render(){

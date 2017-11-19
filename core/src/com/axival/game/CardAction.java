@@ -25,7 +25,7 @@ public class CardAction {
     public void cardHandActionFirst(final int currentCard, int delayNum){
         screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.alpha(.7f),
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/2.0f, -30, 2f),
+                        Actions.moveTo(1280/1.9f, -30, 2f),
                         Actions.scaleTo(.12f,.12f,2f)), Actions.delay(delayNum)));
         screenPlay.cardCountPosY1 = screenPlay.cardDeck[currentCard].getY();
         //cardHandIndex[0] = Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0));
@@ -63,7 +63,7 @@ public class CardAction {
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
                         Actions.moveTo(1280/2.3f+50, -30, 2f),
                         Actions.scaleTo(.12f,.12f,2f)), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-50, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-50, -30, 1f), Actions.delay(delayNum)));
         screenPlay.cardCountPosY1 = screenPlay.cardDeck[currentCard].getY();
         //cardHandIndex[1] = Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1));
         //System.out.println("CardIndex: "+ Arrays.toString(cardHandIndex));
@@ -99,10 +99,10 @@ public class CardAction {
     public void cardHandActionThirst(final int currentCard, int delayNum){
         screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.alpha(.7f),
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/2.3f+100, -30, 2f),
+                        Actions.moveTo(1280/2.2f+100, -30, 2f),
                         Actions.scaleTo(.12f,.12f,2f)), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-100, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-100, -30, 1f), Actions.delay(delayNum)));
         screenPlay.cardCountPosY1 = screenPlay.cardDeck[currentCard].getY();
         //cardHandIndex[2] = Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2));
         //System.out.println("CardIndex: "+ Arrays.toString(cardHandIndex));
@@ -138,11 +138,11 @@ public class CardAction {
     public void cardHandActionFourth(final int currentCard, int delayNum) {
         screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.alpha(.7f),
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280 / 2.3f + 150, -30, 2f),
+                        Actions.moveTo(1280 / 2.2f + 150, -30, 2f),
                         Actions.scaleTo(.12f, .12f, 2f)), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.3f + 50, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.3f - 50, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.3f - 150, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f + 50, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f - 50, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f - 150, -30, 1f), Actions.delay(delayNum)));
         screenPlay.cardCountPosY1 = screenPlay.cardDeck[currentCard].getY();
         //cardHandIndex[3] = Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3));
         //System.out.println("CardIndex: "+ Arrays.toString(cardHandIndex));
@@ -176,12 +176,12 @@ public class CardAction {
     public void cardHandActionFifth(final int currentCard, int delayNum){
         screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(4))].addAction(Actions.sequence(Actions.alpha(.7f),
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/2.3f+200, -30, 2f),
+                        Actions.moveTo(1280/2.2f+200, -30, 2f),
                         Actions.scaleTo(.12f,.12f,2f)), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f+100, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-100, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-200, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f+100, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-100, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-200, -30, 1f), Actions.delay(delayNum)));
         screenPlay.cardCountPosY1 = screenPlay.cardDeck[currentCard].getY();
         //cardHandIndex[4] = Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(4));
         //System.out.println("CardIndex: "+ Arrays.toString(cardHandIndex));
@@ -214,11 +214,11 @@ public class CardAction {
     public void cardHandActionFull(final int currentCard, int delayNum) {
         screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(5))].addAction(Actions.sequence(Actions.alpha(.7f),
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280 / 2.3f + 200, -30, 2f),
+                        Actions.moveTo(1280 / 2.2f + 200, -30, 2f),
                         Actions.scaleTo(.12f, .12f, 2f)), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.3f + 100, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.3f, -30, 1f), Actions.delay(delayNum)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.3f - 100, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f + 100, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f, -30, 1f), Actions.delay(delayNum)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f - 100, -30, 1f), Actions.delay(delayNum)));
         screenPlay.cardCountPosY1 = screenPlay.cardDeck[currentCard].getY();
         screenPlay.cardDeck[currentCard].addListener(new ClickListener(){
             private int currentCardListener = currentCard;
@@ -263,26 +263,26 @@ public class CardAction {
     }
     public void cardHandActionDelFirstInTwo(int indexCard){
         cardHandActionDelIndex(indexCard);
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f, -30, 1f)));
 
     }
     public void cardHandActionDelFirstInThree(int indexCard){
         cardHandActionDelIndex(indexCard);
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-50, -30, 1f)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f+50, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-50, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f+50, -30, 1f)));
     }
     public void cardHandActionDelFirstInFour(int indexCard){
         cardHandActionDelIndex(indexCard);
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-100, -30, 1f)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f, -30, 1f)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f+100, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-100, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f+100, -30, 1f)));
     }
     public void cardHandActionDelFirstInFive(int indexCard){
         cardHandActionDelIndex(indexCard);
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-150, -30, 1f)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f-50, -30, 1f)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f+50, -30, 1f)));
-        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280/2.3f+150, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-150, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f-50, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f+50, -30, 1f)));
+        screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f+150, -30, 1f)));
     }
 
 
