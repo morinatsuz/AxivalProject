@@ -26,7 +26,7 @@ public class WaitingScreen implements Screen {
         this.fadeScence = new FadeScence(cardPlay);
         //animationWaiting = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("waiting/loading2.gif").read());
         textureAtlas = new TextureAtlas("waiting/wait.atlas");
-        animationWaiting = new Animation<TextureRegion>(1f/10f, textureAtlas.getRegions());
+        animationWaiting = new Animation<TextureRegion>(1f/20f, textureAtlas.getRegions());
         timePlay = 0;
     }
 
@@ -44,7 +44,7 @@ public class WaitingScreen implements Screen {
         cardPlay.batch.begin();
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         cardPlay.batch.end();
-        if (statusAlready || timePlay>30){
+        if (statusAlready || timePlay>5){
             timePlay = 0;
             //cardPlay.fadeScreenStage.act(delta);
             //cardPlay.fadeScreenStage.draw();

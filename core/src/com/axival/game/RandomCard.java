@@ -22,7 +22,7 @@ public class RandomCard{
 
     private Map<Integer, HashMap<Integer, Integer>> cardDictionary;
 
-    private Map<String,Integer> limtCard;
+    private Map<String,Integer> limitCard;
 
     private ArrayList<String> countCardInHand;
 
@@ -34,7 +34,7 @@ public class RandomCard{
         this.cardAll = cardPlay.assetManager.get("cardani/spritesheet/cardAni.atlas", TextureAtlas.class);
         this.countCardInHand = new ArrayList<String>();
         this.cardDictionary = new HashMap<Integer, HashMap<Integer, Integer>>();
-        this.limtCard = new HashMap<String, Integer>();
+        this.limitCard = new HashMap<String, Integer>();
 
         setCardDictionary(0,0,2);
         setCardDictionary(1, 0, 6);
@@ -53,9 +53,6 @@ public class RandomCard{
 //        randResult = rand.nextInt(last-first+1)+first;
 //        System.out.print(randResult);
         randResult = collectLimit.get(index);
-        if(randResult==0){
-            randResult = 1;
-        }
         return randResult;
     }
     public Image getCard(int randResult)
@@ -116,14 +113,14 @@ public class RandomCard{
 
     public void setLimitCard(){
         // (idCard, amountInDeck)
-        limtCard.put("0", 6);
-        limtCard.put("1", 2);
-        limtCard.put("2", 4);
-        limtCard.put("3", 3);
-        limtCard.put("4", 1);
-        limtCard.put("5", 3);
-        limtCard.put("6", 3);
-        limtCard.put("7", 1);
+        limitCard.put("0", 6);
+        limitCard.put("1", 2);
+        limitCard.put("2", 4);
+        limitCard.put("3", 3);
+        limitCard.put("4", 1);
+        limitCard.put("5", 3);
+        limitCard.put("6", 3);
+        limitCard.put("7", 1);
     }
 
     public void generateRandomLimit(){
@@ -131,7 +128,7 @@ public class RandomCard{
 //        int count = 0;
 //        while(count<23){
 //            numGenLimit = generateRandom(1, 7);
-//            if (countInArray(countCardGenLimit, numGenLimit) < limtCard.get(numGenLimit+"")) {
+//            if (countInArray(countCardGenLimit, numGenLimit) < limitCard.get(numGenLimit+"")) {
 //                countCardGenLimit[count] = numGenLimit;
 //                count++;
 //            }
@@ -156,7 +153,7 @@ public class RandomCard{
     }
 
     public void addCollectAllCard(int num){
-        for(int i=0; i<limtCard.get(num+"");i++){
+        for(int i=0; i<limitCard.get(num+"");i++){
             collectLimit.add(num);
         }
     }

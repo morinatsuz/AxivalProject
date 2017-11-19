@@ -71,7 +71,7 @@ public class UIplay implements Screen {
         nextPhaseImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                screenPlay.editStatusPhase(3, 0, 1);
+                screenPlay.editStatusPhase(6, 0, 1);
                 endGameCutIn();
             }
             @Override
