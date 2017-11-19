@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.Arrays;
+
 public class Hero extends TextureAtlas {
     public enum State {STANDING, WALKING, LEFT, RIGHT, PAIN, DEAD}
     public int job;
@@ -41,6 +43,8 @@ public class Hero extends TextureAtlas {
 
     public boolean live = true;
     public int health;
+
+    private int countIn = 0;
 
     public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, String path, ScreenPlay screenPlay) {
         this.job = job;
@@ -99,6 +103,8 @@ public class Hero extends TextureAtlas {
             heroAnimation[2] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO2"));
             heroAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("stabO1"));
         }
+
+        //card ability define
         ability[4] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill0_Spritesheet/cd_skill0.atlas",
                 "cd0",0,0,0,true);
         ability[5] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.atlas",
@@ -277,22 +283,30 @@ public class Hero extends TextureAtlas {
             this.renderWalking();
         }
 
-        if(screenPlay.statusPhase[6]>0){
-            cardUsing = screenPlay.statusPhase[6]-1;
-        }
+        //use card active
 
-        if (cardUsing > -1 && skillUsing == -1 && elapsedTime < startTime +
-                ability[cardUsing].getSkillAction(1f).getAnimationDuration()
-                && live == true) {
-            game.batch.draw(ability[cardUsing+4].getSkillAction(1f).getKeyFrame(elapsedTime, true),
-                    board.map[(int)target.y][(int)target.x].corX,
-                    board.map[(int)target.y][(int)target.x].corY);
-            screenPlay.statusPhase[6] = 0;
-        }
-        else if (skillUsing == -1 && startTime + deltaTime <= elapsedTime && live == true){
-            cardUsing = -1;
-            attacking = false;
-        }
+        /*if(screenPlay.statusPhase[8]>0 && countIn==0) {
+            resetElapsedTime();
+            setStartTime();
+            cardUsing = screenPlay.statusPhase[8];
+            System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));*/
+           // screenPlay.statusPhase[8] = 0;
+            //System.out.println("cardUsing : " + cardUsing);
+        System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));
+            if (cardUsing > -1 && skillUsing == -1 && elapsedTime < startTime +
+                    ability[cardUsing].getSkillAction(1f).getAnimationDuration()
+                    && live == true) {
+                //cardUsing = screenPlay.statusPhase[8]-1;
+                //screenPlay.statusPhase[6] = 0;
+                game.batch.draw(ability[cardUsing+4].getSkillAction(1f).getKeyFrame(elapsedTime, true),
+                        board.map[(int) target.y][(int) target.x].corX,
+                        board.map[(int) target.y][(int) target.x].corY);
+                System.out.println("drw skill"+cardUsing);
+            } else if (skillUsing == -1 && startTime + deltaTime <= elapsedTime && live == true) {
+                cardUsing = -1;
+                attacking = false;
+            }
+        //}
 
         //Pain animation
 

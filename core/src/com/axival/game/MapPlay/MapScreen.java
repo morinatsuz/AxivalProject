@@ -459,7 +459,7 @@ public class MapScreen implements Screen {
 
         game.batch.end();
 
-        System.out.println("statusPhase loop"+ Arrays.toString(screenPlay.statusPhase));
+        //Sysstem.out.println("statusPhase loop"+ Arrays.toString(screenPlay.statusPhase));
     }
 
     @Override

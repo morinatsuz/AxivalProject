@@ -85,7 +85,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         //set parameter other class
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
-        this.cardAction = new CardAction(this, randomCard);
+        this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay, this);
         this.calculatorManager = new CalculatorManager(this, mapScreen);
@@ -355,17 +355,21 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
             }
-        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && statusPhase[6] == 1 ||
-                statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1) {
+
+
+        } else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && statusPhase[6]==1||
+                statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1
+                && statusPhase[8]>0) {
             mapScreen.player[mapScreen.idx].resetElapsedTime();
             mapScreen.player[mapScreen.idx].setStartTime();
-            mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
-            mapScreen.player[mapScreen.idx].cardUsing = chooseCard;
+            mapScreen.player[mapScreen.idx].skillUsing = statusPhase[8]+4; //chooseSkill
+            mapScreen.player[mapScreen.idx].cardUsing = statusPhase[8]; //chooseCard
             mapScreen.player[mapScreen.idx].attacking = true;
             System.out.println("cardUsing = " + mapScreen.player[mapScreen.idx].cardUsing);
+            //statusPhase[8] = 0;
 //            System.out.println("Kuy 0/0 left click");
 //            int k = 0/0;
-        }
+        }/*
         System.out.println("statusPhase = " + statusPhase[6] + " In screenPlay");
         if (statusPhase[6] == 1 || statusPhase[6] == 3) {
             if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) && mapScreen.player[mapScreen.idx].attacking == false) {
@@ -386,7 +390,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.player[mapScreen.idx].attacking = true;
 //                mapScreen.statusPhase[6] = 2;
             }
-        }
+        }*/
         return false;
     }
 
@@ -431,7 +435,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         statusPhase[5] = 0; //who's in turn
         statusPhase[6] = 0; //turn 0=draw, 1,3=action, 2=travel, 4=end
         statusPhase[7] = 0; //action start player default=0
-        statusPhase[8] = 0; //action attacker default=0
+        statusPhase[8] = -1; //action attacker default=0
         statusPhase[9] = 0; //action target default=0
         statusPhase[10] = 0; //Travel phase who default= -1
         statusPhase[11] = 0; //Travel phase to col default= -1
