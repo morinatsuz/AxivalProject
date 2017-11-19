@@ -65,19 +65,35 @@ public class UIplay implements Screen {
         defeatImg = new Image(new Texture("result/defeat.png"));
 
         //atk dff button
-        attackImg = new Image(new Texture("skill Icon/Attack button BW.jpg"));
-        defenceImg = new Image(new Texture("skill Icon/Defence button BW.jpg"));
-        attackOn = new Image(new Texture("skill Icon/Attack button.jpg"));
-        defenceOn = new Image(new Texture("skill Icon/Defence button.jpg"));
+        attackImg = new Image(new Texture("skill Icon/Attack BW.png"));
+        defenceImg = new Image(new Texture("skill Icon/Defence BW.png"));
+        attackOn = new Image(new Texture("skill Icon/Attack.png"));
+        defenceOn = new Image(new Texture("skill Icon/Defence.png"));
 
         //skill button
-        if(true){
-            skill01 = new Image(new Texture("skill Icon/Dark Templar/Fortify BW.jpg"));
-            skill02 = new Image(new Texture("skill Icon/Dark Templar/Sword of Aggression Bw.jpg"));
-            skill01on = new Image(new Texture("skill Icon/Dark Templar/Fortify.jpg"));
-            skill02on = new Image(new Texture("skill Icon/Dark Templar/Sword of Aggression.jpg"));
-            skill03 = new Image(new Texture("skill Icon/Defence button BW.jpg"));
-            skill03on = new Image(new Texture("skill Icon/Defence button.jpg"));
+        if(false){
+            skill01 = new Image(new Texture("skill Icon/DT_Fortify BW.png"));
+            skill02 = new Image(new Texture("skill Icon/DT_Sword of Aggression BW.png"));
+            skill01on = new Image(new Texture("skill Icon/DT_Fortify.png"));
+            skill02on = new Image(new Texture("skill Icon/DT_Sword of Aggression.png"));
+            skill03 = new Image(new Texture("skill Icon/DT_Blazing Destavation BW.png"));
+            skill03on = new Image(new Texture("skill Icon/DT_Blazing Destavation.png"));
+        }
+        else if(true){
+            skill01 = new Image(new Texture("skill Icon/W_Meteor BW.png"));
+            skill02 = new Image(new Texture("skill Icon/W_Mana BW.png"));
+            skill01on = new Image(new Texture("skill Icon/W_Meteor.png"));
+            skill02on = new Image(new Texture("skill Icon/W_Mana.png"));
+            skill03 = new Image(new Texture("skill Icon/W_Hurricane BW.png"));
+            skill03on = new Image(new Texture("skill Icon/W_Hurricane.png"));
+        }
+        else if(false){
+            skill01 = new Image(new Texture("skill Icon/P_Mercy BW.png"));
+            skill02 = new Image(new Texture("skill Icon/P_Cleansing Light BW.png"));
+            skill01on = new Image(new Texture("skill Icon/P_Mercy.png"));
+            skill02on = new Image(new Texture("skill Icon/P_Cleansing Light.png"));
+            skill03 = new Image(new Texture("skill Icon/P_Karma backfire BW.png"));
+            skill03on = new Image(new Texture("skill Icon/P_Karma backfire.png"));
         }
 
         victoryImg.setScale(.1f);
@@ -116,9 +132,9 @@ public class UIplay implements Screen {
         rightPlayerImg1.setPosition(878, 646);
         rightPlayerImg2.setPosition(1024,646);
 
-        skill01.setPosition(860+60,5);
+        skill01.setPosition(860+60,55);
         skill01.setScale(.1f);
-        skill02.setPosition(860+60, 55);
+        skill02.setPosition(860+60, 5);
         skill02.setScale(.1f);
         skill03.setPosition(860+110, 25);
         skill03.setScale(.1f);
@@ -203,7 +219,7 @@ public class UIplay implements Screen {
         screenPlay.stage.addActor(skill01);
         screenPlay.stage.addActor(skill02);
         screenPlay.stage.addActor(skill03);
-        screenPlay.stage.addActor(attackImg);
+        screenPlay.stage.addActor(attackOn);
         screenPlay.stage.addActor(defenceImg);
     }
 
