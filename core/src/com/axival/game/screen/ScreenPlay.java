@@ -518,7 +518,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     }
                     currentCard++;
                 }
-            }, 3, 2);
+            }, 1, 1);
         }
         else{
             if (currentCard<maxCard){
