@@ -24,7 +24,7 @@ public class CardPlay extends Game {
     public SpriteBatch batch;
 
     //main font
-    public BitmapFont bitmapFont;
+    //public BitmapFont bitmapFont;
 
     //Loading all assets in game
     public AssetManager assetManager;
@@ -44,8 +44,8 @@ public class CardPlay extends Game {
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         fadeScreenStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         batch = new SpriteBatch();
-        bitmapFont = new BitmapFont();
-        bitmapFont.setColor(Color.WHITE);
+        //bitmapFont = new BitmapFont();
+        //bitmapFont.setColor(Color.WHITE);
 
         //check memory
         javaFreeMem();
@@ -64,7 +64,7 @@ public class CardPlay extends Game {
         //dispose main
         fadeScreenStage.dispose();
         batch.dispose();
-        bitmapFont.dispose();
+        //bitmapFont.dispose();
         assetManager.dispose();
         this.getScreen().dispose();
     }

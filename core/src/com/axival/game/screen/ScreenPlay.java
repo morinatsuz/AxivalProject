@@ -157,7 +157,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         mapScreen.render(delta);
         cardPlay.batch.begin();
         uIplay.runningDraw();
-        cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
+        //cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
         prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();

@@ -43,10 +43,15 @@ public class UIplay implements Screen {
     private Sprite charFontMana1, charFontMana2, charFontMana3, charFontMana4;
     private Sprite charBackMana1, charBackMana2, charBackMana3, charBackMana4;
 
+    private int selectedHero;
+
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         //create construct
         this.cardPlay = cardPlay;
         this.screenPlay = screenPlay;
+
+        //hero select
+        selectedHero = 0;
 
         //set assets to variable
         overlayLBottom = new Texture("UI_Assets/Axival_UI_Assets/Overlay Bottom Left@1x.png");
@@ -84,7 +89,7 @@ public class UIplay implements Screen {
         defenceOn = new Image(new Texture("skill Icon/Defence.png"));
 
         //skill button
-        if(false){
+        if(selectedHero==0){
             skill01 = new Image(new Texture("skill Icon/DT_Fortify BW.png"));
             skill02 = new Image(new Texture("skill Icon/DT_Sword of Aggression BW.png"));
             skill01on = new Image(new Texture("skill Icon/DT_Fortify.png"));
@@ -92,7 +97,7 @@ public class UIplay implements Screen {
             skill03 = new Image(new Texture("skill Icon/DT_Blazing Destavation BW.png"));
             skill03on = new Image(new Texture("skill Icon/DT_Blazing Destavation.png"));
         }
-        else if(true){
+        else if(selectedHero==1){
             skill01 = new Image(new Texture("skill Icon/W_Meteor BW.png"));
             skill02 = new Image(new Texture("skill Icon/W_Mana BW.png"));
             skill01on = new Image(new Texture("skill Icon/W_Meteor.png"));
@@ -100,7 +105,7 @@ public class UIplay implements Screen {
             skill03 = new Image(new Texture("skill Icon/W_Hurricane BW.png"));
             skill03on = new Image(new Texture("skill Icon/W_Hurricane.png"));
         }
-        else if(false){
+        else if(selectedHero==2){
             skill01 = new Image(new Texture("skill Icon/P_Mercy BW.png"));
             skill02 = new Image(new Texture("skill Icon/P_Cleansing Light BW.png"));
             skill01on = new Image(new Texture("skill Icon/P_Mercy.png"));
@@ -170,7 +175,7 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(1);
+                skillCutIn(selectedHero);
 
             }
             @Override
@@ -190,7 +195,7 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(0);
+                skillCutIn(selectedHero);
 
             }
             @Override
@@ -210,7 +215,7 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(0);
+                skillCutIn(selectedHero);
 
             }
             @Override
@@ -234,27 +239,27 @@ public class UIplay implements Screen {
 
         //hero health max
         textBackhealth = new Sprite(backCount.findRegion(String.format("s%d", 25)));
-        textBackhealth.setPosition(42, 37);
+        textBackhealth.setPosition(45+10, 35-5);
         textBackhealth.setScale(0.4f);
         textFonthealth = new Sprite(fontCount.findRegion(String.format(2+"")));
 
         //hero class type
         textClass = new Sprite(classLabel.findRegion(String.format("cw")));
-        textClass.setPosition(-60, 21);
+        textClass.setPosition(-60-25, 23);
         textClass.setScale(0.3f);
 
         //hero health num
-        textFonthealth.setPosition(30, 37);
+        textFonthealth.setPosition(33+7, 35-5);
         textFonthealth.setScale(0.4f);
 
         //hero max ap
         textBackmana = new Sprite(backCount.findRegion(String.format("s%d", 25)));
-        textBackmana.setPosition(42, 1);
+        textBackmana.setPosition(45+10, 0-5);
         textBackmana.setScale(0.4f);
 
         //hero ap num
         textFontmana = new Sprite(fontCount.findRegion(String.format(5+"")));
-        textFontmana.setPosition(30, 1);
+        textFontmana.setPosition(33+7, 0-5);
         textFontmana.setScale(0.4f);
 
         //speed ap use
@@ -406,8 +411,8 @@ public class UIplay implements Screen {
         cardPlay.batch.draw(sword,1240,15, 26, 26);
         cardPlay.batch.draw(shield,1240,50, 20, 24);
         cardPlay.batch.draw(shoe,1240,85, 26, 24);
-        cardPlay.batch.draw(mana_left,10,25, 25, 25);
-        cardPlay.batch.draw(heart_left,10,70, 25, 25);
+        cardPlay.batch.draw(mana_left,22,15, 25, 24);
+        cardPlay.batch.draw(heart_left,22,50, 25, 21);
         cardPlay.batch.draw(Heart_colour,125,635, 13, 13);
         cardPlay.batch.draw(Mana_colour,200,635, 13, 13);
         cardPlay.batch.draw(Heart_colour,270,635, 13, 13);

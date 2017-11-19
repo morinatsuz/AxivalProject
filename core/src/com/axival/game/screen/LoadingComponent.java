@@ -83,7 +83,7 @@ public class LoadingComponent implements Screen {
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
             cardPlay.setScreen(new SelectHeroScreen(cardPlay));
             cardPlay.soundManager.playBgm(0);
-            cardPlay.fadeScreenStage.act(delta);
+            //cardPlay.fadeScreenStage.act(delta);
         }
     }
 
@@ -102,7 +102,7 @@ public class LoadingComponent implements Screen {
         shapeRenderer.end();
 
         cardPlay.batch.begin();
-        cardPlay.bitmapFont.draw(cardPlay.batch, "Screen : Loading", 20, 20);
+        //cardPlay.bitmapFont.draw(cardPlay.batch, "Screen : Loading", 20, 20);
         cardPlay.batch.end();
 
         //add new loading screen
