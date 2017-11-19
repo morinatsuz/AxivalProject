@@ -23,6 +23,8 @@ public class SelectHeroScreen implements Screen {
     private int selectHero;
 
     public SelectHeroScreen(final CardPlay cardPlay){
+        cardPlay.soundManager.stopBgm(4);
+        cardPlay.soundManager.playBgm(1);
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         Gdx.input.setInputProcessor(stage);

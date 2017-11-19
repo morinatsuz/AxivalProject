@@ -46,12 +46,7 @@ public class Menu implements Screen {
         prototypeM.start();
 
         //sound play bgm 0
-        if(cardPlay.soundManager.checkMusicStatusBgm(0)){
             cardPlay.soundManager.playBgm(0);
-        }
-        else {
-            cardPlay.soundManager.stopBgm(0);
-        }
 
         //check memory
         cardPlay.javaFreeMem();

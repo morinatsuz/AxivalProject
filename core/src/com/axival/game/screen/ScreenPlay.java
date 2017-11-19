@@ -96,6 +96,10 @@ public class ScreenPlay implements Screen, InputProcessor {
         //check memory
         cardPlay.javaFreeMem();
 
+        //play bgm 2
+        cardPlay.soundManager.stopBgm(1);
+        cardPlay.soundManager.playBgm(2);
+
         //statusPhase[0] = 0;
         System.out.println("statusPhase"+ Arrays.toString(statusPhase));
     }

@@ -81,10 +81,11 @@ public class LoadingComponent implements Screen {
         //progress + (get-pro)*lerp
         progress = MathUtils.lerp(progress, cardPlay.assetManager.getProgress(), .1f);
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
-            cardPlay.setScreen(new SelectHeroScreen(cardPlay));
+            //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
             //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
             //cardPlay.setScreen(new TransitionScreen(cardPlay));
-            //cardPlay.fadeScreenStage.act(delta);
+            cardPlay.soundManager.playBgm(0);
+            cardPlay.fadeScreenStage.act(delta);
             //cardPlay.setScreen(new Menu(cardPlay));
         }
     }
@@ -221,9 +222,10 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("setting/setting.png", Texture.class);
 
         //loading bgm and sfx
+        /*
         cardPlay.assetManager.load("sound/bgm/bgChase.ogg", Music.class);
         cardPlay.assetManager.load("sound/bgm/bgFantasy.ogg", Music.class);
-        cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);*/
 
         //fade screen
         cardPlay.assetManager.load("tone/white.jpg", Texture.class);

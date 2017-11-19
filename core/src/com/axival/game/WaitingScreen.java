@@ -28,6 +28,8 @@ public class WaitingScreen implements Screen {
         textureAtlas = new TextureAtlas("waiting/wait.atlas");
         animationWaiting = new Animation<TextureRegion>(1f/20f, textureAtlas.getRegions());
         timePlay = 0;
+        cardPlay.soundManager.stopBgm(0);
+        cardPlay.soundManager.playBgm(4);
     }
 
     @Override
