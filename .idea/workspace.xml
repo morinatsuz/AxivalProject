@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a4ab49-14f9-4330-bbf4-782cd7f328c4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$2.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$3.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$4.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$5.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$6.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SelectHeroScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -28,11 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="122" column="34" lean-forward="false" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+            <state relative-caret-position="205">
+              <caret line="135" column="31" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectHeroScreen.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="111" column="89" lean-forward="false" selection-start-line="111" selection-start-column="89" selection-end-line="111" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -822,15 +840,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/desktop/src/com/axival/game/desktop/DesktopLauncher.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/RandomCard.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/MapScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" />
       </list>
     </option>
   </component>
@@ -882,6 +901,13 @@
               <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AxivalProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="hero-select" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AxivalProject" type="b2602c69:ProjectViewProjectNode" />
@@ -1089,7 +1115,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46820000" />
+    <option name="totallyTimeSpent" value="48623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="23" width="1440" height="787" extended-state="0" />
@@ -1394,14 +1420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill0_Spritesheet/cd_skill0.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1420,14 +1438,6 @@
     <entry file="file://$PROJECT_DIR$/core/assets/skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Navigator.java">
@@ -1470,14 +1480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1502,10 +1504,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="122" column="34" lean-forward="false" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+        <state relative-caret-position="205">
+          <caret line="135" column="31" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/assets/hero-select/Select bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="111" column="89" lean-forward="false" selection-start-line="111" selection-start-column="89" selection-end-line="111" selection-end-column="89" />
           <folding />
         </state>
       </provider>

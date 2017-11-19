@@ -18,7 +18,7 @@ public class SelectHeroScreen implements Screen {
 
     private Stage stage;
 
-    private Image darkTempImg, wizardImg, priestImg, darkTempOn, wizardOn, priestOn;
+    private Image darkTempImg, wizardImg, priestImg, darkTempOn, wizardOn, priestOn, textbg;
 
     private int selectHero;
 
@@ -34,10 +34,12 @@ public class SelectHeroScreen implements Screen {
         priestImg = new Image(cardPlay.assetManager.get("hero-select/Priest.jpg", Texture.class));
         priestOn = new Image(cardPlay.assetManager.get("hero-select/PriestHover.jpg", Texture.class));
 
-        darkTempImg.setScale(.172f);
-        darkTempImg.setPosition(0, 130);
-        darkTempOn.setScale(.172f);
-        darkTempOn.setPosition(0, 130);
+        this.textbg = new Image(new Texture("hero-select/Select bg.jpg"));
+
+        darkTempImg.setScale(.16f);
+        darkTempImg.setPosition(35, 40);
+        darkTempOn.setScale(.16f);
+        darkTempOn.setPosition(35, 40);
         darkTempImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -71,10 +73,10 @@ public class SelectHeroScreen implements Screen {
             }
         });
 
-        wizardImg.setScale(.172f);
-        wizardImg.setPosition(darkTempImg.getWidth()*.172f, 130);
-        wizardOn.setScale(.172f);
-        wizardOn.setPosition(darkTempImg.getWidth()*.172f, 130);
+        wizardImg.setScale(.16f);
+        wizardImg.setPosition(darkTempImg.getWidth()*.16f+45, 40);
+        wizardOn.setScale(.16f);
+        wizardOn.setPosition(darkTempImg.getWidth()*.16f+45, 40);
         wizardImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -106,10 +108,10 @@ public class SelectHeroScreen implements Screen {
             }
         });
 
-        priestImg.setScale(.172f);
-        priestImg.setPosition(wizardImg.getWidth()*.172f + darkTempImg.getWidth()*.172f, 130);
-        priestOn.setScale(.172f);
-        priestOn.setPosition(wizardImg.getWidth()*.172f + darkTempImg.getWidth()*.172f, 130);
+        priestImg.setScale(.16f);
+        priestImg.setPosition(wizardImg.getWidth()*.16f + darkTempImg.getWidth()*.16f +55, 40);
+        priestOn.setScale(.16f);
+        priestOn.setPosition(wizardImg.getWidth()*.16f + darkTempImg.getWidth()*.16f +55, 40);
         priestImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -141,6 +143,7 @@ public class SelectHeroScreen implements Screen {
             }
         });
 
+        stage.addActor(textbg);
         stage.addActor(priestImg);
         stage.addActor(wizardImg);
         stage.addActor(darkTempImg);
