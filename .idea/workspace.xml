@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a4ab49-14f9-4330-bbf4-782cd7f328c4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SettingScreen.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SettingScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SoundManager.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/SoundManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/Menu.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/Menu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/SettingScreen.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/SettingScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/SoundManager.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/SoundManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -50,8 +44,18 @@
       <file leaf-file-name="SelectHeroScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="123" column="49" lean-forward="false" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+            <state relative-caret-position="294">
+              <caret line="143" column="47" lean-forward="false" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="83" column="12" lean-forward="false" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -841,12 +845,12 @@
         <option value="$PROJECT_DIR$/core/src/com/axival/game/MapPlay/Hero.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/Menu.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/SettingScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/CardAction.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/ScreenPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/SoundManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" />
       </list>
     </option>
@@ -1134,7 +1138,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57436000" />
+    <option name="totallyTimeSpent" value="58192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="23" width="1440" height="787" extended-state="0" />
@@ -1499,14 +1503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="86" column="45" lean-forward="false" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1579,10 +1575,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="83" column="12" lean-forward="false" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="123" column="49" lean-forward="false" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+        <state relative-caret-position="294">
+          <caret line="143" column="47" lean-forward="false" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
           <folding />
         </state>
       </provider>

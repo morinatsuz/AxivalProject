@@ -50,12 +50,12 @@ public class SelectHeroScreen implements Screen {
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                darkTempOn.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                darkTempOn.addAction(Actions.sequence(Actions.fadeIn(0f)));
                 stage.addActor(darkTempOn);
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                darkTempImg.addAction(Actions.sequence(Actions.fadeIn(.6f)));
+                darkTempImg.addAction(Actions.sequence(Actions.fadeIn(0f)));
             }
         });
         darkTempOn.addListener(new ClickListener(){
@@ -63,6 +63,7 @@ public class SelectHeroScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 selectHero = 0;
                 cardPlay.setScreen(new ScreenPlay(cardPlay));
+                cardPlay.soundManager.playSfx(1);
                 System.out.println("Click selected");
             }
             @Override
@@ -71,7 +72,7 @@ public class SelectHeroScreen implements Screen {
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                darkTempOn.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor()));
+                darkTempOn.addAction(Actions.sequence(Actions.fadeOut(0f), Actions.removeActor()));
                 stage.addActor(darkTempImg);
             }
         });
@@ -88,12 +89,12 @@ public class SelectHeroScreen implements Screen {
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                wizardOn.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                wizardOn.addAction(Actions.sequence(Actions.fadeIn(0f)));
                 stage.addActor(wizardOn);
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                wizardImg.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                wizardImg.addAction(Actions.sequence(Actions.fadeIn(0f)));
             }
         });
         wizardOn.addListener(new ClickListener(){
@@ -108,7 +109,7 @@ public class SelectHeroScreen implements Screen {
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                wizardOn.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor()));
+                wizardOn.addAction(Actions.sequence(Actions.fadeOut(0f), Actions.removeActor()));
                 stage.addActor(wizardImg);
             }
         });
@@ -125,18 +126,19 @@ public class SelectHeroScreen implements Screen {
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                priestOn.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                priestOn.addAction(Actions.sequence(Actions.fadeIn(0f)));
                 stage.addActor(priestOn);
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                priestImg.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                priestImg.addAction(Actions.sequence(Actions.fadeIn(0f)));
             }
         });
         priestOn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 2;
+                cardPlay.soundManager.playSfx(1);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -144,7 +146,7 @@ public class SelectHeroScreen implements Screen {
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                priestOn.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor()));
+                priestOn.addAction(Actions.sequence(Actions.fadeOut(0f), Actions.removeActor()));
                 stage.addActor(priestImg);
             }
         });
