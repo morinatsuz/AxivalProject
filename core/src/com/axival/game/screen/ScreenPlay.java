@@ -85,7 +85,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         //set parameter other class
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
-        this.cardAction = new CardAction(this);
+        this.cardAction = new CardAction(this, cardPlay);
         this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay, this);
         this.calculatorManager = new CalculatorManager(this, mapScreen);

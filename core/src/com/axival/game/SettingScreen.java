@@ -79,7 +79,7 @@ public class SettingScreen implements Screen, InputProcessor {
         else {
             stage.addActor(imageOff1);
         }
-        if(cardPlay.soundManager.checkMusicStatusSfx(0)) {
+        if(cardPlay.soundManager.checkMusicStatusSfxAll()){
             stage.addActor(imageOn2);
         }
         else {
@@ -132,6 +132,7 @@ public class SettingScreen implements Screen, InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if(keycode== Input.Keys.ESCAPE){
+            cardPlay.soundManager.playSfx(0);
             cardPlay.setScreen(new Menu(cardPlay));
         }
         return false;

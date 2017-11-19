@@ -46,6 +46,7 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 0;
+                cardPlay.soundManager.playSfx(1);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -83,6 +84,7 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 1;
+                cardPlay.soundManager.playSfx(1);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -98,6 +100,7 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 1;
+                cardPlay.soundManager.playSfx(1);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -118,6 +121,7 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 2;
+                cardPlay.soundManager.playSfx(1);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){

@@ -12,12 +12,18 @@ public class SoundManager {
         this.musicCharacter = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/2.Character select - bgm (20sec).ogg"));
         this.musicGameplayNormal = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/3.Gameplay bgm(Witcher3).ogg"));
         this.musicGameplayCritical = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/4.Gameplay - Critical sound.ogg"));
-        this.fxClickCard = Gdx.audio.newMusic(Gdx.files.internal("sound/fx/Game play - click card.ogg"));
-        this.fxSelectCharacter = Gdx.audio.newMusic(Gdx.files.internal("sound/fx/select character - click card.ogg"));
-        this.fxSelected = Gdx.audio.newMusic(Gdx.files.internal("sound/fx/Select character - selected.ogg"));
+        this.fxClickCard = Gdx.audio.newMusic(Gdx.files.internal("sound/fx/Game play - click card.ogg")); //main click
+        this.fxSelectCharacter = Gdx.audio.newMusic(Gdx.files.internal("sound/fx/select character - click card.ogg")); //select card
+        this.fxSelected = Gdx.audio.newMusic(Gdx.files.internal("sound/fx/Select character - selected.ogg")); //count down
         this.musicVictory = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
         this.musicDefeate = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/5.Defeated - Ash - The Secession Studios (mp3cut.net).ogg"));
         this.musicLoading = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/Original - UI (mp3cut.net).ogg"));
+
+        musicMenu.setVolume(.2f);
+        musicCharacter.setVolume(.2f);
+        musicGameplayNormal.setVolume(.2f);
+        musicGameplayCritical.setVolume(.2f);
+        musicLoading.setVolume(6f);
     }
     public void playBgm(int statusSound){
         //status sound => 0=menu, 1=character, 2=gameplay1, 3=gameplay2
@@ -39,10 +45,10 @@ public class SoundManager {
                 musicLoading.setLooping(true);
             } else if (statusSound == 5) {
                 musicVictory.play();
-                musicVictory.setLooping(true);
+                //musicVictory.setLooping(true);
             } else if (statusSound == 6) {
                 musicDefeate.play();
-                musicDefeate.setLooping(true);
+                //musicDefeate.setLooping(true);
             }
         }
     }
@@ -180,6 +186,9 @@ public class SoundManager {
             return fxSelected.isPlaying();
         }
         return false;
+    }
+    public boolean checkMusicStatusSfxAll(){
+        return status2;
     }
     public boolean checkMusicStatusBgmAll(){
         //if(musicMenu.isPlaying()&&musicLoading.isPlaying()&&musicCharacter.isPlaying()&&mu)
