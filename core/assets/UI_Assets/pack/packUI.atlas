@@ -1,0 +1,62 @@
+
+packUI.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Action1
+  rotate: false
+  xy: 2, 62
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1
+Action2
+  rotate: false
+  xy: 406, 122
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1
+Chain
+  rotate: false
+  xy: 1284, 784
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1
+Draw
+  rotate: false
+  xy: 2, 2
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1
+End
+  rotate: false
+  xy: 406, 62
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1
+Normal
+  rotate: false
+  xy: 1284, 844
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1
+Overlay
+  rotate: false
+  xy: 2, 182
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+Travel
+  rotate: false
+  xy: 2, 122
+  size: 402, 58
+  orig: 402, 58
+  offset: 0, 0
+  index: -1

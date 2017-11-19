@@ -16,9 +16,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 public class UIplay implements Screen {
     //define variable
     private Texture overlayLBottom, overlayRButtom, leftPlayer1, leftPlayer2, rightPlayer1, rightPlayer2;
-    private Texture nextPhase, overlaybigbottom, overlaybigtop, mana_right, mana_left, sword, shoe, shield, skill, turn_line;
+    private Texture nextPhase, overlaybigbottom, overlaybigtop, mana_right, mana_left, sword, shoe, shield, myTurn, turn_line;
     private Texture Heart_colour, Mana_colour;
     private Texture heart_left;
+    private Image overlayBg;
 
     private ScreenPlay screenPlay;
     private CardPlay cardPlay;
@@ -34,7 +35,7 @@ public class UIplay implements Screen {
 
     private Image skill01, skill02, skill03, skill01on, skill02on, skill03on;
 
-    private TextureAtlas backCount, classLabel, fontCount;
+    private TextureAtlas backCount, classLabel, fontCount, packUi;
 
     private Sprite textBackhealth, textClass, textFonthealth, textBackmana, textFontmana, textSpeed, textAttack, textDefense;
     private Sprite textSpeed1, textAttack1, textDefense1;
@@ -44,6 +45,8 @@ public class UIplay implements Screen {
     private Sprite charBackMana1, charBackMana2, charBackMana3, charBackMana4;
 
     private int selectedHero;
+
+    private Image actionBar1, actionBar2, drawBar, travelBar, endBar, chainBar;
 
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         //create construct
@@ -72,6 +75,7 @@ public class UIplay implements Screen {
         turn_line = new Texture("UI_Assets/Axival_UI_Assets/Turn Line@1x.png");
         Heart_colour = new Texture("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png");
         Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
+        myTurn = new Texture("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png");
 
         //skill cut in load asset
         skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
@@ -372,7 +376,43 @@ public class UIplay implements Screen {
         charBackMana4.setPosition(1038+80, 624-11);
         charBackMana4.setScale(0.3f);
 
+        //create packUI to use top bar and overlay effect
+        packUi = new TextureAtlas("UI_Assets/pack/packUI.atlas");
+        actionBar1 = new Image(packUi.findRegion("Action1"));
+        actionBar2 = new Image(packUi.findRegion("Action2"));
+        travelBar = new Image(packUi.findRegion("Travel"));
+        drawBar = new Image(packUi.findRegion("Draw"));
+        endBar = new Image(packUi.findRegion("End"));
+        overlayBg = new Image(packUi.findRegion("Overlay"));
+        chainBar = new Image(packUi.findRegion("Chain"));
+
+        drawBar.setScale(.7f);
+        drawBar.setPosition(425, 670);
+        drawBar.setWidth(600);
+        drawBar.setHeight(55);
+        actionBar1.setScale(.7f);
+        actionBar1.setPosition(425, 670);
+        actionBar1.setWidth(600);
+        actionBar1.setHeight(55);
+        actionBar2.setScale(.7f);
+        actionBar2.setPosition(425, 670);
+        actionBar2.setWidth(600);
+        actionBar2.setHeight(55);
+        travelBar.setScale(.7f);
+        travelBar.setPosition(425, 670);
+        travelBar.setWidth(600);
+        travelBar.setHeight(55);
+        endBar.setScale(.7f);
+        endBar.setPosition(425, 670);
+        endBar.setWidth(600);
+        endBar.setHeight(55);
+        chainBar.setScale(.7f);
+        chainBar.setPosition(425, 670);
+        chainBar.setWidth(600);
+        chainBar.setHeight(55);
+
         //add actor to stage
+        //screenPlay.stage.addActor(overlayBg);
         screenPlay.stage.addActor(nextPhaseImg);
         screenPlay.stage.addActor(leftPlayerImg1);
         screenPlay.stage.addActor(leftPlayerImg2);
@@ -383,6 +423,7 @@ public class UIplay implements Screen {
         screenPlay.stage.addActor(skill03);
         screenPlay.stage.addActor(attackOn);
         screenPlay.stage.addActor(defenceImg);
+        //screenPlay.stage.addActor(drawBar);
     }
 
     public void render(){
@@ -399,6 +440,26 @@ public class UIplay implements Screen {
 
     //draw assets
     public void runningDraw(){
+        if(screenPlay.statusPhase[6]==0){
+            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(drawBar);
+        }
+        else if(screenPlay.statusPhase[6]==1){
+            drawBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(actionBar1);
+        }
+        else if(screenPlay.statusPhase[6]==2){
+            actionBar1.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(travelBar);
+        }
+        else if(screenPlay.statusPhase[6]==3){
+            travelBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(actionBar2);
+        }
+        else if(screenPlay.statusPhase[6]==4){
+            actionBar2.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(endBar);
+        }
         cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
         cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
         cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);
@@ -406,8 +467,8 @@ public class UIplay implements Screen {
         cardPlay.batch.draw(mana_right,1100,15, 14, 14);
         cardPlay.batch.draw(mana_right,1100,50, 14, 14);
         cardPlay.batch.draw(mana_right,1100,85, 14, 14);
-        cardPlay.batch.draw(turn_line, 435, 670);
-        cardPlay.batch.draw(turn_line, 435, 690);
+        //cardPlay.batch.draw(turn_line, 435, 670);
+        //cardPlay.batch.draw(turn_line, 435, 690);
         cardPlay.batch.draw(sword,1240,15, 26, 26);
         cardPlay.batch.draw(shield,1240,50, 20, 24);
         cardPlay.batch.draw(shoe,1240,85, 26, 24);
@@ -422,6 +483,19 @@ public class UIplay implements Screen {
         cardPlay.batch.draw(Heart_colour,1038,635, 13, 13);
         cardPlay.batch.draw(Mana_colour,1108,635, 13, 13);
 
+        //pointer in turn
+        if(false) {
+            cardPlay.batch.draw(myTurn, 180, 646 + 63);
+        }
+        else if(false) {
+            cardPlay.batch.draw(myTurn, 320, 646 + 63);
+        }
+        else if(false) {
+            cardPlay.batch.draw(myTurn, 950, 646 + 63);
+        }
+        else if(true) {
+            cardPlay.batch.draw(myTurn, 1090, 646 + 63);
+        }
         //draw status in game
         textBackhealth.draw(cardPlay.batch);
         textClass.draw(cardPlay.batch);
