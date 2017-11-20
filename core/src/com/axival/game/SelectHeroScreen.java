@@ -1,5 +1,6 @@
 package com.axival.game;
 
+import com.axival.Network.Packets;
 import com.axival.game.screen.ScreenPlay;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -12,17 +13,21 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.esotericsoftware.kryonet.Client;
 
 public class SelectHeroScreen implements Screen {
+    private Client client;
+
     private CardPlay cardPlay;
 
     private Stage stage;
 
     private Image darkTempImg, wizardImg, priestImg, darkTempOn, wizardOn, priestOn;
 
-    private int selectHero;
+    private int selectHero = -1;
 
-    public SelectHeroScreen(final CardPlay cardPlay){
+    public SelectHeroScreen(final CardPlay cardPlay,final Client client){
+        this.client = client;
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         Gdx.input.setInputProcessor(stage);
@@ -42,6 +47,7 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 0;
+
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -57,6 +63,13 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 selectHero = 0;
+
+//                Packets.BufferPlayerClass playerClass = new Packets.BufferPlayerClass();
+//                playerClass.heroSelect = selectHero;
+//                System.out.println("Test");
+//                client.sendTCP(playerClass);
+//                System.out.println("Class send");
+
                 cardPlay.setScreen(new ScreenPlay(cardPlay));
                 System.out.println("Click selected");
             }
