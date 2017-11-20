@@ -5,6 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -22,6 +25,12 @@ public class SelectHeroScreen implements Screen {
 
     private int selectHero;
 
+    private Animation<TextureRegion> countdown;
+
+    private TextureAtlas countdownAtlas;
+
+    private float countdownPlay=20f;
+
     public SelectHeroScreen(final CardPlay cardPlay){
         cardPlay.soundManager.stopBgm(4);
         cardPlay.soundManager.playBgm(1);
@@ -37,6 +46,9 @@ public class SelectHeroScreen implements Screen {
         priestOn = new Image(cardPlay.assetManager.get("hero-select/PriestHover.jpg", Texture.class));
 
         this.textbg = new Image(new Texture("hero-select/Select bg.jpg"));
+
+        countdownAtlas = cardPlay.assetManager.get("hero-select/count/countdown.atlas", TextureAtlas.class);
+        countdown = new Animation<TextureRegion>(1f, countdownAtlas.getRegions());
 
         darkTempImg.setScale(.16f);
         darkTempImg.setPosition(35, 40);
@@ -164,11 +176,19 @@ public class SelectHeroScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        countdownPlay -= delta;
         Gdx.gl.glClearColor(.25f, .25f, .25f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         update(delta);
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
         stage.draw();
+        cardPlay.batch.begin();
+        cardPlay.batch.draw(countdown.getKeyFrame(countdownPlay, false), 1170, 625);
+        cardPlay.batch.end();
+        System.out.println(countdownPlay);
+        if(countdownPlay<=0){
+            cardPlay.setScreen(new ScreenPlay(cardPlay));
+        }
     }
 
     public void update(float delta){

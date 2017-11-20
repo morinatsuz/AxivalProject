@@ -72,7 +72,7 @@ public class LoadingComponent implements Screen {
         stage.addActor(loadingFrame);
         stage.addActor(logo);
         queueAssets();
-        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "menu", 1);
+        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "select", 1);
     }
 
     private void update(float delta){
@@ -223,6 +223,7 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("hero-select/MageHover.jpg", Texture.class);
         cardPlay.assetManager.load("hero-select/Priest.jpg", Texture.class);
         cardPlay.assetManager.load("hero-select/PriestHover.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/count/countdown.atlas", TextureAtlas.class);
 
         //loading bgm and sfx
         /*cardPlay.assetManager.load("sound/bgm/1.Menu bgm.ogg", Music.class);
