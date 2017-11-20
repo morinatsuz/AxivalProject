@@ -60,7 +60,6 @@ public class FadeScence {
         cardPlay.fadeScreenStage.addActor(image);
     }
 
-
     public void screenfadeOut(Image image, int color){
         image.setPosition(0,0);
         //image.setColor(1,1,1,1);

@@ -132,7 +132,7 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 screenPlay.editStatusPhase(6, 0, 1);
-                endGameCutIn();
+                StatusAxival.statusPhase[6] += 1;
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -298,22 +298,22 @@ public class UIplay implements Screen {
         textDefense1.setScale(0.4f);
 
         //player 1  health
-        charFontHeal1 = new Sprite(fontCount.findRegion(String.format(14+"")));
+        charFontHeal1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][0]+"")));
         charFontHeal1.setPosition(220-90, 624-11);
         charFontHeal1.setScale(0.3f);
 
         //player 2 health
-        charFontHeal2 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontHeal2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][0]+"")));
         charFontHeal2.setPosition(360-90, 624-11);
         charFontHeal2.setScale(0.3f);
 
         //player 3 health
-        charFontHeal3 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontHeal3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][0]+"")));
         charFontHeal3.setPosition(808+90, 624-11);
         charFontHeal3.setScale(0.3f);
 
         //player 4 health
-        charFontHeal4 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontHeal4 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[3][0]+"")));
         charFontHeal4.setPosition(950+90, 624-11);
         charFontHeal4.setScale(0.3f);
 
@@ -338,22 +338,22 @@ public class UIplay implements Screen {
         charBackHeal4.setScale(0.3f);
 
         //player 1 mana
-        charFontMana1 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontMana1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][1]+"")));
         charFontMana1.setPosition(292-90, 624-11);
         charFontMana1.setScale(0.3f);
 
         //player 2 mana
-        charFontMana2 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontMana2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][1]+"")));
         charFontMana2.setPosition(430-90, 624-11);
         charFontMana2.setScale(0.3f);
 
         //player 3 mana
-        charFontMana3 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontMana3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][1]+"")));
         charFontMana3.setPosition(878+80, 624-11);
         charFontMana3.setScale(0.3f);
 
         //player 4 mana
-        charFontMana4 = new Sprite(fontCount.findRegion(String.format(1+"")));
+        charFontMana4 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[3][1]+"")));
         charFontMana4.setPosition(1028+80, 624-11);
         charFontMana4.setScale(0.3f);
 
@@ -440,28 +440,32 @@ public class UIplay implements Screen {
 
     //draw assets
     public void runningDraw(){
-        if(screenPlay.statusPhase[6]%6==0){
+        if(StatusAxival.statusPhase[6]==0){
             chainBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(drawBar);
         }
-        else if(screenPlay.statusPhase[6]==1){
+        else if(StatusAxival.statusPhase[6]==1){
             drawBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar1);
         }
-        else if(screenPlay.statusPhase[6]==2){
+        else if(StatusAxival.statusPhase[6]==2){
             actionBar1.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(travelBar);
         }
-        else if(screenPlay.statusPhase[6]==3){
+        else if(StatusAxival.statusPhase[6]==3){
             travelBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar2);
         }
-        else if(screenPlay.statusPhase[6]==4){
+        else if(StatusAxival.statusPhase[6]==4){
             actionBar2.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(endBar);
         }
-        else if(screenPlay.statusPhase[6]==5){
+        else if(StatusAxival.statusPhase[6]==5){
             endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(chainBar);
+        }
+        else if(StatusAxival.statusPhase[6]==5){
+            chainBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(chainBar);
         }
         cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
@@ -503,6 +507,7 @@ public class UIplay implements Screen {
         else if(true) {
             cardPlay.batch.draw(myTurn, 1090, 646 + 63);
         }
+
         //draw status in game
         textBackhealth.draw(cardPlay.batch);
         textClass.draw(cardPlay.batch);

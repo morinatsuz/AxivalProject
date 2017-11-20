@@ -55,7 +55,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     private long startTime = 0;
     private int countInLoop = 0;
 
-    private CalculatorManager calculatorManager;
+    private StatusAxival statusAxival;
 
     private int chooseAction = -1;
 
@@ -88,7 +88,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         this.cardAction = new CardAction(this, cardPlay);
         this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay, this);
-        this.calculatorManager = new CalculatorManager(this, mapScreen);
+        //this.statusAxival = new StatusAxival(this, mapScreen);
 
         //check phase
         phaseAll();
@@ -289,10 +289,10 @@ public class ScreenPlay implements Screen, InputProcessor {
         }
         if (keycode == Input.Keys.TAB) {
             System.out.println("Change to next phase");
-            if (mapScreen.statusPhase[6] == 1) {
-                mapScreen.statusPhase[6] = 2;
+            if (StatusAxival.statusPhase[6] == 1) {
+                StatusAxival.statusPhase[6] = 2;
             } else {
-                mapScreen.statusPhase[6] = 1;
+                StatusAxival.statusPhase[6] = 1;
             }
 
         }
@@ -347,7 +347,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         mapScreen.player[mapScreen.idx].setTarget(new Vector2(x, y));
 
         //prepare the variables for walking
-        if (mapScreen.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
+        if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
                 mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
@@ -360,11 +360,11 @@ public class ScreenPlay implements Screen, InputProcessor {
             }
 
         }
-        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In ScreenPlay");
+        System.out.println("statusPhase = " + StatusAxival.statusPhase[6] + " In ScreenPlay");
         Vector2 vec = mapScreen.player[mapScreen.idx].getRowCol();
         float corX = vec.x;
         float corY = vec.y;
-        if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
+        if (StatusAxival.statusPhase[6] == 1 || StatusAxival.statusPhase[6] == 3) {
             LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, mapScreen.player[mapScreen.idx].job, vec);
             LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
             LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
