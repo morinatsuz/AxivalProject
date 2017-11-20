@@ -131,8 +131,12 @@ public class UIplay implements Screen {
         nextPhaseImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                screenPlay.editStatusPhase(6, 0, 1);
                 StatusAxival.statusPhase[6] += 1;
+                if(StatusAxival.statusPhase[6]>4){
+                    StatusAxival.statusPhase[6] = 0;
+                }
+                screenPlay.phaseAll();
+                //System.out.println("nextPh : "+StatusAxival.statusPhase[6]);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -441,33 +445,35 @@ public class UIplay implements Screen {
     //draw assets
     public void runningDraw(){
         if(StatusAxival.statusPhase[6]==0){
-            chainBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            //System.out.println("Phase 1 active");
+            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
             screenPlay.stage.addActor(drawBar);
         }
         else if(StatusAxival.statusPhase[6]==1){
-            drawBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar1);
         }
         else if(StatusAxival.statusPhase[6]==2){
-            actionBar1.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(travelBar);
         }
         else if(StatusAxival.statusPhase[6]==3){
-            travelBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar2);
         }
         else if(StatusAxival.statusPhase[6]==4){
-            actionBar2.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(endBar);
+            endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
         }
-        else if(StatusAxival.statusPhase[6]==5){
-            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(chainBar);
-        }
-        else if(StatusAxival.statusPhase[6]==5){
-            chainBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(chainBar);
-        }
+        /*else if(StatusAxival.statusPhase[6]==5){
+            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
+            screenPlay.stage.addActor(drawBar);
+        }*/
         cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
         cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
         cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);

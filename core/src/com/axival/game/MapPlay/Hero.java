@@ -231,8 +231,8 @@ public class Hero extends TextureAtlas {
             multiplier = 1;
         }
         if (job == 1) {
-            System.out.println("-1 < " + actionUsing + " < 4 ");
-            System.out.println("Attacking = " + attacking + " Carding = " + carding + " Job = " + job);
+            //System.out.println("-1 < " + actionUsing + " < 4 ");
+            //System.out.println("Attacking = " + attacking + " Carding = " + carding + " Job = " + job);
         }
         //Playing Hero Skill Animation
         if (actionUsing > -1 && actionUsing < 4 && elapsedTime < startTime +
