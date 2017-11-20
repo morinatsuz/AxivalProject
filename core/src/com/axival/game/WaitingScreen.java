@@ -29,7 +29,7 @@ public class WaitingScreen implements Screen {
     private Animation<TextureRegion> animationWaiting;
     private float timePlay;
 
-    private boolean statusAlready;
+    public static boolean statusAlready;
 
     private TextureAtlas textureAtlas;
 
@@ -66,19 +66,17 @@ public class WaitingScreen implements Screen {
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         font.draw(cardPlay.batch, lobbyStatus, 635, 100);
         cardPlay.batch.end();
-        /*
-            if (statusAlready || timePlay > 5) {
-                timePlay = 0;
-                statusAlready = false;
+        if (statusAlready) {
+            timePlay = 0;
+            statusAlready = false;
                 //cardPlay.fadeScreenStage.act(delta);
                 //cardPlay.fadeScreenStage.draw();
-                fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
+                fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)),
                         "select", 0);
                 //cardPlay.fadeScreenStage.draw();
                 //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
-            }
-     */
-            cardPlay.fadeScreenStage.draw();
+        }
+        cardPlay.fadeScreenStage.draw();
     }
 
 

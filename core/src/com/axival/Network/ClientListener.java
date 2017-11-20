@@ -1,6 +1,7 @@
 package com.axival.Network;
 
 import com.axival.game.CardPlay;
+import com.axival.game.SelectHeroScreen;
 import com.axival.game.WaitingScreen;
 import com.axival.game.fade.FadeScence;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,7 +17,7 @@ public class ClientListener extends Listener {
     private Client client;
     private CardPlay cardPlay;
 
-    private boolean connected;
+    public boolean connected;
 
     public ClientListener(FadeScence fadeScence){
         this.fadeScence = fadeScence;
@@ -57,7 +58,8 @@ public class ClientListener extends Listener {
         playerData.playerName = "Ton";
         client.sendTCP(playerData);
         System.out.println("Player data sended");
-        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "select", 0);
+        WaitingScreen.statusAlready = true;
+        System.out.println("Connected is true");
     }
 
     }
