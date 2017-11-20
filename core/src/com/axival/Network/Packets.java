@@ -12,6 +12,10 @@ public class Packets {
 
     }
 
+    public static class BufferGoSelectChar{
+        String teamWith;
+    }
+
     public static class BufferLobbyPlayer{
         Integer playerCount;
     }
@@ -21,6 +25,7 @@ public class Packets {
         public String playerName;
         public String playerTeam;
         public Integer playerClass;
+
     }
 
     public static class BufferPhasePlay{
