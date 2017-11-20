@@ -12,23 +12,20 @@ public class Packets {
 
     }
 
+    public static class BufferGoSelectChar{
+        String teamWith;
+    }
+
     public static class BufferLobbyPlayer{
         Integer playerCount;
     }
 
     public static class BufferPlayerData{
-        Integer playerNo;
-        String playerName;
-        String playerTeam;
-        Integer playerClass;
-    }
+        public Integer playerNo;
+        public String playerName;
+        public String playerTeam;
+        public Integer playerClass;
 
-    public static class BufferGoSelectChar{
-        String teamWith;
-    }
-
-    public static class BufferStartGame{
-        Array startArray;
     }
 
     public static class BufferPhasePlay{

@@ -88,7 +88,7 @@ public class Menu implements Screen {
                 //cardPlay.setScreen(new ScreenPlay(cardPlay));
                 stage.getRoot().setColor(.2f, 1, 1, 1);
                 stage.getRoot().addAction(Actions.sequence(Actions.parallel(Actions.fadeOut(1f), Actions.scaleTo(.1f, .1f, 1f))));
-                Gdx.input.getTextInput(listener, "Network IP Address", "Please Input your Network IP Address", "192.168.1.0");
+                Gdx.input.getTextInput(listener, "Please insert your Server's IP", "", "192.168.1.0");
                 //cardPlay.setScreen(new WaitingScreen(cardPlay));
                 return true;
             }

@@ -39,6 +39,7 @@ public class ClientListener extends Listener {
     public void received(Connection c, Object o) {
 
     if (o instanceof Packets.BufferLobbyPlayer){
+        WaitingScreen.statusConnected = true;
         WaitingScreen.lobbyStatus = "Waiting for player (" + ((Packets.BufferLobbyPlayer) o).playerCount + "/4)";
     }
 
@@ -50,7 +51,8 @@ public class ClientListener extends Listener {
 //        }
 //    }
     if (o instanceof Packets.BufferGoSelectChar){
-
+        WaitingScreen.statusAlready = true;
+        SelectHeroScreen.friendName = ((Packets.BufferGoSelectChar) o).teamWith;
     }
 
     if (o instanceof Packets.BufferRequestPlayerData){
@@ -59,7 +61,7 @@ public class ClientListener extends Listener {
         playerData.playerName = "Ton";
         client.sendTCP(playerData);
         System.out.println("Player data sended");
-        WaitingScreen.statusAlready = true;
+
         System.out.println("Connected is true");
     }
 
