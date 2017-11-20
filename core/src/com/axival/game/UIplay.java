@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class UIplay implements Screen {
     //define variable
-    private Texture overlayLBottom, overlayRButtom, leftPlayer1, leftPlayer2, rightPlayer1, rightPlayer2;
+    private Texture overlayLBottom, overlayRButtom, leftPlayer1, leftPlayer2, rightPlayer1, rightPlayer2, arrow;
     private Texture nextPhase, overlaybigbottom, overlaybigtop, mana_right, mana_left, sword, shoe, shield, myTurn, turn_line;
     private Texture Heart_colour, Mana_colour;
     private Texture heart_left;
@@ -76,6 +76,7 @@ public class UIplay implements Screen {
         Heart_colour = new Texture("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png");
         Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
         myTurn = new Texture("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png");
+        arrow = new Texture("UI_Assets/Axival_UI_Assets/arrow.png");
 
         //skill cut in load asset
         skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
@@ -472,6 +473,9 @@ public class UIplay implements Screen {
         cardPlay.batch.draw(mana_right,1100,85, 14, 14);
         //cardPlay.batch.draw(turn_line, 435, 670);
         //cardPlay.batch.draw(turn_line, 435, 690);
+        cardPlay.batch.draw(arrow, 1140, 69, 50, 50);
+        cardPlay.batch.draw(arrow, 1140, 34, 50, 50);
+        cardPlay.batch.draw(arrow, 1140, -1, 50, 50);
         cardPlay.batch.draw(sword,1240,15, 26, 26);
         cardPlay.batch.draw(shield,1240,50, 20, 24);
         cardPlay.batch.draw(shoe,1240,85, 26, 24);

@@ -39,11 +39,11 @@ public class CardPlay extends Game {
     public void create(){
         //create construct
         assetManager = new AssetManager();
-        soundManager = new SoundManager();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         fadeScreenStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         batch = new SpriteBatch();
+        soundManager = new SoundManager(this);
         //bitmapFont = new BitmapFont();
         //bitmapFont.setColor(Color.WHITE);
 

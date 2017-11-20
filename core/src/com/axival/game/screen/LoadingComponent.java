@@ -224,6 +224,18 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("hero-select/Priest.jpg", Texture.class);
         cardPlay.assetManager.load("hero-select/PriestHover.jpg", Texture.class);
 
+        //loading bgm and sfx
+        /*cardPlay.assetManager.load("sound/bgm/1.Menu bgm.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/2.Character select - bgm (20sec).ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/3.Gameplay bgm(Witcher3).ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/4.Gameplay - Critical sound.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Game play - click card.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/select character - click card.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Select character - selected.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/6.Victory BGM.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/5.Defeated - Ash - The Secession Studios (mp3cut.net).ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/Original - UI (mp3cut.net).ogg", Music.class);*/
+
         cardPlay.assetManager.finishLoading();
     }
 
