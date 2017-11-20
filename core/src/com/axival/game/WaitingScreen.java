@@ -57,30 +57,26 @@ public class WaitingScreen implements Screen {
     @Override
     public void render(float delta) {
         timePlay += delta;
-        Gdx.gl.glClearColor(1, 0,0, 0);
+        Gdx.gl.glClearColor(1, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         update(delta);
         cardPlay.batch.begin();
         //draw font
 
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
-        font.draw(cardPlay.batch,lobbyStatus, 635, 100);
+        font.draw(cardPlay.batch, lobbyStatus, 635, 100);
         cardPlay.batch.end();
-<<<<<<< HEAD
-        if (statusAlready){
-=======
-        if (statusAlready || timePlay>5){
->>>>>>> AssetManage
-            timePlay = 0;
-            statusAlready = false;
-            //cardPlay.fadeScreenStage.act(delta);
-            //cardPlay.fadeScreenStage.draw();
-            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
-                    "select", 0);
-            //cardPlay.fadeScreenStage.draw();
-            //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
-        }
-        cardPlay.fadeScreenStage.draw();
+            if (statusAlready || timePlay > 5) {
+                timePlay = 0;
+                statusAlready = false;
+                //cardPlay.fadeScreenStage.act(delta);
+                //cardPlay.fadeScreenStage.draw();
+                fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
+                        "select", 0);
+                //cardPlay.fadeScreenStage.draw();
+                //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
+            }
+            cardPlay.fadeScreenStage.draw();
     }
 
 

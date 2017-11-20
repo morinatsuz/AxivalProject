@@ -29,20 +29,16 @@ public class SelectHeroScreen implements Screen {
 
     private int selectHero = -1;
 
-<<<<<<< HEAD
-    public SelectHeroScreen(final CardPlay cardPlay,final Client client){
-        this.client = client;
-=======
     private Animation<TextureRegion> countdown;
 
     private TextureAtlas countdownAtlas;
 
     private float countdownPlay=20f;
 
-    public SelectHeroScreen(final CardPlay cardPlay){
+    public SelectHeroScreen(final CardPlay cardPlay, Client client){
         cardPlay.soundManager.stopBgm(4);
         cardPlay.soundManager.playBgm(1);
->>>>>>> AssetManage
+        this.client = client;
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         Gdx.input.setInputProcessor(stage);
@@ -67,11 +63,7 @@ public class SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 0;
-<<<<<<< HEAD
-
-=======
                 cardPlay.soundManager.playSfx(1);
->>>>>>> AssetManage
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
