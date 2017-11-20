@@ -20,6 +20,13 @@ public class Node extends Vector2 {
         this.obstacle = obstacle;
     }
 
+    public Vector2 getCoordinatiion() {
+        return new Vector2(corX, corY);
+    }
+    public Vector2 getRowCol() {
+        return new Vector2(col, row);
+    }
+
     public void setParent(int parentX, int parentY) {
         this.parentX = parentX;
         this.parentY = parentY;
@@ -35,6 +42,13 @@ public class Node extends Vector2 {
 
     public boolean isObstacle() {
         if (obstacle == 1 || obstacle == 2) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isObstacle(boolean bool) {
+        if (obstacle == 1) {
             return true;
         }
         return false;

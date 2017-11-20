@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
@@ -55,8 +56,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     private CalculatorManager calculatorManager;
 
-    private int chooseSkill = 0;
-    private int chooseCard = -1;
+    private int chooseAction = -1;
 
     public ScreenPlay(final CardPlay cardPlay){
         //set main render object and Input
@@ -82,7 +82,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay, this);
-        this.mapScreen = new MapScreen(this.cardPlay);
+        this.mapScreen = new MapScreen(this.cardPlay, this);
         this.calculatorManager = new CalculatorManager(this, mapScreen);
 
         //set value from network
@@ -158,7 +158,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void update(float delta)
     {
-        //mapScreen.update(delta);
+//        mapScreen.update(delta);
         stage.act(delta);
         prototype.update(delta);
     }
@@ -232,44 +232,39 @@ public class ScreenPlay implements Screen, InputProcessor {
         //Testing all animation
         if (keycode == Input.Keys.Q) {
             System.out.println("N.Atk is Activated");
-            chooseSkill = 0;
+            chooseAction = 0;
         }
         if (keycode == Input.Keys.W) {
             System.out.println("1st Skill is Activated");
-            chooseSkill = 1;
+            chooseAction = 1;
         }
         if (keycode == Input.Keys.E) {
             System.out.println("2nd Skill is Activated");
-            chooseSkill = 2;
+            chooseAction = 2;
         }
         if (keycode == Input.Keys.R) {
             System.out.println("3rd Skill is Activated");
-            chooseSkill = 3;
+            chooseAction = 3;
         }
         if (keycode == Input.Keys.Z) {
             System.out.println("Potion is Activated");
-            chooseSkill = 4;
-            chooseCard = 0;
+            chooseAction = 4;
         }
         if (keycode == Input.Keys.X) {
             System.out.println("Mega Potion is Activated");
-            chooseSkill = 5;
-            chooseCard = 1;
+            chooseAction = 5;
         }
         if (keycode == Input.Keys.C) {
             System.out.println("Shield is Activated");
-            chooseSkill = 6;
-            chooseCard = 2;
+            chooseAction = 6;
         }
         if (keycode == Input.Keys.V) {
             System.out.println("Super Armor is Activated");
-            chooseSkill = 7;
-            chooseCard = 3;
+            chooseAction = 7;
         }
         if (keycode == Input.Keys.B) {
             System.out.println("Thunder Bolt is Activated");
-            chooseSkill = 8;
-            chooseCard = 4;
+            chooseAction = 8;
         }
         if (keycode == Input.Keys.NUM_1) {
             System.out.println("Changed to 1st Player");
@@ -290,6 +285,15 @@ public class ScreenPlay implements Screen, InputProcessor {
         if (keycode == Input.Keys.NUM_5) {
             System.out.println("Commit Suicide");
             mapScreen.player[mapScreen.idx].health = -1;
+        }
+        if (keycode == Input.Keys.TAB) {
+            System.out.println("Change to next phase");
+            if (mapScreen.statusPhase[6] == 1) {
+                mapScreen.statusPhase[6] = 2;
+            }else {
+                mapScreen.statusPhase[6] = 1;
+            }
+
         }
         return false;
     }
@@ -321,18 +325,28 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        //Row Column of clicked block
         Vector2 rowcol = mapScreen.click.getRowCol(screenX, Math.abs(mapScreen.mapPixelHeight - screenY));
+
         List<Vector2> area = new LinkedList<Vector2>();
+
+        //List of Block that hero can reach.
         area.addAll(mapScreen.board.getOverlay(mapScreen.player[mapScreen.idx].col,
                 mapScreen.player[mapScreen.idx].row, mapScreen.player[mapScreen.idx].walk));
 
-        System.out.println("Mouse clicked!");
         float x = Gdx.input.getX();
         float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
+//        float x = screenX;
+//        float y = Math.abs(mapScreen.mapPixelHeight - screenY);
+
+        //Block that user clicked in Row Column
         Vector2 goal = mapScreen.click.getRowCol(x, y);
 
-        if (!mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() && mapScreen.walker.getRoute() == 0
-                && area.contains(rowcol) && mapScreen.statusPhase[6] == 2) {
+        //Set the Block Target that user clicked into Hero
+        mapScreen.player[mapScreen.idx].setTarget(new Vector2(x,y));
+
+        if (mapScreen.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
+                mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
                 mapScreen.path = new LinkedList<Vector2>();
@@ -342,36 +356,146 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
             }
+
         }
-        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In screenPlay");
+        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In ScreenPlay");
+        Vector2 vec = mapScreen.player[mapScreen.idx].getRowCol();
+        float corX = vec.x;
+        float corY = vec.y;
         if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
-            if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) && mapScreen.player[mapScreen.idx].attacking == false) {
-                System.out.println("Skill is used.");
-                mapScreen.player[mapScreen.idx].setTarget(goal);
-                if (goal.x < mapScreen.player[mapScreen.idx].col) {
-                    if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.RIGHT) == 0) {
-                        mapScreen.player[mapScreen.idx].facing = Hero.State.LEFT;
-                    }
-                } else {
-                    if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.LEFT) == 0) {
-                        mapScreen.player[mapScreen.idx].facing = Hero.State.RIGHT;
+            LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, mapScreen.player[mapScreen.idx].job, vec);
+            LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
+            LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
+            LinkedList<Vector2> enemey = new LinkedList<Vector2>();
+            for (Vector3 vec3: heroCoordinates) {
+                heroCoordinates2.add(new Vector2(vec3.y, vec3.z));
+                System.out.println("Hero Cooradiante = " + vec3);
+                if (mapScreen.idx != vec3.x && (mapScreen.idx%2 == 0) != (vec3.x%2 == 0)) {
+                    System.out.println("Enemy = " + vec3);
+                    enemey.add(new Vector2(vec3.y, vec3.z));
+                }
+            }
+            Hero player = mapScreen.player[mapScreen.idx];
+            boolean onlyYou = player.getRowCol().equals(goal);
+            boolean offend = enemey.contains(goal);
+            boolean inArea = skillOverlay.contains(goal);
+            boolean allHero = heroCoordinates2.contains(goal);
+            boolean beAlly = allHero && !offend;
+            int job = mapScreen.player[mapScreen.idx].job;
+
+
+            if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && !player.isHeroPlaying()
+                    && player.actionUsing == -1)
+            {
+                if (chooseAction > -1 && chooseAction < 4) { // p2
+                    //Use with all heroes except him/herself
+                    if (chooseAction == 3 && job == 3)
+                    {
+                        if (allHero && !onlyYou) {
+                            //handle health change calculate
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                    }//Use with ally only d1 w2 p1 p2 |  c0 c1 c2
+                    else if ((chooseAction == 1 && job ==1) || (chooseAction == 2 && job == 2)
+                            || (chooseAction == 1 && job == 3) || (chooseAction == 2 && job == 3))
+                    {
+                        if (chooseAction == 1 && job ==1 && allHero && !offend) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (chooseAction == 2 && job == 2 && onlyYou) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (chooseAction == 1 && job == 3 && allHero && !offend) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (chooseAction == 2 && job == 3 && onlyYou) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                    }//Use with enemies only
+                    else
+                    {
+                        if (offend) {
+                            if (chooseAction == 3 && job == 2) {
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                            }
+                            else {
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                            }
+
+                        }
                     }
                 }
-                mapScreen.player[mapScreen.idx].resetElapsedTime();
-                mapScreen.player[mapScreen.idx].setStartTime();
-                mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
-                mapScreen.player[mapScreen.idx].attacking = true;
-            }
-            if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.player[mapScreen.idx].skillUsing == -1) {
-                mapScreen.player[mapScreen.idx].resetElapsedTime();
-                mapScreen.player[mapScreen.idx].setStartTime();
-                mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
-                mapScreen.player[mapScreen.idx].cardUsing = chooseCard;
-                mapScreen.player[mapScreen.idx].attacking = true;
-                System.out.println("cardUsing = " + mapScreen.player[mapScreen.idx].cardUsing);
+                else if (chooseAction > 3 && chooseAction < 9)
+                {
+                 if (chooseAction == 4 && !offend && allHero) {
+                     playCardSkill(true);
+                 }
+                 else if (chooseAction == 5 && !offend && allHero) {
+                     heroFaceToTheRightSide(goal);
+                     playCardSkill(true);
+                 }
+                 else if (chooseAction == 6 && !offend && allHero) {
+                     heroFaceToTheRightSide(goal);
+                     playCardSkill(true);
+                 }
+                 else if (chooseAction == 7 && onlyYou) {
+                     heroFaceToTheRightSide(goal);
+                     playCardSkill(true);
+                 }
+                 else if (chooseAction == 8 && offend) {
+                     heroFaceToTheRightSide(goal);
+                     playCardSkill(true);
+                 }
+                }
+
             }
         }
         return false;
+    }
+
+    //play animation
+    private void playCardSkill(boolean bool) {
+        mapScreen.player[mapScreen.idx].resetElapsedTime();
+        mapScreen.player[mapScreen.idx].setStartTime();
+        mapScreen.player[mapScreen.idx].actionUsing = chooseAction;
+        if (bool) {
+            //PLay Card Animation
+            mapScreen.player[mapScreen.idx].setCarding(true);
+        }
+        else {
+            //Play Hero Skill Animation
+            mapScreen.player[mapScreen.idx].setAttacking(true);
+        }
+    }
+
+
+    public void heroFaceToTheRightSide(Vector2 goal) {
+        //Turn hero to right side that iser clicked
+        if (goal.x < mapScreen.player[mapScreen.idx].col) {
+            if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.RIGHT) == 0) {
+                mapScreen.player[mapScreen.idx].facing = Hero.State.LEFT;
+            }
+        } else {
+            if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.LEFT) == 0) {
+                mapScreen.player[mapScreen.idx].facing = Hero.State.RIGHT;
+            }
+        }
+    }
+
+    public int getIndexOfTarget(LinkedList<Vector3> heroes, Vector2 goal) {
+        for (Vector3 vec: heroes) {
+            if (new Vector2(vec.y, vec.z).equals(goal)) {
+                return (int)vec.x;
+            }
+        }
+        return 0;
     }
 
     @Override
@@ -536,5 +660,9 @@ public class ScreenPlay implements Screen, InputProcessor {
         pixmap.drawRectangle(0,0,1,1);
 
         return new Texture(pixmap);
+    }
+
+    public int getChooseAction() {
+        return chooseAction;
     }
 }
