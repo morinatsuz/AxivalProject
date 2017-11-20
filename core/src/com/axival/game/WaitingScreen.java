@@ -66,6 +66,7 @@ public class WaitingScreen implements Screen {
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         font.draw(cardPlay.batch, lobbyStatus, 635, 100);
         cardPlay.batch.end();
+        /*
             if (statusAlready || timePlay > 5) {
                 timePlay = 0;
                 statusAlready = false;
@@ -76,6 +77,7 @@ public class WaitingScreen implements Screen {
                 //cardPlay.fadeScreenStage.draw();
                 //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
             }
+     */
             cardPlay.fadeScreenStage.draw();
     }
 

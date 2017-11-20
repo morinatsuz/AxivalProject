@@ -57,6 +57,7 @@ public class ClientListener extends Listener {
         playerData.playerName = "Ton";
         client.sendTCP(playerData);
         System.out.println("Player data sended");
+        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "select", 0);
     }
 
     }
