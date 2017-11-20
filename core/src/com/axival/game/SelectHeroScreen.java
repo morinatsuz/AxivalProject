@@ -20,7 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.esotericsoftware.kryonet.Client;
 
-public class SelectHeroScreen implements Screen {
+public class  SelectHeroScreen implements Screen {
     private Client client;
 
     private CardPlay cardPlay;
