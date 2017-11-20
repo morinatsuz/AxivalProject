@@ -57,66 +57,66 @@ public class UIplay implements Screen {
         selectedHero = 0;
 
         //set assets to variable
-        overlayLBottom = new Texture("UI_Assets/Axival_UI_Assets/Overlay Bottom Left@1x.png");
-        overlayRButtom = new Texture("UI_Assets/Axival_UI_Assets/Overlay Bottom Right@1x.png");
-        leftPlayer1 = new Texture("UI_Assets/Axival_UI_Assets/Left Player 1@1x.png");
-        leftPlayer2 = new Texture("UI_Assets/Axival_UI_Assets/Left Player 2@1x.png");
-        rightPlayer1 = new Texture("UI_Assets/Axival_UI_Assets/Right Player 1@1x.png");
-        rightPlayer2 = new Texture("UI_Assets/Axival_UI_Assets/Right Player 2@1x.png");
-        nextPhase = new Texture("UI_Assets/Axival_UI_Assets/Next Phase Button@1x.png");
-        overlaybigbottom = new Texture("UI_Assets/Axival_UI_Assets/Overlay Big Bottom@1x.png");
-        overlaybigtop = new Texture("UI_Assets/Axival_UI_Assets/Overlay Big Top@1x.png");
-        mana_right = new Texture("UI_Assets/Axival_UI_Assets/Mana Icon Full Right Bottom@1x.png");
-        mana_left = new Texture("UI_Assets/Axival_UI_Assets/Mana Left Bottom@1x.png");
-        sword = new Texture("UI_Assets/Axival_UI_Assets/Sword Right Bottom@1x.png");
-        shield = new Texture("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png");
-        shoe = new Texture("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png");
-        heart_left = new Texture("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png");
-        turn_line = new Texture("UI_Assets/Axival_UI_Assets/Turn Line@1x.png");
-        Heart_colour = new Texture("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png");
-        Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
-        myTurn = new Texture("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png");
-        arrow = new Texture("UI_Assets/Axival_UI_Assets/arrow.png");
+        overlayLBottom = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Overlay Bottom Left@1x.png", Texture.class);
+        overlayRButtom = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Overlay Bottom Right@1x.png", Texture.class);
+        leftPlayer1 = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Left Player 1@1x.png", Texture.class);
+        leftPlayer2 = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Left Player 2@1x.png", Texture.class);
+        rightPlayer1 = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Right Player 1@1x.png", Texture.class);
+        rightPlayer2 = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Right Player 2@1x.png", Texture.class);
+        nextPhase = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Next Phase Button@1x.png", Texture.class);
+        overlaybigbottom = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Overlay Big Bottom@1x.png", Texture.class);
+        overlaybigtop = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Overlay Big Top@1x.png", Texture.class);
+        mana_right = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Mana Icon Full Right Bottom@1x.png", Texture.class);
+        mana_left = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Mana Left Bottom@1x.png", Texture.class);
+        sword = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Sword Right Bottom@1x.png", Texture.class);
+        shield = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png", Texture.class);
+        shoe = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png", Texture.class);
+        heart_left = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png", Texture.class);
+        turn_line = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Turn Line@1x.png", Texture.class);
+        Heart_colour = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png", Texture.class);
+        Mana_colour = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png", Texture.class);
+        myTurn = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png", Texture.class);
+        arrow = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/arrow.png", Texture.class);
 
         //skill cut in load asset
-        skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
-        skillCutInWizard = new Image(new Texture("skillCutin/Mage.png"));
-        skillCutInPriest = new Image(new Texture("skillCutin/Priest.png"));
+        skillCutInDark = new Image(cardPlay.assetManager.get("skillCutin/DarkTemp.png", Texture.class));
+        skillCutInWizard = new Image(cardPlay.assetManager.get("skillCutin/Mage.png", Texture.class));
+        skillCutInPriest = new Image(cardPlay.assetManager.get("skillCutin/Priest.png", Texture.class));
 
         //result game cut in load asset
-        victoryImg = new Image(new Texture("result/win.png"));
-        defeatImg = new Image(new Texture("result/defeat.png"));
+        victoryImg = new Image(cardPlay.assetManager.get("result/win.png", Texture.class));
+        defeatImg = new Image(cardPlay.assetManager.get("result/defeat.png", Texture.class));
 
         //atk dff button
-        attackImg = new Image(new Texture("skill Icon/Attack BW.png"));
-        defenceImg = new Image(new Texture("skill Icon/Defence BW.png"));
-        attackOn = new Image(new Texture("skill Icon/Attack.png"));
-        defenceOn = new Image(new Texture("skill Icon/Defence.png"));
+        attackImg = new Image(cardPlay.assetManager.get("skill Icon/Attack BW.png", Texture.class));
+        defenceImg = new Image(cardPlay.assetManager.get("skill Icon/Defence BW.png", Texture.class));
+        attackOn = new Image(cardPlay.assetManager.get("skill Icon/Attack.png", Texture.class));
+        defenceOn = new Image(cardPlay.assetManager.get("skill Icon/Defence.png", Texture.class));
 
         //skill button
         if(selectedHero==0){
-            skill01 = new Image(new Texture("skill Icon/DT_Fortify BW.png"));
-            skill02 = new Image(new Texture("skill Icon/DT_Sword of Aggression BW.png"));
-            skill01on = new Image(new Texture("skill Icon/DT_Fortify.png"));
-            skill02on = new Image(new Texture("skill Icon/DT_Sword of Aggression.png"));
-            skill03 = new Image(new Texture("skill Icon/DT_Blazing Destavation BW.png"));
-            skill03on = new Image(new Texture("skill Icon/DT_Blazing Destavation.png"));
+            skill01 = new Image(cardPlay.assetManager.get("skill Icon/DT_Fortify BW.png", Texture.class));
+            skill02 = new Image(cardPlay.assetManager.get("skill Icon/DT_Sword of Aggression BW.png", Texture.class));
+            skill01on = new Image(cardPlay.assetManager.get("skill Icon/DT_Fortify.png", Texture.class));
+            skill02on = new Image(cardPlay.assetManager.get("skill Icon/DT_Sword of Aggression.png", Texture.class));
+            skill03 = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation BW.png", Texture.class));
+            skill03on = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation.png", Texture.class));
         }
         else if(selectedHero==1){
-            skill01 = new Image(new Texture("skill Icon/W_Meteor BW.png"));
-            skill02 = new Image(new Texture("skill Icon/W_Mana BW.png"));
-            skill01on = new Image(new Texture("skill Icon/W_Meteor.png"));
-            skill02on = new Image(new Texture("skill Icon/W_Mana.png"));
-            skill03 = new Image(new Texture("skill Icon/W_Hurricane BW.png"));
-            skill03on = new Image(new Texture("skill Icon/W_Hurricane.png"));
+            skill01 = new Image(cardPlay.assetManager.get("skill Icon/W_Meteor BW.png", Texture.class));
+            skill02 = new Image(cardPlay.assetManager.get("skill Icon/W_Mana BW.png", Texture.class));
+            skill01on = new Image(cardPlay.assetManager.get("skill Icon/W_Meteor.png", Texture.class));
+            skill02on = new Image(cardPlay.assetManager.get("skill Icon/W_Mana.png", Texture.class));
+            skill03 = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane BW.png", Texture.class));
+            skill03on = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane.png", Texture.class));
         }
         else if(selectedHero==2){
-            skill01 = new Image(new Texture("skill Icon/P_Mercy BW.png"));
-            skill02 = new Image(new Texture("skill Icon/P_Cleansing Light BW.png"));
-            skill01on = new Image(new Texture("skill Icon/P_Mercy.png"));
-            skill02on = new Image(new Texture("skill Icon/P_Cleansing Light.png"));
-            skill03 = new Image(new Texture("skill Icon/P_Karma backfire BW.png"));
-            skill03on = new Image(new Texture("skill Icon/P_Karma backfire.png"));
+            skill01 = new Image(cardPlay.assetManager.get("skill Icon/P_Mercy BW.png", Texture.class));
+            skill02 = new Image(cardPlay.assetManager.get("skill Icon/P_Cleansing Light BW.png", Texture.class));
+            skill01on = new Image(cardPlay.assetManager.get("skill Icon/P_Mercy.png", Texture.class));
+            skill02on = new Image(cardPlay.assetManager.get("skill Icon/P_Cleansing Light.png", Texture.class));
+            skill03 = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire BW.png", Texture.class));
+            skill03on = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire.png", Texture.class));
         }
 
         //result game
@@ -238,9 +238,9 @@ public class UIplay implements Screen {
 
 
         //status game
-        backCount = new TextureAtlas("UI_Assets/backCount/backCount.atlas");
-        classLabel = new TextureAtlas("UI_Assets/classLabel/classLabel.atlas");
-        fontCount = new TextureAtlas("UI_Assets/fontCount/fontCount.atlas");
+        backCount = cardPlay.assetManager.get("UI_Assets/backCount/backCount.atlas", TextureAtlas.class);
+        classLabel = cardPlay.assetManager.get("UI_Assets/classLabel/classLabel.atlas", TextureAtlas.class);
+        fontCount = cardPlay.assetManager.get("UI_Assets/fontCount/fontCount.atlas", TextureAtlas.class);
 
         //hero health max
         textBackhealth = new Sprite(backCount.findRegion(String.format("s%d", 25)));
@@ -378,7 +378,7 @@ public class UIplay implements Screen {
         charBackMana4.setScale(0.3f);
 
         //create packUI to use top bar and overlay effect
-        packUi = new TextureAtlas("UI_Assets/pack/packUI.atlas");
+        packUi = cardPlay.assetManager.get("UI_Assets/pack/packUI.atlas", TextureAtlas.class);
         actionBar1 = new Image(packUi.findRegion("Action1"));
         actionBar2 = new Image(packUi.findRegion("Action2"));
         travelBar = new Image(packUi.findRegion("Travel"));
