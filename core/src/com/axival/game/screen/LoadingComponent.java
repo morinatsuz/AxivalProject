@@ -1,6 +1,7 @@
 package com.axival.game.screen;
 
 import com.axival.game.CardPlay;
+import com.axival.game.SelectHeroScreen;
 import com.axival.game.fade.FadeScence;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -45,9 +46,8 @@ public class LoadingComponent implements Screen {
         this.cardPlay = cardPlay;
         this.shapeRenderer = new ShapeRenderer();
         this.progress=0f;
+        this.percent=0f;
         this.fadeScence = new FadeScence(cardPlay);
-
-        queueAssets();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class LoadingComponent implements Screen {
         System.out.println("Loading");
         //add new loading screen
         stage = new Stage(new FillViewport(CardPlay.V_WIDTH,CardPlay.V_HEIGHT));
-        textureAtPack = cardPlay.assetManager.get("load/loading.pack", TextureAtlas.class);
+        textureAtPack = new TextureAtlas("load/loading.pack");
         logo = new Image(new Texture("load/logo3.png"));
         logo.setScale(.55f);
         loadingFrame = new Image(textureAtPack.findRegion("loading-frame"));
@@ -71,9 +71,8 @@ public class LoadingComponent implements Screen {
         stage.addActor(loadingBarHidden);
         stage.addActor(loadingFrame);
         stage.addActor(logo);
+        queueAssets();
         fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "menu", 1);
-        //cardPlay.screenfadeOut(new Image(new Texture("tone/black.jpg")));
-
     }
 
     private void update(float delta){
@@ -81,10 +80,8 @@ public class LoadingComponent implements Screen {
         progress = MathUtils.lerp(progress, cardPlay.assetManager.getProgress(), .1f);
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
             //cardPlay.setScreen(new ScreenPlay(cardPlay));
-            //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
-            //cardPlay.setScreen(new TransitionScreen(cardPlay));
+            cardPlay.soundManager.playBgm(0);
             cardPlay.fadeScreenStage.act(delta);
-            //cardPlay.setScreen(new Menu(cardPlay));
         }
     }
 
@@ -95,6 +92,7 @@ public class LoadingComponent implements Screen {
 
         update(delta);
 
+        //old loading screen
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.rect(32, cardPlay.camera.viewportHeight/2-8, (cardPlay.camera.viewportWidth-64),16);
@@ -103,15 +101,16 @@ public class LoadingComponent implements Screen {
         shapeRenderer.end();
 
         cardPlay.batch.begin();
-        cardPlay.bitmapFont.draw(cardPlay.batch, "Screen : Loading", 20, 20);
+        //cardPlay.bitmapFont.draw(cardPlay.batch, "Screen : Loading", 20, 20);
         cardPlay.batch.end();
 
         //add new loading screen
-        percent = Interpolation.linear.apply(percent, cardPlay.assetManager.getProgress(), 0.1f);
+        percent = MathUtils.lerp(percent, cardPlay.assetManager.getProgress(), .1f);
         loadingBarHidden.setX(startX + endX * percent);
         loadingBg.setX(loadingBarHidden.getX() + 30);
         loadingBg.setWidth(450 - 450 * percent);
         loadingBg.invalidate();
+
         // Show the loading screen
         stage.act();
         stage.draw();
@@ -146,6 +145,7 @@ public class LoadingComponent implements Screen {
         // Place the image that will hide the bar on top of the bar, adjusted a few px
         loadingBarHidden.setX(loadingBar.getX() + 35);
         loadingBarHidden.setY(loadingBar.getY() - 3);
+
         // The start position and how far to move the hidden loading bar
         startX = loadingBarHidden.getX();
         endX = 440;
@@ -168,7 +168,7 @@ public class LoadingComponent implements Screen {
 
     @Override
     public void hide() {
-
+        cardPlay.assetManager.unload("load/loading.pack");
     }
 
     @Override
@@ -177,22 +177,7 @@ public class LoadingComponent implements Screen {
     }
 
     private void queueAssets(){
-        /*
-        textureBg = new Texture("bg1.jpg");
-        logoMenu = new Image(new Texture("Main-Menu/Game Logo.png"));
-        logoMenu.setPosition(59, 630);
-        buttonImgPlay = new Image(new Texture("Main-Menu/Play.png"));
-        buttonImgPlay.setScale(.95f);
-        buttonImgPlay.setPosition(40, 15);
-        buttonImgSetting = new Image(new Texture("Main-Menu/Setting.png"));
-        buttonImgSetting.setScale(.95f);
-        buttonImgSetting.setPosition(620, 15);
-        buttonImgTutorial = new Image(new Texture("Main-Menu/Tutorial.png"));
-        buttonImgTutorial.setScale(.95f);
-        buttonImgTutorial.setPosition(390, 15);
-        buttonImgExit = new Image(new Texture("Main-Menu/Exit.png"));
-        buttonImgExit.setScale(.95f);
-         */
+
         //cardPlay.assetManager.load("card01.png", Texture.class);
         cardPlay.assetManager.load("cardani/001.png", Texture.class);
         cardPlay.assetManager.load("cardani/002.png", Texture.class);
@@ -202,7 +187,6 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("effect01.party", ParticleEffect.class);
 
         //loading Menu Component
-        //cardPlay.assetManager.load("bg1.jpg", Texture.class);
         cardPlay.assetManager.load("Main-Menu/Game Logo.png", Texture.class);
         cardPlay.assetManager.load("Main-Menu/Play.png", Texture.class);
         cardPlay.assetManager.load("Main-Menu/Setting.png", Texture.class);
@@ -220,9 +204,10 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("setting/setting.png", Texture.class);
 
         //loading bgm and sfx
+        /*
         cardPlay.assetManager.load("sound/bgm/bgChase.ogg", Music.class);
         cardPlay.assetManager.load("sound/bgm/bgFantasy.ogg", Music.class);
-        cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);*/
 
         //fade screen
         cardPlay.assetManager.load("tone/white.jpg", Texture.class);
@@ -238,6 +223,80 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("hero-select/MageHover.jpg", Texture.class);
         cardPlay.assetManager.load("hero-select/Priest.jpg", Texture.class);
         cardPlay.assetManager.load("hero-select/PriestHover.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/count/countdown.atlas", TextureAtlas.class);
+
+        //loading bgm and sfx
+        /*cardPlay.assetManager.load("sound/bgm/1.Menu bgm.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/2.Character select - bgm (20sec).ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/3.Gameplay bgm(Witcher3).ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/4.Gameplay - Critical sound.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Game play - click card.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/select character - click card.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Select character - selected.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/6.Victory BGM.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/5.Defeated - Ash - The Secession Studios (mp3cut.net).ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/Original - UI (mp3cut.net).ogg", Music.class);*/
+
+        //loading UI Assets
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Overlay Bottom Left@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Overlay Bottom Right@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Left Player 1@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Left Player 2@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Right Player 1@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Right Player 2@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Next Phase Button@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Overlay Big Bottom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Overlay Big Top@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Mana Icon Full Right Bottom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Mana Left Bottom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Sword Right Bottom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Turn Line@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/arrow.png", Texture.class);
+
+        cardPlay.assetManager.load("skillCutin/DarkTemp.png", Texture.class);
+        cardPlay.assetManager.load("skillCutin/Mage.png", Texture.class);
+        cardPlay.assetManager.load("skillCutin/Priest.png", Texture.class);
+
+        cardPlay.assetManager.load("result/win.png", Texture.class);
+        cardPlay.assetManager.load("result/defeat.png", Texture.class);
+
+        cardPlay.assetManager.load("skill Icon/Attack BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/Defence BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/Attack.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/Defence.png", Texture.class);
+
+        cardPlay.assetManager.load("skill Icon/DT_Fortify BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/DT_Sword of Aggression BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/DT_Fortify.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/DT_Sword of Aggression.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/DT_Blazing Destavation BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/DT_Blazing Destavation.png", Texture.class);
+
+        cardPlay.assetManager.load("skill Icon/W_Meteor BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/W_Mana BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/W_Meteor.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/W_Mana.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/W_Hurricane BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/W_Hurricane.png", Texture.class);
+
+        cardPlay.assetManager.load("skill Icon/P_Mercy BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/P_Cleansing Light BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/P_Mercy.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/P_Cleansing Light.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/P_Karma backfire BW.png", Texture.class);
+        cardPlay.assetManager.load("skill Icon/P_Karma backfire.png", Texture.class);
+
+        cardPlay.assetManager.load("UI_Assets/backCount/backCount.atlas", TextureAtlas.class);
+        cardPlay.assetManager.load("UI_Assets/classLabel/classLabel.atlas", TextureAtlas.class);
+        cardPlay.assetManager.load("UI_Assets/fontCount/fontCount.atlas", TextureAtlas.class);
+
+        cardPlay.assetManager.load("UI_Assets/pack/packUI.atlas", TextureAtlas.class);
 
         cardPlay.assetManager.finishLoading();
     }

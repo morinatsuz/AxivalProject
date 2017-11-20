@@ -40,7 +40,7 @@ public class SettingScreen implements Screen, InputProcessor {
                 @Override
                 public void clicked(InputEvent event, float x, float y){
                     imageOn1.addAction(Actions.sequence(Actions.removeActor()));
-                    cardPlay.soundManager.stopBgm(0);
+                    cardPlay.soundManager.stopBgmAll(true);
                     stage.addActor(imageOff1);
                     imageOff1.addAction(Actions.sequence(Actions.fadeIn(1f)));
                 }
@@ -49,6 +49,7 @@ public class SettingScreen implements Screen, InputProcessor {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 imageOff1.addAction(Actions.sequence(Actions.removeActor()));
+                cardPlay.soundManager.stopBgmAll(false);
                 cardPlay.soundManager.playBgm(0);
                 stage.addActor(imageOn1);
                 imageOn1.addAction(Actions.sequence(Actions.fadeIn(1f)));
@@ -58,7 +59,7 @@ public class SettingScreen implements Screen, InputProcessor {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 imageOn2.addAction(Actions.sequence(Actions.removeActor()));
-                cardPlay.soundManager.stopSfx(0);
+                cardPlay.soundManager.stopSfxAll(true);
                 stage.addActor(imageOff2);
                 imageOff2.addAction(Actions.sequence(Actions.fadeIn(1f)));
             }
@@ -67,7 +68,7 @@ public class SettingScreen implements Screen, InputProcessor {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 imageOff2.addAction(Actions.sequence(Actions.removeActor()));
-                //cardPlay.soundManager.playSfx(0);
+                cardPlay.soundManager.stopSfxAll(false);
                 stage.addActor(imageOn2);
                 imageOn2.addAction(Actions.sequence(Actions.fadeIn(1f)));
             }
@@ -78,7 +79,7 @@ public class SettingScreen implements Screen, InputProcessor {
         else {
             stage.addActor(imageOff1);
         }
-        if(cardPlay.soundManager.checkMusicStatusSfx(0)) {
+        if(cardPlay.soundManager.checkMusicStatusSfxAll()){
             stage.addActor(imageOn2);
         }
         else {
@@ -131,6 +132,7 @@ public class SettingScreen implements Screen, InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if(keycode== Input.Keys.ESCAPE){
+            cardPlay.soundManager.playSfx(0);
             cardPlay.setScreen(new Menu(cardPlay));
         }
         return false;

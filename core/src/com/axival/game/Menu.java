@@ -46,12 +46,7 @@ public class Menu implements Screen {
         prototypeM.start();
 
         //sound play bgm 0
-        if(cardPlay.soundManager.checkMusicStatusBgm(0)){
             cardPlay.soundManager.playBgm(0);
-        }
-        else {
-            cardPlay.soundManager.stopBgm(0);
-        }
 
         //check memory
         cardPlay.javaFreeMem();
@@ -89,6 +84,7 @@ public class Menu implements Screen {
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("Menu");
+                cardPlay.soundManager.playSfx(0);
                 //cardPlay.setScreen(new ScreenPlay(cardPlay));
                 stage.getRoot().setColor(.2f, 1, 1, 1);
                 stage.getRoot().addAction(Actions.sequence(Actions.parallel(Actions.fadeOut(1f), Actions.scaleTo(.1f, .1f, 1f))));
@@ -107,6 +103,7 @@ public class Menu implements Screen {
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("setting");
+                cardPlay.soundManager.playSfx(0);
                 cardPlay.setScreen(new SettingScreen(cardPlay));
                 return true;
             }
@@ -118,6 +115,7 @@ public class Menu implements Screen {
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("Exit");
+                cardPlay.soundManager.playSfx(0);
                 Gdx.app.exit();
                 return true;
             }
