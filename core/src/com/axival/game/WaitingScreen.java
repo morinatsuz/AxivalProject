@@ -64,7 +64,6 @@ public class WaitingScreen implements Screen {
         update(delta);
         cardPlay.batch.begin();
         //draw font
-
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         font.draw(cardPlay.batch, "/   " + lobbyStatus + ", Please wait...", 80, 80);
         font.draw(cardPlay.batch, "//   Connecting to Axival server on " + MyTextInputListener.networkId, 80, 55);

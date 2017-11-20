@@ -1,6 +1,7 @@
 package com.axival.game;
 
 import com.axival.game.fade.FadeScence;
+import com.axival.game.input.MyNameInputListener;
 import com.axival.game.input.MyTextInputListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -29,7 +30,8 @@ public class Menu implements Screen {
     private ParticleEffectPool pool;
     private Array<ParticleEffectPool.PooledEffect> effect;
 
-    private MyTextInputListener listener;
+    //private MyTextInputListener listener;
+    private MyNameInputListener nameListener;
     private FadeScence fadeScence;
 
     private int count=1;
@@ -48,13 +50,14 @@ public class Menu implements Screen {
         prototypeM.start();
 
         //sound play bgm 0
-            cardPlay.soundManager.playBgm(0);
+        cardPlay.soundManager.playBgm(0);
 
         //check memory
         cardPlay.javaFreeMem();
 
         //input dialog
-        this.listener = new MyTextInputListener(stage, cardPlay);
+        //this.listener = new MyTextInputListener(stage, cardPlay);
+        this.nameListener = new MyNameInputListener(stage, cardPlay);
 
         //TransitionScreen transitionScreen = new TransitionScreen(cardPlay);
         //transitionScreen.setWhiteStartFade();
@@ -96,7 +99,8 @@ public class Menu implements Screen {
                 //cardPlay.setScreen(new ScreenPlay(cardPlay));
                 stage.getRoot().setColor(.2f, 1, 1, 1);
                 stage.getRoot().addAction(Actions.sequence(Actions.parallel(Actions.fadeOut(1f), Actions.scaleTo(.1f, .1f, 1f))));
-                Gdx.input.getTextInput(listener, "Please insert your Server's IP", "", "192.168.1.0");
+                Gdx.input.getTextInput(nameListener, "Please insert your Name", "", "Joe");
+                //Gdx.input.getTextInput(listener, "Please insert your Server's IP", "", "192.168.1.0");
                 //cardPlay.setScreen(new WaitingScreen(cardPlay));
                 return true;
             }
@@ -166,7 +170,7 @@ public class Menu implements Screen {
         cardPlay.batch.end();
         stage.draw();
 
-        if (listener.getInput()!=null && count == 1){
+        if (MyTextInputListener.networkId!=null && count == 1){
             fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "wait", 0);
             count = 0;
             //cardPlay.setScreen(new WaitingScreen(cardPlay));
@@ -219,9 +223,10 @@ public class Menu implements Screen {
                         Actions.moveBy(0f, 600, 1f),
                         Actions.fadeOut(0.8f))));
 
+        /*
         stage.addActor(menuBg3);
         stage.addActor(menuBg2);
-        stage.addActor(menuBg1);
+        stage.addActor(menuBg1);*/
     }
 }
 
