@@ -34,6 +34,8 @@ public class Menu implements Screen {
 
     private int count=1;
 
+    private Image menuBg1, menuBg2, menuBg3;
+
     public Menu(final CardPlay cardPlay){
         this.fadeScence = new FadeScence(cardPlay);
         this.cardPlay = cardPlay;
@@ -57,6 +59,10 @@ public class Menu implements Screen {
         //TransitionScreen transitionScreen = new TransitionScreen(cardPlay);
         //transitionScreen.setWhiteStartFade();
         //transitionScreen.fadeOut(0);
+
+        menuBg1 = new Image(new Texture("Main-Menu/Menu 1.jpg"));
+        menuBg2 = new Image(new Texture("Main-Menu/Menu 2.jpg"));
+        menuBg3 = new Image(new Texture("Main-Menu/Menu3.jpg"));
     }
 
     @Override
@@ -76,6 +82,8 @@ public class Menu implements Screen {
         buttonImgExit = new Image(cardPlay.assetManager.get("Main-Menu/Exit.png", Texture.class));
         buttonImgExit.setScale(.95f);
         buttonImgExit.setPosition(880,49);
+
+
 
         buttonImgPlay.addListener(new InputListener(){
             @Override
@@ -142,7 +150,7 @@ public class Menu implements Screen {
         ));*/
 
         fadeScence.screenfadeOut(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), 1);
-
+        slideshow();
     }
 
     @Override
@@ -203,6 +211,17 @@ public class Menu implements Screen {
     @Override
     public void dispose() {
 
+    }
+
+    public void slideshow(){
+        menuBg1.addAction(Actions.sequence(Actions.delay(0.1f),
+                Actions.parallel(
+                        Actions.moveBy(0f, 600, 1f),
+                        Actions.fadeOut(0.8f))));
+
+        stage.addActor(menuBg3);
+        stage.addActor(menuBg2);
+        stage.addActor(menuBg1);
     }
 }
 
