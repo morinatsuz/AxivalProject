@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a4ab49-14f9-4330-bbf4-782cd7f328c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/hero-select/count/countdown.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/hero-select/count/countdown.atlas" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skill Icon/P_Cleansing Light BW.png" afterPath="$PROJECT_DIR$/core/assets/skill Icon/P_Cleansing Light BW.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/axival/game/screen/LoadingComponent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/CalculatorManager.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/CalculatorManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
@@ -33,7 +33,7 @@
       <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="-3879">
               <caret line="66" column="65" lean-forward="false" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
               <folding />
             </state>
@@ -43,22 +43,53 @@
       <file leaf-file-name="LoadingComponent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="74" column="110" lean-forward="false" selection-start-line="74" selection-start-column="110" selection-end-line="74" selection-end-column="110" />
+            <state relative-caret-position="-2584">
+              <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
               <folding>
-                <element signature="e#6082#6083#0" expanded="true" />
-                <element signature="e#6147#6148#0" expanded="true" />
+                <element signature="e#6080#6081#0" expanded="true" />
+                <element signature="e#6145#6146#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectHeroScreen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SelectHeroScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculatorManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/CalculatorManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+                <element signature="e#863#864#0" expanded="true" />
+                <element signature="e#892#893#0" expanded="true" />
+                <element signature="e#920#921#0" expanded="true" />
+                <element signature="e#959#960#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
+                <element signature="e#1021#1022#0" expanded="true" />
+                <element signature="e#1048#1049#0" expanded="true" />
+                <element signature="e#1085#1086#0" expanded="true" />
+                <element signature="e#1117#1118#0" expanded="true" />
+                <element signature="e#1144#1145#0" expanded="true" />
+                <element signature="e#1170#1171#0" expanded="true" />
+                <element signature="e#1205#1206#0" expanded="true" />
+                <element signature="e#1235#1236#0" expanded="true" />
+                <element signature="e#1270#1271#0" expanded="true" />
+                <element signature="e#1302#1303#0" expanded="true" />
+                <element signature="e#1351#1352#0" expanded="true" />
+                <element signature="e#1393#1394#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -834,8 +865,9 @@
         <option value="$PROJECT_DIR$/core/src/com/axival/game/CardPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/SoundManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/UIplay.java" />
-        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
         <option value="$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java" />
+        <option value="$PROJECT_DIR$/core/src/com/axival/game/CalculatorManager.java" />
       </list>
     </option>
   </component>
@@ -1018,11 +1050,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/assets/skill Icon" />
       <recent name="$PROJECT_DIR$/core/assets/hero-select/count" />
       <recent name="$PROJECT_DIR$/core/assets/UI_Assets/Axival_UI_Assets" />
       <recent name="$PROJECT_DIR$/core/assets/UI_Assets" />
       <recent name="$PROJECT_DIR$/core/assets/UI_Assets/pack" />
-      <recent name="$PROJECT_DIR$/core/assets/sound/bgm" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/assets/skill Icon" />
@@ -1160,16 +1192,15 @@
       <updated>1511015403142</updated>
       <workItem from="1511015406800" duration="23077000" />
       <workItem from="1511062665874" duration="9071000" />
-      <workItem from="1511112229451" duration="22111000" />
+      <workItem from="1511112229451" duration="24666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83702000" />
+    <option name="totallyTimeSpent" value="86257000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="23" width="1440" height="787" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1184,7 +1215,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1490,14 +1521,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/CalculatorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/WaitingScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1583,14 +1606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="66" column="65" lean-forward="false" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/CardPlay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-226">
@@ -1599,22 +1614,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/UIplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3879">
+          <caret line="66" column="65" lean-forward="false" selection-start-line="66" selection-start-column="65" selection-end-line="66" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/screen/LoadingComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="74" column="110" lean-forward="false" selection-start-line="74" selection-start-column="110" selection-end-line="74" selection-end-column="110" />
+        <state relative-caret-position="-2584">
+          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
           <folding>
-            <element signature="e#6082#6083#0" expanded="true" />
-            <element signature="e#6147#6148#0" expanded="true" />
+            <element signature="e#6080#6081#0" expanded="true" />
+            <element signature="e#6145#6146#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/SelectHeroScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/axival/game/CalculatorManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="284">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1170#1171#0" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+            <element signature="e#1235#1236#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
+            <element signature="e#1302#1303#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

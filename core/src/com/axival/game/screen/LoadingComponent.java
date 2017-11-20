@@ -72,7 +72,7 @@ public class LoadingComponent implements Screen {
         stage.addActor(loadingFrame);
         stage.addActor(logo);
         queueAssets();
-        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "select", 1);
+        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "menu", 1);
     }
 
     private void update(float delta){
