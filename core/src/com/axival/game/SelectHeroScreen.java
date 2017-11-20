@@ -4,9 +4,11 @@ import com.axival.Network.Packets;
 import com.axival.game.screen.ScreenPlay;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -32,10 +34,16 @@ public class SelectHeroScreen implements Screen {
     private Animation<TextureRegion> countdown;
 
     private TextureAtlas countdownAtlas;
+    public static String friendName = "BlkScorpion";
+
+    private BitmapFont teamFriend;
 
     private float countdownPlay=20f;
 
     public SelectHeroScreen(final CardPlay cardPlay, Client client){
+
+        teamFriend = new BitmapFont();
+        teamFriend.setColor(Color.BLACK);
         cardPlay.soundManager.stopBgm(4);
         cardPlay.soundManager.playBgm(1);
         this.client = client;
@@ -196,6 +204,7 @@ public class SelectHeroScreen implements Screen {
         stage.draw();
         cardPlay.batch.begin();
         cardPlay.batch.draw(countdown.getKeyFrame(countdownPlay, false), 1170, 625);
+        teamFriend.draw(cardPlay.batch, friendName, 230, 642);
         cardPlay.batch.end();
         System.out.println(countdownPlay);
         if(countdownPlay<=0){

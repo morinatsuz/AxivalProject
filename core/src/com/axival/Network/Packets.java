@@ -17,10 +17,18 @@ public class Packets {
     }
 
     public static class BufferPlayerData{
-        public Integer playerNo;
-        public String playerName;
-        public String playerTeam;
-        public Integer playerClass;
+        Integer playerNo;
+        String playerName;
+        String playerTeam;
+        Integer playerClass;
+    }
+
+    public static class BufferGoSelectChar{
+        String teamWith;
+    }
+
+    public static class BufferStartGame{
+        Array startArray;
     }
 
     public static class BufferPhasePlay{
