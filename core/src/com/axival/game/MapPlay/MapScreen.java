@@ -17,8 +17,8 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import static java.lang.Math.sqrt;
@@ -26,9 +26,6 @@ import static java.lang.Math.sqrt;
 public class MapScreen implements Screen {
     //status phase variable
     public int[] statusPhase;
-
-    //define screenPlay
-    private ScreenPlay screenPlay;
 
     //order variable
     int order;
@@ -69,8 +66,14 @@ public class MapScreen implements Screen {
     //Board variables
     public Board board;
 
+    //ScreenPlay variables
+    public ScreenPlay screen;
+
     //Path for walking
     public List<Vector2> path;
+
+    //Heroes Position variables
+    private LinkedList<Vector3> heroes;
 
     //Test Clicking
     public onClick click;
@@ -80,9 +83,10 @@ public class MapScreen implements Screen {
 
     int ipctrl = 0;
 
-    public MapScreen(CardPlay game, ScreenPlay screenPlay) {
+    public MapScreen(CardPlay game, ScreenPlay screen) {
 
         this.game = game;
+        this.screen = screen;
         //create cam used to follow hero through cam world
         gamecam = new OrthographicCamera();
 
@@ -115,7 +119,7 @@ public class MapScreen implements Screen {
 
         //create map
         map = new Texture("map-imgs/no-grid-map2.png");
-        overlay = new MapOverlay(board, game.batch);
+        overlay = new MapOverlay(this, board, game.batch);
 
         //create onClick
         click = new onClick(this, board);
@@ -131,7 +135,6 @@ public class MapScreen implements Screen {
         font = new BitmapFont();
         font.setColor(255, 255, 255, 1);
 
-        /*
         //create phase status
         statusPhase = new int[9];
         statusPhase[1] = 4;
@@ -142,13 +145,6 @@ public class MapScreen implements Screen {
 
         //set actionPhase
         statusPhase[6] = 1;
-        */
-
-        //set ScreenPlay
-        this.screenPlay = screenPlay;
-
-        //set statusPhase
-        System.out.println("statusPhase"+ Arrays.toString(screenPlay.statusPhase));
 
         //create hero and set spritesheet
         player = new Hero[4];
@@ -158,24 +154,21 @@ public class MapScreen implements Screen {
     public void settingHero() {
         int job;
         for (int i = 1; i < 5; i++) {
-            if (screenPlay.statusPhase[i] > 3) {
-                order = screenPlay.statusPhase[i] - 3;
+            if (statusPhase[i] > 3) {
+                order = statusPhase[i] - 3;
                 job = order;
             } else {
-                job = screenPlay.statusPhase[i];
+                job = statusPhase[i];
             }
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas", screenPlay);
-//                player[i - 1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
+                        1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
             } else if (job == 2) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas", screenPlay);
-//                player[i - 1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
+                        2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
             } else {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas", screenPlay);
-//                player[i - 1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
+                        3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
             }
             if (i % 2 == 0) {
                 player[i - 1].setFacing(Hero.State.LEFT);
@@ -361,7 +354,7 @@ public class MapScreen implements Screen {
 
     }
 
-    public void fontDrawDebugging(){
+    public void fontDrawDebugging() {
         //render screen coordinates
         font.draw(game.batch, "Screen Coordinates", 155, 660);
         font.draw(game.batch, (int) screenCoordinates.x + " , "
@@ -389,31 +382,19 @@ public class MapScreen implements Screen {
 
     }
 
-    public void renderingHero(int idx, float delta) {
-        if (screenPlay.statusPhase[5] == idx && screenPlay.statusPhase[6] == 2 && player[idx].attacking == false && player[idx].live == true) {
-            //render walking overlay
-            overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
-        }
-
-        overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
-
-        //Color Overlay under Hero feet.
-        if (player[idx].live == true) {
-            game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
-                    tile[idx].getWidth() * 0.75f, tile[idx].getHeight() * 0.75f);
-        }
-
-
+    public void renderingHero(int idx) {
         //render hero every action
-        player[idx].useSkill();
-
-//        player[idx].renderWalking(delta);
-
-        //        if (player[0].ability[3].getFrame() > player[0].ability[3].stateTime() * 5) {
-//            game.batch.draw(player[0].ability[3].getSkillAction(delta).getKeyFrame(player[0].ability[3].stateTime(),
-//                    true), 600, 200);
-//        }
-
+        int count = 0;
+        int num = idx+1;
+        if (num > 3) { num = 0;}
+        while (count < 4) {
+            player[num].useSkill();
+            count++;
+            num++;
+            if (num > 3) {
+                num = 0;
+            }
+        }
     }
 
     public void updateAllplayer(float delta) {
@@ -424,6 +405,36 @@ public class MapScreen implements Screen {
         player[3].update(delta);
     }
 
+    public void rendererColorOverlay(int idx) {
+        //Color Overlay under Hero feet.
+        if (player[idx].live == true) {
+            game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
+                    tile[idx].getWidth() * 0.95f, tile[idx].getHeight() * 0.95f);
+        }
+    }
+
+    public void renderAllHeroOverlay() {
+        //show each skill overlay when hold the skill
+        if ((statusPhase[6] == 1 || statusPhase[6] == 3) && screen.getChooseAction() > -1 && screen.getChooseAction() < 9
+                && statusPhase[5] == idx && !player[idx].isHeroPlaying()) {
+            int job = player[idx].job;
+            int skill = screen.getChooseAction();
+            Vector2 heroPos = player[idx].getRowCol();
+            LinkedList<Vector2> overlaySkill = board.getSkillOverlay(skill, job, heroPos);
+            overlay.showOverlay(overlaySkill);
+        }
+
+        //render walking overlay
+        if (statusPhase[6] == 2 && (!player[idx].isHeroPlaying())&& player[idx].live == true) {
+            overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
+        }
+    }
+
+    public void showCombat(int attacker, int target, int skill) {
+        float frameDuration = player[attacker].heroAnimation[skill].getAnimationDuration();
+        player[target].showPain(frameDuration);
+    }
+
     @Override
     public void show() {
 
@@ -431,11 +442,13 @@ public class MapScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        //hero walking simulating
-        simulatedInput(delta);
+        statusPhase[5] = idx;
 
         //update all player
         updateAllplayer(delta);
+
+        //hero walking simulating
+        simulatedInput(delta);
 
         //Clear the game screen with Black
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -449,17 +462,32 @@ public class MapScreen implements Screen {
         //render map
         game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT);
 
+        rendererColorOverlay(0);
+        rendererColorOverlay(1);
+        rendererColorOverlay(2);
+        rendererColorOverlay(3);
+
         //fontDrawDebugging();
 
-        //render hero
-        renderingHero(0, delta);
-        renderingHero(1, delta);
-        renderingHero(2, delta);
-        renderingHero(3, delta);
+        renderAllHeroOverlay();
+
+        renderingHero(idx);
 
         game.batch.end();
+    }
 
-        //Sysstem.out.println("statusPhase loop"+ Arrays.toString(screenPlay.statusPhase));
+    public LinkedList<Vector3> getHeroesCoordinate() {
+        heroes = new LinkedList<Vector3>();
+        for (int i = 0; i < 4; i++) {
+            heroes.add(new Vector3(i, player[i].col, player[i].row));
+        }
+        return heroes;
+    }
+
+
+
+    public LinkedList<Vector2> getAllOverlay() {
+        return overlay.avaiableOverlay();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.axival.game.MapPlay;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -41,11 +42,12 @@ public class Board {
 //    };
 
     public Node[][] map;
-    private LinkedList<Vector2> list, path, area, area1, area2, ways, temp, HeroCoordinates;
-    ;
+    private LinkedList<Vector2> list, path, area, area1, area2, area3, ways, temp, HeroCoordinates;
     private Node n;
+    private MapScreen screen;
 
     public Board(MapScreen screen) {
+        this.screen = screen;
         int corX = -12, corY = 619;
         map = new Node[13][24];
         for (int y = 0; y < 13; y++) {
@@ -61,10 +63,10 @@ public class Board {
             }
         }
         HeroCoordinates = new LinkedList<Vector2>();
-        HeroCoordinates.add(new Vector2(7, 4));
-        HeroCoordinates.add(new Vector2(15, 5));
-        HeroCoordinates.add(new Vector2(7, 7));
-        HeroCoordinates.add(new Vector2(16, 7));
+        HeroCoordinates.add(new Vector2(4, 6));
+        HeroCoordinates.add(new Vector2(6, 6));
+        HeroCoordinates.add(new Vector2(2, 6));
+        HeroCoordinates.add(new Vector2(8, 6));
     }
 
     public List<Vector2> getPath(Vector2 source, Vector2 destination) {
@@ -118,6 +120,35 @@ public class Board {
         }
         return area1;
     }
+
+    //Return area but not count Hero as obstacle
+    public LinkedList<Vector2> getArea(int x, int y, int n, boolean skill) {
+        int idx = 0;
+        double start;
+        double stop;
+        area1 = new LinkedList<Vector2>();
+        for (double i = y - n; i < y - n + (2 * n) + 1; i++) {
+            if (0 <= i && i <= 12) {
+                if (y % 2 == 1) {
+                    start = (x - n + Math.floor(Math.abs(y - i) / 2));
+                    stop = start + (2 * n) - Math.abs(y - i) + 1;
+                } else {
+                    start = (x - n + Math.ceil(Math.abs(y - i) / 2));
+                    stop = start + (2 * n) - Math.abs(y - i) + 1;
+                }
+                for (double j = start; j < stop; j++) {
+                    if (0 <= j && j <= 23) {
+                        if (!map[(int) i][(int) j].isObstacle(true)) {
+                            area1.add(idx, new Vector2((int) j, (int) i));
+                            idx++;
+                        }
+                    }
+                }
+            }
+        }
+        return area1;
+    }
+
 
     public LinkedList<Vector2> getWays(int x, int y) {
         area2 = new LinkedList<Vector2>();
@@ -174,6 +205,68 @@ public class Board {
         this.resetLevel();
         this.resetVisit();
         return area;
+    }
+
+    //Skill Overlay can be standing Hero
+    public LinkedList<Vector2> getSkillOverlay(int skill, int job, Vector2 rowcol) {
+        area3 = new LinkedList<Vector2>();
+        if (skill < 4) {
+            if (job == 1) {
+                if (skill == 0) {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 1, true);
+                } else if (skill == 1) {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+                } else if (skill == 2){
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+                    area3.remove(rowcol);
+                }else {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+                    area3.remove(rowcol);
+                }
+            } else if (job == 2) {
+                if (skill == 0) {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 3, true);
+                    area3.remove(rowcol);
+                } else if (skill == 1) {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 4, true);
+                    area3.remove(rowcol);
+                } else if (skill == 2) {
+                    area3.add(rowcol);
+                } else {
+                    area3 = screen.getAllOverlay();
+                }
+            } else if (job == 3) {
+                if (skill == 0) {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+                }
+                else if (skill == 3){
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+                    area3.remove(rowcol);
+                }
+                else {
+                    area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 3, true);
+                }
+            }
+        }
+        else {
+            if (skill == 4) {
+                area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 1, true);
+            }
+            else if (skill == 5) {
+                area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+            }
+            else if (skill == 6) {
+                area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
+            }
+            else if (skill == 7) {
+                area3.add(rowcol);
+            }
+            else {
+                area3 = screen.getAllOverlay();
+                area3.remove(rowcol);
+            }
+        }
+        return area3;
     }
 
     public void setObstacle(int x, int y, int n) {

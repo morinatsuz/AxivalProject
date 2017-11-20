@@ -1,0 +1,55 @@
+
+wz_skill2.png
+size: 2048,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+wz2
+  rotate: false
+  xy: 2, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 0
+wz2
+  rotate: false
+  xy: 273, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 1
+wz2
+  rotate: false
+  xy: 544, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 2
+wz2
+  rotate: false
+  xy: 815, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 3
+wz2
+  rotate: false
+  xy: 1086, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 4
+wz2
+  rotate: false
+  xy: 1357, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 5
+wz2
+  rotate: false
+  xy: 1628, 2
+  size: 269, 300
+  orig: 269, 300
+  offset: 0, 0
+  index: 6

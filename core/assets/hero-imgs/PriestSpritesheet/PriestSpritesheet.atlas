@@ -1,181 +1,181 @@
 
 PriestSpritesheet.png
-size: 2048,128
+size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 alert
   rotate: false
-  xy: 974, 22
-  size: 77, 83
-  orig: 77, 83
+  xy: 304, 1512
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
-  index: 2
+  index: 0
 alert
   rotate: false
-  xy: 1053, 23
-  size: 77, 82
-  orig: 77, 82
+  xy: 2, 908
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 1
 alert
   rotate: false
-  xy: 1132, 24
-  size: 77, 81
-  orig: 77, 81
+  xy: 304, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 2
+dead
+  rotate: false
+  xy: 304, 606
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 0
 dead
   rotate: false
-  xy: 1421, 16
-  size: 64, 89
-  orig: 64, 89
+  xy: 606, 908
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 1
-dead
-  rotate: false
-  xy: 1551, 16
-  size: 62, 89
-  orig: 62, 89
-  offset: 0, 0
-  index: 2
 fly
   rotate: false
-  xy: 1355, 16
-  size: 64, 89
-  orig: 64, 89
+  xy: 304, 908
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 0
+fly
+  rotate: false
+  xy: 606, 1210
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 1
 dead
   rotate: false
-  xy: 1355, 16
-  size: 64, 89
-  orig: 64, 89
-  offset: 0, 0
-  index: 3
-fly
-  rotate: false
-  xy: 1487, 16
-  size: 62, 89
-  orig: 62, 89
-  offset: 0, 0
-  index: 0
-stabO1
-  rotate: false
-  xy: 2, 27
-  size: 99, 78
-  orig: 99, 78
-  offset: 0, 0
-  index: 1
-stabO1
-  rotate: false
-  xy: 184, 24
-  size: 79, 81
-  orig: 79, 81
-  offset: 0, 0
-  index: 0
-stand1
-  rotate: false
-  xy: 585, 15
-  size: 77, 90
-  orig: 77, 90
-  offset: 0, 0
-  index: 0
-stand1
-  rotate: false
-  xy: 664, 15
-  size: 77, 90
-  orig: 77, 90
-  offset: 0, 0
-  index: 1
-stand1
-  rotate: false
-  xy: 743, 15
-  size: 77, 90
-  orig: 77, 90
+  xy: 606, 1210
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 2
-swingO1
-  rotate: false
-  xy: 103, 27
-  size: 79, 78
-  orig: 79, 78
-  offset: 0, 0
-  index: 0
-swingO1
-  rotate: false
-  xy: 427, 21
-  size: 77, 84
-  orig: 77, 84
-  offset: 0, 0
-  index: 1
-swingO1
-  rotate: false
-  xy: 1211, 23
-  size: 74, 82
-  orig: 74, 82
-  offset: 0, 0
-  index: 2
-swingO2
-  rotate: false
-  xy: 822, 2
-  size: 71, 103
-  orig: 71, 103
-  offset: 0, 0
-  index: 2
-swingO2
-  rotate: false
-  xy: 1287, 21
-  size: 66, 84
-  orig: 66, 84
-  offset: 0, 0
-  index: 1
 heal
   rotate: false
-  xy: 1287, 21
-  size: 66, 84
-  orig: 66, 84
-  offset: 0, 0
-  index: 1
-swingO2
-  rotate: false
-  xy: 1615, 21
-  size: 63, 84
-  orig: 63, 84
+  xy: 606, 1512
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 0
 heal
   rotate: false
-  xy: 1615, 21
-  size: 63, 84
-  orig: 63, 84
+  xy: 2, 2
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+stabO1
+  rotate: false
+  xy: 2, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 0
+stabO1
+  rotate: false
+  xy: 304, 304
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+stand1
+  rotate: false
+  xy: 2, 606
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+stand1
+  rotate: false
+  xy: 908, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 2
+stand1
+  rotate: false
+  xy: 2, 304
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 0
+swingO1
+  rotate: false
+  xy: 1210, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 0
+swingO1
+  rotate: false
+  xy: 908, 908
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+swingO1
+  rotate: false
+  xy: 908, 606
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 2
+swingO2
+  rotate: false
+  xy: 2, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+swingO2
+  rotate: false
+  xy: 908, 1210
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 0
+swingO2
+  rotate: false
+  xy: 606, 606
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 2
 walk1
   rotate: false
-  xy: 265, 21
-  size: 79, 84
-  orig: 79, 84
+  xy: 1210, 1210
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 0
 walk1
   rotate: false
-  xy: 346, 21
-  size: 79, 84
-  orig: 79, 84
+  xy: 1512, 1512
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: 1
+walk1
+  rotate: false
+  xy: 304, 2
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 2
 walk1
   rotate: false
-  xy: 506, 19
-  size: 77, 86
-  orig: 77, 86
+  xy: 606, 304
+  size: 300, 300
+  orig: 300, 300
   offset: 0, 0
   index: 3
-walk1
-  rotate: false
-  xy: 895, 22
-  size: 77, 83
-  orig: 77, 83
-  offset: 0, 0
-  index: 1

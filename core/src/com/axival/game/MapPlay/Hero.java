@@ -1,14 +1,11 @@
 package com.axival.game.MapPlay;
 
 import com.axival.game.CardPlay;
-import com.axival.game.screen.ScreenPlay;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-
-import java.util.Arrays;
 
 public class Hero extends TextureAtlas {
     public enum State {STANDING, WALKING, LEFT, RIGHT, PAIN, DEAD}
@@ -20,104 +17,99 @@ public class Hero extends TextureAtlas {
     public State currentState;
     public State previousState;
     public int walk = 4;
-    public boolean attacking = false;
-    public int skillUsing = -1;
-    public int cardUsing = -1;
+    private boolean attacking = false;
+    private boolean carding = false;
+    public boolean pain = false;
+    public float attackedTime=0;
+    public int actionUsing = -1;
+    public int skillUsed = 0;
     public Skill[] ability;
     private Texture img;
     private TextureAtlas atlas;
-    private Animation<TextureRegion> heroAnimation[];
-    private Vector2 coordinates, target, des, src;
+    public Animation<TextureRegion> heroAnimation[];
+    private Vector2 coordinates, target, targetCo, des, src;
     private float frameDuration;
     private float deltaTime;
     private float elapsedTime = 0f;
     private float startTime = 0f;
-    private float widthErr = 0;
-    private float heightErr = 0;
+    private float erXR, erYR;
+    private float erXL, erYL;
+    private float[] errX;
+    private float[] errY;
     private static int walking = 0;
     private CardPlay game;
     private MapScreen screen;
     private Board board;
 
-    private ScreenPlay screenPlay;
-
     public boolean live = true;
     public int health;
 
-    private int countAction = 0;
-
-    public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, String path, ScreenPlay screenPlay) {
+    public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, String path) {
         this.job = job;
         this.setAtlas(path);
         this.target = new Vector2(10,10);
-        this.screenPlay =screenPlay;
+        this.targetCo = new Vector2(10,10);
         ability = new Skill[9];
         heroAnimation = new Animation[9];
-        frameDuration = 0.2f;
+        frameDuration = 0.3f;
         if (job == 1) {
-            health = 200;
+            health = 35;
             ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas",
-                    "dt0",0,0,0, false);
+                    "dt0",1,true, screen);
             ability[1] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill1_Spritesheet/dt_skill1.atlas",
-                    "dt1",0,0,0,false);
-
-            //No effect in 2nd skill
-            ability[2] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas",
-                    "dt3",0,0,0, false);
-
+                    "dt1",1,true, screen);
+            ability[2] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill2_Spritesheet/dt_skill2.atlas",
+                    "dt2",1,false, screen);
             ability[3] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas",
-                    "dt3",0,0,0, false);
-            heroAnimation[0] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingOF"));
-            heroAnimation[1] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("fortify"));
-            heroAnimation[2] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("stabOF"));
-            heroAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO1"));
-        } else if (job == 2) {
-            health = 150;
+                    "dt3",1,false, screen);
+            heroAnimation[0] = new Animation<TextureRegion>(0.2f, this.atlas.findRegions("swingOF"));
+            heroAnimation[1] = new Animation<TextureRegion>(0.3f, this.atlas.findRegions("fortify"));
+            heroAnimation[2] = new Animation<TextureRegion>(0.25f, this.atlas.findRegions("stabOF"));
+            heroAnimation[3] = new Animation<TextureRegion>(0.3f, this.atlas.findRegions("swingO1"));
+        }
+        else if (job == 2) {
+            health = 30;
             ability[0] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill0_Spritesheet/wz_skill0.atlas",
-                    "wz0",0,0,0, false);
+                    "wz0",2,true, screen);
             ability[1] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill1_Spritesheet/wz_skill1.atlas",
-                    "wz1",0,0,0, false);
-
-            //No effect in 2nd skill
-            ability[2] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas",
-                    "wz3",0,0,0,false);
-
+                    "wz1",2,true, screen);
+            ability[2] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill2_Spritesheet/wz_skill2.atlas",
+                    "wz2",2,false, screen);
             ability[3] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas",
-                    "wz3",0,0,0, false);
+                    "wz3",2,true, screen);
             heroAnimation[0] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO1"));
             heroAnimation[1] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO2"));
-            //Wizard have no 2nd ability.
-            heroAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO3"));
-        } else {
-            health = 120;
+            heroAnimation[2] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("stand1"));
+            heroAnimation[3] = new Animation<TextureRegion>(0.3f, this.atlas.findRegions("swingO3"));
+        }
+        else {
+            health = 25;
             ability[0] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill0_Spritesheet/pr_skill0.atlas",
-                    "pr0", 0,0,0,false);
+                    "pr0", 3,true, screen);
             ability[1] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill1_Spritesheet/pr_skill1.atlas",
-                    "pr1", 0,0,0, true);
+                    "pr1", 3,true, screen);
             ability[2] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill2_Spritesheet/pr_skill2.atlas",
-                    "pr2", 0,0,0,false);
+                    "pr2",3, false, screen);
             ability[3] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill3_Spritesheet/pr_skill3.atlas",
-                    "pr3", 0,0,0,false);
-            heroAnimation[0] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO1"));
+                    "pr3",3, true, screen);
+            heroAnimation[0] = new Animation<TextureRegion>(0.2f, this.atlas.findRegions("swingO1"));
             heroAnimation[1] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("heal"));
             heroAnimation[2] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO2"));
-            heroAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("stabO1"));
+            heroAnimation[3] = new Animation<TextureRegion>(0.5f, this.atlas.findRegions("stabO1"));
         }
-
-        //card ability define
         ability[4] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill0_Spritesheet/cd_skill0.atlas",
-                "cd0",0,0,0,true);
+                "cd0",0,true, screen);
         ability[5] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.atlas",
-                "cd1",0,0,0,true);
+                "cd1",0,true, screen);
         ability[6] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill2_Spritesheet/cd_skill2.atlas",
-                "cd2",0,0,0,true);
-        ability[8] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas",
-                "cd3",0,0,0,true);
-        ability[7] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas",
-                "cd4",0,0,0,true);
+                "cd2",0,true, screen);
+        ability[7] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas",
+                "cd3",0,true, screen);
+        ability[8] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas",
+                "cd4",0,true, screen);
         heroAnimation[4] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("alert"));
         heroAnimation[5] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("pain"));
-        heroAnimation[6] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("dead"));
+        heroAnimation[6] = new Animation<TextureRegion>(0.6f, this.atlas.findRegions("dead"));
         this.game = game;
         this.screen = screen;
         this.board = board;
@@ -134,8 +126,8 @@ public class Hero extends TextureAtlas {
     }
 
     public void update(float delta) {
-        if (health < 0 && live == true) {
-            health = 0;
+        if (health <= 0 && live == true) {
+            health = -1;
             live = false;
             this.resetElapsedTime();
             this.setStartTime();
@@ -178,6 +170,10 @@ public class Hero extends TextureAtlas {
         this.src = new Vector2(col, row);
     }
 
+    public Vector2 getSrc() {
+        return this.src;
+    }
+
     public Vector2 getCoordinates() {
         return this.coordinates;
     }
@@ -188,10 +184,6 @@ public class Hero extends TextureAtlas {
 
     public Vector2 getRowCol() {
         return new Vector2(this.col, this.row);
-    }
-
-    public Vector2 getSrc() {
-        return this.src;
     }
 
     public void setAtlas(String path) {
@@ -208,118 +200,244 @@ public class Hero extends TextureAtlas {
     }
 
     public void renderWalking() {
-        float errR = 0;
-        float errL = 0;
-        if (job == 1) {
-            errL = -22f;
-        }
-        if (job == 2) {
-            errR = 5f;
-            errL = 10f;
-        }
-        if (job == 3) {
-            errR = -10f;
-            errL = -2f;
-        }
-
+        errX = new float[2];
+        errY = new float[2];
+        errX[0] = -120f;
+        errY[0] = -50f;
+        errX[1] = -120f;
+        errY[1] = -50f;
         //Hero Action
-        if (facing.compareTo(Hero.State.RIGHT) == 0) {
+        if (facing.compareTo(State.RIGHT) == 0) {
             game.batch.draw(this.walkAction().getKeyFrame(elapsedTime, true),
-                    this.getCoordinates().x + (this.walkAction().getKeyFrame(elapsedTime, true).getRegionWidth()) + errR,
-                    this.getCoordinates().y,
+                    this.getCoordinates().x + (this.walkAction().getKeyFrame(elapsedTime, true).getRegionWidth())
+                            + errX[1],
+                    this.getCoordinates().y + errY[1],
                     -(this.walkAction().getKeyFrame(elapsedTime, true).getRegionWidth()),
                     this.walkAction().getKeyFrame(elapsedTime, true).getRegionHeight());
         } else {
             game.batch.draw(this.walkAction().getKeyFrame(elapsedTime, true),
-                    this.getCoordinates().x + errL, this.getCoordinates().y);
+                    this.getCoordinates().x + errX[0],
+                    this.getCoordinates().y + errY[0]);
         }
     }
 
     public void useSkill() {
-        if (skillUsing > -1 && skillUsing < 4 && elapsedTime < startTime + heroAnimation[skillUsing].getAnimationDuration() &&
-                attacking == true && live == true) {
-            float corX;
-            float corY;
-            if (ability[skillUsing].target == true) {
-                corX = target.x;
-                corY = target.y;
+        //Increase time of Wizard 3rd Skill
+        float multiplier;
+        if (job == 2 && actionUsing == 3) {
+            multiplier = 3.5f;
+        }
+        else {
+            multiplier = 1;
+        }
+        if (job == 1) {
+            System.out.println("-1 < " + actionUsing + " < 4 ");
+            System.out.println("Attacking = " + attacking + " Carding = " + carding + " Job = " + job);
+        }
+        //Playing Hero Skill Animation
+        if (actionUsing > -1 && actionUsing < 4 && elapsedTime < startTime +
+                heroAnimation[actionUsing].getAnimationDuration() * multiplier
+                && attacking == true && carding == false && pain == false && live == true)
+        {
+            //Handle Error for each Skill Animation
+            if(ability[actionUsing].target == true) {
+                erXR = targetCo.x + ability[actionUsing].erRht[0] ;
+                erYR = targetCo.y + ability[actionUsing].erRht[1];
+                erXL = targetCo.x + ability[actionUsing].erLft[0] ;
+                erYL = targetCo.y + ability[actionUsing].erLft[1];
+
             }
             else {
-                corX = coordinates.x + widthErr;
-                corY = coordinates.y + heightErr;
+                erXR = coordinates.x + ability[actionUsing].erRht[0] ;
+                erYR = coordinates.y + ability[actionUsing].erRht[1];
+                erXL = coordinates.x + ability[actionUsing].erLft[0] ;
+                erYL = coordinates.y + ability[actionUsing].erLft[1];
             }
-            deltaTime = heroAnimation[skillUsing].getAnimationDuration();
-            if (facing.compareTo(State.RIGHT) == 0) {
-                game.batch.draw(heroAnimation[skillUsing].getKeyFrame(elapsedTime, true),
-                        coordinates.x,
-                        coordinates.y,
-                        -(heroAnimation[skillUsing].getKeyFrame(elapsedTime, true).getRegionWidth()),
-                        heroAnimation[skillUsing].getKeyFrame(elapsedTime, true).getRegionHeight());
-                game.batch.draw(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                        corX, corY,
-                        -(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
-                        ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
-            } else {
-                game.batch.draw(heroAnimation[skillUsing].getKeyFrame(elapsedTime, true), coordinates.x, coordinates.y);
-                game.batch.draw(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                        corX, corY);
+            deltaTime = heroAnimation[actionUsing].getAnimationDuration();
+            //Right Acting
+            if (facing.compareTo(State.RIGHT) == 0)
+            {
+                //Hero Animation
+                game.batch.draw(heroAnimation[actionUsing].getKeyFrame(elapsedTime, true),
+                        coordinates.x + 180f,
+                        coordinates.y - 50f,
+                        -(heroAnimation[actionUsing].getKeyFrame(elapsedTime, true).getRegionWidth()),
+                        heroAnimation[actionUsing].getKeyFrame(elapsedTime, true).getRegionHeight());
+                //Wizard Skill Animation
+                if (job == 2 && actionUsing == 3) { //18,2 18,6 18,10
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            board.map[2][23].corX + 700 - elapsedTime * (600),
+                            board.map[2][23].corY - 50,
+                            -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
+                            ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            board.map[7][23].corX + 700 - elapsedTime * (600),
+                            board.map[7][23].corY - 50,
+                            -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
+                            ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            board.map[11][23].corX + 700 - elapsedTime * (600),
+                            board.map[11][23].corY - 50,
+                            -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
+                            ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
+                }
+                else {
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            erXR,
+                            erYR,
+                            -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
+                            ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
+                }
+
             }
-        } else if (skillUsing > -1 && skillUsing < 4 && startTime + deltaTime <= elapsedTime && elapsedTime <=
-                startTime + deltaTime + heroAnimation[4].getAnimationDuration() && live == true) {
-            if (facing.compareTo(State.RIGHT) == 0) {
+            //Left Acting
+            else
+            {
+                //Hero Animation
+                game.batch.draw(heroAnimation[actionUsing].getKeyFrame(elapsedTime, true),
+                        coordinates.x - 120f,
+                        coordinates.y - 50f);
+                if (job == 2 && actionUsing == 3) {
+                    //Skill Animation
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            board.map[2][0].corX - 700 + elapsedTime * (600),
+                            board.map[2][0].corY - 50);
+                    //Skill Animation
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            board.map[7][0].corX - 700 + elapsedTime * (600),
+                            board.map[7][0].corY - 50);
+                    //Skill Animation
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            board.map[11][0].corX - 700 + elapsedTime * (600),
+                            board.map[11][0].corY - 50);
+                }
+                else {
+                    //Skill Animation
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            erXL, erYL);
+                }
+            }
+        }
+        //Alert Acting after Perform Attack
+        else if (actionUsing > -1 && actionUsing < 4 && startTime + deltaTime <= elapsedTime && elapsedTime <=
+                startTime + deltaTime + heroAnimation[4].getAnimationDuration() && pain == false &&  live == true)
+        {
+            //Right Acting
+            if (facing.compareTo(State.RIGHT) == 0)
+            {
                 game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
-                        coordinates.x + heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth(),
-                        coordinates.y,
+                        coordinates.x + 180f,
+                        coordinates.y - 50f,
                         -(heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth()),
                         heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionHeight());
-            } else {
-                game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
-                        coordinates.x - 30,
-                        coordinates.y);
+                //Left Acting
             }
-        } else if (live == true) {
-            skillUsing = -1;
-            attacking = false;
+            else
+            {
+                game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
+                        coordinates.x - 120f,
+                        coordinates.y - 50f);
+            }
+            //Into Walk & Stand State
+        }
+        else if (live == true && pain == false)
+        {
+            //End Skill State Animation
+            this.attacking = false;
             this.renderWalking();
+            if (carding == false) {
+                actionUsing = -1;
+            }
+
         }
 
-        //use card active
+        //Using Card
+        if (actionUsing > 3 && actionUsing < 9 && elapsedTime < startTime +
+                ability[actionUsing].getSkillAction(1f).getAnimationDuration()
+                && attacking == false && carding == true && live == true)
+        {
+            //set the position error
+            erXR = targetCo.x + ability[actionUsing].erRht[0] ;
+            erYR = targetCo.y + ability[actionUsing].erRht[1];
 
-        /*if(screenPlay.statusPhase[8]>0 && countIn==0) {
-            resetElapsedTime();
-            setStartTime();
-            cardUsing = screenPlay.statusPhase[8];
-            System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));*/
-           // screenPlay.statusPhase[8] = 0;
-            //System.out.println("cardUsing : " + cardUsing);
-        //System.out.println("cardUsing statusphase: "+cardUsing+ " : "+ Arrays.toString(screenPlay.statusPhase));
+            System.out.println("Card was used  -> " + actionUsing);
 
-        /*if (skillUsing > 3 && skillUsing  < 9 && elapsedTime < startTime +
-                    ability[cardUsing].getSkillAction(1f).getAnimationDuration()
-                    && live == true) {
-                //cardUsing = screenPlay.statusPhase[8]-1;
-                //screenPlay.statusPhase[6] = 0;
-                game.batch.draw(ability[cardUsing+4].getSkillAction(1f).getKeyFrame(elapsedTime, true),
-                        board.map[(int) target.y][(int) target.x].corX,
-                        board.map[(int) target.y][(int) target.x].corY);
-                System.out.println("drw skill"+cardUsing);
-            } else if (skillUsing > 3 && skillUsing < 9 && startTime + deltaTime <= elapsedTime && live == true) {
-                skillUsing = -1;
-                attacking = false;
-            }*/
-        //}
+            game.batch.draw(ability[actionUsing].getSkillAction(1f).getKeyFrame(elapsedTime,
+                    true),
+                    erXR,
+                    erYR);
+        }
+        else if (actionUsing > 3 && actionUsing < 9 && startTime + deltaTime <= elapsedTime && live == true)
+        {
+            actionUsing= -1;
+            carding = false;
+        }
 
         //Pain animation
+        if (pain == true) {
+            if (elapsedTime < startTime + attackedTime) {
+                //Right Acting
+                if (facing.compareTo(State.RIGHT) == 0)
+                {
+                    game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
+                            coordinates.x + 180f,
+                            coordinates.y - 50f,
+                            -(heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth()),
+                            heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionHeight());
 
+                }//Left Acting
+                else
+                {
+                    game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
+                            coordinates.x - 120f,
+                            coordinates.y - 50f);
+                }
+            }
+            else {
+                pain = false;
+            }
+        }
 
         //dead animation
-        if (elapsedTime < 5 && live == false && health == 0) {
-            game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
-                    coordinates.x + elapsedTime,
-                    coordinates.y + elapsedTime * 100);
+        if (live == false && health == -1 && elapsedTime < 4)
+        {
+            //set block that hero stand no obstacle
+            board.map[row][col].setObstacle(0);
+
+            if (facing.compareTo(State.RIGHT) == 0)
+            {
+                game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
+                        coordinates.x + ( heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()/2)
+                        + 40f, coordinates.y - 50f + elapsedTime* 100,
+                        -( heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()),
+                        heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionHeight());
+            }
+            else
+            {
+                game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
+                        coordinates.x - 120f,
+                        coordinates.y - 50f + elapsedTime * 100);
+            }
         }
-        else if (elapsedTime >= 5 && live == false && health == 0) {
-            health = -1;
+        else if (elapsedTime >= 4 && live == false && health == -1)
+        {
+            health = -2;
+        }
+    }
+
+    //Pain Acting
+    public void showPain(float frameDuration) {
+        this.resetElapsedTime();
+        this.setStartTime();
+        pain = true;
+    }
+
+    public boolean isHeroPlaying() {
+        if (attacking == false && carding == false) {
+            return false;
+        }
+        else {
+            return true;
         }
     }
 
@@ -341,12 +459,14 @@ public class Hero extends TextureAtlas {
     }
 
     public void setTarget(Vector2 target) {
-        this.target = target;
+        this.targetCo = target;
     }
 
     public void resetElapsedTime() {
         elapsedTime = 0;
     }
+
+    public float getElapsedTime() {return elapsedTime;}
 
     public void setStartTime() {
         startTime = elapsedTime;
@@ -354,5 +474,12 @@ public class Hero extends TextureAtlas {
 
     public boolean isAvlive() {
         return live;
+    }
+
+    public void  setAttacking(boolean bool) {
+        this.attacking = bool;
+    }
+    public void setCarding(boolean bool) {
+        this.carding = bool;
     }
 }
