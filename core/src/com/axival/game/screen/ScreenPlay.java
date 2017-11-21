@@ -698,6 +698,6 @@ public class ScreenPlay implements Screen, InputProcessor {
         return chooseAction;
     }
     public void setChooseAction(int choose){
-        chooseAction = choose;
+        this.chooseAction = choose;
     }
 }
