@@ -79,7 +79,7 @@ public class ClientListener extends Listener {
             locatePlayer = false;
             System.out.println("");
             System.out.println("[Player "+ SelectHeroScreen.playerNo + "] //////////Default array set!");
-            System.out.println("[Player "+ SelectHeroScreen.playerNo + "] "Arrays.toString(StatusAxival.statusPhase));
+            System.out.println("[Player "+ SelectHeroScreen.playerNo + "] "+Arrays.toString(StatusAxival.statusPhase));
             System.out.println("");
 
         } else {

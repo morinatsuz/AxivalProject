@@ -258,7 +258,7 @@ public class Board {
             else if (skill == 6) {
                 area3 = this.getArea((int) rowcol.x, (int) rowcol.y, 2, true);
             }
-            else if (skill == 7) {
+            else if (skill == 8) {
                 area3.add(rowcol);
             }
             else {
