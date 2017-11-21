@@ -29,9 +29,9 @@ public class Packets {
 
     }
 
-    public static class BufferPhasePlay{
-        String authenName;
-        Array phasePlay;
+    public static class BufferUpdatePhase{
+        public Integer playerNo;
+        public static int[] updatePhase = new int[13];
     }
 
     public static class BufferLivePick{
