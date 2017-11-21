@@ -71,6 +71,13 @@ public class RandomCard{
             cardDeck[i] = getCard(randResult);
             cardDeck[i].setScale(.05f);
             cardDeck[i].setPosition(640-cardDeck[i].getWidth()/10, 700);
+            /*
+            if(randResult==6){
+                randResult = 7;
+            }
+            else if(randResult==7){
+                randResult = 6;
+            }*/
             idenCardAll[i] = randResult;
         }
         return cardDeck;
