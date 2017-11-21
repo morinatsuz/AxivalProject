@@ -469,6 +469,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
                             mapScreen.player[0].setAttackedTime(frameDuration);
                             mapScreen.player[2].setAttackedTime(frameDuration);
+                            if ()
                             combatCalculate(attacker, 0, 8, damage);
                             combatCalculate(attacker, 2, 8, damage);
                         }
