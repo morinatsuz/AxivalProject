@@ -50,12 +50,10 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     private MapScreen mapScreen;
 
-    public int[] statusPhase;
-
     private long startTime = 0;
     private int countInLoop = 0;
 
-    private CalculatorManager calculatorManager;
+    private StatusAxival statusAxival;
 
     private int chooseAction = -1;
 
@@ -78,17 +76,13 @@ public class ScreenPlay implements Screen, InputProcessor {
         prototype.getEmitters().first().setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
         prototype.start();
 
-        //set value from network
-        statusPhase = new int[13];
-        statusInput();
-
         //set parameter other class
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this, cardPlay);
         this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay, this);
-        this.calculatorManager = new CalculatorManager(this, mapScreen);
+        //this.statusAxival = new StatusAxival(this, mapScreen);
 
         //check phase
         phaseAll();
@@ -101,7 +95,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         cardPlay.soundManager.playBgm(2);
 
         //statusPhase[0] = 0;
-        System.out.println("statusPhase" + Arrays.toString(statusPhase));
+        System.out.println("statusPhase" + Arrays.toString(StatusAxival.statusPhase));
     }
 
     @Override
@@ -289,10 +283,10 @@ public class ScreenPlay implements Screen, InputProcessor {
         }
         if (keycode == Input.Keys.TAB) {
             System.out.println("Change to next phase");
-            if (mapScreen.statusPhase[6] == 1) {
-                mapScreen.statusPhase[6] = 2;
+            if (StatusAxival.statusPhase[6] == 1) {
+                StatusAxival.statusPhase[6] = 2;
             } else {
-                mapScreen.statusPhase[6] = 1;
+                StatusAxival.statusPhase[6] = 1;
             }
 
         }
@@ -347,7 +341,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         mapScreen.player[mapScreen.idx].setTarget(new Vector2(x, y));
 
         //prepare the variables for walking
-        if (mapScreen.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
+        if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
                 mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
@@ -360,11 +354,11 @@ public class ScreenPlay implements Screen, InputProcessor {
             }
 
         }
-        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In ScreenPlay");
+        System.out.println("statusPhase = " + StatusAxival.statusPhase[6] + " In ScreenPlay");
         Vector2 vec = mapScreen.player[mapScreen.idx].getRowCol();
         float corX = vec.x;
         float corY = vec.y;
-        if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
+        if (StatusAxival.statusPhase[6] == 1 || StatusAxival.statusPhase[6] == 3) {
             LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, mapScreen.player[mapScreen.idx].job, vec);
             LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
             LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
@@ -586,41 +580,8 @@ public class ScreenPlay implements Screen, InputProcessor {
         return false;
     }
 
-    //Phase control
-    public void statusInput() {
-        statusPhase[0] = 0; //Amount turn
-        statusPhase[1] = 1; //character class
-        statusPhase[2] = 2; //character class
-        statusPhase[3] = 3; //character class
-        statusPhase[4] = 4; //character class
-        statusPhase[5] = 0; //who's in turn
-        statusPhase[6] = 0; //turn 0=draw, 1,3=action, 2=travel, 4=end
-        statusPhase[7] = 0; //action start player default=0
-        statusPhase[8] = -1; //action attacker default=0
-        statusPhase[9] = 0; //action target default=0
-        statusPhase[10] = 0; //Travel phase who default= -1
-        statusPhase[11] = 0; //Travel phase to col default= -1
-        statusPhase[12] = 0; //Travel phase to row default= -1
-    }
-
-    public void editStatusPhase(int index, int condition, int value) {
-        //condition 0:+, 1:-, 2:*, 3:/, 4:=
-        if (condition == 0) {
-            statusPhase[index] += value;
-        } else if (condition == 1) {
-            statusPhase[index] -= value;
-        } else if (condition == 2) {
-            statusPhase[index] -= value;
-        } else if (condition == 3) {
-            statusPhase[index] -= value;
-        } else if (condition == 4) {
-            statusPhase[index] = value;
-        }
-        phaseAll();
-    }
-
     public void phaseAll() {
-        if (statusPhase[5] == 0) {
+        if (StatusAxival.statusPhase[5] == 0) {
             phaseInTurn();
         } else {
             phaseOutTurn();
@@ -628,30 +589,39 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseInTurn() {
-        if (statusPhase[6] % 5 == 0) {
+        if (StatusAxival.statusPhase[6] == 0) {
+            System.out.println("draw phase");
             drawPhase();
         }
-        if (statusPhase[6] % 5 == 1 || statusPhase[6] % 5 == 3) {
+        else if (StatusAxival.statusPhase[6]== 1 || StatusAxival.statusPhase[6] == 3) {
+            System.out.println("action phase");
             actionPhase();
         }
-        if (statusPhase[6] % 5 == 2) {
+        else if (StatusAxival.statusPhase[6]== 2) {
+            System.out.println("travel phase");
             travelPhase();
         }
-        if (statusPhase[6] % 5 == 4) {
+        else if (StatusAxival.statusPhase[6] == 4) {
+            System.out.println("end phase");
             endPhase();
+        }
+        else if (StatusAxival.statusPhase[6]>4) {
+            StatusAxival.statusPhase[6] = 0;
+            System.out.println("draw phase");
+            drawPhase();
         }
     }
 
     public void phaseOutTurn() {
         waitPhase();
-        if (statusPhase[8] == 1) {
+        if (StatusAxival.statusPhase[8] == 1) {
             chainPhase();
         }
     }
 
     public void drawPhase() {
         cardAction.setPopupOff(true);
-        if (statusPhase[0] == 0) {
+        if (StatusAxival.statusPhase[0] == 0) {
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
@@ -723,6 +693,10 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public int getChooseAction() {
+        System.out.println(chooseAction);
         return chooseAction;
+    }
+    public void setChooseAction(int choose){
+        chooseAction = choose;
     }
 }

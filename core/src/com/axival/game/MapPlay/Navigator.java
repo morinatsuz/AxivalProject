@@ -1,5 +1,6 @@
 package com.axival.game.MapPlay;
 
+import com.axival.game.StatusAxival;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.List;
@@ -61,8 +62,8 @@ public class Navigator {
             screen.board.map[(int)screen.player[screen.idx].getSource().y][(int)screen.player[screen.idx].getSource().x].setObstacle(0);
             screen.board.map[(int)screen.player[screen.idx].row][(int)screen.player[screen.idx].col].setObstacle(2);
             System.out.println("Walk end of player " + (screen.idx+1));
-            screen.statusPhase[6] = 1;
-            System.out.println("Next Phase: statusPhase[6] = " + screen.statusPhase[6] + " in Navigator");
+            StatusAxival.statusPhase[6] = 1;
+            System.out.println("Next Phase: statusPhase[6] = " + StatusAxival.statusPhase[6] + " in Navigator");
         }
 
     }

@@ -1,6 +1,7 @@
 package com.axival.game.MapPlay;
 
 import com.axival.game.CardPlay;
+import com.axival.game.StatusAxival;
 import com.axival.game.screen.ScreenPlay;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -135,6 +136,7 @@ public class MapScreen implements Screen {
         font = new BitmapFont();
         font.setColor(255, 255, 255, 1);
 
+        /*
         //create phase status
         statusPhase = new int[9];
         statusPhase[1] = 4;
@@ -145,6 +147,7 @@ public class MapScreen implements Screen {
 
         //set actionPhase
         statusPhase[6] = 1;
+        */
 
         //create hero and set spritesheet
         player = new Hero[4];
@@ -154,11 +157,11 @@ public class MapScreen implements Screen {
     public void settingHero() {
         int job;
         for (int i = 1; i < 5; i++) {
-            if (statusPhase[i] > 3) {
-                order = statusPhase[i] - 3;
+            if (StatusAxival.statusPhase[i] > 3) {
+                order = StatusAxival.statusPhase[i] - 3;
                 job = order;
             } else {
-                job = statusPhase[i];
+                job = StatusAxival.statusPhase[i];
             }
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
@@ -415,8 +418,8 @@ public class MapScreen implements Screen {
 
     public void renderAllHeroOverlay() {
         //show each skill overlay when hold the skill
-        if ((statusPhase[6] == 1 || statusPhase[6] == 3) && screen.getChooseAction() > -1 && screen.getChooseAction() < 9
-                && statusPhase[5] == idx && !player[idx].isHeroPlaying()) {
+        if ((StatusAxival.statusPhase[6] == 1 || StatusAxival.statusPhase[6] == 3) && screen.getChooseAction() > -1 && screen.getChooseAction() < 9
+                && StatusAxival.statusPhase[5] == idx && !player[idx].isHeroPlaying()) {
             int job = player[idx].job;
             int skill = screen.getChooseAction();
             Vector2 heroPos = player[idx].getRowCol();
@@ -425,7 +428,7 @@ public class MapScreen implements Screen {
         }
 
         //render walking overlay
-        if (statusPhase[6] == 2 && (!player[idx].isHeroPlaying())&& player[idx].live == true) {
+        if (StatusAxival.statusPhase[6] == 2 && (!player[idx].isHeroPlaying())&& player[idx].live == true) {
             overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
         }
     }
@@ -442,7 +445,7 @@ public class MapScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        statusPhase[5] = idx;
+        StatusAxival.statusPhase[5] = idx;
 
         //update all player
         updateAllplayer(delta);

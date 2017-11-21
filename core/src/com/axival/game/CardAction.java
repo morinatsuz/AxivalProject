@@ -20,6 +20,7 @@ public class CardAction {
     private Group popupG;
     private boolean popupStatus;
     private CardPlay cardPlay;
+    private int cardUse;
     public CardAction(ScreenPlay screenPlay, CardPlay cardPlay){
         this.screenPlay = screenPlay;
         this.cardPlay = cardPlay;
@@ -37,6 +38,7 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
             }
             @Override
@@ -321,7 +323,7 @@ public class CardAction {
                 cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
                 cardPlay.soundManager.playSfx(0);
                 popupDel();
-                //screenPlay.setChooseCard(indexUse);
+                screenPlay.setChooseAction(4);
             }
         });
         popupNo.addListener(new ClickListener() {
@@ -354,5 +356,13 @@ public class CardAction {
     public void setPopupOff(boolean popupStatus){
         this.popupStatus = popupStatus;
         System.out.println("show!!!! popupStatus = "+popupStatus);
+    }
+
+    public void setCardUse(int cardUse){
+        this.cardUse = cardUse;
+    }
+
+    public int getCardUse(){
+        return cardUse;
     }
 }
