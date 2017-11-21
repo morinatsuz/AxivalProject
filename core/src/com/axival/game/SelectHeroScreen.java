@@ -253,8 +253,10 @@ public class  SelectHeroScreen implements Screen {
         teamFriend.draw(cardPlay.batch, friendName + " is choosing " + teamPick, 230, 642);
         cardPlay.batch.end();
         System.out.println(countdownPlay);
-        if(countdownPlay<=0){
-            cardPlay.setScreen(new ScreenPlay(cardPlay));
+        if(countdownPlay<=0) {
+            Packets.BufferTellReady ready = new Packets.BufferTellReady();
+            client.sendTCP(ready);
+            cardPlay.setScreen(new ScreenPlay(cardPlay, client));
         }
     }
 

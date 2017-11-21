@@ -2,6 +2,7 @@ package com.axival.Network;
 
 import com.axival.game.CardPlay;
 import com.axival.game.SelectHeroScreen;
+import com.axival.game.StatusAxival;
 import com.axival.game.WaitingScreen;
 import com.axival.game.fade.FadeScence;
 import com.axival.game.input.MyNameInputListener;
@@ -44,13 +45,6 @@ public class ClientListener extends Listener {
         WaitingScreen.lobbyStatus = "Waiting for player (" + ((Packets.BufferLobbyPlayer) o).playerCount + "/4)";
     }
 
-//    if (o instanceof Packets.BufferTellReady){
-//        if (((Packets.BufferTellReady) o).ready = true){
-//            WaitingScreen.lobbyStatus = "Player Enough!, Game starting...";
-//            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
-//                    "select", 0);
-//        }
-//    }
     if (o instanceof Packets.BufferGoSelectChar){
         WaitingScreen.statusAlready = true;
         SelectHeroScreen.friendName = ((Packets.BufferGoSelectChar) o).teamWith;
@@ -68,8 +62,13 @@ public class ClientListener extends Listener {
         playerData.playerName = MyNameInputListener.nameId;
         client.sendTCP(playerData);
         System.out.println("Player data sended");
-
         System.out.println("Connected is true");
+    }
+
+    if (o instanceof Packets.BufferUpdatePhase){
+        StatusAxival.statusPhase = ((Packets.BufferUpdatePhase) o).updatePhase;
+        System.out.println("Status update from Player " + ((Packets.BufferUpdatePhase) o).playerNo);
+        System.out.println(StatusAxival.statusPhase);
     }
 
     }

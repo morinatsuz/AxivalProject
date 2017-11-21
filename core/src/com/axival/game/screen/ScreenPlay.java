@@ -1,5 +1,6 @@
 package com.axival.game.screen;
 
+import com.axival.Network.Packets;
 import com.axival.game.*;
 import com.axival.game.MapPlay.Hero;
 import com.axival.game.MapPlay.MapScreen;
@@ -18,6 +19,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.esotericsoftware.kryonet.Client;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -45,6 +47,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     private CardAction cardAction;
 
     private UIplay uIplay;
+    private Client client;
 
     private final CardPlay cardPlay;
 
@@ -57,9 +60,10 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     private int chooseAction = -1;
 
-    public ScreenPlay(final CardPlay cardPlay) {
+    public ScreenPlay(final CardPlay cardPlay, final Client client) {
         //set main render object and Input
         this.cardPlay = cardPlay;
+        this.client = client;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
@@ -105,6 +109,17 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void setCardHandR(int indexCard) {
         stage.addActor(cardDeck[indexCard]);
+    }
+
+    public void updateStatus() {
+        Packets.BufferUpdatePhase updater = new Packets.BufferUpdatePhase();
+        updater.updatePhase = StatusAxival.statusPhase;
+        updater.playerNo = SelectHeroScreen.playerNo;
+        client.sendTCP(updater);
+    }
+
+    public void askChain(int totalDamage,int targetNo){
+
     }
 
     public void cardHandAction(int delay) {

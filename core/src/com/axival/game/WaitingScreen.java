@@ -63,7 +63,7 @@ public class WaitingScreen implements Screen {
         kryo.register(Packets.BufferTellReady.class);
         kryo.register(Packets.BufferLobbyPlayer.class);
         kryo.register(Packets.BufferPlayerData.class);
-        kryo.register(Packets.BufferPhasePlay.class);
+        kryo.register(Packets.BufferUpdatePhase.class);
         kryo.register(Packets.BufferRequestPlayerData.class);
         kryo.register(Packets.BufferGoSelectChar.class);
         kryo.register(Packets.BufferLivePick.class);
