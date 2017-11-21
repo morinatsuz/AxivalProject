@@ -57,6 +57,8 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     private int chooseAction = -1;
 
+    private boolean chain=false;
+
     public ScreenPlay(final CardPlay cardPlay) {
         //set main render object and Input
         this.cardPlay = cardPlay;
@@ -362,23 +364,28 @@ public class ScreenPlay implements Screen, InputProcessor {
             LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, mapScreen.player[mapScreen.idx].job, vec);
             LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
             LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
-            LinkedList<Vector2> enemey = new LinkedList<Vector2>();
+            LinkedList<Vector2> enemy = new LinkedList<Vector2>();
+            LinkedList<Vector3> enemys = new LinkedList<Vector3>();
             for (Vector3 vec3 : heroCoordinates) {
                 heroCoordinates2.add(new Vector2(vec3.y, vec3.z));
-                System.out.println("Hero Cooradiante = " + vec3);
+                if (mapScreen.idx%2 != vec3.x%2 ) {
+                    enemys.add(vec3);
+                }
                 if (mapScreen.idx != vec3.x && (mapScreen.idx % 2 == 0) != (vec3.x % 2 == 0)) {
                     System.out.println("Enemy = " + vec3);
-                    enemey.add(new Vector2(vec3.y, vec3.z));
+                    enemy.add(new Vector2(vec3.y, vec3.z));
                 }
             }
             Hero player = mapScreen.player[mapScreen.idx];
             boolean onlyYou = player.getRowCol().equals(goal);
-            boolean offend = enemey.contains(goal);
+            boolean offend = enemy.contains(goal);
             boolean inArea = skillOverlay.contains(goal);
             boolean allHero = heroCoordinates2.contains(goal);
             boolean beAlly = allHero && !offend;
             int job = mapScreen.player[mapScreen.idx].job;
             int holdAction = chooseAction;
+            int attacker = mapScreen.idx;
+            int target = getIndexOfTarget(heroCoordinates, goal);
 
 
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && !player.isHeroPlaying() && player.actionUsing == -1) {
@@ -387,7 +394,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         if (holdAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
-//                            StatusAxival.statusPlayer(getIndexOfTarget(heroCoordinates, goal))[]
+                            combatCalculate(attacker, target, 2);
                         }
                         else if (holdAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
@@ -398,14 +405,25 @@ public class ScreenPlay implements Screen, InputProcessor {
                             playCardSkill(false);
                         }
                         else if (holdAction == 3 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
+                            //Calculating 3rd skill of Dark Templar
+                            double lossHP = Math.ceil(35 - StatusAxival.statusPlayer[attacker][1]);
+                            int damage = (int)Math.ceil(lossHP * 0.4 + StatusAxival.statusPlayer[attacker][4]);
+
+                            //Calculating animation time
+                            float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
+                            mapScreen.player[target].setAttackedTime(frameDuration);
+
+                            if (combatCalculate(attacker, target, 8, damage)) {
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                            }
                         }
                     }
                     else if (job == 2) {
                         if (holdAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            combatCalculate(attacker, target, 3);
                         }
                         else if (holdAction == 1 && offend) {
                             heroFaceToTheRightSide(goal);
@@ -418,12 +436,19 @@ public class ScreenPlay implements Screen, InputProcessor {
                         else if (holdAction == 3 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            int damage = -300;
+                            float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
+                            mapScreen.player[0].setAttackedTime(frameDuration);
+                            mapScreen.player[2].setAttackedTime(frameDuration);
+                            combatCalculate(attacker, 0, 8, damage);
+                            combatCalculate(attacker, 2, 8, damage);
                         }
                     }
                     else if (job == 3) {
                         if (holdAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            combatCalculate(attacker, target, 3);
                         }
                         else if (holdAction == 1 && allHero && !offend && inArea) {
                             heroFaceToTheRightSide(goal);
@@ -436,6 +461,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         else if (holdAction == 3 && allHero && !onlyYou) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            int damage = -400;
                         }
                     }
                 }
@@ -463,6 +489,40 @@ public class ScreenPlay implements Screen, InputProcessor {
         return false;
     }
 
+    public void combatCalculate(int attacker, int target, int apUse, float damage, String buff) {
+
+    }
+
+    public boolean combatCalculate(int attacker, int target, int apUse, float damage) {
+        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][2]);
+        if (true) { // StatusAxival.statusPlayer[target][2] >= apUse)
+            System.out.println("Player " + attacker + " Damage = " + damage);
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][1]);
+            StatusAxival.statusPlayer[attacker][2] -= apUse;
+            StatusAxival.statusPlayer[target][1] -= damage;
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][1]);
+            return true;
+        }
+        else {
+            System.out.println("Player " + attacker + " has not enough AP for using skill");
+
+        }
+        return false;
+    }
+
+    //Normal Attack    ps.index : round hp ap range atk def
+    public void combatCalculate(int attacker, int target, int apUse) {
+        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][2]);
+        if (StatusAxival.statusPlayer[target][2] >= apUse) {
+            StatusAxival.statusPlayer[attacker][2] -= apUse;
+            StatusAxival.statusPlayer[target][1] -= StatusAxival.statusPlayer[attacker][4];
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][1]);
+        }
+        else {
+            System.out.println("Player " + attacker + " has not enough AP for normal attack");
+        }
+    }
+
     //play animation
     private void playCardSkill(boolean bool) {
         mapScreen.player[mapScreen.idx].resetElapsedTime();
@@ -479,7 +539,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
 
     public void heroFaceToTheRightSide(Vector2 goal) {
-        //Turn hero to right side that iser clicked
+        //Turn hero to right side that user clicked
         if (goal.x < mapScreen.player[mapScreen.idx].col) {
             if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.RIGHT) == 0) {
                 mapScreen.player[mapScreen.idx].facing = Hero.State.LEFT;
@@ -640,7 +700,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public int getChooseAction() {
-        System.out.println("chooseAction = " + chooseAction);
+//        System.out.println("chooseAction = " + chooseAction);
         return chooseAction;
     }
     public void setChooseAction(int choose){

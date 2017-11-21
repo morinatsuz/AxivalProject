@@ -1,6 +1,7 @@
 package com.axival.game.MapPlay;
 
 import com.axival.game.CardPlay;
+import com.axival.game.StatusAxival;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -40,12 +41,14 @@ public class Hero extends TextureAtlas {
     private CardPlay game;
     private MapScreen screen;
     private Board board;
-
+    private int index;
     public boolean live = true;
     public int health;
 
-    public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, String path) {
+
+    public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, int index, String path) {
         this.job = job;
+        this.index = index;
         this.setAtlas(path);
         this.target = new Vector2(10,10);
         this.targetCo = new Vector2(10,10);
@@ -54,6 +57,7 @@ public class Hero extends TextureAtlas {
         frameDuration = 0.3f;
         if (job == 1) {
             health = 35;
+            StatusAxival.statusPlayer[index][1] = health;
             ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas",
                     "dt0",1,true, screen);
             ability[1] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill1_Spritesheet/dt_skill1.atlas",
@@ -69,6 +73,7 @@ public class Hero extends TextureAtlas {
         }
         else if (job == 2) {
             health = 30;
+            StatusAxival.statusPlayer[index][1] = health;
             ability[0] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill0_Spritesheet/wz_skill0.atlas",
                     "wz0",2,true, screen);
             ability[1] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill1_Spritesheet/wz_skill1.atlas",
@@ -84,6 +89,7 @@ public class Hero extends TextureAtlas {
         }
         else {
             health = 25;
+            StatusAxival.statusPlayer[index][1] = health;
             ability[0] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill0_Spritesheet/pr_skill0.atlas",
                     "pr0", 3,true, screen);
             ability[1] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill1_Spritesheet/pr_skill1.atlas",
@@ -126,6 +132,9 @@ public class Hero extends TextureAtlas {
     }
 
     public void update(float delta) {
+        if (live == true) {
+            health = StatusAxival.statusPlayer[index][1];
+        }
         if (health <= 0 && live == true) {
             health = -1;
             live = false;
@@ -230,11 +239,7 @@ public class Hero extends TextureAtlas {
         else {
             multiplier = 1;
         }
-//        if (job == 1 && actionUsing >= 4) {
-//            System.out.println("-1 < " + actionUsing + " < 4 ");
-//            System.out.println("Attacking = " + attacking + " Carding = " + carding + " Job = " + job);
-//            int k = 0/0;
-//        }
+
         //Playing Hero Skill Animation
         if (actionUsing > -1 && actionUsing < 4 && elapsedTime < startTime +
                 heroAnimation[actionUsing].getAnimationDuration() * multiplier
@@ -352,11 +357,6 @@ public class Hero extends TextureAtlas {
 
         }
 
-        if (job == 1) {
-            System.out.println("actionUsing == " + actionUsing);
-            System.out.println("attacking == " + attacking + " carding == " + carding );
-        }
-
         //Using Card
         if (actionUsing > 3 && actionUsing < 9 && elapsedTime < startTime +
                 ability[actionUsing].getSkillAction(1f).getAnimationDuration()
@@ -366,7 +366,7 @@ public class Hero extends TextureAtlas {
             erXR = targetCo.x + ability[actionUsing].erRht[0] ;
             erYR = targetCo.y + ability[actionUsing].erRht[1];
 
-            System.out.println("Card was used  -> " + actionUsing);
+//            System.out.println("Card was used  -> " + actionUsing);
 
             game.batch.draw(ability[actionUsing].getSkillAction(1f).getKeyFrame(elapsedTime,
                     true),
@@ -375,13 +375,13 @@ public class Hero extends TextureAtlas {
         }
         else if (actionUsing > 3 && actionUsing < 9 && startTime + deltaTime <= elapsedTime && live == true)
         {
-            System.out.println("It's the end, actionUsing = " + actionUsing);
+//            System.out.println("It's the end, actionUsing = " + actionUsing);
             actionUsing = -1;
             carding = false;
         }
 
         //Pain animation
-        if (pain == true) {
+        if (pain == true || (elapsedTime < attackedTime && live == false)) {
             if (elapsedTime < startTime + attackedTime) {
                 //Right Acting
                 if (facing.compareTo(State.RIGHT) == 0)
@@ -406,7 +406,7 @@ public class Hero extends TextureAtlas {
         }
 
         //dead animation
-        if (live == false && health == -1 && elapsedTime < 4)
+        if (live == false && health == -1 && elapsedTime > attackedTime)
         {
             //set block that hero stand no obstacle
             board.map[row][col].setObstacle(0);
@@ -415,7 +415,7 @@ public class Hero extends TextureAtlas {
             {
                 game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
                         coordinates.x + ( heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()/2)
-                        + 40f, coordinates.y - 50f + elapsedTime* 100,
+                        + 40f, coordinates.y - 100f + elapsedTime* 100,
                         -( heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()),
                         heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionHeight());
             }
@@ -423,7 +423,7 @@ public class Hero extends TextureAtlas {
             {
                 game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
                         coordinates.x - 120f,
-                        coordinates.y - 50f + elapsedTime * 100);
+                        coordinates.y - 100f + elapsedTime * 100);
             }
         }
         else if (elapsedTime >= 4 && live == false && health == -1)
@@ -486,7 +486,12 @@ public class Hero extends TextureAtlas {
     public void  setAttacking(boolean bool) {
         this.attacking = bool;
     }
+
     public void setCarding(boolean bool) {
         this.carding = bool;
+    }
+
+    public void setAttackedTime(float attackedTime) {
+        this.attackedTime = attackedTime;
     }
 }

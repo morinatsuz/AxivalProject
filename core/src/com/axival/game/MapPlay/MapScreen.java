@@ -165,13 +165,13 @@ public class MapScreen implements Screen {
             }
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
+                        1,i-1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
             } else if (job == 2) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
+                        2,i-1, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
             } else {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
-                        3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
+                        3,i-1, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
             }
             if (i % 2 == 0) {
                 player[i - 1].setFacing(Hero.State.LEFT);
