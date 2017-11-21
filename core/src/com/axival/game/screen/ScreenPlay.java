@@ -381,79 +381,16 @@ public class ScreenPlay implements Screen, InputProcessor {
 
 
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && !player.isHeroPlaying() && player.actionUsing == -1) {
-//                if (chooseAction > -1 && chooseAction < 4) { // p2
-//                    //Use with all heroes except him/herself
-//                    if (chooseAction == 3 && job == 3)
-//                    {
-//                        if (allHero && !onlyYou) {
-//                            //handle health change calculate
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                    }//Use with ally only d1 w2 p1 p2 |  c0 c1 c2
-//                    else if ((chooseAction == 1 && job ==1) || (chooseAction == 2 && job == 2)
-//                            || (chooseAction == 1 && job == 3) || (chooseAction == 2 && job == 3))
-//                    {
-//                        if (chooseAction == 1 && job ==1 && allHero && !offend) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                        else if (chooseAction == 2 && job == 2 && onlyYou) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                        else if (chooseAction == 1 && job == 3 && allHero && !offend) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                        else if (chooseAction == 2 && job == 3 && onlyYou) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                    }//Use with enemies only
-//                    else
-//                    {
-//                        if (offend) {
-//                            if (chooseAction == 3 && job == 2) {
-//                                heroFaceToTheRightSide(goal);
-//                                playCardSkill(false);
-//                            }
-//                            else {
-//                                heroFaceToTheRightSide(goal);
-//                                playCardSkill(false);
-//                            }
-//
-//                        }
-//                    }
-//                }
-//                else if (chooseAction > 3 && chooseAction < 9)
-//                {
-//                    if (chooseAction == 4 && !offend && allHero) {
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 5 && !offend && allHero) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 6 && !offend && allHero) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 7 && onlyYou) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 8 && offend) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                }
                 if (-1 < chooseAction && chooseAction < 4) {
                     if (job == 1) {
                         if (chooseAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+<<<<<<< Updated upstream
                             StatusAxival.statusPlayer[this.getIndexOfTarget(heroCoordinates, goal)][0] -= 4;
+=======
+                            Status
+>>>>>>> Stashed changes
                         } else if (chooseAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
