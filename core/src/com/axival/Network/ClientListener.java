@@ -6,10 +6,12 @@ import com.axival.game.StatusAxival;
 import com.axival.game.WaitingScreen;
 import com.axival.game.fade.FadeScence;
 import com.axival.game.input.MyNameInputListener;
+import com.axival.game.screen.ScreenPlay;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Connection;
 
+import java.util.Arrays;
 
 
 public class ClientListener extends Listener {
@@ -66,9 +68,31 @@ public class ClientListener extends Listener {
     }
 
     if (o instanceof Packets.BufferUpdatePhase){
-        StatusAxival.statusPhase = ((Packets.BufferUpdatePhase) o).updatePhase;
+
+        if (SelectHeroScreen.locatePlayer = false){
+            StatusAxival.statusPhase[1] = ((Packets.BufferUpdatePhase) o).p1;
+            StatusAxival.statusPhase[2] = ((Packets.BufferUpdatePhase) o).p2;
+            StatusAxival.statusPhase[3] = ((Packets.BufferUpdatePhase) o).p3;
+            StatusAxival.statusPhase[4] = ((Packets.BufferUpdatePhase) o).p4;
+            StatusAxival.statusPhase[SelectHeroScreen.playerNo] += 3;
+            SelectHeroScreen.locatePlayer = true;
+            System.out.println("///////////Player located with +3");
+        }
+        else {
+            StatusAxival.statusPhase[5] = ((Packets.BufferUpdatePhase) o).p5;
+            StatusAxival.statusPhase[6] = ((Packets.BufferUpdatePhase) o).p6;
+            StatusAxival.statusPhase[7] = ((Packets.BufferUpdatePhase) o).p7;
+            StatusAxival.statusPhase[8] = ((Packets.BufferUpdatePhase) o).p8;
+            StatusAxival.statusPhase[9] = ((Packets.BufferUpdatePhase) o).p9;
+            StatusAxival.statusPhase[10] = ((Packets.BufferUpdatePhase) o).p10;
+            StatusAxival.statusPhase[11] = ((Packets.BufferUpdatePhase) o).p11;
+            StatusAxival.statusPhase[12] = ((Packets.BufferUpdatePhase) o).p12;
+        }
+
+
         System.out.println("Status update from Player " + ((Packets.BufferUpdatePhase) o).playerNo);
-        System.out.println(StatusAxival.statusPhase);
+
+        System.out.println(Arrays.toString(StatusAxival.statusPhase));
     }
 
     }

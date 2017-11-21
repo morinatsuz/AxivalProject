@@ -34,6 +34,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     private Array<ParticleEffectPool.PooledEffect> effect;
 
     public RandomCard randomCard;
+    public static Boolean locatePlayer;
 
 
     public boolean solveUp, solveDown, solveLeft, solveRight;
@@ -70,6 +71,9 @@ public class ScreenPlay implements Screen, InputProcessor {
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
+        Packets.BufferTellReady test = new Packets.BufferTellReady();
+        client.sendTCP(test);
+
         //cursor change
         Pixmap pm = new Pixmap(Gdx.files.internal("cursorImage2.png"));
         Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth() / 2, pm.getHeight() / 2));
@@ -85,7 +89,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this, cardPlay);
-        this.uIplay = new UIplay(this.cardPlay, this);
+        this.uIplay = new UIplay(this.cardPlay, this, client);
         this.mapScreen = new MapScreen(this.cardPlay, this);
         //this.statusAxival = new StatusAxival(this, mapScreen);
 
@@ -114,7 +118,15 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void updateStatus() {
         Packets.BufferUpdatePhase updater = new Packets.BufferUpdatePhase();
-        updater.updatePhase = StatusAxival.statusPhase;
+        updater.p5 = StatusAxival.statusPhase[5];
+        updater.p6 = StatusAxival.statusPhase[6];
+        updater.p7 = StatusAxival.statusPhase[7];
+        updater.p8 = StatusAxival.statusPhase[8];
+        updater.p9 = StatusAxival.statusPhase[9];
+        updater.p10 = StatusAxival.statusPhase[10];
+        updater.p11 = StatusAxival.statusPhase[11];
+        updater.p12 = StatusAxival.statusPhase[12];
+
         updater.playerNo = SelectHeroScreen.playerNo;
         client.sendTCP(updater);
     }

@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.esotericsoftware.kryonet.Client;
 
 
 public class UIplay implements Screen {
@@ -20,6 +21,8 @@ public class UIplay implements Screen {
     private Texture Heart_colour, Mana_colour;
     private Texture heart_left;
     private Image overlayBg;
+
+    private Client client;
 
     private ScreenPlay screenPlay;
     private CardPlay cardPlay;
@@ -48,10 +51,11 @@ public class UIplay implements Screen {
 
     private Image actionBar1, actionBar2, drawBar, travelBar, endBar, chainBar;
 
-    public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
+    public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay, final Client client){
         //create construct
         this.cardPlay = cardPlay;
         this.screenPlay = screenPlay;
+        this.client = client;
 
         //hero select
         selectedHero = 0;

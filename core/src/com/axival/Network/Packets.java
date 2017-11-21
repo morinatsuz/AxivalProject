@@ -31,7 +31,20 @@ public class Packets {
 
     public static class BufferUpdatePhase{
         public Integer playerNo;
-        public static int[] updatePhase = new int[13];
+        public Integer p0;
+        public Integer p1;
+        public Integer p2;
+        public Integer p3;
+        public Integer p4;
+        public Integer p5;
+        public Integer p6;
+        public Integer p7;
+        public Integer p8;
+        public Integer p9;
+        public Integer p10;
+        public Integer p11;
+        public Integer p12;
+
     }
 
     public static class BufferLivePick{
