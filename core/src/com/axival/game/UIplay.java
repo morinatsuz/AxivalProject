@@ -263,6 +263,21 @@ public class UIplay implements Screen {
             textSpeed1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDict[0][2]+"")));
             textSpeed1.setPosition(1170, 64);
             textSpeed1.setScale(0.4f);
+
+            //speed ap use
+            textSpeed = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[0][0]+"")));
+            textSpeed.setPosition(1100, 64);
+            textSpeed.setScale(0.4f);
+
+            //attack ap use
+            textAttack = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[0][1]+"")));
+            textAttack.setPosition(1100, -7);
+            textAttack.setScale(0.4f);
+
+            //defence ap use
+            textDefense = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[0][2]+"")));
+            textDefense.setPosition(1100, 30);
+            textDefense.setScale(0.4f);
         }
         else if(StatusAxival.myClass - 1==1){
             textClass = new Sprite(classLabel.findRegion(String.format("cw")));
@@ -275,6 +290,21 @@ public class UIplay implements Screen {
             textSpeed1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDict[1][2]+"")));
             textSpeed1.setPosition(1170, 64);
             textSpeed1.setScale(0.4f);
+
+            //speed ap use
+            textSpeed = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[1][0]+"")));
+            textSpeed.setPosition(1100, 64);
+            textSpeed.setScale(0.4f);
+
+            //attack ap use
+            textAttack = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[1][1]+"")));
+            textAttack.setPosition(1100, -7);
+            textAttack.setScale(0.4f);
+
+            //defence ap use
+            textDefense = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[1][2]+"")));
+            textDefense.setPosition(1100, 30);
+            textDefense.setScale(0.4f);
         }
         else if(StatusAxival.myClass - 1==2){
             textClass = new Sprite(classLabel.findRegion(String.format("cp")));
@@ -287,6 +317,21 @@ public class UIplay implements Screen {
             textSpeed1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDict[2][2]+"")));
             textSpeed1.setPosition(1170, 64);
             textSpeed1.setScale(0.4f);
+
+            //speed ap use
+            textSpeed = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[2][0]+"")));
+            textSpeed.setPosition(1100, 64);
+            textSpeed.setScale(0.4f);
+
+            //attack ap use
+            textAttack = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[2][1]+"")));
+            textAttack.setPosition(1100, -7);
+            textAttack.setScale(0.4f);
+
+            //defence ap use
+            textDefense = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[2][2]+"")));
+            textDefense.setPosition(1100, 30);
+            textDefense.setScale(0.4f);
         }
 
         textClass.setScale(0.3f);
@@ -307,21 +352,6 @@ public class UIplay implements Screen {
         textFontmana = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]+"")));
         textFontmana.setPosition(33+7, 0-5);
         textFontmana.setScale(0.4f);
-
-        //speed ap use
-        textSpeed = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[0][0]+"")));
-        textSpeed.setPosition(1100, 64);
-        textSpeed.setScale(0.4f);
-
-        //attack ap use
-        textAttack = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[0][1]+"")));
-        textAttack.setPosition(1100, -7);
-        textAttack.setScale(0.4f);
-
-        //defence ap use
-        textDefense = new Sprite(fontCount.findRegion(String.format(StatusAxival.playerDictUseAp[0][2]+"")));
-        textDefense.setPosition(1100, 30);
-        textDefense.setScale(0.4f);
 
         //attack num statusPlayer[indexuserFromNetwork][select]
         textAttack1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][3]+"")));

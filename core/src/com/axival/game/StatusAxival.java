@@ -20,8 +20,8 @@ public class StatusAxival {
         playerDictUseAp = new int[3][3]; //[range, atk, def] to use
 
         statusPhase[0] = 0; //Amount turn
-        statusPhase[1] = 1; //character class
-        statusPhase[2] = 6; //character class
+        statusPhase[1] = 4; //character class
+        statusPhase[2] = 1; //character class
         statusPhase[3] = 2; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn
@@ -90,14 +90,14 @@ public class StatusAxival {
         //Wizard status
         playerDict[1][0] = 30;
         playerDict[1][1] = 3;
-        playerDict[1][2] = 3;
+        playerDict[1][2] = 1;
         playerDict[1][3] = 6;
         playerDict[1][4] = 1;
 
         //Priest status
         playerDict[2][0] = 25;
         playerDict[2][1] = 3;
-        playerDict[2][2] = 2;
+        playerDict[2][2] = 1;
         playerDict[2][3] = 3;
         playerDict[2][4] = 2;
 
@@ -113,14 +113,14 @@ public class StatusAxival {
 
 
         //Priest status use ap
-        playerDictUseAp[2][0] = 3;
-        playerDictUseAp[2][1] = 2;
-        playerDictUseAp[2][2] = 1;
+        playerDictUseAp[2][0] = 1;
+        playerDictUseAp[2][1] = 3;
+        playerDictUseAp[2][2] = 2;
 
-        for (int i=0;i<4;i++){
-            if(statusPhase[i+1]>3){
-                myClass = statusPhase[i+1]-3;
-                myClassPosition = i;
+        for (int i=1;i<=4;i++){
+            if(statusPhase[i]>3){
+                myClass = statusPhase[i]-3;
+                myClassPosition = i-1;
                 break;
             }
         }
