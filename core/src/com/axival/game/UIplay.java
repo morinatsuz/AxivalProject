@@ -382,13 +382,11 @@ public class UIplay implements Screen {
         charFontHeal4 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[3][0]+"")));
         charFontHeal4.setPosition(950+90, 624-11);
         charFontHeal4.setScale(0.3f);
-
-        /*
+         /*
         //player 1 health full
         charBackHeal1 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[1]-1][0])));
         charBackHeal1.setPosition(230-90, 624-11);
         charBackHeal1.setScale(0.3f);
-        */
 
         //player 2 health full
         charBackHeal2 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[2]-1][0])));
@@ -404,6 +402,7 @@ public class UIplay implements Screen {
         charBackHeal4 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[4]-1][0])));
         charBackHeal4.setPosition(960+90, 624-11);
         charBackHeal4.setScale(0.3f);
+        */
 
         //player 1 mana
         charFontMana1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][1]+"")));
