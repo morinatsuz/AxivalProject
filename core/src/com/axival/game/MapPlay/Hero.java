@@ -57,7 +57,7 @@ public class Hero extends TextureAtlas {
         frameDuration = 0.3f;
         if (job == 1) {
             health = 35;
-            StatusAxival.statusPlayer[index][1] = health;
+            StatusAxival.statusPlayer[index][0] = health;
             ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas",
                     "dt0",1,true, screen);
             ability[1] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill1_Spritesheet/dt_skill1.atlas",
@@ -73,7 +73,7 @@ public class Hero extends TextureAtlas {
         }
         else if (job == 2) {
             health = 30;
-            StatusAxival.statusPlayer[index][1] = health;
+            StatusAxival.statusPlayer[index][0] = health;
             ability[0] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill0_Spritesheet/wz_skill0.atlas",
                     "wz0",2,true, screen);
             ability[1] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill1_Spritesheet/wz_skill1.atlas",
@@ -89,7 +89,7 @@ public class Hero extends TextureAtlas {
         }
         else {
             health = 25;
-            StatusAxival.statusPlayer[index][1] = health;
+            StatusAxival.statusPlayer[index][0] = health;
             ability[0] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill0_Spritesheet/pr_skill0.atlas",
                     "pr0", 3,true, screen);
             ability[1] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill1_Spritesheet/pr_skill1.atlas",
@@ -133,7 +133,7 @@ public class Hero extends TextureAtlas {
 
     public void update(float delta) {
         if (live == true) {
-            health = StatusAxival.statusPlayer[index][1];
+            health = StatusAxival.statusPlayer[index][0];
         }
         if (health <= 0 && live == true) {
             health = -1;

@@ -427,7 +427,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
                             mapScreen.player[target].setAttackedTime(frameDuration);
 
-                            if (combatCalculate(attacker, target, 8, damage)) {
+                            if (combatCalculate(attacker, target, 8, 34)) {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                             }
@@ -507,14 +507,21 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     }
 
+    //Skill Attack    ps. [0]hp   [1]ap  [2]range   [3]atk   [4]def
     public boolean combatCalculate(int attacker, int target, int apUse, float damage) {
-        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][2]);
-        if (true) { // StatusAxival.statusPlayer[target][2] >= apUse)
+        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
+        if (true) { //StatusAxival.statusPlayer[target][1] >= apUse
             System.out.println("Player " + attacker + " Damage = " + damage);
-            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][1]);
-            StatusAxival.statusPlayer[attacker][2] -= apUse;
-            StatusAxival.statusPlayer[target][1] -= damage;
-            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][1]);
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
+//            StatusAxival.statusPlayer[attacker][1] -= apUse;
+            if (damage >= StatusAxival.statusPlayer[target][0]) {
+                StatusAxival.statusPlayer[target][0] -= damage;
+            }
+            else {
+                StatusAxival.statusPlayer[target][0] = 0;
+            }
+
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
             return true;
         }
         else {
@@ -524,13 +531,13 @@ public class ScreenPlay implements Screen, InputProcessor {
         return false;
     }
 
-    //Normal Attack    ps.index : round hp ap range atk def
+    //Normal Attack    ps. [0]hp   [1]ap  [2]range   [3]atk   [4]def
     public void combatCalculate(int attacker, int target, int apUse) {
-        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][2]);
-        if (StatusAxival.statusPlayer[target][2] >= apUse) {
-            StatusAxival.statusPlayer[attacker][2] -= apUse;
-            StatusAxival.statusPlayer[target][1] -= StatusAxival.statusPlayer[attacker][4];
-            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][1]);
+        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
+        if (true) { //StatusAxival.statusPlayer[target][1] >= apUse
+            StatusAxival.statusPlayer[attacker][1] -= apUse;
+            StatusAxival.statusPlayer[target][0] -= StatusAxival.statusPlayer[attacker][3];
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
         }
         else {
             System.out.println("Player " + attacker + " has not enough AP for normal attack");
