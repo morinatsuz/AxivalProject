@@ -684,9 +684,9 @@ public class UIplay implements Screen {
         charFontHeal3.draw((cardPlay.batch));
         charFontHeal4.draw((cardPlay.batch));
         //charBackHeal1.draw((cardPlay.batch));
-        charBackHeal2.draw((cardPlay.batch));
-        charBackHeal3.draw((cardPlay.batch));
-        charBackHeal4.draw((cardPlay.batch));
+//        charBackHeal2.draw((cardPlay.batch));
+//        charBackHeal3.draw((cardPlay.batch));
+//        charBackHeal4.draw((cardPlay.batch));
         charFontMana1.draw((cardPlay.batch));
         charFontMana2.draw((cardPlay.batch));
         charFontMana3.draw((cardPlay.batch));
