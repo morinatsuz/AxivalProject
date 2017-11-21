@@ -39,6 +39,7 @@ public class CardAction {
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
                 setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]);
+                System.out.println("cardUse find : "+screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
             }
             @Override
@@ -334,6 +335,7 @@ public class CardAction {
             }
         });
     }
+
     public void popupDel(){
         popupG.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
     }

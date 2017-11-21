@@ -453,6 +453,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         if (chooseAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            StatusAxival.statusPlayer[this.getIndexOfTarget(heroCoordinates, goal)][0] -= 4;
                         } else if (chooseAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
