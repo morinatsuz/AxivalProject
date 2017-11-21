@@ -386,11 +386,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         if (chooseAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
-<<<<<<< Updated upstream
-                            StatusAxival.statusPlayer[this.getIndexOfTarget(heroCoordinates, goal)][0] -= 4;
-=======
-                            Status
->>>>>>> Stashed changes
+//                            StatusAxival.statusPlayer(getIndexOfTarget(heroCoordinates, goal))[]
                         } else if (chooseAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
@@ -419,6 +415,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         if (chooseAction == 0 == offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+//                            System.out.println();
                         } else if (chooseAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
