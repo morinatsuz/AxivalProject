@@ -70,7 +70,8 @@ public class Menu implements Screen {
 
     @Override
     public void show() {
-        textureBg = cardPlay.assetManager.get("bgM.jpg", Texture.class);
+        //textureBg = cardPlay.assetManager.get("bgM.jpg", Texture.class);
+        textureBg = new Texture("Main-Menu/Menu 1.jpg");
         logoMenu = new Image(cardPlay.assetManager.get("Main-Menu/Game Logo.png", Texture.class));
         logoMenu.setPosition(59, 630);
         buttonImgPlay = new Image(cardPlay.assetManager.get("Main-Menu/Play.png", Texture.class));
@@ -154,7 +155,7 @@ public class Menu implements Screen {
         ));*/
 
         fadeScence.screenfadeOut(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), 1);
-        slideshow();
+        //slideshow();
     }
 
     @Override

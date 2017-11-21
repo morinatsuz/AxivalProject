@@ -144,7 +144,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         mapScreen.render(delta);
         cardPlay.batch.begin();
         uIplay.runningDraw();
-        prototype.draw(cardPlay.batch);
+//        prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();
         if (prototype.isComplete()) {
@@ -282,12 +282,12 @@ public class ScreenPlay implements Screen, InputProcessor {
             mapScreen.player[mapScreen.idx].health = -1;
         }
         if (keycode == Input.Keys.TAB) {
-            System.out.println("Change to next phase");
-            if (StatusAxival.statusPhase[6] == 1) {
-                StatusAxival.statusPhase[6] = 2;
-            } else {
-                StatusAxival.statusPhase[6] = 1;
-            }
+//            System.out.println("Change to next phase");
+//            if (StatusAxival.statusPhase[6] == 1) {
+//                StatusAxival.statusPhase[6] = 2;
+//            } else {
+//                StatusAxival.statusPhase[6] = 1;
+//            }
 
         }
         return false;
@@ -378,134 +378,81 @@ public class ScreenPlay implements Screen, InputProcessor {
             boolean allHero = heroCoordinates2.contains(goal);
             boolean beAlly = allHero && !offend;
             int job = mapScreen.player[mapScreen.idx].job;
+            int holdAction = chooseAction;
 
 
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && !player.isHeroPlaying() && player.actionUsing == -1) {
-//                if (chooseAction > -1 && chooseAction < 4) { // p2
-//                    //Use with all heroes except him/herself
-//                    if (chooseAction == 3 && job == 3)
-//                    {
-//                        if (allHero && !onlyYou) {
-//                            //handle health change calculate
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                    }//Use with ally only d1 w2 p1 p2 |  c0 c1 c2
-//                    else if ((chooseAction == 1 && job ==1) || (chooseAction == 2 && job == 2)
-//                            || (chooseAction == 1 && job == 3) || (chooseAction == 2 && job == 3))
-//                    {
-//                        if (chooseAction == 1 && job ==1 && allHero && !offend) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                        else if (chooseAction == 2 && job == 2 && onlyYou) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                        else if (chooseAction == 1 && job == 3 && allHero && !offend) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                        else if (chooseAction == 2 && job == 3 && onlyYou) {
-//                            heroFaceToTheRightSide(goal);
-//                            playCardSkill(false);
-//                        }
-//                    }//Use with enemies only
-//                    else
-//                    {
-//                        if (offend) {
-//                            if (chooseAction == 3 && job == 2) {
-//                                heroFaceToTheRightSide(goal);
-//                                playCardSkill(false);
-//                            }
-//                            else {
-//                                heroFaceToTheRightSide(goal);
-//                                playCardSkill(false);
-//                            }
-//
-//                        }
-//                    }
-//                }
-//                else if (chooseAction > 3 && chooseAction < 9)
-//                {
-//                    if (chooseAction == 4 && !offend && allHero) {
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 5 && !offend && allHero) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 6 && !offend && allHero) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 7 && onlyYou) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                    else if (chooseAction == 8 && offend) {
-//                        heroFaceToTheRightSide(goal);
-//                        playCardSkill(true);
-//                    }
-//                }
-                if (-1 < chooseAction && chooseAction < 4) {
+                if (-1 < holdAction && holdAction < 4) {
                     if (job == 1) {
-                        if (chooseAction == 0 && offend) {
+                        if (holdAction == 0 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
-                        } else if (chooseAction == 1 && allHero && !offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 2 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 3 && offend) {
+//                            StatusAxival.statusPlayer(getIndexOfTarget(heroCoordinates, goal))[]
+                        }
+                        else if (holdAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
                         }
-                    } else if (job == 2) {
-                        if (chooseAction == 0 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 1 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 2 && onlyYou) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 3 && offend) {
+                        else if (holdAction == 2 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
                         }
-                    } else if (job == 3) {
-                        if (chooseAction == 0 == offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 1 && allHero && !offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 2 && onlyYou) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                        } else if (chooseAction == 3 && allHero && !onlyYou) {
+                        else if (holdAction == 3 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
                         }
                     }
-                } else if (3 < chooseAction && chooseAction < 9) {
-                    if (chooseAction == 4 && !offend && allHero) {
+                    else if (job == 2) {
+                        if (holdAction == 0 && offend) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (holdAction == 1 && offend) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (holdAction == 2 && onlyYou) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (holdAction == 3 && offend) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                    }
+                    else if (job == 3) {
+                        if (holdAction == 0 && offend) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (holdAction == 1 && allHero && !offend && inArea) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (holdAction == 2 && onlyYou) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                        else if (holdAction == 3 && allHero && !onlyYou) {
+                            heroFaceToTheRightSide(goal);
+                            playCardSkill(false);
+                        }
+                    }
+                }
+                else if (3 < holdAction && holdAction < 9) {
+                    if (holdAction == 4 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
-                    } else if (chooseAction == 5 && !offend && allHero) {
+                    } else if (holdAction == 5 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
-                    } else if (chooseAction == 6 && !offend && allHero) {
+                    } else if (holdAction == 6 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
-                    } else if (chooseAction == 7 && onlyYou) {
+                    } else if (holdAction == 7 && offend) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
-                    } else if (chooseAction == 8 && offend) {
+                    } else if (holdAction == 8 && onlyYou) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
                     }
@@ -693,10 +640,10 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public int getChooseAction() {
-        System.out.println(chooseAction);
+        System.out.println("chooseAction = " + chooseAction);
         return chooseAction;
     }
     public void setChooseAction(int choose){
-        chooseAction = choose;
+        this.chooseAction = choose;
     }
 }

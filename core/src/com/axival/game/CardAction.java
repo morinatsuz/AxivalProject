@@ -38,7 +38,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]);
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]+4);
+                System.out.println("cardUse find : "+screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
             }
             @Override
@@ -76,6 +77,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]+4);
+                System.out.println("cardUse find : "+screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
@@ -115,6 +118,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]+4);
+                System.out.println("cardUse find : "+screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
@@ -155,6 +160,7 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]+4);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
@@ -194,6 +200,7 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]+4);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
@@ -229,6 +236,7 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click Full: "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                setCardUse(screenPlay.randomCard.getIdenCardAll()[currentCard]+4);
                 popupShow(currentCardListener, screenPlay.randomCard.getIdenCardAll()[currentCard]);
                 //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
@@ -323,7 +331,7 @@ public class CardAction {
                 cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
                 cardPlay.soundManager.playSfx(0);
                 popupDel();
-                screenPlay.setChooseAction(4);
+                screenPlay.setChooseAction(cardUse);
             }
         });
         popupNo.addListener(new ClickListener() {
@@ -334,6 +342,7 @@ public class CardAction {
             }
         });
     }
+
     public void popupDel(){
         popupG.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
     }

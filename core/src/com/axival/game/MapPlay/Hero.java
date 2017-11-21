@@ -103,10 +103,10 @@ public class Hero extends TextureAtlas {
                 "cd1",0,true, screen);
         ability[6] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill2_Spritesheet/cd_skill2.atlas",
                 "cd2",0,true, screen);
-        ability[7] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas",
-                "cd3",0,true, screen);
-        ability[8] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas",
+        ability[7] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas",
                 "cd4",0,true, screen);
+        ability[8] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas",
+                "cd3",0,true, screen);
         heroAnimation[4] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("alert"));
         heroAnimation[5] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("pain"));
         heroAnimation[6] = new Animation<TextureRegion>(0.6f, this.atlas.findRegions("dead"));
@@ -230,10 +230,11 @@ public class Hero extends TextureAtlas {
         else {
             multiplier = 1;
         }
-        if (job == 1) {
-            //System.out.println("-1 < " + actionUsing + " < 4 ");
-            //System.out.println("Attacking = " + attacking + " Carding = " + carding + " Job = " + job);
-        }
+//        if (job == 1 && actionUsing >= 4) {
+//            System.out.println("-1 < " + actionUsing + " < 4 ");
+//            System.out.println("Attacking = " + attacking + " Carding = " + carding + " Job = " + job);
+//            int k = 0/0;
+//        }
         //Playing Hero Skill Animation
         if (actionUsing > -1 && actionUsing < 4 && elapsedTime < startTime +
                 heroAnimation[actionUsing].getAnimationDuration() * multiplier
@@ -351,6 +352,11 @@ public class Hero extends TextureAtlas {
 
         }
 
+        if (job == 1) {
+            System.out.println("actionUsing == " + actionUsing);
+            System.out.println("attacking == " + attacking + " carding == " + carding );
+        }
+
         //Using Card
         if (actionUsing > 3 && actionUsing < 9 && elapsedTime < startTime +
                 ability[actionUsing].getSkillAction(1f).getAnimationDuration()
@@ -369,7 +375,8 @@ public class Hero extends TextureAtlas {
         }
         else if (actionUsing > 3 && actionUsing < 9 && startTime + deltaTime <= elapsedTime && live == true)
         {
-            actionUsing= -1;
+            System.out.println("It's the end, actionUsing = " + actionUsing);
+            actionUsing = -1;
             carding = false;
         }
 

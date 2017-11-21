@@ -267,37 +267,37 @@ public class UIplay implements Screen {
         textBackmana.setScale(0.4f);
 
         //hero ap num
-        textFontmana = new Sprite(fontCount.findRegion(String.format(5+"")));
+        textFontmana = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][1]+"")));
         textFontmana.setPosition(33+7, 0-5);
         textFontmana.setScale(0.4f);
 
         //speed ap use
-        textSpeed = new Sprite(fontCount.findRegion(String.format(10+"")));
+        textSpeed = new Sprite(fontCount.findRegion(String.format(3+"")));
         textSpeed.setPosition(1100, 64);
         textSpeed.setScale(0.4f);
 
         //attack ap use
-        textAttack = new Sprite(fontCount.findRegion(String.format(12+"")));
+        textAttack = new Sprite(fontCount.findRegion(String.format(2+"")));
         textAttack.setPosition(1100, -7);
         textAttack.setScale(0.4f);
 
         //defence ap use
-        textDefense = new Sprite(fontCount.findRegion(String.format(11+"")));
+        textDefense = new Sprite(fontCount.findRegion(String.format(3+"")));
         textDefense.setPosition(1100, 30);
         textDefense.setScale(0.4f);
 
         //speed range
-        textSpeed1 = new Sprite(fontCount.findRegion(String.format(14+"")));
+        textSpeed1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][2]+"")));
         textSpeed1.setPosition(1170, 64);
         textSpeed1.setScale(0.4f);
 
         //attack num
-        textAttack1 = new Sprite(fontCount.findRegion(String.format(14+"")));
+        textAttack1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][3]+"")));
         textAttack1.setPosition(1170, -7);
         textAttack1.setScale(0.4f);
 
         //defence num
-        textDefense1 = new Sprite(fontCount.findRegion(String.format(14+"")));
+        textDefense1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][4]+"")));
         textDefense1.setPosition(1170, 30);
         textDefense1.setScale(0.4f);
 
