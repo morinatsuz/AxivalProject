@@ -7,13 +7,21 @@ public class StatusAxival {
     private int[] allStatus;
     public static int[] statusPhase; //server
     public static int[][] statusPlayer; //local
+    public static int[][] playerDict;
+    public static int[][] playerDictUseAp;
+    public static int myClass, myClassPosition;
+    public static int chaneEnable; //can chain ? if use min ap < num ap
+    public static int cardCanChain; //chain card in hand amount
+    //public static int
     public StatusAxival(){
         statusPlayer = new int[4][5]; //[ho, ap, range, atk, def]
         statusPhase = new int[13];
+        playerDict = new int[3][5]; //[ho, ap, range, atk, def]
+        playerDictUseAp = new int[3][3]; //[range, atk, def] to use
 
         statusPhase[0] = 0; //Amount turn
-        statusPhase[1] = 4; //character class
-        statusPhase[2] = 1; //character class
+        statusPhase[1] = 1; //character class
+        statusPhase[2] = 4; //character class
         statusPhase[3] = 2; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn
@@ -24,6 +32,13 @@ public class StatusAxival {
         statusPhase[10] = 0; //Travel phase who default= -1
         statusPhase[11] = 0; //Travel phase to col default= -1
         statusPhase[12] = 0; //Travel phase to row default= -1
+
+
+
+        //my class
+        //statusPhase[SelectHeroScreen.playerNo] += 3;
+
+
 
         /*
         statusPhase[0] = 0; //Amount turn
@@ -37,26 +52,79 @@ public class StatusAxival {
         statusPhase[12] = 0; //Travel phase to row default= -1
         */
 
-        //DT status
+        //player 1 status
         statusPlayer[0][0] = 35;
         statusPlayer[0][1] = 3;
         statusPlayer[0][2] = 1;
         statusPlayer[0][3] = 4;
         statusPlayer[0][4] = 3;
 
-        //Wizard status
+        //player 2 status
         statusPlayer[1][0] = 30;
         statusPlayer[1][1] = 3;
         statusPlayer[1][2] = 3;
         statusPlayer[1][3] = 6;
         statusPlayer[1][4] = 1;
 
-        //Priest status
+        //player 3 status
         statusPlayer[2][0] = 25;
         statusPlayer[2][1] = 3;
         statusPlayer[2][2] = 2;
         statusPlayer[2][3] = 3;
         statusPlayer[2][4] = 2;
+
+        //player 4 status
+        statusPlayer[3][0] = 25;
+        statusPlayer[3][1] = 3;
+        statusPlayer[3][2] = 2;
+        statusPlayer[3][3] = 3;
+        statusPlayer[3][4] = 2;
+
+        //DT status
+        playerDict[0][0] = 35;
+        playerDict[0][1] = 3;
+        playerDict[0][2] = 1;
+        playerDict[0][3] = 4;
+        playerDict[0][4] = 3;
+
+        //Wizard status
+        playerDict[1][0] = 30;
+        playerDict[1][1] = 3;
+        playerDict[1][2] = 3;
+        playerDict[1][3] = 6;
+        playerDict[1][4] = 1;
+
+        //Priest status
+        playerDict[2][0] = 25;
+        playerDict[2][1] = 3;
+        playerDict[2][2] = 2;
+        playerDict[2][3] = 3;
+        playerDict[2][4] = 2;
+
+        //DT status use ap
+        playerDictUseAp[0][0] = 2;
+        playerDictUseAp[0][1] = 2;
+        playerDictUseAp[0][2] = 2;
+
+        //Wizard status use ap
+        playerDictUseAp[1][0] = 1;
+        playerDictUseAp[1][1] = 3;
+        playerDictUseAp[1][2] = 2;
+
+
+        //Priest status use ap
+        playerDictUseAp[2][0] = 3;
+        playerDictUseAp[2][1] = 2;
+        playerDictUseAp[2][2] = 1;
+
+        for (int i=0;i<4;i++){
+            if(statusPhase[i+1]>3){
+                myClass = statusPhase[i+1]-3;
+                myClassPosition = i;
+                break;
+            }
+        }
+
     }
 
     public void setApInPhase(int heroIndex){
