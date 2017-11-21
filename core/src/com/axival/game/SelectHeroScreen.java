@@ -38,7 +38,7 @@ public class  SelectHeroScreen implements Screen {
     public static String friendName = "BlkScorpion";
     public static String teamPick;
     public static Integer playerNo;
-    public static Boolean locatePlayer;
+
 
     private BitmapFont teamFriend;
 
