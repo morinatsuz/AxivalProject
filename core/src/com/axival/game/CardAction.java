@@ -331,7 +331,7 @@ public class CardAction {
                 cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
                 cardPlay.soundManager.playSfx(0);
                 popupDel();
-                screenPlay.setChooseAction(7);
+                screenPlay.setChooseAction(cardUse);
             }
         });
         popupNo.addListener(new ClickListener() {
