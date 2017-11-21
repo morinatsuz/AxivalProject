@@ -82,6 +82,7 @@ public class  SelectHeroScreen implements Screen {
                 selectHero = 0;
                 Packets.BufferLivePick hello = new Packets.BufferLivePick();
                 hello.playerNo = playerNo;
+                hello.liveClassNo = 1;
                 hello.liveClassPick = "Dark Templar";
                 client.sendTCP(hello);
                 System.out.println("Sended!");
@@ -106,6 +107,7 @@ public class  SelectHeroScreen implements Screen {
                 selectHero = 0;
                 Packets.BufferLivePick hello = new Packets.BufferLivePick();
                 hello.playerNo = playerNo;
+                hello.liveClassNo = 1;
                 hello.liveClassPick = "Dark Templar";
                 client.sendTCP(hello);
                 System.out.println("Sended!");
@@ -143,6 +145,7 @@ public class  SelectHeroScreen implements Screen {
                 selectHero = 1;
                 Packets.BufferLivePick hello = new Packets.BufferLivePick();
                 hello.playerNo = playerNo;
+                hello.liveClassNo = 2;
                 hello.liveClassPick = "Wizard";
                 client.sendTCP(hello);
                 cardPlay.soundManager.playSfx(1);
@@ -164,6 +167,7 @@ public class  SelectHeroScreen implements Screen {
                 cardPlay.soundManager.playSfx(1);
                 Packets.BufferLivePick hello = new Packets.BufferLivePick();
                 hello.playerNo = playerNo;
+                hello.liveClassNo = 2;
                 hello.liveClassPick = "Wizard";
                 client.sendTCP(hello);
             }
@@ -188,6 +192,7 @@ public class  SelectHeroScreen implements Screen {
                 selectHero = 2;
                 Packets.BufferLivePick hello = new Packets.BufferLivePick();
                 hello.playerNo = playerNo;
+                hello.liveClassNo = 3;
                 hello.liveClassPick = "Priest";
                 client.sendTCP(hello);
                 cardPlay.soundManager.playSfx(1);
@@ -205,9 +210,10 @@ public class  SelectHeroScreen implements Screen {
         priestOn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                selectHero = 2;
+//                selectHero = 2;
                 Packets.BufferLivePick hello = new Packets.BufferLivePick();
                 hello.playerNo = playerNo;
+                hello.liveClassNo = 3;
                 hello.liveClassPick = "Priest";
                 client.sendTCP(hello);
                 cardPlay.soundManager.playSfx(1);

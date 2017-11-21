@@ -36,6 +36,7 @@ public class Packets {
 
     public static class BufferLivePick{
         public Integer playerNo;
+        public Integer liveClassNo;
         public String liveClassPick;
     }
 
