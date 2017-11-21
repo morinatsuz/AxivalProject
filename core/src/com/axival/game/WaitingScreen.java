@@ -37,8 +37,6 @@ public class WaitingScreen implements Screen {
 
     public WaitingScreen(CardPlay cardPlay){
 
-        connect();
-
         font = new BitmapFont();
         font.setColor(Color.WHITE);
         font2 = new BitmapFont();
@@ -51,34 +49,6 @@ public class WaitingScreen implements Screen {
         timePlay = 0;
         cardPlay.soundManager.stopBgm(0);
         cardPlay.soundManager.playBgm(4);
-    }
-
-    private void connect() {
-        client = new Client();
-        cnl = new ClientListener();
-
-        cnl.init(client);
-
-        Kryo kryo = client.getKryo();
-        kryo.register(Packets.BufferTellReady.class);
-        kryo.register(Packets.BufferLobbyPlayer.class);
-        kryo.register(Packets.BufferPlayerData.class);
-        kryo.register(Packets.BufferPhasePlay.class);
-        kryo.register(Packets.BufferRequestPlayerData.class);
-        kryo.register(Packets.BufferGoSelectChar.class);
-        kryo.register(Packets.BufferLivePick.class);
-
-        client.addListener(cnl);
-
-        System.out.println("Axival is connecting to: " + MyTextInputListener.networkId);
-
-        new Thread(client).start();
-
-        try {
-            client.connect(30000, MyTextInputListener.networkId, 25565);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -103,9 +73,8 @@ public class WaitingScreen implements Screen {
             statusAlready = false;
                 //cardPlay.fadeScreenStage.act(delta);
                 //cardPlay.fadeScreenStage.draw();
-//                fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)),
-//                        "select", 0);
-            cardPlay.setScreen(new SelectHeroScreen(cardPlay,client));
+                fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)),
+                        "select", 0);
                 //cardPlay.fadeScreenStage.draw();
                 //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
         }

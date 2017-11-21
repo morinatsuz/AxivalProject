@@ -1,7 +1,6 @@
 package com.axival.game;
 
 import com.axival.Network.Packets;
-import com.axival.game.input.MyNameInputListener;
 import com.axival.game.screen.ScreenPlay;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -36,23 +35,19 @@ public class  SelectHeroScreen implements Screen {
 
     private TextureAtlas countdownAtlas;
     public static String friendName = "BlkScorpion";
-    public static String teamPick;
-    public static Integer playerNo;
 
     private BitmapFont teamFriend;
 
     private float countdownPlay=20f;
 
-
-
-    public SelectHeroScreen(final CardPlay cardPlay, final Client client){
+    public SelectHeroScreen(final CardPlay cardPlay, Client client){
 
         teamFriend = new BitmapFont();
         teamFriend.setColor(Color.BLACK);
         cardPlay.soundManager.stopBgm(4);
         cardPlay.soundManager.playBgm(1);
-        this.cardPlay = cardPlay;
         this.client = client;
+        this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         Gdx.input.setInputProcessor(stage);
 
@@ -68,10 +63,6 @@ public class  SelectHeroScreen implements Screen {
         countdownAtlas = cardPlay.assetManager.get("hero-select/count/countdown.atlas", TextureAtlas.class);
         countdown = new Animation<TextureRegion>(1f, countdownAtlas.getRegions());
 
-
-
-
-
         darkTempImg.setScale(.16f);
         darkTempImg.setPosition(35, 40);
         darkTempOn.setScale(.16f);
@@ -80,14 +71,6 @@ public class  SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 0;
-                Packets.BufferLivePick hello = new Packets.BufferLivePick();
-                hello.playerNo = playerNo;
-                hello.liveClassPick = "Dark Templar";
-                client.sendTCP(hello);
-                System.out.println("Sended!");
-
-
-
                 cardPlay.soundManager.playSfx(1);
             }
             @Override
@@ -104,11 +87,6 @@ public class  SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 selectHero = 0;
-                Packets.BufferLivePick hello = new Packets.BufferLivePick();
-                hello.playerNo = playerNo;
-                hello.liveClassPick = "Dark Templar";
-                client.sendTCP(hello);
-                System.out.println("Sended!");
 
 //                Packets.BufferPlayerClass playerClass = new Packets.BufferPlayerClass();
 //                playerClass.heroSelect = selectHero;
@@ -116,11 +94,9 @@ public class  SelectHeroScreen implements Screen {
 //                client.sendTCP(playerClass);
 //                System.out.println("Class send");
 
-                //cardPlay.setScreen(new ScreenPlay(cardPlay));
+                cardPlay.setScreen(new ScreenPlay(cardPlay));
                 cardPlay.soundManager.playSfx(1);
                 System.out.println("Click selected");
-
-
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -141,10 +117,6 @@ public class  SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 1;
-                Packets.BufferLivePick hello = new Packets.BufferLivePick();
-                hello.playerNo = playerNo;
-                hello.liveClassPick = "Wizard";
-                client.sendTCP(hello);
                 cardPlay.soundManager.playSfx(1);
             }
             @Override
@@ -162,10 +134,6 @@ public class  SelectHeroScreen implements Screen {
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 1;
                 cardPlay.soundManager.playSfx(1);
-                Packets.BufferLivePick hello = new Packets.BufferLivePick();
-                hello.playerNo = playerNo;
-                hello.liveClassPick = "Wizard";
-                client.sendTCP(hello);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -186,10 +154,6 @@ public class  SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 2;
-                Packets.BufferLivePick hello = new Packets.BufferLivePick();
-                hello.playerNo = playerNo;
-                hello.liveClassPick = "Priest";
-                client.sendTCP(hello);
                 cardPlay.soundManager.playSfx(1);
             }
             @Override
@@ -206,10 +170,6 @@ public class  SelectHeroScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 2;
-                Packets.BufferLivePick hello = new Packets.BufferLivePick();
-                hello.playerNo = playerNo;
-                hello.liveClassPick = "Priest";
-                client.sendTCP(hello);
                 cardPlay.soundManager.playSfx(1);
             }
             @Override
@@ -244,7 +204,7 @@ public class  SelectHeroScreen implements Screen {
         stage.draw();
         cardPlay.batch.begin();
         cardPlay.batch.draw(countdown.getKeyFrame(countdownPlay, false), 1170, 625);
-        teamFriend.draw(cardPlay.batch, friendName + " is choosing " + teamPick, 230, 642);
+        teamFriend.draw(cardPlay.batch, friendName, 230, 642);
         cardPlay.batch.end();
         System.out.println(countdownPlay);
         if(countdownPlay<=0){

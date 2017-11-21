@@ -18,8 +18,8 @@ public class ClientListener extends Listener {
 
     public boolean connected;
 
-    public ClientListener(){
-
+    public ClientListener(FadeScence fadeScence){
+        this.fadeScence = fadeScence;
     }
 
     public void init(Client client) {
@@ -54,12 +54,6 @@ public class ClientListener extends Listener {
     if (o instanceof Packets.BufferGoSelectChar){
         WaitingScreen.statusAlready = true;
         SelectHeroScreen.friendName = ((Packets.BufferGoSelectChar) o).teamWith;
-        SelectHeroScreen.playerNo = ((Packets.BufferGoSelectChar) o).playerNo;
-        System.out.println("You're team with" + SelectHeroScreen.friendName + "You is player" + SelectHeroScreen.playerNo);
-    }
-
-    if (o instanceof Packets.BufferLivePick){
-        SelectHeroScreen.teamPick = ((Packets.BufferLivePick) o).liveClassPick;
     }
 
     if (o instanceof Packets.BufferRequestPlayerData){

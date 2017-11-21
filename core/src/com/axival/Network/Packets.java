@@ -13,7 +13,6 @@ public class Packets {
     }
 
     public static class BufferGoSelectChar{
-        Integer playerNo;
         String teamWith;
     }
 
@@ -32,11 +31,6 @@ public class Packets {
     public static class BufferPhasePlay{
         String authenName;
         Array phasePlay;
-    }
-
-    public static class BufferLivePick{
-        public Integer playerNo;
-        public String liveClassPick;
     }
 
 }
