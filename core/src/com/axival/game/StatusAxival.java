@@ -20,9 +20,9 @@ public class StatusAxival {
         playerDictUseAp = new int[3][3]; //[range, atk, def] to use
 
         statusPhase[0] = 0; //Amount turn
-        statusPhase[1] = 4; //character class
+        statusPhase[1] = 1; //character class
         statusPhase[2] = 1; //character class
-        statusPhase[3] = 2; //character class
+        statusPhase[3] = 5; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn
         statusPhase[6] = 0; //turn 0=draw, 1,3=action, 2=travel, 4=end
