@@ -631,6 +631,8 @@ public class ScreenPlay implements Screen, InputProcessor {
     public void phaseInTurn() {
         if (StatusAxival.statusPhase[6] == 0) {
             System.out.println("draw phase");
+            //reset shield buff
+            StatusAxival.statusPlayer[StatusAxival.myClassPosition][4] = StatusAxival.playerDict[StatusAxival.myClass-1][4];
             drawPhase();
         }
         else if (StatusAxival.statusPhase[6]== 1 || StatusAxival.statusPhase[6] == 3) {
