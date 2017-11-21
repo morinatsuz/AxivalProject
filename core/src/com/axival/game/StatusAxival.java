@@ -21,7 +21,7 @@ public class StatusAxival {
 
         statusPhase[0] = 0; //Amount turn
         statusPhase[1] = 1; //character class
-        statusPhase[2] = 4; //character class
+        statusPhase[2] = 6; //character class
         statusPhase[3] = 2; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn
