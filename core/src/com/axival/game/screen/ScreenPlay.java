@@ -118,6 +118,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void updateStatus() {
         Packets.BufferUpdatePhase updater = new Packets.BufferUpdatePhase();
+        updater.p0 = statusAxival.statusPhase[0];
         updater.p5 = StatusAxival.statusPhase[5];
         updater.p6 = StatusAxival.statusPhase[6];
         updater.p7 = StatusAxival.statusPhase[7];
@@ -129,6 +130,8 @@ public class ScreenPlay implements Screen, InputProcessor {
 
         updater.playerNo = SelectHeroScreen.playerNo;
         client.sendTCP(updater);
+
+        System.out.println("[Player " + SelectHeroScreen.playerNo + "] Your statusPhase was sended to server!");
     }
 
     public void askChain(int totalDamage,int targetNo){

@@ -77,8 +77,9 @@ public class ClientListener extends Listener {
             StatusAxival.statusPhase[4] = ((Packets.BufferUpdatePhase) o).p4;
             StatusAxival.statusPhase[SelectHeroScreen.playerNo] += 3;
             locatePlayer = false;
-            System.out.println("///////////Default array set!");
-            System.out.println(Arrays.toString(StatusAxival.statusPhase));
+            System.out.println("");
+            System.out.println("[Player "+ SelectHeroScreen.playerNo + "] //////////Default array set!");
+            System.out.println("[Player "+ SelectHeroScreen.playerNo + "] "Arrays.toString(StatusAxival.statusPhase));
             System.out.println("");
 
         } else {
@@ -91,14 +92,11 @@ public class ClientListener extends Listener {
             StatusAxival.statusPhase[10] = ((Packets.BufferUpdatePhase) o).p10;
             StatusAxival.statusPhase[11] = ((Packets.BufferUpdatePhase) o).p11;
             StatusAxival.statusPhase[12] = ((Packets.BufferUpdatePhase) o).p12;
-            System.out.println("///////////Array got updated from Player " +((Packets.BufferUpdatePhase) o).playerNo);
+            System.out.println("");
+            System.out.println("[Player " + SelectHeroScreen.playerNo + "] ///////////Array got updated from Player " +((Packets.BufferUpdatePhase) o).playerNo);
             System.out.println(Arrays.toString(StatusAxival.statusPhase));
             System.out.println("");
         }
-
-        System.out.println("Status update from Player " + ((Packets.BufferUpdatePhase) o).playerNo);
-
-        System.out.println(Arrays.toString(StatusAxival.statusPhase));
     }
 
     }
