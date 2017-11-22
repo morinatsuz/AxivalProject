@@ -424,7 +424,7 @@ public class ScreenPlay implements Screen, InputProcessor {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && !player.isHeroPlaying() && player.actionUsing == -1) {
                 if (-1 < holdAction && holdAction < 4) {
                     if (job == 1) {
-                        if (holdAction == 0 && offend) {
+                        if (holdAction == 0 && offend) { 
                             if (combatCalculate(attacker, target, 2, 4)){
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
@@ -493,9 +493,11 @@ public class ScreenPlay implements Screen, InputProcessor {
                     }
                     else if (job == 3) {
                         if (holdAction == 0 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                            combatCalculate(attacker, target, 3);
+                            if (combatCalculate(attacker, target, 3, 3)) {
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 3;
+                            }
                         }
                         else if (holdAction == 1 && allHero && !offend && inArea) {
                             heroFaceToTheRightSide(goal);
@@ -559,19 +561,6 @@ public class ScreenPlay implements Screen, InputProcessor {
 
         }
         return false;
-    }
-
-    //Normal Attack    ps. [0]hp   [1]ap  [2]range   [3]atk   [4]def
-    public void combatCalculate(int attacker, int target, int apUse) {
-        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
-        if (true) { //StatusAxival.statusPlayer[target][1] >= apUse
-            StatusAxival.statusPlayer[attacker][1] -= apUse;
-            StatusAxival.statusPlayer[target][0] -= StatusAxival.statusPlayer[attacker][3];
-            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
-        }
-        else {
-            System.out.println("Player " + attacker + " has not enough AP for normal attack");
-        }
     }
 
     //play animation
