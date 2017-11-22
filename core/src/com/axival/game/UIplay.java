@@ -97,6 +97,11 @@ public class UIplay implements Screen {
         attackOn = new Image(cardPlay.assetManager.get("skill Icon/Attack.png", Texture.class));
         defenceOn = new Image(cardPlay.assetManager.get("skill Icon/Defence.png", Texture.class));
 
+        StatusAxival.genClass();
+        StatusAxival.genToStatusPlayer(0);
+        StatusAxival.genToStatusPlayer(1);
+        StatusAxival.genToStatusPlayer(2);
+        StatusAxival.genToStatusPlayer(3);
 
         //skill button
         if(StatusAxival.myClass - 1==0){

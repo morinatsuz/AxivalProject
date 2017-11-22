@@ -78,12 +78,12 @@ public class StatusAxival {
         playerDictUseAp[2][1] = 3;
         playerDictUseAp[2][2] = 2;
 
-        genClass();
+        //genClass();
 
-        genToStatusPlayer(0);
-        genToStatusPlayer(1);
-        genToStatusPlayer(2);
-        genToStatusPlayer(3);
+        //genToStatusPlayer(0);
+        //genToStatusPlayer(1);
+        //genToStatusPlayer(2);
+        //genToStatusPlayer(3);
 
         setApInPhase(0);
         setApInPhase(1);
@@ -94,7 +94,7 @@ public class StatusAxival {
         System.out.println("StatusPlay: "+ Arrays.toString(statusPlayer[2]));
     }
 
-    public void setApInPhase(int heroIndex){
+    public static void setApInPhase(int heroIndex){
         if (statusPhase[0]==0){
             statusPlayer[heroIndex][1] = 3;
         }
