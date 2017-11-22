@@ -47,6 +47,7 @@ public class CardPlay extends Game {
         fadeScreenStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         batch = new SpriteBatch();
         soundManager = new SoundManager(this);
+        statusAxival = new StatusAxival();
         //bitmapFont = new BitmapFont();
         //bitmapFont.setColor(Color.WHITE);
 

@@ -363,6 +363,7 @@ public class UIplay implements Screen {
 
     //draw assets
     public void runningDraw(){
+        StatusAxival.genClass();
         if(StatusAxival.statusPhase[6]==0){
             //System.out.println("Phase 1 active");
             endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));

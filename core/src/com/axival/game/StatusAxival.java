@@ -78,13 +78,7 @@ public class StatusAxival {
         playerDictUseAp[2][1] = 3;
         playerDictUseAp[2][2] = 2;
 
-        for (int i=1;i<=4;i++){
-            if(statusPhase[i]>3){
-                myClass = statusPhase[i]-3;
-                myClassPosition = i-1;
-                break;
-            }
-        }
+        genClass();
 
         genToStatusPlayer(0);
         genToStatusPlayer(1);
@@ -109,6 +103,16 @@ public class StatusAxival {
         }
         else {
             statusPlayer[heroIndex][1] = 10;
+        }
+    }
+
+    public static void genClass(){
+        for (int i=1;i<=4;i++){
+            if(statusPhase[i]>3){
+                myClass = statusPhase[i]-3;
+                myClassPosition = i-1;
+                break;
+            }
         }
     }
 

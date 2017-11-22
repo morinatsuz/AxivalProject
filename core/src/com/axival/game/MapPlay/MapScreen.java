@@ -157,11 +157,11 @@ public class MapScreen implements Screen {
     public void settingHero() {
         int job;
         for (int i = 1; i < 5; i++) {
-            if (statusPhase[i] > 3) {
-                order = statusPhase[i] - 3;
+            if (StatusAxival.statusPhase[i] > 3) {
+                order = StatusAxival.statusPhase[i] - 3;
                 job = order;
             } else {
-                job = statusPhase[i];
+                job = StatusAxival.statusPhase[i];
             }
             if (job == 1) {
                 player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),

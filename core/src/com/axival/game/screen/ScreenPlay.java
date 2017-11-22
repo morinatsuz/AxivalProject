@@ -57,8 +57,6 @@ public class ScreenPlay implements Screen, InputProcessor {
     private long startTime = 0;
     private int countInLoop = 0;
 
-    private StatusAxival statusAxival;
-
     private int chooseAction = -1;
 
     private boolean chain=false;
@@ -70,7 +68,6 @@ public class ScreenPlay implements Screen, InputProcessor {
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
-        statusAxival = new StatusAxival();
 
         Packets.BufferTellReady test = new Packets.BufferTellReady();
         client.sendTCP(test);
@@ -119,7 +116,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void updateStatus() {
         Packets.BufferUpdatePhase updater = new Packets.BufferUpdatePhase();
-        updater.p0 = statusAxival.statusPhase[0];
+        updater.p0 = StatusAxival.statusPhase[0];
         updater.p5 = StatusAxival.statusPhase[5];
         updater.p6 = StatusAxival.statusPhase[6];
         updater.p7 = StatusAxival.statusPhase[7];
