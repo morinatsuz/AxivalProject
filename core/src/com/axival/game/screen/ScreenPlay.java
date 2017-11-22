@@ -465,7 +465,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         }
                         else if (holdAction == 1 && offend) {
                             if (threats.size() > 0) {
-                                
+
                             }
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);

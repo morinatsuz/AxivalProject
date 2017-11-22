@@ -296,20 +296,19 @@ public class Hero extends TextureAtlas {
                     } else if (actionUsing == 1) {
                         if (enemys.size() == 2) {
                             game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corX + ability[actionUsing].erRht[0],
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corY + ability[actionUsing].erRht[1],
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corX + ability[actionUsing].erRht[0],
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corY + ability[actionUsing].erRht[1],
                                     -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
                                     ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
                             game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                    board.map[(int)enemys.get(1).y][(int)enemys.get(1).x].corX + ability[actionUsing].erRht[0],
-                                    board.map[(int)enemys.get(1).y][(int)enemys.get(1).x].corY + ability[actionUsing].erRht[1],
+                                    board.map[(int) enemys.get(1).y][(int) enemys.get(1).x].corX + ability[actionUsing].erRht[0],
+                                    board.map[(int) enemys.get(1).y][(int) enemys.get(1).x].corY + ability[actionUsing].erRht[1],
                                     -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
                                     ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
-                        }
-                        else if (enemys.size() == 1) {
+                        } else if (enemys.size() == 1) {
                             game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corX + ability[actionUsing].erRht[0],
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corY + ability[actionUsing].erRht[1],
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corX + ability[actionUsing].erRht[0],
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corY + ability[actionUsing].erRht[1],
                                     -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
                                     ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
                         }
@@ -346,116 +345,117 @@ public class Hero extends TextureAtlas {
                     } else if (actionUsing == 1) {
                         if (enemys.size() == 2) {
                             game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corX + ability[actionUsing].erLft[0],
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corY + ability[actionUsing].erLft[1]);
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corX + ability[actionUsing].erLft[0],
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corY + ability[actionUsing].erLft[1]);
                             game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                    board.map[(int)enemys.get(1).y][(int)enemys.get(1).x].corX + ability[actionUsing].erLft[0],
-                                    board.map[(int)enemys.get(1).y][(int)enemys.get(1).x].corY + ability[actionUsing].erLft[1]);
-                        }
-                        else if (enemys.size() == 1) {
+                                    board.map[(int) enemys.get(1).y][(int) enemys.get(1).x].corX + ability[actionUsing].erLft[0],
+                                    board.map[(int) enemys.get(1).y][(int) enemys.get(1).x].corY + ability[actionUsing].erLft[1]);
+                        } else if (enemys.size() == 1) {
                             game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corX + ability[actionUsing].erLft[0],
-                                    board.map[(int)enemys.get(0).y][(int)enemys.get(0).x].corY + ability[actionUsing].erLft[1]);
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corX + ability[actionUsing].erLft[0],
+                                    board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corY + ability[actionUsing].erLft[1]);
                         }
-                    } else {
-                        //Skill Animation
-                        game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                erXL, erYL);
                     }
                 }
+                else{
+                    //Skill Animation
+                    game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                            erXL, erYL);
+            }
             }
         }
-        //Alert Acting after Perform Attack
-        else if (actionUsing > -1 && actionUsing < 4 && startTime + deltaTime <= elapsedTime && elapsedTime <=
-                startTime + deltaTime + heroAnimation[4].getAnimationDuration() && pain == false && live == true) {
-            //Right Acting
-            if (facing.compareTo(State.RIGHT) == 0) {
-                game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
-                        coordinates.x + 180f,
-                        coordinates.y - 50f,
-                        -(heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth()),
-                        heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionHeight());
-                //Left Acting
-            } else {
-                game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
-                        coordinates.x - 120f,
-                        coordinates.y - 50f);
-            }
-            //Into Walk & Stand State
-        } else if (live == true && pain == false) {
-            //End Skill State Animation
-            this.attacking = false;
-            this.renderWalking();
-            if (carding == false) {
-                actionUsing = -1;
-            }
-
-        }
-
-        //Using Card
-        if (actionUsing > 3 && actionUsing < 9 && elapsedTime < startTime +
-                ability[actionUsing].getSkillAction(1f).getAnimationDuration()
-                && attacking == false && carding == true && live == true) {
-            //set the position error
-            erXR = targetCo.x + ability[actionUsing].erRht[0];
-            erYR = targetCo.y + ability[actionUsing].erRht[1];
-
-//            System.out.println("Card was used  -> " + actionUsing);
-
-            game.batch.draw(ability[actionUsing].getSkillAction(1f).getKeyFrame(elapsedTime,
-                    true),
-                    erXR,
-                    erYR);
-        } else if (actionUsing > 3 && actionUsing < 9 && startTime + deltaTime <= elapsedTime && live == true) {
-//            System.out.println("It's the end, actionUsing = " + actionUsing);
-            actionUsing = -1;
-            carding = false;
-        }
-
-        //Pain animation
-        if (pain == true || (elapsedTime < attackedTime && live == false)) {
-            if (elapsedTime < startTime + attackedTime) {
+            //Alert Acting after Perform Attack
+            else if (actionUsing > -1 && actionUsing < 4 && startTime + deltaTime <= elapsedTime && elapsedTime <=
+                    startTime + deltaTime + heroAnimation[4].getAnimationDuration() && pain == false && live == true) {
                 //Right Acting
                 if (facing.compareTo(State.RIGHT) == 0) {
-                    game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
+                    game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
                             coordinates.x + 180f,
                             coordinates.y - 50f,
                             -(heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth()),
                             heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionHeight());
-
-                }//Left Acting
-                else {
-                    game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
+                    //Left Acting
+                } else {
+                    game.batch.draw(heroAnimation[4].getKeyFrame(elapsedTime, true),
                             coordinates.x - 120f,
                             coordinates.y - 50f);
                 }
-            } else {
-                pain = false;
+                //Into Walk & Stand State
+            } else if (live == true && pain == false) {
+                //End Skill State Animation
+                this.attacking = false;
+                this.renderWalking();
+                if (carding == false) {
+                    actionUsing = -1;
+                }
+
+            }
+
+            //Using Card
+            if (actionUsing > 3 && actionUsing < 9 && elapsedTime < startTime +
+                    ability[actionUsing].getSkillAction(1f).getAnimationDuration()
+                    && attacking == false && carding == true && live == true) {
+                //set the position error
+                erXR = targetCo.x + ability[actionUsing].erRht[0];
+                erYR = targetCo.y + ability[actionUsing].erRht[1];
+
+//            System.out.println("Card was used  -> " + actionUsing);
+
+                game.batch.draw(ability[actionUsing].getSkillAction(1f).getKeyFrame(elapsedTime,
+                        true),
+                        erXR,
+                        erYR);
+            } else if (actionUsing > 3 && actionUsing < 9 && startTime + deltaTime <= elapsedTime && live == true) {
+//            System.out.println("It's the end, actionUsing = " + actionUsing);
+                actionUsing = -1;
+                carding = false;
+            }
+
+            //Pain animation
+            if (pain == true || (elapsedTime < attackedTime && live == false)) {
+                if (elapsedTime < startTime + attackedTime) {
+                    //Right Acting
+                    if (facing.compareTo(State.RIGHT) == 0) {
+                        game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
+                                coordinates.x + 180f,
+                                coordinates.y - 50f,
+                                -(heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth()),
+                                heroAnimation[4].getKeyFrame(elapsedTime, true).getRegionHeight());
+
+                    }//Left Acting
+                    else {
+                        game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
+                                coordinates.x - 120f,
+                                coordinates.y - 50f);
+                    }
+                } else {
+                    pain = false;
+                }
+            }
+
+            //dead animation
+            if (live == false && health == -1 && elapsedTime > attackedTime) {
+                //set block that hero stand no obstacle
+                board.map[row][col].setObstacle(0);
+
+                if (facing.compareTo(State.RIGHT) == 0) {
+                    game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
+                            coordinates.x + (heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth() / 2)
+                                    + 40f, coordinates.y - 100f + elapsedTime * 100,
+                            -(heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()),
+                            heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionHeight());
+                } else {
+                    game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
+                            coordinates.x - 120f,
+                            coordinates.y - 100f + elapsedTime * 100);
+                }
+            } else if (elapsedTime >= 4 && live == false && health == -1) {
+                health = -2;
             }
         }
 
-        //dead animation
-        if (live == false && health == -1 && elapsedTime > attackedTime) {
-            //set block that hero stand no obstacle
-            board.map[row][col].setObstacle(0);
+        //Pain Acting
 
-            if (facing.compareTo(State.RIGHT) == 0) {
-                game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
-                        coordinates.x + (heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth() / 2)
-                                + 40f, coordinates.y - 100f + elapsedTime * 100,
-                        -(heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth()),
-                        heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionHeight());
-            } else {
-                game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
-                        coordinates.x - 120f,
-                        coordinates.y - 100f + elapsedTime * 100);
-            }
-        } else if (elapsedTime >= 4 && live == false && health == -1) {
-            health = -2;
-        }
-    }
-
-    //Pain Acting
     public void showPain(float frameDuration) {
         this.resetElapsedTime();
         this.setStartTime();
