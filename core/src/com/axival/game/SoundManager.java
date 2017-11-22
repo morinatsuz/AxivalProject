@@ -15,6 +15,8 @@ public class SoundManager {
     private Music cardArcane, cardArmor, cardGuardian, cardHeaven, cardPotion, cardThunder, cardWeapon;
     private Music dtNormal, dtUlti, wNormal, wIce, wHurricane, pMercy, pClean, pKarma;
 
+    private Music dieHero;
+
     public SoundManager(CardPlay cardPlay){
         //set Music assets in variable
         this.cardPlay = cardPlay;
@@ -30,23 +32,24 @@ public class SoundManager {
         this.musicLoading = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/Original - UI (mp3cut.net).ogg"));
 
         //sound card sfx
-        this.cardArcane = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.cardArmor = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.cardGuardian = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.cardHeaven = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.cardPotion = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.cardThunder = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.cardWeapon = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
+        this.cardArcane = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/arcane shield.ogg"));
+        this.cardArmor = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/Arnor++.ogg"));
+        this.cardGuardian = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/Guardian angel.ogg"));
+        this.cardHeaven = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/Heaven elixir.ogg"));
+        this.cardPotion = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/Potion.ogg"));
+        this.cardThunder = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/Thunderbolt.ogg"));
+        this.cardWeapon = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/Weapon+.ogg"));
 
         //sound hero sfx
-        this.dtNormal = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.dtUlti = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.wNormal = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.wIce = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.wHurricane = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.pMercy = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.pClean = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
-        this.pKarma = Gdx.audio.newMusic(Gdx.files.internal("sound/bgm/6.Victory BGM.ogg"));
+        this.dtNormal = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/DT normal att_Counter sfx.ogg"));
+        this.dtUlti = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/DT_Ultimate.ogg"));
+        this.wNormal = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/W_normal att.ogg"));
+        this.wIce = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/W_ice meteor.ogg"));
+        this.wHurricane = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/W_Hurricane.ogg"));
+        this.pMercy = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/P_Mercy.ogg"));
+        this.pClean = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/P_Cleansing light.ogg"));
+        this.pKarma = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/P_Karma Backfire.ogg"));
+        this.dieHero = Gdx.audio.newMusic(Gdx.files.internal("sound/Skill Sound FX/skill/Die sfx.ogg"));
 
         //set volume music
         musicMenu.setVolume(.2f);
@@ -59,7 +62,7 @@ public class SoundManager {
     //play select Bgm
     public void playBgm(int statusSound){
         //status sound => 0=menu, 1=character, 2=gameplay1, 3=gameplay2, 4=loading, 5=victory, 6=defeat
-        if(status1) {
+        if(false) {
             if (statusSound == 0) {
                 musicMenu.play();
                 musicMenu.setLooping(true);
@@ -195,6 +198,9 @@ public class SoundManager {
             } else if (statusSound == 17) {
                 pKarma.play();
             }
+            else if (statusSound == 18){
+                dieHero.play();
+            }
 
         }
     }
@@ -241,6 +247,9 @@ public class SoundManager {
         } else if (statusSound == 17) {
             pKarma.pause();
         }
+        else if (statusSound == 18){
+            dieHero.pause();
+        }
     }
 
     //stop select sfx
@@ -284,6 +293,9 @@ public class SoundManager {
         } else if (statusSound == 17) {
             pKarma.stop();
         }
+        else if (statusSound == 18){
+            dieHero.stop();
+        }
     }
 
     //stop all sfx and set status sfx to off
@@ -309,6 +321,8 @@ public class SoundManager {
             pMercy.stop();
             pClean.stop();
             pKarma.stop();
+
+            dieHero.stop();
 
             status2 = false;
         }

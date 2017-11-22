@@ -17,7 +17,7 @@ import com.esotericsoftware.kryonet.Client;
 public class UIplay implements Screen {
     //define variable
     private Texture overlayLBottom, overlayRButtom, leftPlayer1, leftPlayer2, rightPlayer1, rightPlayer2, arrow;
-    private Texture nextPhase, overlaybigbottom, overlaybigtop, mana_right, mana_left, sword, shoe, shield, myTurn, turn_line;
+    private Texture nextPhase, overlaybigbottom, overlaybigtop, mana_right, mana_left, sword, shoe, shield, myTurn;
     private Texture Heart_colour, Mana_colour;
     private Texture heart_left;
     private Image overlayBg;
@@ -28,7 +28,7 @@ public class UIplay implements Screen {
     private CardPlay cardPlay;
 
     private Stage stage;
-    private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2, skillImg1, skillImg2;
+    private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2;
 
     private Image skillCutInDark, skillCutInWizard, skillCutInPriest;
 
