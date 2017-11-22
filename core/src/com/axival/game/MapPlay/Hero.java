@@ -369,8 +369,8 @@ public class Hero extends TextureAtlas {
                     }
                     else {
                         game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
-                                erXR,
-                                erYR);
+                                erXL,
+                                erYL);
                     }
                 }
                 else{

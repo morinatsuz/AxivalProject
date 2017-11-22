@@ -168,15 +168,15 @@ public class SoundManager {
             } else if (statusSound == 2) {
                 fxSelected.play();
             } else if (statusSound == 3) {//card skill
-                cardPotion.play();
+                cardPotion.play(); //cd0
             } else if (statusSound == 4) {
-                cardHeaven.play();
+                cardHeaven.play(); //cd1
             } else if (statusSound == 5) {
-                cardArcane.play();
+                cardArcane.play(); //cd2
             } else if (statusSound == 6) {
-                cardThunder.play();
+                cardThunder.play(); //cd7
             } else if (statusSound == 7) {
-                cardGuardian.play();
+                cardGuardian.play(); //cd8
             } else if (statusSound == 8) {
                 cardWeapon.play();
             } else if (statusSound == 9) {
@@ -184,19 +184,19 @@ public class SoundManager {
             } else if (statusSound == 10) {//hero skill
                 dtNormal.play();
             } else if (statusSound == 11) {
-                dtUlti.play();
+                dtUlti.play(); //dt3
             } else if (statusSound == 12) {
                 wNormal.play();
             } else if (statusSound == 13) {
-                wIce.play();
+                wIce.play(); //wz1
             } else if (statusSound == 14) {
-                wHurricane.play();
+                wHurricane.play(); //wz3
             } else if (statusSound == 15) {
-                pMercy.play();
+                pMercy.play(); //pr1
             } else if (statusSound == 16) {
-                pClean.play();
+                pClean.play(); //pr2
             } else if (statusSound == 17) {
-                pKarma.play();
+                pKarma.play(); //pr3
             }
             else if (statusSound == 18){
                 dieHero.play();
