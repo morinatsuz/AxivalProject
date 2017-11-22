@@ -540,8 +540,31 @@ public class ScreenPlay implements Screen, InputProcessor {
         return false;
     }
 
-    public void combatCalculate(int attacker, int target, int apUse, float damage, String buff) {
+    public boolean combatCalculate(int attacker, int target, int apUse, float value, String type, int job) {
+        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
+        if (StatusAxival.statusPlayer[attacker][1] >= apUse) {
+//            System.out.printf("Player " + attacker + " Buff = " + damage);
+//            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
+            if (type == "heal") {
+                if (StatusAxival.statusPlayer[target][0] + value <= StatusAxival.playerDict[job][0]) {
+                    StatusAxival.statusPlayer[target][0] += value;
+                }
+                else {
+                    StatusAxival.statusPlayer[target][0] = StatusAxival.playerDict[job][0];
+                }
+            }
+            else if (type == "buff") {
+                StatusAxival.statusPlayer[target][4] += value;
+            }
 
+            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
+            return true;
+        }
+        else {
+            System.out.println("Player " + attacker + " has not enough AP for using skill");
+
+        }
+        return false;
     }
 
     //Skill Attack    ps. [0]hp   [1]ap  [2]range   [3]atk   [4]def
@@ -565,8 +588,6 @@ public class ScreenPlay implements Screen, InputProcessor {
         }
         return false;
     }
-
-//
 
     //play animation
     private void playCardSkill(boolean bool) {
