@@ -424,7 +424,7 @@ public class ScreenPlay implements Screen, InputProcessor {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && !player.isHeroPlaying() && player.actionUsing == -1) {
                 if (-1 < holdAction && holdAction < 4) {
                     if (job == 1) {
-                        if (holdAction == 0 && offend) { 
+                        if (holdAction == 0 && offend) {
                             if (combatCalculate(attacker, target, 2, 4)){
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
@@ -432,6 +432,11 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                         }
                         else if (holdAction == 1 && allHero && !offend) {
+                            if (combatCalculate(attacker, target, 2, 4)){
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 2;
+                            }
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
                         }
@@ -562,6 +567,27 @@ public class ScreenPlay implements Screen, InputProcessor {
         }
         return false;
     }
+
+//    public boolean combatCalculate(int attacker, int target, int apUse, float damage) {
+//        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
+//        if (StatusAxival.statusPlayer[attacker][1] >= apUse) {
+//            System.out.println("Player " + attacker + " Damage = " + damage);
+//            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
+//            if (damage <= StatusAxival.statusPlayer[target][0]) {
+//                StatusAxival.statusPlayer[target][0] -= damage;
+//            }
+//            else {
+//                StatusAxival.statusPlayer[target][0] = 0;
+//            }
+//            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
+//            return true;
+//        }
+//        else {
+//            System.out.println("Player " + attacker + " has not enough AP for using skill");
+//
+//        }
+//        return false;
+//    }
 
     //play animation
     private void playCardSkill(boolean bool) {
