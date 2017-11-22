@@ -566,26 +566,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         return false;
     }
 
-//    public boolean combatCalculate(int attacker, int target, int apUse, float damage) {
-//        System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
-//        if (StatusAxival.statusPlayer[attacker][1] >= apUse) {
-//            System.out.println("Player " + attacker + " Damage = " + damage);
-//            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
-//            if (damage <= StatusAxival.statusPlayer[target][0]) {
-//                StatusAxival.statusPlayer[target][0] -= damage;
-//            }
-//            else {
-//                StatusAxival.statusPlayer[target][0] = 0;
-//            }
-//            System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
-//            return true;
-//        }
-//        else {
-//            System.out.println("Player " + attacker + " has not enough AP for using skill");
 //
-//        }
-//        return false;
-//    }
 
     //play animation
     private void playCardSkill(boolean bool) {
