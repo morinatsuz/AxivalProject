@@ -53,9 +53,10 @@ public class Hero extends TextureAtlas {
     private int index;
     public boolean live = true;
     public int health;
+    private CardPlay cardPlay;
 
 
-    public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, int index, String path) {
+    public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, int index, String path, CardPlay cardPlay) {
         this.job = job;
         this.index = index;
         this.setAtlas(path);
@@ -65,6 +66,7 @@ public class Hero extends TextureAtlas {
         ability = new Skill[9];
         heroAnimation = new Animation[9];
         frameDuration = 0.3f;
+        this.cardPlay = cardPlay;
         if (job == 1) {
             health = 35;
             StatusAxival.statusPlayer[index][0] = health;
@@ -150,6 +152,8 @@ public class Hero extends TextureAtlas {
             live = false;
             this.resetElapsedTime();
             this.setStartTime();
+            //play sfx dead
+            cardPlay.soundManager.playSfx(18);
         }
         if (elapsedTime > 100) {
             elapsedTime = 0;

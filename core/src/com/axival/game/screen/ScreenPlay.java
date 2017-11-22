@@ -457,6 +457,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     StatusAxival.statusPlayer[attacker][0] += 2;
                                 }
                                 StatusAxival.statusPlayer[attacker][1] -= 4;
+                                //play sfx dt skill 0
+                                cardPlay.soundManager.playSfx(10);
                             }
                         } else if (holdAction == 3 && offend) {
                             //Calculating 3rd skill of Dark Templar
@@ -496,6 +498,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 4, 6);
                                 }
                                 StatusAxival.statusPlayer[attacker][1] -= 4;
+
                             } else {
                                 System.out.println("Player " + attacker + " has not enough AP");
                             }
@@ -523,6 +526,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     combatCalculate(attacker,getIndexOfTarget(heroCoordinates, threats.get(0)), 10, 10);
                                 }
                                 StatusAxival.statusPlayer[attacker][1] -= 10;
+                                //Storm sound
+                                cardPlay.soundManager.playSfx(14);
                             }
                             else {
                                 System.out.println("Player " + attacker + " has not enough AP");
@@ -539,10 +544,12 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                         } else if (holdAction == 1 && allHero && !offend && inArea) {
                             int cls = mapScreen.player[target].job;
-                            if (combatCalculate(attacker, target, 3, 4, "heal", cls)) {
+                            if (combatCalculate(attacker, target, 3, 4, "heal", cls-1)) {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 3;
+                                //play sfx mage skill 0
+                                cardPlay.soundManager.playSfx(12);
                             }
                         } else if (holdAction == 2 && onlyYou) {
                             if (StatusAxival.statusPlayer[attacker][1] >= 5) {
@@ -565,15 +572,16 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 int cls;
                                 if (allies.size() == 2) {
                                     cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(0))].job;
-                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2,"heal", cls);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2,"heal", cls-1);
                                     cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(1))].job;
-                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(1)), 5, 2,"heal", cls);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(1)), 5, 2,"heal", cls-1);
                                 } else if (allies.size() == 1){
                                     cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(0))].job;
-                                    combatCalculate(attacker,getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2,"heal", cls);
+                                    combatCalculate(attacker,getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2,"heal", cls-1);
                                 }
                                 combatCalculate(attacker, attacker, 5, 3, "heal", 2);
                                 StatusAxival.statusPlayer[attacker][1] -= 5;
+                                cardPlay.soundManager.playSfx(16);
                             }
                             else {
                                 System.out.println("Player " + attacker + " has not enough AP");
@@ -593,23 +601,29 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     StatusAxival.statusPlayer[target][0] = tHP;
                                 }
                                 StatusAxival.statusPlayer[attacker][1] -= 7;
+                                cardPlay.soundManager.playSfx(17);
                             }
                         }
                     }
                 } else if (3 < holdAction && holdAction < 9) {
                     if (holdAction == 4 && !offend && allHero) {
                         int cls = mapScreen.player[target].job;
-                        if (combatCalculate(attacker, target, 2, 2, "heal", job)) {
+                        if (combatCalculate(attacker, target, 2, 2, "heal", job-1)) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 2;
+                            //play skill potion
+                            cardPlay.soundManager.playSfx(3);
+
                         }
                     } else if (holdAction == 5 && !offend && allHero) {
                         int cls = mapScreen.player[target].job;
-                        if (combatCalculate(attacker, target, 4, 6, "heal", job)) {
+                        if (combatCalculate(attacker, target, 4, 6, "heal", job-1)) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 4;
+                            //play skill heavy potion
+                            cardPlay.soundManager.playSfx(4);
                         }
                     } else if (holdAction == 6 && !offend && allHero) {
                         int cls = mapScreen.player[target].job;
@@ -617,6 +631,9 @@ public class ScreenPlay implements Screen, InputProcessor {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 1;
+                            //play skill potion
+                            cardPlay.soundManager.playSfx(5);
+
                         }
                     } else if (holdAction == 7 && offend) {
                         int armor = StatusAxival.statusPlayer[target][4];
@@ -624,6 +641,9 @@ public class ScreenPlay implements Screen, InputProcessor {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 3;
+                            //play skill potion
+                            cardPlay.soundManager.playSfx(6);
+
                         }
                     } else if (holdAction == 8 && onlyYou) {
                         int cls = mapScreen.player[target].job;
@@ -631,6 +651,9 @@ public class ScreenPlay implements Screen, InputProcessor {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 4;
+                            //play skill super Armor
+                            cardPlay.soundManager.playSfx(7);
+
                         }
                     }
                 }
