@@ -380,6 +380,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
+                //send to network animation
+
             }
 
         }
@@ -427,6 +429,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 2;
+                                //play sfx dt skill 0
+                                cardPlay.soundManager.playSfx(10);
                             }
                         }
                         else if (holdAction == 1 && allHero && !offend) {
@@ -434,6 +438,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 2;
+                                //play sfx dt skill 1
+                                cardPlay.soundManager.playSfx(10);
                             }
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
@@ -441,6 +447,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                         else if (holdAction == 2 && offend) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            //play sfx dt skill 2
+                            cardPlay.soundManager.playSfx(10);
                         }
                         else if (holdAction == 3 && offend) {
                             //Calculating 3rd skill of Dark Templar
@@ -455,6 +463,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 8;
+                                //play sfx dt skill 3
+                                cardPlay.soundManager.playSfx(11);
                             }
                         }
                     }
@@ -464,6 +474,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 3;
+                                //play sfx mage skill 0
+                                cardPlay.soundManager.playSfx(12);
                             }
                         }
                         else if (holdAction == 1 && offend) {
@@ -472,10 +484,14 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            //play sfx mage skill 1
+                            cardPlay.soundManager.playSfx(13);
                         }
                         else if (holdAction == 2 && onlyYou) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            //play sfx mage skill 2
+                            cardPlay.soundManager.playSfx(12);
                         }
                         else if (holdAction == 3 && offend) {
                             if (StatusAxival.statusPlayer[attacker][1] >= 10) {
@@ -484,14 +500,14 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
                                 mapScreen.player[0].setAttackedTime(frameDuration);
                                 for (Vector3 enm: enemys) {
-
                                 }
                                 StatusAxival.statusPlayer[attacker][1] -= 10;
                             }
 
 
                             combatCalculate(attacker, 0, 10, 10);
-
+                            //play sfx mage skill 3
+                            cardPlay.soundManager.playSfx(14);
                         }
                     }
                     else if (job == 3) {
@@ -500,20 +516,28 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 3;
+                                //play sfx priest skill 0
+                                cardPlay.soundManager.playSfx(12);
                             }
                         }
                         else if (holdAction == 1 && allHero && !offend && inArea) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            //play sfx priest skill 1
+                            cardPlay.soundManager.playSfx(15);
                         }
                         else if (holdAction == 2 && onlyYou) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
+                            //play sfx priest skill 2
+                            cardPlay.soundManager.playSfx(16);
                         }
                         else if (holdAction == 3 && allHero && !onlyYou) {
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
                             int damage = -400;
+                            //play sfx priest skill 3
+                            cardPlay.soundManager.playSfx(17);
                         }
                     }
                 }
@@ -521,18 +545,28 @@ public class ScreenPlay implements Screen, InputProcessor {
                     if (holdAction == 4 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill potion
+                        cardPlay.soundManager.playSfx(3);
                     } else if (holdAction == 5 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill heavy potion
+                        cardPlay.soundManager.playSfx(4);
                     } else if (holdAction == 6 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill potion
+                        cardPlay.soundManager.playSfx(5);
                     } else if (holdAction == 7 && offend) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill potion
+                        cardPlay.soundManager.playSfx(6);
                     } else if (holdAction == 8 && onlyYou) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill super Armor
+                        cardPlay.soundManager.playSfx(7);
                     }
                 }
             }
@@ -665,7 +699,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         if (StatusAxival.statusPhase[6] == 0) {
             System.out.println("draw phase");
             //reset shield buff
-            StatusAxival.setApInPhase(StatusAxival.myClassPosition);
+            //StatusAxival.setApInPhase(StatusAxival.myClassPosition);
             StatusAxival.statusPlayer[StatusAxival.myClassPosition][4] = StatusAxival.playerDict[StatusAxival.myClass-1][4];
             drawPhase();
         }
