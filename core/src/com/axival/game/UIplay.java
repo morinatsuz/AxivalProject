@@ -190,7 +190,7 @@ public class UIplay implements Screen {
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
                 skillCutIn(StatusAxival.myClass - 1);
-
+                screenPlay.setChooseAction(1);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -210,7 +210,7 @@ public class UIplay implements Screen {
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
                 skillCutIn(StatusAxival.myClass - 1);
-
+                screenPlay.setChooseAction(2);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -230,7 +230,7 @@ public class UIplay implements Screen {
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
                 skillCutIn(StatusAxival.myClass - 1);
-
+                screenPlay.setChooseAction(3);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -382,27 +382,26 @@ public class UIplay implements Screen {
         charFontHeal4 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[3][0]+"")));
         charFontHeal4.setPosition(950+90, 624-11);
         charFontHeal4.setScale(0.3f);
-         /*
+
         //player 1 health full
-        charBackHeal1 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[1]-1][0])));
+        charBackHeal1 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.statusPlayer[0][0])));
         charBackHeal1.setPosition(230-90, 624-11);
         charBackHeal1.setScale(0.3f);
 
         //player 2 health full
-        charBackHeal2 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[2]-1][0])));
+        charBackHeal2 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.statusPlayer[2][0])));
         charBackHeal2.setPosition(370-90, 624-11);
         charBackHeal2.setScale(0.3f);
 
         //player 3 health full
-        charBackHeal3 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[3]-1][0])));
+        charBackHeal3 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.statusPlayer[1][0])));
         charBackHeal3.setPosition(818+90, 624-11);
         charBackHeal3.setScale(0.3f);
 
         //player 4 health full
-        charBackHeal4 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.playerDict[StatusAxival.statusPhase[4]-1][0])));
+        charBackHeal4 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.statusPlayer[3][0])));
         charBackHeal4.setPosition(960+90, 624-11);
         charBackHeal4.setScale(0.3f);
-        */
 
         //player 1 mana
         charFontMana1 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][1]+"")));
@@ -410,12 +409,12 @@ public class UIplay implements Screen {
         charFontMana1.setScale(0.3f);
 
         //player 2 mana
-        charFontMana2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][1]+"")));
+        charFontMana2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][1]+"")));
         charFontMana2.setPosition(430-90, 624-11);
         charFontMana2.setScale(0.3f);
 
         //player 3 mana
-        charFontMana3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][1]+"")));
+        charFontMana3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][1]+"")));
         charFontMana3.setPosition(878+80, 624-11);
         charFontMana3.setScale(0.3f);
 
@@ -595,7 +594,7 @@ public class UIplay implements Screen {
         textAttack1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][3]+""))); //6
         textDefense1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][4]+""))); //1
 */
-        System.out.println(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]+", myPos :"+StatusAxival.myClassPosition);
+//        System.out.println(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]+", myPos :"+StatusAxival.myClassPosition);
         //change other player
         /*
         charFontHeal1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][0]+"")));
@@ -633,12 +632,12 @@ public class UIplay implements Screen {
         charFontHeal1.setScale(0.3f);
 
         //player 2 health
-        charFontHeal2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][0]+"")));
+        charFontHeal2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][0]+"")));
         charFontHeal2.setPosition(360-90, 624-11);
         charFontHeal2.setScale(0.3f);
 
         //player 3 health
-        charFontHeal3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][0]+"")));
+        charFontHeal3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][0]+"")));
         charFontHeal3.setPosition(808+90, 624-11);
         charFontHeal3.setScale(0.3f);
 
@@ -653,12 +652,12 @@ public class UIplay implements Screen {
         charFontMana1.setScale(0.3f);
 
         //player 2 mana
-        charFontMana2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][1]+"")));
+        charFontMana2 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][1]+"")));
         charFontMana2.setPosition(430-90, 624-11);
         charFontMana2.setScale(0.3f);
 
         //player 3 mana
-        charFontMana3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][1]+"")));
+        charFontMana3 = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][1]+"")));
         charFontMana3.setPosition(878+80, 624-11);
         charFontMana3.setScale(0.3f);
 
@@ -667,6 +666,21 @@ public class UIplay implements Screen {
         charFontMana4.setPosition(1028+80, 624-11);
         charFontMana4.setScale(0.3f);
 
+        if(StatusAxival.myClass -1==0) {
+            textClass = new Sprite(classLabel.findRegion(String.format("cd")));
+            textClass.setPosition(-60 - 90, 23);
+            textClass.setScale(0.3f);
+        }
+        else if(StatusAxival.myClass -1==1) {
+            textClass = new Sprite(classLabel.findRegion(String.format("cw")));
+            textClass.setPosition(-60 - 30, 23);
+            textClass.setScale(0.3f);
+        }
+        else if(StatusAxival.myClass -1==2) {
+            textClass = new Sprite(classLabel.findRegion(String.format("cp")));
+            textClass.setPosition(-60 - 30, 23);
+            textClass.setScale(0.3f);
+        }
         //draw status in game
         textBackhealth.draw(cardPlay.batch);
         textClass.draw(cardPlay.batch);
@@ -683,10 +697,10 @@ public class UIplay implements Screen {
         charFontHeal2.draw((cardPlay.batch));
         charFontHeal3.draw((cardPlay.batch));
         charFontHeal4.draw((cardPlay.batch));
-        //charBackHeal1.draw((cardPlay.batch));
-//        charBackHeal2.draw((cardPlay.batch));
-//        charBackHeal3.draw((cardPlay.batch));
-//        charBackHeal4.draw((cardPlay.batch));
+        charBackHeal1.draw((cardPlay.batch));
+        charBackHeal2.draw((cardPlay.batch));
+        charBackHeal3.draw((cardPlay.batch));
+        charBackHeal4.draw((cardPlay.batch));
         charFontMana1.draw((cardPlay.batch));
         charFontMana2.draw((cardPlay.batch));
         charFontMana3.draw((cardPlay.batch));

@@ -394,11 +394,13 @@ public class ScreenPlay implements Screen, InputProcessor {
             LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
             LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
             LinkedList<Vector2> enemy = new LinkedList<Vector2>();
+            LinkedList<Vector2> threats = new LinkedList<Vector2>();
             LinkedList<Vector3> enemys = new LinkedList<Vector3>();
             for (Vector3 vec3 : heroCoordinates) {
                 heroCoordinates2.add(new Vector2(vec3.y, vec3.z));
                 if (mapScreen.idx%2 != vec3.x%2 ) {
                     enemys.add(vec3);
+                    threats.add(new Vector2(vec3.y, vec3.z));
                 }
                 if (mapScreen.idx != vec3.x && (mapScreen.idx % 2 == 0) != (vec3.x % 2 == 0)) {
                     System.out.println("Enemy = " + vec3);
@@ -406,6 +408,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                 }
             }
             Hero player = mapScreen.player[mapScreen.idx];
+            threats.retainAll(skillOverlay);
+            player.setEnemys(threats);
             boolean onlyYou = player.getRowCol().equals(goal);
             boolean offend = enemy.contains(goal);
             boolean inArea = skillOverlay.contains(goal);
@@ -421,9 +425,11 @@ public class ScreenPlay implements Screen, InputProcessor {
                 if (-1 < holdAction && holdAction < 4) {
                     if (job == 1) {
                         if (holdAction == 0 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                            combatCalculate(attacker, target, 2);
+                            if (combatCalculate(attacker, target, 2, 4)){
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 2;
+                            }
                         }
                         else if (holdAction == 1 && allHero && !offend) {
                             heroFaceToTheRightSide(goal);
@@ -445,16 +451,22 @@ public class ScreenPlay implements Screen, InputProcessor {
                             if (combatCalculate(attacker, target, 8, 34)) {
                                 heroFaceToTheRightSide(goal);
                                 playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 8;
                             }
                         }
                     }
                     else if (job == 2) {
                         if (holdAction == 0 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                            combatCalculate(attacker, target, 3);
+                            if (combatCalculate(attacker, target, 3, 6)){
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 3;
+                            }
                         }
                         else if (holdAction == 1 && offend) {
+                            if (threats.size() > 0) {
+                                
+                            }
                             heroFaceToTheRightSide(goal);
                             playCardSkill(false);
                         }
@@ -463,15 +475,20 @@ public class ScreenPlay implements Screen, InputProcessor {
                             playCardSkill(false);
                         }
                         else if (holdAction == 3 && offend) {
-                            heroFaceToTheRightSide(goal);
-                            playCardSkill(false);
-                            int damage = -300;
-                            float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
-                            mapScreen.player[0].setAttackedTime(frameDuration);
-                            mapScreen.player[2].setAttackedTime(frameDuration);
-                            if ()
-                            combatCalculate(attacker, 0, 8, damage);
-                            combatCalculate(attacker, 2, 8, damage);
+                            if (StatusAxival.statusPlayer[attacker][1] >= 10) {
+                                heroFaceToTheRightSide(goal);
+                                playCardSkill(false);
+                                float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
+                                mapScreen.player[0].setAttackedTime(frameDuration);
+                                for (Vector3 enm: enemys) {
+
+                                }
+                                StatusAxival.statusPlayer[attacker][1] -= 10;
+                            }
+
+
+                            combatCalculate(attacker, 0, 10, 10);
+
                         }
                     }
                     else if (job == 3) {
@@ -513,7 +530,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                         playCardSkill(true);
                     }
                 }
-
             }
         }
         return false;
@@ -526,17 +542,15 @@ public class ScreenPlay implements Screen, InputProcessor {
     //Skill Attack    ps. [0]hp   [1]ap  [2]range   [3]atk   [4]def
     public boolean combatCalculate(int attacker, int target, int apUse, float damage) {
         System.out.println("Player " + attacker + " AP = " + StatusAxival.statusPlayer[target][1]);
-        if (true) { //StatusAxival.statusPlayer[target][1] >= apUse
+        if (StatusAxival.statusPlayer[attacker][1] >= apUse) {
             System.out.println("Player " + attacker + " Damage = " + damage);
             System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
-//            StatusAxival.statusPlayer[attacker][1] -= apUse;
-            if (damage >= StatusAxival.statusPlayer[target][0]) {
+            if (damage <= StatusAxival.statusPlayer[target][0]) {
                 StatusAxival.statusPlayer[target][0] -= damage;
             }
             else {
                 StatusAxival.statusPlayer[target][0] = 0;
             }
-
             System.out.println("Player " + target + " Health = " + StatusAxival.statusPlayer[target][0]);
             return true;
         }
@@ -635,6 +649,8 @@ public class ScreenPlay implements Screen, InputProcessor {
     public void phaseInTurn() {
         if (StatusAxival.statusPhase[6] == 0) {
             System.out.println("draw phase");
+            //reset shield buff
+            StatusAxival.statusPlayer[StatusAxival.myClassPosition][4] = StatusAxival.playerDict[StatusAxival.myClass-1][4];
             drawPhase();
         }
         else if (StatusAxival.statusPhase[6]== 1 || StatusAxival.statusPhase[6] == 3) {

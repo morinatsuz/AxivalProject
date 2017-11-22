@@ -109,10 +109,10 @@ public class Skill {
                 erLft[1] = -height/2 + 60;
             }
             else if (name == "wz1") {
-                erRht[0] = width/2; //right(width/2 + 30, -100)
-                erRht[1] = -75;
-                erLft[0] = -width/2; //left(-(width/2 - 35), -100)
-                erLft[1] = -75;
+                erRht[0] = width/2 + 30; //right(width/2 + 30, -100)
+                erRht[1] = -100;
+                erLft[0] = -width/2 + 35; //left(-(width/2 - 35), -100)
+                erLft[1] = -100;
             }
             else if (name == "wz2") {
                 erRht[0] = width/2 + 20; //right(width/2 + 20, -80)

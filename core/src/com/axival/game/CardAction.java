@@ -364,7 +364,7 @@ public class CardAction {
 
     public void setPopupOff(boolean popupStatus){
         this.popupStatus = popupStatus;
-        System.out.println("show!!!! popupStatus = "+popupStatus);
+        System.out.println("show!! Turn"+StatusAxival.statusPhase[6]+", popupStatus = "+popupStatus);
     }
 
     public void setCardUse(int cardUse){
