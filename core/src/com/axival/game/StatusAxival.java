@@ -23,7 +23,7 @@ public class StatusAxival {
 
         statusPhase[0] = 0; //Amount turn
         statusPhase[1] = 1; //character class
-        statusPhase[2] = 5; //character class
+        statusPhase[2] = 4; //character class
         statusPhase[3] = 1; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn
@@ -90,6 +90,11 @@ public class StatusAxival {
         genToStatusPlayer(1);
         genToStatusPlayer(2);
         genToStatusPlayer(3);
+
+        setApInPhase(0);
+        setApInPhase(1);
+        setApInPhase(2);
+        setApInPhase(3);
 
         System.out.println("myClass : "+myClass+", myPos : "+myClassPosition);
         System.out.println("StatusPlay: "+ Arrays.toString(statusPlayer[2]));
