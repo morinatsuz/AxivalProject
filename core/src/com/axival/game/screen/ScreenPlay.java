@@ -545,18 +545,28 @@ public class ScreenPlay implements Screen, InputProcessor {
                     if (holdAction == 4 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill potion
+                        cardPlay.soundManager.playSfx(3);
                     } else if (holdAction == 5 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill heavy potion
+                        cardPlay.soundManager.playSfx(4);
                     } else if (holdAction == 6 && !offend && allHero) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill potion
+                        cardPlay.soundManager.playSfx(5);
                     } else if (holdAction == 7 && offend) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill potion
+                        cardPlay.soundManager.playSfx(6);
                     } else if (holdAction == 8 && onlyYou) {
                         heroFaceToTheRightSide(goal);
                         playCardSkill(true);
+                        //play skill super Armor
+                        cardPlay.soundManager.playSfx(7);
                     }
                 }
             }
