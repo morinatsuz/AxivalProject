@@ -70,6 +70,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
+        statusAxival = new StatusAxival();
 
         Packets.BufferTellReady test = new Packets.BufferTellReady();
         client.sendTCP(test);
