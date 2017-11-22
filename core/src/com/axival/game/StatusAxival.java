@@ -43,21 +43,21 @@ public class StatusAxival {
 
         //DT status
         playerDict[0][0] = 35;
-        playerDict[0][1] = 30;
+        playerDict[0][1] = 35;
         playerDict[0][2] = 1;
         playerDict[0][3] = 4;
         playerDict[0][4] = 3;
 
         //Wizard status
         playerDict[1][0] = 30;
-        playerDict[1][1] = 30;
+        playerDict[1][1] = 35;
         playerDict[1][2] = 1;
         playerDict[1][3] = 6;
         playerDict[1][4] = 1;
 
         //Priest status
         playerDict[2][0] = 25;
-        playerDict[2][1] = 30;
+        playerDict[2][1] = 35;
         playerDict[2][2] = 1;
         playerDict[2][3] = 3;
         playerDict[2][4] = 2;

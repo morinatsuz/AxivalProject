@@ -313,6 +313,13 @@ public class Hero extends TextureAtlas {
                                     ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
                         }
                     }
+                    else {
+                        game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                                erXR,
+                                erYR,
+                                -(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
+                                ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
+                    }
                 } else {
                     game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
                             erXR,
@@ -355,6 +362,11 @@ public class Hero extends TextureAtlas {
                                     board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corX + ability[actionUsing].erLft[0],
                                     board.map[(int) enemys.get(0).y][(int) enemys.get(0).x].corY + ability[actionUsing].erLft[1]);
                         }
+                    }
+                    else {
+                        game.batch.draw(ability[actionUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                                erXR,
+                                erYR);
                     }
                 }
                 else{
