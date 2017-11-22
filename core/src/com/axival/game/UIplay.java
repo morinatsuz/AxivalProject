@@ -47,6 +47,8 @@ public class UIplay implements Screen {
     private Sprite charFontMana1, charFontMana2, charFontMana3, charFontMana4;
     private Sprite charBackMana1, charBackMana2, charBackMana3, charBackMana4;
 
+    private Texture countAp;
+
     private int selectedHero;
 
     private Image actionBar1, actionBar2, drawBar, travelBar, endBar, chainBar;
@@ -76,7 +78,7 @@ public class UIplay implements Screen {
         shield = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png", Texture.class);
         shoe = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png", Texture.class);
         heart_left = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png", Texture.class);
-        turn_line = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Turn Line@1x.png", Texture.class);
+        //turn_line = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Turn Line@1x.png", Texture.class);
         Heart_colour = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png", Texture.class);
         Mana_colour = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png", Texture.class);
         myTurn = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png", Texture.class);
@@ -259,11 +261,6 @@ public class UIplay implements Screen {
 
         //hero In screen
 
-        //hero max ap --<>
-        textBackmana = new Sprite(fontCount.findRegion(String.format("10")));
-        textBackmana.setPosition(45+10+50, 0-5);
-        textBackmana.setScale(0.4f);
-
         //player 1 health full
         charBackHeal1 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.statusPlayer[0][0])));
         charBackHeal1.setPosition(230-90, 624-11);
@@ -339,6 +336,9 @@ public class UIplay implements Screen {
         chainBar.setWidth(600);
         chainBar.setHeight(55);
 
+        //max Ap
+        countAp = cardPlay.assetManager.get("UI_Assets/backCount/s10.png", Texture.class);
+
         //add actor to stage
         //screenPlay.stage.addActor(overlayBg);
         screenPlay.stage.addActor(nextPhaseImg);
@@ -406,8 +406,6 @@ public class UIplay implements Screen {
         cardPlay.batch.draw(mana_right,1100,15, 14, 14);
         cardPlay.batch.draw(mana_right,1100,50, 14, 14);
         cardPlay.batch.draw(mana_right,1100,85, 14, 14);
-        //cardPlay.batch.draw(turn_line, 435, 670);
-        //cardPlay.batch.draw(turn_line, 435, 690);
         cardPlay.batch.draw(arrow, 1140, 69, 50, 50);
         cardPlay.batch.draw(arrow, 1140, 34, 50, 50);
         cardPlay.batch.draw(arrow, 1140, -1, 50, 50);
@@ -424,6 +422,13 @@ public class UIplay implements Screen {
         cardPlay.batch.draw(Mana_colour,963,635, 13, 13);
         cardPlay.batch.draw(Heart_colour,1038,635, 13, 13);
         cardPlay.batch.draw(Mana_colour,1108,635, 13, 13);
+        //my Ap
+        cardPlay.batch.draw(countAp, 77, 13, countAp.getWidth()*.38f, countAp.getHeight()*.38f);
+        //all player ap
+        cardPlay.batch.draw(countAp, 210+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+        cardPlay.batch.draw(countAp, 350+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+        cardPlay.batch.draw(countAp, 968+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+        cardPlay.batch.draw(countAp, 1118+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
 
         //hero class type
         if(StatusAxival.myClass - 1 == 0) {
@@ -525,24 +530,6 @@ public class UIplay implements Screen {
             cardPlay.batch.draw(myTurn, 1090, 646 + 63);
         }
 
-        //change value hero -> find index hero -----> statusPlayer[indexuserFromNetwork][select]
-        /*
-        textFonthealth= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][0]+"")));
-        textFontmana= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]+"")));
-        textAttack1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][3]+""))); //6
-        textDefense1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][4]+""))); //1
-*/
-//        System.out.println(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]+", myPos :"+StatusAxival.myClassPosition);
-        //change other player
-        /*
-        charFontHeal1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][0]+"")));
-        charFontHeal2= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][0]+"")));
-        charFontHeal3= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][0]+"")));
-        charFontHeal4= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[3][0]+"")));
-        charFontMana1= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[0][1]+"")));
-        charFontMana2= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[1][1]+"")));
-        charFontMana3= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[2][1]+"")));
-        charFontMana4= new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[3][1]+"")));*/
 
         //hero health num statusPlayer[indexuserFromNetwork][select]
         textFonthealth = new Sprite(fontCount.findRegion(String.format(StatusAxival.statusPlayer[StatusAxival.myClassPosition][0]+"")));
@@ -623,7 +610,7 @@ public class UIplay implements Screen {
         textBackhealth.draw(cardPlay.batch);
         textClass.draw(cardPlay.batch);
         textFonthealth.draw(cardPlay.batch);
-        textBackmana.draw((cardPlay.batch));
+//        textBackmana.draw((cardPlay.batch));
         textFontmana.draw((cardPlay.batch));
         textDefense.draw((cardPlay.batch));
         textAttack.draw((cardPlay.batch));
@@ -643,10 +630,10 @@ public class UIplay implements Screen {
         charFontMana2.draw((cardPlay.batch));
         charFontMana3.draw((cardPlay.batch));
         charFontMana4.draw((cardPlay.batch));
-        charBackMana1.draw((cardPlay.batch));
-        charBackMana2.draw((cardPlay.batch));
-        charBackMana3.draw((cardPlay.batch));
-        charBackMana4.draw((cardPlay.batch));
+        //charBackMana1.draw((cardPlay.batch));
+        //charBackMana2.draw((cardPlay.batch));
+        //charBackMana3.draw((cardPlay.batch));
+        //charBackMana4.draw((cardPlay.batch));
     }
     @Override
     public void resize(int width, int height) {

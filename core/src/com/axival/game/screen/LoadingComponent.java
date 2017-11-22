@@ -80,9 +80,9 @@ public class LoadingComponent implements Screen {
         //progress + (get-pro)*lerp
         progress = MathUtils.lerp(progress, cardPlay.assetManager.getProgress(), .1f);
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
-            //cardPlay.setScreen(new ScreenPlay(cardPlay, new Client()));
+            cardPlay.setScreen(new ScreenPlay(cardPlay, new Client()));
             cardPlay.soundManager.playBgm(0);
-            cardPlay.fadeScreenStage.act(delta);
+            //cardPlay.fadeScreenStage.act(delta);
         }
     }
 
@@ -254,7 +254,6 @@ public class LoadingComponent implements Screen {
         cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png", Texture.class);
         cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png", Texture.class);
         cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png", Texture.class);
-        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Turn Line@1x.png", Texture.class);
         cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png", Texture.class);
         cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png", Texture.class);
         cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png", Texture.class);
@@ -299,6 +298,7 @@ public class LoadingComponent implements Screen {
 
         cardPlay.assetManager.load("UI_Assets/pack/packUI.atlas", TextureAtlas.class);
 
+        cardPlay.assetManager.load("UI_Assets/backCount/s10.png", Texture.class);
         cardPlay.assetManager.finishLoading();
     }
 
