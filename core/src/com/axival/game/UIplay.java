@@ -627,12 +627,12 @@ public class UIplay implements Screen {
             System.out.println("Phase Action 2 Bar!!");
             travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar2);
+            endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
         }
         else if(StatusAxival.statusPhase[6]==4){
             System.out.println("Phase End Bar!!");
-            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(endBar);
             endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            screenPlay.stage.addActor(endBar);
             actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
             actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
             travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
