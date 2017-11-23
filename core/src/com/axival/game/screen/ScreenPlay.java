@@ -717,7 +717,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                     StatusAxival.statusPhase[12] = (int)rowcol.y;
                     this.updateStatus();
                 }
-
             }
             System.out.println("statusPhase = " + StatusAxival.statusPhase[6] + " In ScreenPlay");
             Vector2 vec = mapScreen.player[mapScreen.idx].getRowCol();
