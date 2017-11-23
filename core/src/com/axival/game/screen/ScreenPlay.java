@@ -61,12 +61,18 @@ public class ScreenPlay implements Screen, InputProcessor {
     private int tempPhrase;
     private boolean dummyLeftClick;
     private boolean actionDefault;
+    private boolean walkDefault;
+
+    private int tCol, tRow;
 
     public ScreenPlay(final CardPlay cardPlay, final Client client) {
         //Temp for Phrase
         this.tempPhrase = 0;
         dummyLeftClick = false;
         actionDefault = false;
+        walkDefault = false;
+        tCol = 0;
+        tRow = 0;
         //set main render object and Input
         this.cardPlay = cardPlay;
         this.client = client;
@@ -185,16 +191,20 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void dummyInput() {
-        if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && StatusAxival.statusPhase[6] != tempPhrase) {
+        if (tCol != StatusAxival.statusPhase[11] && tRow != StatusAxival.statusPhase[12]) {
+            walkDefault = true;
+        }
+        else {
+            walkDefault = false;
+        }
+        if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && walkDefault) {
+            tCol = StatusAxival.statusPhase[11];
+            tRow = StatusAxival.statusPhase[12];
             System.out.println("Dummy Input is Working!!---------------------");
-            tempPhrase = StatusAxival.statusPhase[6];
             System.out.println("Temp Phrase change to " + tempPhrase);
-
             if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
-//                System.out.println("No Action Status was Updated");
                 actionDefault = false;
             } else {
-//                System.out.println("Action Status was Updated");
                 actionDefault = true;
             }
 
