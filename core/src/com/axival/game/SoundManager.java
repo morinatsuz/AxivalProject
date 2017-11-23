@@ -62,7 +62,7 @@ public class SoundManager {
     //play select Bgm
     public void playBgm(int statusSound){
         //status sound => 0=menu, 1=character, 2=gameplay1, 3=gameplay2, 4=loading, 5=victory, 6=defeat
-        if(false) {
+        if(status1) {
             if (statusSound == 0) {
                 musicMenu.play();
                 musicMenu.setLooping(true);

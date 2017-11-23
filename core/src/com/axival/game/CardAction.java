@@ -318,7 +318,7 @@ public class CardAction {
     }
 
     public void popupShow(final int currentCardListener, final int indexUse){
-        //checkCardUseAp();
+        checkCardUseAp();
         if(getPopupOff()){
             return;
         }
@@ -394,32 +394,33 @@ public class CardAction {
     }
 
     public void checkCardUseAp(){
-        if(cardUse==0){
+        System.out.println("CardUse : "+cardUse);
+        if(cardUse==0+4){
             if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<2){
                 setPopupOff(true);
             }
         }
-        else if(cardUse==1){
+        else if(cardUse==1+4){
             if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<4){
                 setPopupOff(true);
             }
         }
-        else if(cardUse==2){
+        else if(cardUse==2+4){
             if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<2){
                 setPopupOff(true);
             }
         }
-        else if(cardUse==3){
+        else if(cardUse==3+4){
             if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<3){
                 setPopupOff(true);
             }
         }
-        else if(cardUse==4){
+        else if(cardUse==4+4){
             if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<4){
                 setPopupOff(true);
             }
         }
-        else if(cardUse==7){
+        else if(cardUse==7+4){
             if(StatusAxival.myClass-1==0) {
                 if (StatusAxival.statusPlayer[StatusAxival.myClassPosition][1] < 8) {
                     setPopupOff(true);
