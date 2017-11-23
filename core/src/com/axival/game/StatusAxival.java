@@ -23,8 +23,13 @@ public class StatusAxival {
         playerDictUseAp = new int[3][3]; //[range, atk, def] to use
         statusPlayerEquip = new int[4][2];
         statusPhase[0] = 0; //Amount turn
+<<<<<<< Updated upstream
         statusPhase[1] = 4; //character class
         statusPhase[2] = 3; //character class
+=======
+        statusPhase[1] = 5; //character class
+        statusPhase[2] = 2; //character class
+>>>>>>> Stashed changes
         statusPhase[3] = 1; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn

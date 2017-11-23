@@ -433,11 +433,6 @@ public class MapScreen implements Screen {
         }
     }
 
-    public void showCombat(int attacker, int target, int skill) {
-        float frameDuration = player[attacker].heroAnimation[skill].getAnimationDuration();
-        player[target].showPain(frameDuration);
-    }
-
     @Override
     public void show() {
 

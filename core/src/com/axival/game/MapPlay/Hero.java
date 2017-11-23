@@ -155,7 +155,10 @@ public class Hero extends TextureAtlas {
             //play sfx dead
             cardPlay.soundManager.playSfx(18);
         }
-        if (elapsedTime > 100) {
+        //update walk
+//        StatusAxival.statusPlayer[index][2];
+//        StatusAxival.statusPlayer
+        if (elapsedTime > 20) {
             elapsedTime = 0;
         }
         this.elapsedTime += delta;
@@ -428,8 +431,8 @@ public class Hero extends TextureAtlas {
             }
 
             //Pain animation
-            if (pain == true || (elapsedTime < attackedTime && live == false)) {
-                if (elapsedTime < startTime + attackedTime) {
+            if (pain == true || (elapsedTime <= attackedTime && live == false && health != -2)) {
+                if (elapsedTime <= startTime + attackedTime) {
                     //Right Acting
                     if (facing.compareTo(State.RIGHT) == 0) {
                         game.batch.draw(heroAnimation[5].getKeyFrame(elapsedTime, true),
@@ -450,10 +453,12 @@ public class Hero extends TextureAtlas {
             }
 
             //dead animation
+            if (job == 3) {
+                System.out.println("ElapseTime = " + elapsedTime + "Health = " + health + " Pain = " + pain);
+            }
             if (live == false && health == -1 && elapsedTime > attackedTime) {
                 //set block that hero stand no obstacle
                 board.map[row][col].setObstacle(0);
-
                 if (facing.compareTo(State.RIGHT) == 0) {
                     game.batch.draw(heroAnimation[6].getKeyFrame(elapsedTime, true),
                             coordinates.x + (heroAnimation[6].getKeyFrame(elapsedTime, true).getRegionWidth() / 2)
@@ -473,6 +478,7 @@ public class Hero extends TextureAtlas {
         //Pain Acting
 
     public void showPain(float frameDuration) {
+        this.setAttackedTime(frameDuration);
         this.resetElapsedTime();
         this.setStartTime();
         pain = true;
