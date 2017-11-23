@@ -22,6 +22,8 @@ public class Hero extends TextureAtlas {
     public State currentState;
     public State previousState;
     public int walk = 4;
+    public int AP;
+    public int walkAP;
     private boolean attacking = false;
     private boolean carding = false;
     public boolean pain = false;
@@ -60,6 +62,8 @@ public class Hero extends TextureAtlas {
         this.job = job;
         this.index = index;
         this.setAtlas(path);
+        this.AP = StatusAxival.statusPlayer[index][2];
+        this.walkAP = StatusAxival.playerDictUseAp[job-1][0];
         this.target = new Vector2(10, 10);
         this.targetCo = new Vector2(10, 10);
         this.enemys = new LinkedList<Vector2>();
@@ -156,9 +160,7 @@ public class Hero extends TextureAtlas {
             cardPlay.soundManager.playSfx(18);
         }
         //update walk
-//        int AP = StatusAxival.statusPlayer[index][2];
-//        int walkAP = StatusAxival.playerDictUseAp[job][0];
-//        walk = Math.max(0, )
+//        walk = Math.max(0, (int)Math.floor(StatusAxival.statusPlayer[index][1]/walkAP) * AP);
         if (elapsedTime > 1000000000) {
             elapsedTime = 0;
         }
