@@ -187,52 +187,64 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void dummyInput() {
         if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
-            actionDefault = true;
-        } else {
             actionDefault = false;
+        } else {
+            actionDefault = true;
         }
         if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && StatusAxival.statusPhase[6] != tempPhrase) {
             tempPhrase = StatusAxival.statusPhase[6];
+            System.out.println("Temp phase change to " + tempPhrase);
             //Walk Phase
             if (tempPhrase == 2) {
-                int walker = StatusAxival.statusPhase[10]; // Walker
+                dummyLeftClick = true;
+                int wkr = StatusAxival.statusPhase[10]; // Walker
                 int row = StatusAxival.statusPhase[11]; // Row Destination
                 int col = StatusAxival.statusPhase[12]; // Column Destination
-                mapScreen.idx = walker;
+                mapScreen.idx = wkr;
+
+                //Row Column of clicked block
                 Vector2 rowcol = new Vector2(row, col);
+
                 List<Vector2> area = new LinkedList<Vector2>();
 
                 //List of Block that hero can reach.
-                area.addAll(mapScreen.board.getOverlay(mapScreen.player[walker].col,
-                        mapScreen.player[walker].row, mapScreen.player[walker].walk));
-                float x = Gdx.input.getX();
-                float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
+                area.addAll(mapScreen.board.getOverlay(mapScreen.player[mapScreen.idx].col,
+                        mapScreen.player[mapScreen.idx].row, mapScreen.player[mapScreen.idx].walk));
 
                 //prepare the variables for walking
-//                if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
-//                        mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
-//                    if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
-                mapScreen.walker.setRouting(1);
-                mapScreen.path = new LinkedList<Vector2>();
-                mapScreen.player[walker].setSource(mapScreen.player[walker].col, mapScreen.player[walker].row);
-                mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[walker].getRowCol(), rowcol));
-                mapScreen.walker.setPath(mapScreen.player[walker].getRowCol(), mapScreen.path);
-                mapScreen.walker.routing();
-//                    }
-//                }
+                if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
+                        mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
+                    if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
+                        mapScreen.walker.setRouting(1);
+                        mapScreen.path = new LinkedList<Vector2>();
+                        mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
+                        mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), rowcol));
+                        //AP used calculation
+                        mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
+                        mapScreen.walker.routing();
+                        //send to network animation
+                        StatusAxival.statusPhase[10] = mapScreen.idx;
+                        StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
+                        StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
+                        this.updateStatus();
+                    }
+
+                }
             // Action Phase
             } else if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
                 //Action Phase
+                dummyLeftClick = true;
                 int attacker = StatusAxival.statusPhase[7]; // Attacker
                 int chooseAction = StatusAxival.statusPhase[8]; // chooseAction
                 int targetIdx = StatusAxival.statusPhase[9]; // Target
+
                 Vector2 rowcol = new Vector2(mapScreen.player[targetIdx].getRowCol());
                 mapScreen.idx = attacker;
                 Hero player = mapScreen.player[attacker];
                 Vector2 vec = player.getRowCol();
                 float corX = vec.x;
                 float corY = vec.y;
-                if (StatusAxival.statusPhase[6] == 1 || StatusAxival.statusPhase[6] == 3) {
+                if (tempPhrase == 1 || tempPhrase == 3) {
                     LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, player.job, vec);
                     LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
                     LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
@@ -261,7 +273,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     boolean allHero = heroCoordinates2.contains(rowcol);
                     boolean beAlly = allHero && !offend;
                     int job = player.job;
-                    int holdAction = chooseAction; //
+                    int holdAction = chooseAction; 
                     int target = getIndexOfTarget(heroCoordinates, rowcol);
                     if (dummyLeftClick && !player.isHeroPlaying() && player.actionUsing == -1) {
                         if (-1 < holdAction && holdAction < 4) {
@@ -623,12 +635,12 @@ public class ScreenPlay implements Screen, InputProcessor {
             mapScreen.player[mapScreen.idx].health = -1;
         }
         if (keycode == Input.Keys.TAB) {
-//            System.out.println("Change to next phase");
-//            if (StatusAxival.statusPhase[6] == 1) {
-//                StatusAxival.statusPhase[6] = 2;
-//            } else {
-//                StatusAxival.statusPhase[6] = 1;
-//            }
+            System.out.println("Change Hero In turn");
+            if (StatusAxival.statusPhase[5] == 3) {
+                StatusAxival.statusPhase[5] = 0;
+            } else {
+                StatusAxival.statusPhase[5] += 1;
+            }
 
         }
         return false;

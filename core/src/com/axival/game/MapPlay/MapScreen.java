@@ -440,7 +440,7 @@ public class MapScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        StatusAxival.statusPhase[5] = idx;
+//        idx = StatusAxival.statusPhase[5];
 
         //update all player
         updateAllplayer(delta);

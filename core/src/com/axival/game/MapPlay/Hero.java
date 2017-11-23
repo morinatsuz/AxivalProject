@@ -159,7 +159,7 @@ public class Hero extends TextureAtlas {
 //        int AP = StatusAxival.statusPlayer[index][2];
 //        int walkAP = StatusAxival.playerDictUseAp[job][0];
 //        walk = Math.max(0, )
-        if (elapsedTime > 20) {
+        if (elapsedTime > 1000000000) {
             elapsedTime = 0;
         }
         this.elapsedTime += delta;
