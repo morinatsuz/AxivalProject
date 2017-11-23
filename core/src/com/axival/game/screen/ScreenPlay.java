@@ -136,6 +136,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         client.sendTCP(updater);
 
         System.out.println("[Player " + SelectHeroScreen.playerNo + "] Your statusPhase was sended to server!");
+        System.out.println("StatusPhase : "+Arrays.toString(StatusAxival.statusPhase));
     }
 
     public void askChain(int totalDamage, int targetNo) {

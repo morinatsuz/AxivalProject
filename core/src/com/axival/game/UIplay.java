@@ -163,6 +163,7 @@ public class UIplay implements Screen {
                     if (StatusAxival.statusPhase[6] > 4) {
                         StatusAxival.statusPhase[6] = 0;
                     }
+                    screenPlay.updateStatus();
                     screenPlay.phaseAll();
                 }
                 //System.out.println("nextPh : "+StatusAxival.statusPhase[6]);
