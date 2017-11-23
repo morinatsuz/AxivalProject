@@ -239,9 +239,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
                 //send to network animation
-                StatusAxival.statusPhase[10] = mapScreen.idx;
-                StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
-                StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
 
                 // Action Phase
             } else if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
