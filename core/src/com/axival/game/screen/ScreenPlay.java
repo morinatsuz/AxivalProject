@@ -1307,7 +1307,6 @@ public class ScreenPlay implements Screen, InputProcessor {
             StatusAxival.statusPhase[5] = 0;
         }
         System.out.println("StatusPhase Inturn : "+StatusAxival.statusPhase[5]);
-        updateStatus();
         StatusAxival.statusPhase[6] = 0;
         updateStatus();
         phaseAll();
