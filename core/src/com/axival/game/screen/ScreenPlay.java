@@ -711,8 +711,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                     mapScreen.walker.routing();
                     //send to network animation
                     StatusAxival.statusPhase[10] = mapScreen.idx;
-                    StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
-                    StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
+                    StatusAxival.statusPhase[11] = (int)rowcol.x;
+                    StatusAxival.statusPhase[12] = (int)rowcol.y;
                     this.updateStatus();
                 }
 

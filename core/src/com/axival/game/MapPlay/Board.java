@@ -63,7 +63,7 @@ public class Board {
             }
         }
         HeroCoordinates = new LinkedList<Vector2>();
-        HeroCoordinates.add(new Vector2(4, 6));
+        HeroCoordinates.add(new Vector2(4, 5));
         HeroCoordinates.add(new Vector2(6, 6));
         HeroCoordinates.add(new Vector2(2, 6));
         HeroCoordinates.add(new Vector2(8, 6));
