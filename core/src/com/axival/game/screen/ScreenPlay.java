@@ -1266,12 +1266,14 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void drawPhase() {
+        System.out.println("in drawphase");
         cardAction.setPopupOff(true);
         if (StatusAxival.statusPhase[0] == 0) {
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
                     if (currentCard < 5) {
+                        Timer.instance().start();
                         setCardHandR(currentCard);
                         randomCard.setCardInHandIndex(currentCard);
                         cardHandAction(0);
@@ -1310,13 +1312,14 @@ public class ScreenPlay implements Screen, InputProcessor {
 
 
     public void endPhase() {
+        System.out.println("in endPhase");
         cardAction.setPopupOff(true);
-        StatusAxival.statusPhase[5] += 1;
+        //StatusAxival.statusPhase[5] += 1;
         if (StatusAxival.statusPhase[5] > 3) {
             StatusAxival.statusPhase[5] = 0;
         }
         System.out.println("StatusPhase Inturn : " + StatusAxival.statusPhase[5]);
-        //StatusAxival.statusPhase[6] = 0;
+        StatusAxival.statusPhase[6] = 0;
         updateStatus();
         phaseAll();
     }

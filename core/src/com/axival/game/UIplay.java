@@ -638,10 +638,11 @@ public class UIplay implements Screen {
             travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
             drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
         }
-        /*else if(StatusAxival.statusPhase[6]==5){
+        else if(StatusAxival.statusPhase[6]==5){
             endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
             screenPlay.stage.addActor(drawBar);
-        }*/
+            StatusAxival.statusPhase[6] = 0;
+        }
         cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
         cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
         cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);
