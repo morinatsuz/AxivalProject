@@ -609,23 +609,27 @@ public class UIplay implements Screen {
         StatusAxival.genClass();
         //StatusAxival.updateEquip();
         if(StatusAxival.statusPhase[6]==0){
-            //System.out.println("Phase 1 active");
+            System.out.println("Phase draw Bar!!");
             endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
             screenPlay.stage.addActor(drawBar);
         }
         else if(StatusAxival.statusPhase[6]==1){
+            System.out.println("Phase Action 1 Bar!!");
             drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar1);
         }
         else if(StatusAxival.statusPhase[6]==2){
+            System.out.println("Phase Travel Bar!!");
             actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(travelBar);
         }
         else if(StatusAxival.statusPhase[6]==3){
+            System.out.println("Phase Action 2 Bar!!");
             travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar2);
         }
         else if(StatusAxival.statusPhase[6]==4){
+            System.out.println("Phase End Bar!!");
             actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
             screenPlay.stage.addActor(endBar);
             endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));

@@ -160,8 +160,6 @@ public class ScreenPlay implements Screen, InputProcessor {
             System.out.println("Out Hand");
         }
     }
-
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
