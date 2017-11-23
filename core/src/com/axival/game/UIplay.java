@@ -113,6 +113,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/DT_Sword of Aggression.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation.png", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/DT_Blazing Devastation.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/DT_Fortify.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/DT_sword of aggression.jpg", Texture.class));
         }
         else if(StatusAxival.myClass - 1==1){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/W_Meteor BW.png", Texture.class));
@@ -121,6 +124,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/W_Mana.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane.png", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Mage_Hurricane.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Mage_Mana Redemption v.2.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Mage_Meteor.jpg", Texture.class));
         }
         else if(StatusAxival.myClass - 1==2){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/P_Mercy BW.png", Texture.class));
@@ -129,6 +135,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/P_Cleansing Light.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire.png", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Priest_Cleansing Light.jpg", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Priest_Karma Backfire.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Priest_Mercy.jpg", Texture.class));
         }
 
 
