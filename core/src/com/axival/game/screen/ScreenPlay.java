@@ -187,8 +187,10 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void dummyInput() {
         if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
+            System.out.println("No Action Status was Updated");
             actionDefault = false;
         } else {
+            System.out.println("Action Status was Updated");
             actionDefault = true;
         }
         if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && StatusAxival.statusPhase[6] != tempPhrase) {
@@ -196,10 +198,12 @@ public class ScreenPlay implements Screen, InputProcessor {
             System.out.println("Temp phase change to " + tempPhrase);
             //Walk Phase
             if (tempPhrase == 2) {
+                System.out.println("In Phase 2");
                 dummyLeftClick = true;
                 int wkr = StatusAxival.statusPhase[10]; // Walker
                 int row = StatusAxival.statusPhase[11]; // Row Destination
                 int col = StatusAxival.statusPhase[12]; // Column Destination
+                System.out.println("Walker Row & Col was set");
                 mapScreen.idx = wkr;
 
                 //Row Column of clicked block
@@ -215,6 +219,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                 if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
                         mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
                     if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
+                        System.out.println("In Walking Condition");
                         mapScreen.walker.setRouting(1);
                         mapScreen.path = new LinkedList<Vector2>();
                         mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
@@ -674,6 +679,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
+            System.out.println("In touchDown");
             //Row Column of clicked block
             Vector2 rowcol = mapScreen.click.getRowCol(screenX, Math.abs(mapScreen.mapPixelHeight - screenY));
 
