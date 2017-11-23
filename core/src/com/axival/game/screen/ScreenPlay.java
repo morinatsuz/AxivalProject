@@ -505,6 +505,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         }
                     }
                 }
+                //reset after
                 StatusAxival.statusPhase[7] = 0;
                 StatusAxival.statusPhase[8] = 0;
                 StatusAxival.statusPhase[9] = 0;

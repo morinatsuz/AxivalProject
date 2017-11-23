@@ -454,7 +454,7 @@ public class Hero extends TextureAtlas {
 
             //dead animation
             if (job == 3) {
-                System.out.println("ElapseTime = " + elapsedTime + "Health = " + health + " Pain = " + pain);
+//                System.out.println("ElapseTime = " + elapsedTime + "Health = " + health + " Pain = " + pain);
             }
             if (live == false && health == -1 && elapsedTime > attackedTime) {
                 //set block that hero stand no obstacle
