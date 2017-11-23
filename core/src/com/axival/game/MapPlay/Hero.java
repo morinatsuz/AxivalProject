@@ -156,8 +156,9 @@ public class Hero extends TextureAtlas {
             cardPlay.soundManager.playSfx(18);
         }
         //update walk
-//        StatusAxival.statusPlayer[index][2];
-//        StatusAxival.statusPlayer
+//        int AP = StatusAxival.statusPlayer[index][2];
+//        int walkAP = StatusAxival.playerDictUseAp[job][0];
+//        walk = Math.max(0, )
         if (elapsedTime > 20) {
             elapsedTime = 0;
         }
