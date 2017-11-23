@@ -340,7 +340,7 @@ public class CardAction {
                 }
                 //def card
                 else if(cardUse==10){
-                    StatusAxival.statusPlayerEquip[StatusAxival.myClassPosition][1] = 3;
+                    StatusAxival.statusPlayerEquip[StatusAxival.myClassPosition][1] = 2;
                 }
                 //ultimate card
                 if(cardUse==11){

@@ -338,6 +338,7 @@ public class UIplay implements Screen {
                     //play skill cut-in
                     skillCutIn(StatusAxival.myClass - 1);
                     screenPlay.setChooseAction(3);
+                    CardAction.skillUlti = false;
                 }
             }
             @Override
@@ -745,7 +746,7 @@ public class UIplay implements Screen {
                 skill02.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
                 screenPlay.stage.addActor(skill02on);
             }
-            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<8){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<8 && CardAction.skillUlti){
                 skill03.addAction(Actions.sequence(Actions.fadeIn(1f)));
                 skill03on.addAction(Actions.sequence(Actions.removeActor()));
                 screenPlay.stage.addActor(skill03);
@@ -778,7 +779,7 @@ public class UIplay implements Screen {
                 skill02.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
                 screenPlay.stage.addActor(skill02on);
             }
-            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<10){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<10 && CardAction.skillUlti){
                 skill03.addAction(Actions.sequence(Actions.fadeIn(1f)));
                 skill03on.addAction(Actions.sequence(Actions.removeActor()));
                 screenPlay.stage.addActor(skill03);
@@ -811,7 +812,7 @@ public class UIplay implements Screen {
                 skill02.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
                 screenPlay.stage.addActor(skill02on);
             }
-            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<7){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<7 && CardAction.skillUlti){
                 skill03.addAction(Actions.sequence(Actions.fadeIn(1f)));
                 skill03on.addAction(Actions.sequence(Actions.removeActor()));
                 screenPlay.stage.addActor(skill03);
