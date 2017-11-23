@@ -191,12 +191,13 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void dummyInput() {
-        if (tCol != StatusAxival.statusPhase[11] && tRow != StatusAxival.statusPhase[12]) {
-            walkDefault = true;
-        }
-        else {
+        if (tCol == StatusAxival.statusPhase[11] && tRow == StatusAxival.statusPhase[12]) {
             walkDefault = false;
         }
+        else {
+            walkDefault = true;
+        }
+        tempPhrase = StatusAxival.statusPhase[6];
         if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && walkDefault) {
             tCol = StatusAxival.statusPhase[11];
             tRow = StatusAxival.statusPhase[12];
