@@ -12,6 +12,7 @@ public class StatusAxival {
     public static int[][] playerDict;
     public static int[][] playerDictUseAp;
     public static int myClass, myClassPosition;
+    public static int[][] statusPlayerEquip;
     public static int chaneEnable; //can chain ? if use min ap < num ap
     public static int cardCanChain; //chain card in hand amount
     //public static int
@@ -20,10 +21,10 @@ public class StatusAxival {
         statusPhase = new int[13];
         playerDict = new int[3][5]; //[ho, ap, range, atk, def]
         playerDictUseAp = new int[3][3]; //[range, atk, def] to use
-
+        statusPlayerEquip = new int[4][2];
         statusPhase[0] = 0; //Amount turn
-        statusPhase[1] = 1; //character class
-        statusPhase[2] = 5; //character class
+        statusPhase[1] = 4; //character class
+        statusPhase[2] = 3; //character class
         statusPhase[3] = 1; //character class
         statusPhase[4] = 3; //character class
         statusPhase[5] = 0; //who's in turn
@@ -34,8 +35,6 @@ public class StatusAxival {
         statusPhase[10] = 0; //Travel phase who default= -1
         statusPhase[11] = 0; //Travel phase to col default= -1
         statusPhase[12] = 0; //Travel phase to row default= -1
-
-
 
         //my class
         //statusPhase[SelectHeroScreen.playerNo] += 3;
@@ -77,6 +76,16 @@ public class StatusAxival {
         playerDictUseAp[2][0] = 1;
         playerDictUseAp[2][1] = 3;
         playerDictUseAp[2][2] = 2;
+
+        //set default equip
+        statusPlayerEquip[0][0] = 0; //atk equip
+        statusPlayerEquip[0][1] = 0; //def equip
+        statusPlayerEquip[1][0] = 0; //atk equip
+        statusPlayerEquip[1][1] = 0; //def equip
+        statusPlayerEquip[2][0] = 0; //atk equip
+        statusPlayerEquip[2][1] = 0; //def equip
+        statusPlayerEquip[3][0] = 0; //atk equip
+        statusPlayerEquip[3][1] = 0; //def equip
 
         //genClass();
 
@@ -157,6 +166,13 @@ public class StatusAxival {
             statusPlayer[i][2] = playerDict[statusPhase[i+1]-1][2];
             statusPlayer[i][3] = playerDict[statusPhase[i+1]-1][3];
             statusPlayer[i][4] = playerDict[statusPhase[i+1]-1][4];
+        }
+    }
+
+    public static void updateEquip(){
+        for (int i=0; i<4; i++) {
+            statusPlayer[i][3] = playerDict[myClass-1][3] + statusPlayerEquip[i][0];
+            statusPlayer[i][4] = playerDict[myClass-1][4] + statusPlayerEquip[i][1];
         }
     }
 
