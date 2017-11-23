@@ -38,6 +38,8 @@ public class UIplay implements Screen {
 
     private Image skill01, skill02, skill03, skill01on, skill02on, skill03on;
 
+    private Image descriptSkill01, descriptSkill02, descriptSkill03, descriptAtk, descriptDef;
+
     private TextureAtlas backCount, classLabel, fontCount, packUi;
 
     private Sprite textBackhealth, textClass, textFonthealth, textBackmana, textFontmana, textSpeed, textAttack, textDefense;
@@ -45,7 +47,6 @@ public class UIplay implements Screen {
     private Sprite charFontHeal1, charFontHeal2, charFontHeal3, charFontHeal4;
     private Sprite charBackHeal1, charBackHeal2, charBackHeal3, charBackHeal4;
     private Sprite charFontMana1, charFontMana2, charFontMana3, charFontMana4;
-    private Sprite charBackMana1, charBackMana2, charBackMana3, charBackMana4;
 
     private Texture countAp;
 
@@ -78,7 +79,6 @@ public class UIplay implements Screen {
         shield = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png", Texture.class);
         shoe = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png", Texture.class);
         heart_left = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png", Texture.class);
-        //turn_line = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Turn Line@1x.png", Texture.class);
         Heart_colour = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png", Texture.class);
         Mana_colour = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png", Texture.class);
         myTurn = cardPlay.assetManager.get("UI_Assets/Axival_UI_Assets/Indicator Trun@1x.png", Texture.class);
@@ -113,6 +113,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/DT_Sword of Aggression.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation.png", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/DT_Blazing Devastation.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/DT_Fortify.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/DT_sword of aggression.jpg", Texture.class));
         }
         else if(StatusAxival.myClass - 1==1){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/W_Meteor BW.png", Texture.class));
@@ -121,6 +124,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/W_Mana.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane.png", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Mage_Hurricane.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Mage_Mana Redemption v.2.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Mage_Meteor.jpg", Texture.class));
         }
         else if(StatusAxival.myClass - 1==2){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/P_Mercy BW.png", Texture.class));
@@ -129,7 +135,14 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/P_Cleansing Light.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire.png", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Priest_Cleansing Light.jpg", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Priest_Karma Backfire.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Priest_Mercy.jpg", Texture.class));
         }
+
+        //atk def
+        descriptAtk = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Attack.jpg", Texture.class));
+        descriptDef = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Def.jpg", Texture.class));
 
         //result game
         victoryImg.setScale(.1f);
@@ -181,6 +194,12 @@ public class UIplay implements Screen {
         skill02.setScale(.1f);
         skill03.setPosition(860+110, 25);
         skill03.setScale(.1f);
+        skill01on.setPosition(860+60,55);
+        skill01on.setScale(.1f);
+        skill02on.setPosition(860+60, 5);
+        skill02on.setScale(.1f);
+        skill03on.setPosition(860+110, 25);
+        skill03on.setScale(.1f);
 
         attackImg.setPosition(300,55);
         attackImg.setScale(.1f);
@@ -192,6 +211,14 @@ public class UIplay implements Screen {
         defenceOn.setPosition(300,5);
         defenceOn.setScale(.1f);
 
+        descriptSkill01.setScale(.15f);
+        descriptSkill02.setScale(.15f);
+        descriptSkill03.setScale(.15f);
+
+        descriptAtk.setScale(.15f);
+        descriptDef.setScale(.15f);
+        descriptAtk.setPosition(908, 0);
+        descriptDef.setPosition(908, 0);
         skill01.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -202,13 +229,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill01.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill01);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill01.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -222,35 +251,155 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill02.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill02.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill02);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill02.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill02.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
         skill03.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                //play skill cut-in
-                skillCutIn(StatusAxival.myClass - 1);
-                screenPlay.setChooseAction(3);
+                if(CardAction.skillUlti) {
+                    //play skill cut-in
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(3);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill03.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill03.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill03);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill03.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill03.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
+
+        skill01on.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+                skillCutIn(StatusAxival.myClass - 1);
+                screenPlay.setChooseAction(1);
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                skill01on.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill01);
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                skill01on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill01.addAction(Actions.sequence(Actions.removeActor()));
+            }
+        });
+
+        skill02on.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+                skillCutIn(StatusAxival.myClass - 1);
+                screenPlay.setChooseAction(2);
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                skill02on.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill02);
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                skill02on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill02.addAction(Actions.sequence(Actions.removeActor()));
+            }
+        });
+
+        skill03on.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                if(CardAction.skillUlti) {
+                    //play skill cut-in
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(3);
+                    CardAction.skillUlti = false;
+                }
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                skill03on.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill03);
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                skill03on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill03.addAction(Actions.sequence(Actions.removeActor()));
+            }
+        });
+
+        attackOn.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                    //play skill cut-in
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(0);
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                attackOn.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptAtk);
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                attackOn.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptAtk.addAction(Actions.sequence(Actions.removeActor()));
+            }
+        });
+
+        attackImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+                skillCutIn(StatusAxival.myClass - 1);
+                screenPlay.setChooseAction(0);
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                attackImg.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptAtk);
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                attackImg.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptAtk.addAction(Actions.sequence(Actions.removeActor()));
+            }
+        });
+
 
 
         //status game
@@ -280,26 +429,6 @@ public class UIplay implements Screen {
         charBackHeal4 = new Sprite(backCount.findRegion(String.format("s%d", StatusAxival.statusPlayer[3][0])));
         charBackHeal4.setPosition(960+90, 624-11);
         charBackHeal4.setScale(0.3f);
-
-        //player 1 mana full
-        charBackMana1 = new Sprite(backCount.findRegion(String.format("s%d", 25)));
-        charBackMana1.setPosition(300-90, 624-11);
-        charBackMana1.setScale(0.3f);
-
-        //player 2 mana full
-        charBackMana2 = new Sprite(backCount.findRegion(String.format("s%d", 25)));
-        charBackMana2.setPosition(440-90, 624-11);
-        charBackMana2.setScale(0.3f);
-
-        //player 3 mana full
-        charBackMana3 = new Sprite(backCount.findRegion(String.format("s%d", 25)));
-        charBackMana3.setPosition(888+80, 624-11);
-        charBackMana3.setScale(0.3f);
-
-        //player 4 mana full
-        charBackMana4 = new Sprite(backCount.findRegion(String.format("s%d", 25)));
-        charBackMana4.setPosition(1038+80, 624-11);
-        charBackMana4.setScale(0.3f);
 
         //create packUI to use top bar and overlay effect
         packUi = cardPlay.assetManager.get("UI_Assets/pack/packUI.atlas", TextureAtlas.class);
@@ -338,97 +467,6 @@ public class UIplay implements Screen {
 
         //max Ap
         countAp = cardPlay.assetManager.get("UI_Assets/backCount/s10.png", Texture.class);
-
-        //add actor to stage
-        //screenPlay.stage.addActor(overlayBg);
-        screenPlay.stage.addActor(nextPhaseImg);
-        screenPlay.stage.addActor(leftPlayerImg1);
-        screenPlay.stage.addActor(leftPlayerImg2);
-        screenPlay.stage.addActor(rightPlayerImg1);
-        screenPlay.stage.addActor(rightPlayerImg2);
-        screenPlay.stage.addActor(skill01);
-        screenPlay.stage.addActor(skill02);
-        screenPlay.stage.addActor(skill03);
-        screenPlay.stage.addActor(attackOn);
-        screenPlay.stage.addActor(defenceImg);
-    }
-
-    public void render(){
-    }
-
-    @Override
-    public void show() {
-
-    }
-
-    @Override
-    public void render(float delta) {
-
-    }
-
-    //draw assets
-    public void runningDraw(){
-        StatusAxival.genClass();
-        if(StatusAxival.statusPhase[6]==0){
-            //System.out.println("Phase 1 active");
-            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
-            screenPlay.stage.addActor(drawBar);
-        }
-        else if(StatusAxival.statusPhase[6]==1){
-            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(actionBar1);
-        }
-        else if(StatusAxival.statusPhase[6]==2){
-            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(travelBar);
-        }
-        else if(StatusAxival.statusPhase[6]==3){
-            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(actionBar2);
-        }
-        else if(StatusAxival.statusPhase[6]==4){
-            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
-            screenPlay.stage.addActor(endBar);
-            endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
-            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
-            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
-            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
-            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
-        }
-        /*else if(StatusAxival.statusPhase[6]==5){
-            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
-            screenPlay.stage.addActor(drawBar);
-        }*/
-        cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
-        cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
-        cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);
-        cardPlay.batch.draw(overlaybigtop,0,600, 1280, 250);
-        cardPlay.batch.draw(mana_right,1100,15, 14, 14);
-        cardPlay.batch.draw(mana_right,1100,50, 14, 14);
-        cardPlay.batch.draw(mana_right,1100,85, 14, 14);
-        cardPlay.batch.draw(arrow, 1140, 69, 50, 50);
-        cardPlay.batch.draw(arrow, 1140, 34, 50, 50);
-        cardPlay.batch.draw(arrow, 1140, -1, 50, 50);
-        cardPlay.batch.draw(sword,1240,15, 26, 26);
-        cardPlay.batch.draw(shield,1240,50, 20, 24);
-        cardPlay.batch.draw(shoe,1240,85, 26, 24);
-        cardPlay.batch.draw(mana_left,22,15, 25, 24);
-        cardPlay.batch.draw(heart_left,22,50, 25, 21);
-        cardPlay.batch.draw(Heart_colour,125,635, 13, 13);
-        cardPlay.batch.draw(Mana_colour,200,635, 13, 13);
-        cardPlay.batch.draw(Heart_colour,270,635, 13, 13);
-        cardPlay.batch.draw(Mana_colour,340,635, 13, 13);
-        cardPlay.batch.draw(Heart_colour,893,635, 13, 13);
-        cardPlay.batch.draw(Mana_colour,963,635, 13, 13);
-        cardPlay.batch.draw(Heart_colour,1038,635, 13, 13);
-        cardPlay.batch.draw(Mana_colour,1108,635, 13, 13);
-        //my Ap
-        cardPlay.batch.draw(countAp, 77, 13, countAp.getWidth()*.38f, countAp.getHeight()*.38f);
-        //all player ap
-        cardPlay.batch.draw(countAp, 210+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
-        cardPlay.batch.draw(countAp, 350+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
-        cardPlay.batch.draw(countAp, 968+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
-        cardPlay.batch.draw(countAp, 1118+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
 
         //hero class type
         if(StatusAxival.myClass - 1 == 0) {
@@ -516,6 +554,100 @@ public class UIplay implements Screen {
             textDefense.setScale(0.4f);
         }
 
+
+        //add actor to stage
+        //screenPlay.stage.addActor(overlayBg);
+        screenPlay.stage.addActor(nextPhaseImg);
+        screenPlay.stage.addActor(leftPlayerImg1);
+        screenPlay.stage.addActor(leftPlayerImg2);
+        screenPlay.stage.addActor(rightPlayerImg1);
+        screenPlay.stage.addActor(rightPlayerImg2);
+        screenPlay.stage.addActor(skill01);
+        screenPlay.stage.addActor(skill02);
+        screenPlay.stage.addActor(skill03);
+        screenPlay.stage.addActor(attackOn);
+        screenPlay.stage.addActor(defenceImg);
+
+    }
+
+    public void render(){
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void render(float delta) {
+
+    }
+
+    //draw assets
+    public void runningDraw(){
+        StatusAxival.genClass();
+        //StatusAxival.updateEquip();
+        if(StatusAxival.statusPhase[6]==0){
+            //System.out.println("Phase 1 active");
+            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
+            screenPlay.stage.addActor(drawBar);
+        }
+        else if(StatusAxival.statusPhase[6]==1){
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(actionBar1);
+        }
+        else if(StatusAxival.statusPhase[6]==2){
+            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(travelBar);
+        }
+        else if(StatusAxival.statusPhase[6]==3){
+            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(actionBar2);
+        }
+        else if(StatusAxival.statusPhase[6]==4){
+            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            screenPlay.stage.addActor(endBar);
+            endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+        }
+        /*else if(StatusAxival.statusPhase[6]==5){
+            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
+            screenPlay.stage.addActor(drawBar);
+        }*/
+        cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
+        cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
+        cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);
+        cardPlay.batch.draw(overlaybigtop,0,600, 1280, 250);
+        cardPlay.batch.draw(mana_right,1100,15, 14, 14);
+        cardPlay.batch.draw(mana_right,1100,50, 14, 14);
+        cardPlay.batch.draw(mana_right,1100,85, 14, 14);
+        cardPlay.batch.draw(arrow, 1140, 69, 50, 50);
+        cardPlay.batch.draw(arrow, 1140, 34, 50, 50);
+        cardPlay.batch.draw(arrow, 1140, -1, 50, 50);
+        cardPlay.batch.draw(sword,1240,15, 26, 26);
+        cardPlay.batch.draw(shield,1240,50, 20, 24);
+        cardPlay.batch.draw(shoe,1240,85, 26, 24);
+        cardPlay.batch.draw(mana_left,22,15, 25, 24);
+        cardPlay.batch.draw(heart_left,22,50, 25, 21);
+        cardPlay.batch.draw(Heart_colour,125,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,200,635, 13, 13);
+        cardPlay.batch.draw(Heart_colour,270,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,340,635, 13, 13);
+        cardPlay.batch.draw(Heart_colour,893,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,963,635, 13, 13);
+        cardPlay.batch.draw(Heart_colour,1038,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,1108,635, 13, 13);
+        //my Ap
+        cardPlay.batch.draw(countAp, 77, 13, countAp.getWidth()*.38f, countAp.getHeight()*.38f);
+        //all player ap
+        cardPlay.batch.draw(countAp, 210+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+        cardPlay.batch.draw(countAp, 350+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+        cardPlay.batch.draw(countAp, 968+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+        cardPlay.batch.draw(countAp, 1118+28, 613+20, countAp.getWidth()*.3f, countAp.getHeight()*.3f);
+
         //pointer in turn
         if(StatusAxival.statusPhase[5]==0) {
             cardPlay.batch.draw(myTurn, 180, 646 + 63);
@@ -591,21 +723,181 @@ public class UIplay implements Screen {
         charFontMana4.setPosition(1028+80, 624-11);
         charFontMana4.setScale(0.3f);
 
+        //skill active button
         if(StatusAxival.myClass -1==0) {
-            textClass = new Sprite(classLabel.findRegion(String.format("cd")));
-            textClass.setPosition(-60 - 90, 23);
-            textClass.setScale(0.3f);
+            //set skill button on or off
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<2){
+                skill01.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill01on.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill01);
+            }
+            else{
+                skill01on.addAction(Actions.sequence( Actions.fadeIn(1f)));
+                skill01.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill01on);
+            }
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<4){
+                skill02.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill02on.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(skill02);
+            }
+            else{
+                skill02on.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill02.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill02on);
+            }
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<8 && CardAction.skillUlti==false){
+                skill03.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill03on.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(skill03);
+            }
+            else{
+                skill03on.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill03.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill03on);
+            }
         }
         else if(StatusAxival.myClass -1==1) {
-            textClass = new Sprite(classLabel.findRegion(String.format("cw")));
-            textClass.setPosition(-60 - 30, 23);
-            textClass.setScale(0.3f);
+            //set skill button on or off
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<4){
+                skill01.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill01on.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill01);
+            }
+            else{
+                skill01on.addAction(Actions.sequence( Actions.fadeIn(1f)));
+                skill01.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill01on);
+            }
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<0){
+                skill02.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill02on.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(skill02);
+            }
+            else{
+                skill02on.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill02.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill02on);
+            }
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<10 && CardAction.skillUlti==false){
+                skill03.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill03on.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(skill03);
+            }
+            else{
+                skill03on.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill03.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill03on);
+            }
         }
         else if(StatusAxival.myClass -1==2) {
-            textClass = new Sprite(classLabel.findRegion(String.format("cp")));
-            textClass.setPosition(-60 - 30, 23);
-            textClass.setScale(0.3f);
+            //set skill button on or off
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<3){
+                skill01.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill01on.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill01);
+            }
+            else{
+                skill01on.addAction(Actions.sequence( Actions.fadeIn(1f)));
+                skill01.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill01on);
+            }
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<5){
+                skill02.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill02on.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(skill02);
+            }
+            else{
+                skill02on.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill02.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill02on);
+            }
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<7 && CardAction.skillUlti==false){
+                skill03.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill03on.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(skill03);
+            }
+            else{
+                skill03on.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                skill03.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(skill03on);
+            }
         }
+
+        //atk def
+        if(StatusAxival.myClass -1==0) {
+            //set atk def button on or off
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<2){
+                attackImg.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                attackOn.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(attackImg);
+            }
+            else{
+                attackOn.addAction(Actions.sequence( Actions.fadeIn(1f)));
+                attackImg.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(attackOn);
+            }
+
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<0){
+                defenceImg.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                defenceOn.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(defenceImg);
+            }
+            else{
+                defenceOn.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                defenceImg.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(defenceOn);
+            }
+        }
+        else if(StatusAxival.myClass -1==1) {
+            //set skill button on or off
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<3){
+                attackImg.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                attackOn.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(attackImg);
+            }
+            else{
+                attackOn.addAction(Actions.sequence( Actions.fadeIn(1f)));
+                attackImg.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(attackOn);
+            }
+
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<0){
+                defenceImg.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                defenceOn.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(defenceImg);
+            }
+            else{
+                defenceOn.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                defenceImg.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(defenceOn);
+            }
+        }
+        else if(StatusAxival.myClass -1==2) {
+            //set skill button on or off
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<3){
+                attackImg.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                attackOn.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(attackImg);
+            }
+            else{
+                attackOn.addAction(Actions.sequence( Actions.fadeIn(1f)));
+                attackImg.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(attackOn);
+            }
+
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<0){
+                defenceImg.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                defenceOn.addAction(Actions.sequence(Actions.removeActor()));
+                screenPlay.stage.addActor(defenceImg);
+            }
+            else{
+                defenceOn.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                defenceImg.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+                screenPlay.stage.addActor(defenceOn);
+            }
+        }
+
         //draw status in game
         textBackhealth.draw(cardPlay.batch);
         textClass.draw(cardPlay.batch);
@@ -630,10 +922,7 @@ public class UIplay implements Screen {
         charFontMana2.draw((cardPlay.batch));
         charFontMana3.draw((cardPlay.batch));
         charFontMana4.draw((cardPlay.batch));
-        //charBackMana1.draw((cardPlay.batch));
-        //charBackMana2.draw((cardPlay.batch));
-        //charBackMana3.draw((cardPlay.batch));
-        //charBackMana4.draw((cardPlay.batch));
+
     }
     @Override
     public void resize(int width, int height) {

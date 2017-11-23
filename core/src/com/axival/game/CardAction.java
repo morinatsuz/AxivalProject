@@ -21,6 +21,7 @@ public class CardAction {
     private boolean popupStatus;
     private CardPlay cardPlay;
     private int cardUse;
+    public static boolean skillUlti;
     public CardAction(ScreenPlay screenPlay, CardPlay cardPlay){
         this.screenPlay = screenPlay;
         this.cardPlay = cardPlay;
@@ -317,6 +318,7 @@ public class CardAction {
     }
 
     public void popupShow(final int currentCardListener, final int indexUse){
+        //checkCardUseAp();
         if(getPopupOff()){
             return;
         }
@@ -332,6 +334,21 @@ public class CardAction {
                 cardPlay.soundManager.playSfx(0);
                 popupDel();
                 screenPlay.setChooseAction(cardUse);
+                //atk card
+                if(cardUse==9){
+                    StatusAxival.statusPlayerEquip[StatusAxival.myClassPosition][0] = 3;
+                }
+                //def card
+                else if(cardUse==10){
+                    StatusAxival.statusPlayerEquip[StatusAxival.myClassPosition][1] = 2;
+                }
+                //ultimate card
+                if(cardUse==11){
+                    skillUlti = true;
+                }
+                StatusAxival.updateEquip();
+                System.out.println("equip : Atk =>"+StatusAxival.statusPlayerEquip[StatusAxival.myClassPosition][0]+", def=> "+StatusAxival.statusPlayerEquip[StatusAxival.myClassPosition][1]);
+                System.out.println("StatusPlayer :"+Arrays.toString(StatusAxival.statusPlayer[StatusAxival.myClassPosition])+", CardUse : "+cardUse);
             }
         });
         popupNo.addListener(new ClickListener() {
@@ -371,7 +388,53 @@ public class CardAction {
         this.cardUse = cardUse;
     }
 
-    public int getCardUse(){
+    public int getCardUse()
+    {
         return cardUse;
+    }
+
+    public void checkCardUseAp(){
+        if(cardUse==0){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<2){
+                setPopupOff(true);
+            }
+        }
+        else if(cardUse==1){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<4){
+                setPopupOff(true);
+            }
+        }
+        else if(cardUse==2){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<2){
+                setPopupOff(true);
+            }
+        }
+        else if(cardUse==3){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<3){
+                setPopupOff(true);
+            }
+        }
+        else if(cardUse==4){
+            if(StatusAxival.statusPlayer[StatusAxival.myClassPosition][1]<4){
+                setPopupOff(true);
+            }
+        }
+        else if(cardUse==7){
+            if(StatusAxival.myClass-1==0) {
+                if (StatusAxival.statusPlayer[StatusAxival.myClassPosition][1] < 8) {
+                    setPopupOff(true);
+                }
+            }
+            else if(StatusAxival.myClass-1==1) {
+                if (StatusAxival.statusPlayer[StatusAxival.myClassPosition][1] < 10) {
+                    setPopupOff(true);
+                }
+            }
+            else if(StatusAxival.myClass-1==2) {
+                if (StatusAxival.statusPlayer[StatusAxival.myClassPosition][1] < 8) {
+                    setPopupOff(true);
+                }
+            }
+        }
     }
 }
