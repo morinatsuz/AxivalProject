@@ -38,7 +38,7 @@ public class UIplay implements Screen {
 
     private Image skill01, skill02, skill03, skill01on, skill02on, skill03on;
 
-    private Image descriptSkill01, descriptSkill02, descriptSkill03;
+    private Image descriptSkill01, descriptSkill02, descriptSkill03, descriptAtk, descriptDef;
 
     private TextureAtlas backCount, classLabel, fontCount, packUi;
 
@@ -113,9 +113,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/DT_Sword of Aggression.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/DT_Blazing Destavation.png", Texture.class));
-            descriptSkill03 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/DT_Blazing Devastation.jpg", Texture.class));
-            descriptSkill01 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/DT_Fortify.jpg", Texture.class));
-            descriptSkill02 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/DT_sword of aggression.jpg", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/DT_Blazing Devastation.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/DT_Fortify.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/DT_sword of aggression.jpg", Texture.class));
         }
         else if(StatusAxival.myClass - 1==1){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/W_Meteor BW.png", Texture.class));
@@ -124,9 +124,9 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/W_Mana.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/W_Hurricane.png", Texture.class));
-            descriptSkill03 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Mage_Hurricane.jpg", Texture.class));
-            descriptSkill02 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Mage_Mana Redemption v.2.jpg", Texture.class));
-            descriptSkill01 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Mage_Meteor.jpg", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Mage_Hurricane.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Mage_Mana Redemption v.2.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Mage_Meteor.jpg", Texture.class));
         }
         else if(StatusAxival.myClass - 1==2){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/P_Mercy BW.png", Texture.class));
@@ -135,11 +135,14 @@ public class UIplay implements Screen {
             skill02on = new Image(cardPlay.assetManager.get("skill Icon/P_Cleansing Light.png", Texture.class));
             skill03 = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire BW.png", Texture.class));
             skill03on = new Image(cardPlay.assetManager.get("skill Icon/P_Karma backfire.png", Texture.class));
-            descriptSkill02 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Priest_Cleansing Light.jpg", Texture.class));
-            descriptSkill03 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Priest_Karma Backfire.jpg", Texture.class));
-            descriptSkill01 = new Image(cardPlay.assetManager.get("core/assets/UI_Assets/UI - skill text box/Priest_Mercy.jpg", Texture.class));
+            descriptSkill02 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Priest_Cleansing Light.jpg", Texture.class));
+            descriptSkill03 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Priest_Karma Backfire.jpg", Texture.class));
+            descriptSkill01 = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Priest_Mercy.jpg", Texture.class));
         }
 
+        //atk def
+        descriptAtk = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Attack.jpg", Texture.class));
+        descriptDef = new Image(cardPlay.assetManager.get("UI_Assets/UI - skill text box/Def.jpg", Texture.class));
 
         //result game
         victoryImg.setScale(.1f);
@@ -208,6 +211,14 @@ public class UIplay implements Screen {
         defenceOn.setPosition(300,5);
         defenceOn.setScale(.1f);
 
+        descriptSkill01.setScale(.15f);
+        descriptSkill02.setScale(.15f);
+        descriptSkill03.setScale(.15f);
+
+        descriptAtk.setScale(.15f);
+        descriptDef.setScale(.15f);
+        descriptAtk.setPosition(908, 0);
+        descriptDef.setPosition(908, 0);
         skill01.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -218,16 +229,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
-                if(StatusAxival.myClass-1==0){
-
-                }
+                skill01.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill01);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill01.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -241,13 +251,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill02.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill02.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill02);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill02.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill02.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -263,13 +275,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill03.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill03.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill03);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill03.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill03.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -283,13 +297,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill01on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill01on.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill01);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill01on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill01.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -303,13 +319,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill02on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill02on.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill02);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill02on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill02.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -325,13 +343,15 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                skill03on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                skill03on.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptSkill03);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 skill03on.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptSkill03.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 
@@ -345,13 +365,37 @@ public class UIplay implements Screen {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
-                attackOn.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                attackOn.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptAtk);
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
                 attackOn.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptAtk.addAction(Actions.sequence(Actions.removeActor()));
+            }
+        });
+
+        attackImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+                skillCutIn(StatusAxival.myClass - 1);
+                screenPlay.setChooseAction(0);
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                attackImg.addAction(Actions.sequence(Actions.scaleTo(.11f, .11f, .5f)));
+                screenPlay.stage.addActor(descriptAtk);
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                attackImg.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                descriptAtk.addAction(Actions.sequence(Actions.removeActor()));
             }
         });
 

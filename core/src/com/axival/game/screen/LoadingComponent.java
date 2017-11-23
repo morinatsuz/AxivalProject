@@ -300,17 +300,17 @@ public class LoadingComponent implements Screen {
 
         cardPlay.assetManager.load("UI_Assets/backCount/s10.png", Texture.class);
 
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Attack.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Def.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/DT_Blazing Devastation.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/DT_Fortify.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/DT_sword of aggression.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Mage_Hurricane.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Mage_Mana Redemption v.2.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Mage_Meteor.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Priest_Cleansing Light.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Priest_Karma Backfire.jpg", Texture.class);
-        cardPlay.assetManager.load("core/assets/UI_Assets/UI - skill text box/Priest_Mercy.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Attack.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Def.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/DT_Blazing Devastation.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/DT_Fortify.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/DT_sword of aggression.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Mage_Hurricane.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Mage_Mana Redemption v.2.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Mage_Meteor.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Priest_Cleansing Light.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Priest_Karma Backfire.jpg", Texture.class);
+        cardPlay.assetManager.load("UI_Assets/UI - skill text box/Priest_Mercy.jpg", Texture.class);
 
 
         cardPlay.assetManager.finishLoading();
