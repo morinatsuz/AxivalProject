@@ -54,6 +54,8 @@ public class UIplay implements Screen {
 
     private Image actionBar1, actionBar2, drawBar, travelBar, endBar, chainBar;
 
+    public static boolean statusButton;
+
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay, final Client client){
         //create construct
         this.cardPlay = cardPlay;
@@ -156,11 +158,13 @@ public class UIplay implements Screen {
         nextPhaseImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                StatusAxival.statusPhase[6] += 1;
-                if(StatusAxival.statusPhase[6]>4){
-                    StatusAxival.statusPhase[6] = 0;
+                if(UIplay.statusButton) {
+                    StatusAxival.statusPhase[6] += 1;
+                    if (StatusAxival.statusPhase[6] > 4) {
+                        StatusAxival.statusPhase[6] = 0;
+                    }
+                    screenPlay.phaseAll();
                 }
-                screenPlay.phaseAll();
                 //System.out.println("nextPh : "+StatusAxival.statusPhase[6]);
             }
             @Override
@@ -223,8 +227,10 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(StatusAxival.myClass - 1);
-                screenPlay.setChooseAction(1);
+                if(UIplay.statusButton) {
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(1);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -245,8 +251,10 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(StatusAxival.myClass - 1);
-                screenPlay.setChooseAction(2);
+                if(UIplay.statusButton) {
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(2);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -266,10 +274,12 @@ public class UIplay implements Screen {
         skill03.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                if(CardAction.skillUlti) {
-                    //play skill cut-in
-                    skillCutIn(StatusAxival.myClass - 1);
-                    screenPlay.setChooseAction(3);
+                if(UIplay.statusButton) {
+                    if (CardAction.skillUlti) {
+                        //play skill cut-in
+                        skillCutIn(StatusAxival.myClass - 1);
+                        screenPlay.setChooseAction(3);
+                    }
                 }
             }
             @Override
@@ -291,8 +301,10 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(StatusAxival.myClass - 1);
-                screenPlay.setChooseAction(1);
+                if(UIplay.statusButton) {
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(1);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -313,8 +325,10 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(StatusAxival.myClass - 1);
-                screenPlay.setChooseAction(2);
+                if(UIplay.statusButton) {
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(2);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -334,11 +348,13 @@ public class UIplay implements Screen {
         skill03on.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                if(CardAction.skillUlti) {
-                    //play skill cut-in
-                    skillCutIn(StatusAxival.myClass - 1);
-                    screenPlay.setChooseAction(3);
-                    CardAction.skillUlti = false;
+                if(UIplay.statusButton) {
+                    if (CardAction.skillUlti) {
+                        //play skill cut-in
+                        skillCutIn(StatusAxival.myClass - 1);
+                        screenPlay.setChooseAction(3);
+                        CardAction.skillUlti = false;
+                    }
                 }
             }
             @Override
@@ -360,8 +376,10 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                     //play skill cut-in
+                if(UIplay.statusButton) {
                     skillCutIn(StatusAxival.myClass - 1);
                     screenPlay.setChooseAction(0);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -382,8 +400,10 @@ public class UIplay implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(StatusAxival.myClass - 1);
-                screenPlay.setChooseAction(0);
+                if(UIplay.statusButton) {
+                    skillCutIn(StatusAxival.myClass - 1);
+                    screenPlay.setChooseAction(0);
+                }
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -763,6 +783,7 @@ public class UIplay implements Screen {
                 skill01.addAction(Actions.sequence(Actions.fadeIn(1f)));
                 skill01on.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
                 screenPlay.stage.addActor(skill01);
+
             }
             else{
                 skill01on.addAction(Actions.sequence( Actions.fadeIn(1f)));

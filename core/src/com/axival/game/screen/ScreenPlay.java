@@ -1110,7 +1110,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseAll() {
-        if (StatusAxival.statusPhase[5] == 0) {
+        if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
             phaseInTurn();
         } else {
             phaseOutTurn();
@@ -1118,6 +1118,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseInTurn() {
+        UIplay.statusButton = true;
         if (StatusAxival.statusPhase[6] == 0) {
             System.out.println("draw phase");
             //reset shield buff
@@ -1197,8 +1198,8 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void waitPhase() {
         //can't do anything about other player but game is show you screen real time and check you want to chain phase or not
-
-
+        cardAction.setPopupOff(true);
+        UIplay.statusButton = false;
     }
 
     public void chainPhase() {
