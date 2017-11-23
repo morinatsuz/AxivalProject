@@ -193,14 +193,16 @@ public class ScreenPlay implements Screen, InputProcessor {
     public void dummyInput() {
         if (tCol == StatusAxival.statusPhase[11] && tRow == StatusAxival.statusPhase[12]) {
             walkDefault = false;
+            System.out.println("False Col,Row -> (" + tCol + "," + tRow + ")");
         }
         else {
+            tCol = StatusAxival.statusPhase[11];
+            tRow = StatusAxival.statusPhase[12];
             walkDefault = true;
+            System.out.println("True Col,Row -> (" + tCol + "," + tRow + ")");
         }
         tempPhrase = StatusAxival.statusPhase[6];
         if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && walkDefault) {
-            tCol = StatusAxival.statusPhase[11];
-            tRow = StatusAxival.statusPhase[12];
             System.out.println("Dummy Input is Working!!---------------------");
             System.out.println("Temp Phrase change to " + tempPhrase);
             if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
@@ -227,11 +229,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                 //List of Block that hero can reach.
                 area.addAll(mapScreen.board.getOverlay(mapScreen.player[mapScreen.idx].col,
                         mapScreen.player[mapScreen.idx].row, mapScreen.player[mapScreen.idx].walk));
-
-                //prepare the variables for walking
-//                if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
-//                        mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
-//                if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
                 System.out.println("In Walking Condition");
                 mapScreen.walker.setRouting(1);
                 mapScreen.path = new LinkedList<Vector2>();
@@ -245,11 +242,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                 StatusAxival.statusPhase[10] = mapScreen.idx;
                 StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
                 StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
-//                this.updateStatus();
-//
-//                }
 
-//                }
                 // Action Phase
             } else if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
                 //Action Phase
