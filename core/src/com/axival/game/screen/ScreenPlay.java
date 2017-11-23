@@ -1279,6 +1279,13 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void endPhase() {
         cardAction.setPopupOff(true);
+        StatusAxival.statusPhase[5] += 1;
+        if(StatusAxival.statusPhase[5]>3){
+            StatusAxival.statusPhase[5] = 0;
+        }
+        System.out.println("StatusPhase Inturn : "+StatusAxival.statusPhase[5]);
+        updateStatus();
+        phaseAll();
     }
 
     public void waitPhase() {
