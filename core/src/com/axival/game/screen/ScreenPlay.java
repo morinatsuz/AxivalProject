@@ -222,22 +222,22 @@ public class ScreenPlay implements Screen, InputProcessor {
                 //prepare the variables for walking
 //                if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
 //                        mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
-                if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
-                    System.out.println("In Walking Condition");
-                    mapScreen.walker.setRouting(1);
-                    mapScreen.path = new LinkedList<Vector2>();
-                    mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
-                    mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), rowcol));
-                    //AP used calculation
-                    mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
-                    mapScreen.walker.routing();
-                    //send to network animation
-                    StatusAxival.statusPhase[10] = mapScreen.idx;
-                    StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
-                    StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
-                    this.updateStatus();
-
-                }
+//                if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
+                System.out.println("In Walking Condition");
+                mapScreen.walker.setRouting(1);
+                mapScreen.path = new LinkedList<Vector2>();
+                mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
+                mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), rowcol));
+                //AP used calculation
+                mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
+                mapScreen.walker.routing();
+                //send to network animation
+                StatusAxival.statusPhase[10] = mapScreen.idx;
+                StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
+                StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
+//                this.updateStatus();
+//
+//                }
 
 //                }
                 // Action Phase
