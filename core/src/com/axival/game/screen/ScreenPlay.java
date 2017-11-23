@@ -1221,6 +1221,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseInTurn() {
+        System.out.println("Phase In Turn");
         UIplay.statusButton = true;
         if (StatusAxival.statusPhase[6] == 0) {
             System.out.println("draw phase");
@@ -1245,6 +1246,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseOutTurn() {
+        System.out.println("Phase Out Turn");
         waitPhase();
         if (StatusAxival.statusPhase[8] == 1) {
             chainPhase();

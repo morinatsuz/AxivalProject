@@ -672,10 +672,10 @@ public class UIplay implements Screen {
         if(StatusAxival.statusPhase[5]==0) {
             cardPlay.batch.draw(myTurn, 180, 646 + 63);
         }
-        else if(StatusAxival.statusPhase[5]==1) {
+        else if(StatusAxival.statusPhase[5]==2) {
             cardPlay.batch.draw(myTurn, 320, 646 + 63);
         }
-        else if(StatusAxival.statusPhase[5]==2) {
+        else if(StatusAxival.statusPhase[5]==1) {
             cardPlay.batch.draw(myTurn, 950, 646 + 63);
         }
         else if(StatusAxival.statusPhase[5]==3) {
