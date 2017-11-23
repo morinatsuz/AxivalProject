@@ -38,6 +38,8 @@ public class UIplay implements Screen {
 
     private Image skill01, skill02, skill03, skill01on, skill02on, skill03on;
 
+    private Image descriptSkill01, descriptSkill02, descriptSkill03;
+
     private TextureAtlas backCount, classLabel, fontCount, packUi;
 
     private Sprite textBackhealth, textClass, textFonthealth, textBackmana, textFontmana, textSpeed, textAttack, textDefense;
@@ -208,6 +210,9 @@ public class UIplay implements Screen {
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
                 skill01.addAction(Actions.sequence(Actions.scaleTo(.1f, .1f, .5f)));
+                if(StatusAxival.myClass-1==0){
+
+                }
             }
 
             @Override
