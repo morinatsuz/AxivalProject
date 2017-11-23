@@ -186,16 +186,19 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void dummyInput() {
-        if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
-            System.out.println("No Action Status was Updated");
-            actionDefault = false;
-        } else {
-            System.out.println("Action Status was Updated");
-            actionDefault = true;
-        }
         if (StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && StatusAxival.statusPhase[6] != tempPhrase) {
+            System.out.println("Dummy Input is Working!!---------------------");
             tempPhrase = StatusAxival.statusPhase[6];
-            System.out.println("Temp phase change to " + tempPhrase);
+            System.out.println("Temp Phrase change to " + tempPhrase);
+
+            if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
+//                System.out.println("No Action Status was Updated");
+                actionDefault = false;
+            } else {
+//                System.out.println("Action Status was Updated");
+                actionDefault = true;
+            }
+
             //Walk Phase
             if (tempPhrase == 2) {
                 System.out.println("In Phase 2");
@@ -524,7 +527,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                         }
                     }
                 }
-                //reset statusPhase after play
                 StatusAxival.statusPhase[7] = 0;
                 StatusAxival.statusPhase[8] = 0;
                 StatusAxival.statusPhase[9] = 0;
