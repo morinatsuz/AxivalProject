@@ -136,7 +136,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         client.sendTCP(updater);
 
         System.out.println("[Player " + SelectHeroScreen.playerNo + "] Your statusPhase was sended to server!");
-        System.out.println("StatusPhase : "+Arrays.toString(StatusAxival.statusPhase));
+        System.out.println("StatusPhase : " + Arrays.toString(StatusAxival.statusPhase));
     }
 
     public void askChain(int totalDamage, int targetNo) {
@@ -209,7 +209,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                 int col = StatusAxival.statusPhase[12]; // Column Destination
                 System.out.println("Walker Row & Col was set");
                 mapScreen.idx = wkr;
-
+                System.out.println("idx in screenPlay = " + mapScreen.idx);
                 //Row Column of clicked block
                 Vector2 rowcol = new Vector2(row, col);
 
@@ -220,26 +220,27 @@ public class ScreenPlay implements Screen, InputProcessor {
                         mapScreen.player[mapScreen.idx].row, mapScreen.player[mapScreen.idx].walk));
 
                 //prepare the variables for walking
-                if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
-                        mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
-                    if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
-                        System.out.println("In Walking Condition");
-                        mapScreen.walker.setRouting(1);
-                        mapScreen.path = new LinkedList<Vector2>();
-                        mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
-                        mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), rowcol));
-                        //AP used calculation
-                        mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
-                        mapScreen.walker.routing();
-                        //send to network animation
-                        StatusAxival.statusPhase[10] = mapScreen.idx;
-                        StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
-                        StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
-                        this.updateStatus();
-                    }
+//                if (StatusAxival.statusPhase[6] == 2 && !mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() &&
+//                        mapScreen.walker.getRoute() == 0 && area.contains(rowcol)) {
+                if (dummyLeftClick && mapScreen.walker.isRouting() == 0) {
+                    System.out.println("In Walking Condition");
+                    mapScreen.walker.setRouting(1);
+                    mapScreen.path = new LinkedList<Vector2>();
+                    mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
+                    mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), rowcol));
+                    //AP used calculation
+                    mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
+                    mapScreen.walker.routing();
+                    //send to network animation
+                    StatusAxival.statusPhase[10] = mapScreen.idx;
+                    StatusAxival.statusPhase[11] = mapScreen.player[mapScreen.idx].col;
+                    StatusAxival.statusPhase[12] = mapScreen.player[mapScreen.idx].row;
+                    this.updateStatus();
 
                 }
-            // Action Phase
+
+//                }
+                // Action Phase
             } else if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
                 //Action Phase
                 dummyLeftClick = true;
@@ -282,7 +283,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     boolean allHero = heroCoordinates2.contains(rowcol);
                     boolean beAlly = allHero && !offend;
                     int job = player.job;
-                    int holdAction = chooseAction; 
+                    int holdAction = chooseAction;
                     int target = getIndexOfTarget(heroCoordinates, rowcol);
                     if (dummyLeftClick && !player.isHeroPlaying() && player.actionUsing == -1) {
                         if (-1 < holdAction && holdAction < 4) {
@@ -1055,7 +1056,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 cardPlay.soundManager.playSfx(6);
                                 //send to network animation
                                 StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] =  holdAction;
+                                StatusAxival.statusPhase[8] = holdAction;
                                 StatusAxival.statusPhase[9] = target;
                                 this.updateStatus();
                             }
@@ -1069,7 +1070,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 cardPlay.soundManager.playSfx(7);
                                 //send to network animation
                                 StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] =  holdAction;
+                                StatusAxival.statusPhase[8] = holdAction;
                                 StatusAxival.statusPhase[9] = target;
                                 this.updateStatus();
                             }
@@ -1146,11 +1147,10 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void showPaintAct(int attacker, int target, int skill) {
         System.out.println("atker = " + attacker + " skill = " + skill);
-        float frameDuration=5;
+        float frameDuration = 5;
         if (skill > -1 && skill < 4) {
             frameDuration = mapScreen.player[attacker].heroAnimation[skill].getAnimationDuration();
-        }
-        else if (skill > 3 && skill < 9) {
+        } else if (skill > 3 && skill < 9) {
 
         }
         if (mapScreen.player[attacker].job == 2 && skill == 3) {
@@ -1303,10 +1303,10 @@ public class ScreenPlay implements Screen, InputProcessor {
     public void endPhase() {
         cardAction.setPopupOff(true);
         StatusAxival.statusPhase[5] += 1;
-        if(StatusAxival.statusPhase[5]>3){
+        if (StatusAxival.statusPhase[5] > 3) {
             StatusAxival.statusPhase[5] = 0;
         }
-        System.out.println("StatusPhase Inturn : "+StatusAxival.statusPhase[5]);
+        System.out.println("StatusPhase Inturn : " + StatusAxival.statusPhase[5]);
         StatusAxival.statusPhase[6] = 0;
         updateStatus();
         phaseAll();
