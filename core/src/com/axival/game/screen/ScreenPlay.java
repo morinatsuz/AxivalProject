@@ -714,7 +714,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     StatusAxival.statusPhase[10] = mapScreen.idx;
                     StatusAxival.statusPhase[11] = (int)rowcol.x;
                     StatusAxival.statusPhase[12] = (int)rowcol.y;
-                    this.updateStatus();
+                    //this.updateStatus();
                 }
 
             }
@@ -1216,6 +1216,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseAll() {
+        System.out.println("StatusPhase Inturn : "+StatusAxival.statusPhase[5]+", myPosition: "+StatusAxival.myClassPosition);
         if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
             System.out.println("You is my turn!!");
             phaseInTurn();
