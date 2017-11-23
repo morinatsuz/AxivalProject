@@ -178,6 +178,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         mapScreen.render(delta);
         cardPlay.batch.begin();
         uIplay.runningDraw();
+        phaseAll();
 //        prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();
@@ -736,7 +737,6 @@ public class ScreenPlay implements Screen, InputProcessor {
                     StatusAxival.statusPhase[12] = (int) rowcol.y;
                     this.updateStatus();
                 }
-
             }
             System.out.println("statusPhase = " + StatusAxival.statusPhase[6] + " In ScreenPlay");
             Vector2 vec = mapScreen.player[mapScreen.idx].getRowCol();
@@ -1243,9 +1243,12 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseAll() {
+        System.out.println("StatusPhase Inturn : "+StatusAxival.statusPhase[5]+", myPosition: "+StatusAxival.myClassPosition);
         if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
+            System.out.println("You is my turn!!");
             phaseInTurn();
         } else {
+            System.out.println("You is out turn!!");
             phaseOutTurn();
         }
     }
@@ -1287,6 +1290,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         System.out.println("in drawphase");
         cardAction.setPopupOff(true);
         if (StatusAxival.statusPhase[0] == 0) {
+            System.out.println("Draw card in first");
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
@@ -1308,6 +1312,7 @@ public class ScreenPlay implements Screen, InputProcessor {
             }, 1, 1);
         } else {
             if (currentCard < maxCard) {
+                System.out.println("Draw card in second");
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
                 cardHandAction(0);
@@ -1332,7 +1337,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     public void endPhase() {
         System.out.println("in endPhase");
         cardAction.setPopupOff(true);
-        //StatusAxival.statusPhase[5] += 1;
+        StatusAxival.statusPhase[5] += 1;
         if (StatusAxival.statusPhase[5] > 3) {
             StatusAxival.statusPhase[5] = 0;
         }
