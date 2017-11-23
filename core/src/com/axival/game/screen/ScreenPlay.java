@@ -227,6 +227,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col, mapScreen.player[mapScreen.idx].row);
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), rowcol));
                 //AP used calculation
+                System.out.println("Path = " + mapScreen.path.toString());
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
                 //send to network animation
