@@ -175,6 +175,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         mapScreen.render(delta);
         cardPlay.batch.begin();
         uIplay.runningDraw();
+        phaseAll();
 //        prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();
@@ -714,7 +715,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     StatusAxival.statusPhase[10] = mapScreen.idx;
                     StatusAxival.statusPhase[11] = (int)rowcol.x;
                     StatusAxival.statusPhase[12] = (int)rowcol.y;
-                    //this.updateStatus();
+                    this.updateStatus();
                 }
 
             }
