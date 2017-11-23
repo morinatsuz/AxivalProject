@@ -1217,8 +1217,10 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     public void phaseAll() {
         if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
+            System.out.println("You is my turn!!");
             phaseInTurn();
         } else {
+            System.out.println("You is out turn!!");
             phaseOutTurn();
         }
     }
@@ -1260,6 +1262,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         System.out.println("in drawphase");
         cardAction.setPopupOff(true);
         if (StatusAxival.statusPhase[0] == 0) {
+            System.out.println("Draw card in first");
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
@@ -1281,6 +1284,7 @@ public class ScreenPlay implements Screen, InputProcessor {
             }, 1, 1);
         } else {
             if (currentCard < maxCard) {
+                System.out.println("Draw card in second");
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
                 cardHandAction(0);
@@ -1305,7 +1309,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     public void endPhase() {
         System.out.println("in endPhase");
         cardAction.setPopupOff(true);
-        //StatusAxival.statusPhase[5] += 1;
+        StatusAxival.statusPhase[5] += 1;
         if (StatusAxival.statusPhase[5] > 3) {
             StatusAxival.statusPhase[5] = 0;
         }
