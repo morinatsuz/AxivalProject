@@ -700,6 +700,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
+            mapScreen.idx = StatusAxival.statusPhase[5];
             System.out.println("In touchDown");
             //Row Column of clicked block
             Vector2 rowcol = mapScreen.click.getRowCol(screenX, Math.abs(mapScreen.mapPixelHeight - screenY));
