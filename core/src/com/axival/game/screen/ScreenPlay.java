@@ -9,13 +9,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.ParticleEffect;
-import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -29,10 +26,6 @@ import static com.axival.game.SelectHeroScreen.playerNo;
 
 public class ScreenPlay implements Screen, InputProcessor {
     public Stage stage;
-
-    private ParticleEffect prototype;
-    private ParticleEffectPool pool;
-    private Array<ParticleEffectPool.PooledEffect> effect;
 
     public RandomCard randomCard;
     public static Boolean locatePlayer;
@@ -90,12 +83,6 @@ public class ScreenPlay implements Screen, InputProcessor {
         Pixmap pm = new Pixmap(Gdx.files.internal("cursorImage2.png"));
         Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth() / 2, pm.getHeight() / 2));
         pm.dispose();
-
-        //effect define
-        prototype = new ParticleEffect();
-        prototype = cardPlay.assetManager.get("effect01.party");
-        prototype.getEmitters().first().setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-        prototype.start();
 
         //set parameter other class
         this.randomCard = new RandomCard(cardPlay);
@@ -179,19 +166,14 @@ public class ScreenPlay implements Screen, InputProcessor {
         cardPlay.batch.begin();
         uIplay.runningDraw();
         phaseAll();
-//        prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();
-        if (prototype.isComplete()) {
-            prototype.reset();
-        }
         dummyInput();
     }
 
     public void update(float delta) {
 //        mapScreen.update(delta);
         stage.act(delta);
-        prototype.update(delta);
     }
 
     public void dummyInput() {
