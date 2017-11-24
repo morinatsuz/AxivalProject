@@ -244,314 +244,312 @@ public class ScreenPlay implements Screen, InputProcessor {
                 System.out.println("Path = " + mapScreen.path.toString());
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
-
-
-                // Action Phase
-            } else if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
-                //Action Phase
-                dummyLeftClick = true;
-                int attacker = StatusAxival.statusPhase[7]; // Attacker
-                int chooseAction = StatusAxival.statusPhase[8]; // chooseAction
-                int targetIdx = StatusAxival.statusPhase[9]; // Target
-                Vector2 rowcol = new Vector2(mapScreen.player[targetIdx].getRowCol());
-                mapScreen.idx = attacker;
-                Hero player = mapScreen.player[attacker];
-                Vector2 vec = player.getRowCol();
-                float corX = vec.x;
-                float corY = vec.y;
-                LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, player.job, vec);
-                LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
-                LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
-                LinkedList<Vector2> enemy = new LinkedList<Vector2>();
-                LinkedList<Vector2> threats = new LinkedList<Vector2>();
-                LinkedList<Vector2> allies = new LinkedList<Vector2>();
-                LinkedList<Vector3> enemys = new LinkedList<Vector3>();
-                for (Vector3 vec3 : heroCoordinates) {
-                    heroCoordinates2.add(new Vector2(vec3.y, vec3.z));
-                    if (mapScreen.idx % 2 != vec3.x % 2) {
-                        enemys.add(vec3);
-                        threats.add(new Vector2(vec3.y, vec3.z));
-                    } else if (mapScreen.idx != vec3.x && mapScreen.idx % 2 == vec3.x % 2) {
-                        allies.add(new Vector2(vec3.y, vec3.z));
-                    }
-                    if (mapScreen.idx != vec3.x && (mapScreen.idx % 2 == 0) != (vec3.x % 2 == 0)) {
-                        enemy.add(new Vector2(vec3.y, vec3.z));
-                    }
+            }
+        }
+        if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
+            //Action Phase
+            dummyLeftClick = true;
+            int attacker = StatusAxival.statusPhase[7]; // Attacker
+            int chooseAction = StatusAxival.statusPhase[8]; // chooseAction
+            int targetIdx = StatusAxival.statusPhase[9]; // Target
+            Vector2 rowcol = new Vector2(mapScreen.player[targetIdx].getRowCol());
+            mapScreen.idx = attacker;
+            Hero player = mapScreen.player[attacker];
+            Vector2 vec = player.getRowCol();
+            float corX = vec.x;
+            float corY = vec.y;
+            LinkedList<Vector2> skillOverlay = mapScreen.board.getSkillOverlay(chooseAction, player.job, vec);
+            LinkedList<Vector3> heroCoordinates = mapScreen.getHeroesCoordinate();
+            LinkedList<Vector2> heroCoordinates2 = new LinkedList<Vector2>();
+            LinkedList<Vector2> enemy = new LinkedList<Vector2>();
+            LinkedList<Vector2> threats = new LinkedList<Vector2>();
+            LinkedList<Vector2> allies = new LinkedList<Vector2>();
+            LinkedList<Vector3> enemys = new LinkedList<Vector3>();
+            for (Vector3 vec3 : heroCoordinates) {
+                heroCoordinates2.add(new Vector2(vec3.y, vec3.z));
+                if (mapScreen.idx % 2 != vec3.x % 2) {
+                    enemys.add(vec3);
+                    threats.add(new Vector2(vec3.y, vec3.z));
+                } else if (mapScreen.idx != vec3.x && mapScreen.idx % 2 == vec3.x % 2) {
+                    allies.add(new Vector2(vec3.y, vec3.z));
                 }
-                threats.retainAll(skillOverlay);
-                allies.retainAll(skillOverlay);
-                player.setEnemys(threats);
-                boolean onlyYou = player.getRowCol().equals(rowcol);
-                boolean offend = enemy.contains(rowcol);
-                boolean inArea = skillOverlay.contains(rowcol);
-                boolean allHero = heroCoordinates2.contains(rowcol);
-                boolean beAlly = allHero && !offend;
-                int job = player.job;
-                int holdAction = chooseAction;
-                int target = getIndexOfTarget(heroCoordinates, rowcol);
-                if (dummyLeftClick && !player.isHeroPlaying() && player.actionUsing == -1) {
-                    if (-1 < holdAction && holdAction < 4) {
-                        if (job == 1) {
-                            if (holdAction == 0 && offend && inArea) {
-                                if (combatCalculate(attacker, target, 2, 4)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    showPaintAct(attacker, target, 0);
-                                    StatusAxival.statusPlayer[attacker][1] -= 2;
-                                    //play sfx dt skill 0
-                                    cardPlay.soundManager.playSfx(10);
-                                    updateAction(attacker, 0, target);
-                                }
-                            } else if (holdAction == 1 && allHero && !offend) {
-                                int cls = mapScreen.player[target].job;
-                                if (combatCalculate(attacker, target, 2, 1, "buff", cls)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    StatusAxival.statusPlayer[attacker][1] -= 2;
-                                    //play sfx dt skill 1
-                                    cardPlay.soundManager.playSfx(10);
-                                    updateAction(attacker, 1, target);
-                                }
-                            } else if (holdAction == 2 && offend) {
-                                if (combatCalculate(attacker, target, 4, 3)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    showPaintAct(attacker, target, 2);
-                                    if (StatusAxival.statusPlayer[attacker][0] + 2 > StatusAxival.playerDict[0][0]) {
-                                        StatusAxival.statusPlayer[attacker][0] = StatusAxival.playerDict[0][0];
-                                    } else {
-                                        StatusAxival.statusPlayer[attacker][0] += 2;
-                                    }
-                                    StatusAxival.statusPlayer[attacker][1] -= 4;
-                                    //play sfx dt skill 0
-                                    cardPlay.soundManager.playSfx(10);
-                                    updateAction(attacker, 2, target);
-                                }
-                            } else if (holdAction == 3 && offend) {
-                                //Calculating 3rd skill of Dark Templar
-                                int armor = StatusAxival.statusPlayer[target][4];
-                                double lossHP = Math.ceil(35 - StatusAxival.statusPlayer[attacker][1]);
-                                int damage = (int) Math.ceil(lossHP * 0.4 + StatusAxival.statusPlayer[attacker][4] + armor);
-
-                                //Calculating animation time
-                                float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
-                                mapScreen.player[target].setAttackedTime(frameDuration);
-
-                                if (combatCalculate(attacker, target, 8, damage)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    showPaintAct(attacker, target, 3);
-                                    StatusAxival.statusPlayer[attacker][1] -= 8;
-                                    //play sfx dt skill 3
-                                    cardPlay.soundManager.playSfx(11);
-                                    updateAction(attacker, 3, target);
-                                }
-                            }
-                        } else if (job == 2) {
-                            if (holdAction == 0 && offend) {
-                                if (combatCalculate(attacker, target, 3, 6)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    showPaintAct(attacker, target, 0);
-                                    StatusAxival.statusPlayer[attacker][1] -= 3;
-                                    //play sfx mage skill 0
-                                    cardPlay.soundManager.playSfx(12);
-                                    updateAction(attacker, 0, target);
-                                }
-                            } else if (holdAction == 1 && offend) { //threats.size() > 0
-                                if (StatusAxival.statusPlayer[attacker][1] >= 4) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    if (threats.size() == 2) {
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 1);
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 1);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 4, 5);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 4, 5);
-                                    } else if (threats.size() == 1) {
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 1);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 4, 10);
-                                    }
-                                    StatusAxival.statusPlayer[attacker][1] -= 4;
-                                    //play sfx mage skill 0
-                                    cardPlay.soundManager.playSfx(13);
-                                    updateAction(attacker, 1, target);
-                                } else {
-                                    System.out.println("Player " + attacker + " has not enough AP");
-                                }
-                            } else if (holdAction == 2 && onlyYou) {
+                if (mapScreen.idx != vec3.x && (mapScreen.idx % 2 == 0) != (vec3.x % 2 == 0)) {
+                    enemy.add(new Vector2(vec3.y, vec3.z));
+                }
+            }
+            threats.retainAll(skillOverlay);
+            allies.retainAll(skillOverlay);
+            player.setEnemys(threats);
+            boolean onlyYou = player.getRowCol().equals(rowcol);
+            boolean offend = enemy.contains(rowcol);
+            boolean inArea = skillOverlay.contains(rowcol);
+            boolean allHero = heroCoordinates2.contains(rowcol);
+            boolean beAlly = allHero && !offend;
+            int job = player.job;
+            int holdAction = chooseAction;
+            int target = getIndexOfTarget(heroCoordinates, rowcol);
+            if (dummyLeftClick && !player.isHeroPlaying() && player.actionUsing == -1) {
+                if (-1 < holdAction && holdAction < 4) {
+                    if (job == 1) {
+                        if (holdAction == 0 && offend && inArea) {
+                            if (combatCalculate(attacker, target, 2, 4)) {
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
-                                if (StatusAxival.statusPlayer[attacker][1] + 2 > StatusAxival.playerDict[2][1]) {
-                                    StatusAxival.statusPlayer[attacker][1] = StatusAxival.playerDict[2][1];
-                                    updateAction(attacker, 2, target);
-                                } else {
-                                    StatusAxival.statusPlayer[attacker][1] += 2;
-                                }
-                            } else if (holdAction == 3 && offend) {
-                                if (StatusAxival.statusPlayer[attacker][1] >= 10) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
-                                    for (Vector2 threat : threats) {
-                                        target = getIndexOfTarget(heroCoordinates, threat);
-                                        mapScreen.player[target].setAttackedTime(frameDuration);
-                                    }
-                                    if (threats.size() == 2) {
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 3);
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 3);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 10, 10);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 10, 10);
-                                    } else if (threats.size() == 1) {
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 3);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 10, 10);
-                                    }
-                                    StatusAxival.statusPlayer[attacker][1] -= 10;
-                                    //Storm sound
-                                    cardPlay.soundManager.playSfx(14);
-                                    updateAction(attacker, 3, target);
-                                } else {
-                                    System.out.println("Player " + attacker + " has not enough AP");
-                                }
+                                showPaintAct(attacker, target, 0);
+                                StatusAxival.statusPlayer[attacker][1] -= 2;
+                                //play sfx dt skill 0
+                                cardPlay.soundManager.playSfx(10);
+                                updateAction(attacker, 0, target);
                             }
-                        } else if (job == 3) {
-                            if (holdAction == 0 && offend) {
-                                if (combatCalculate(attacker, target, 3, 3)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    showPaintAct(attacker, target, 0);
-                                    StatusAxival.statusPlayer[attacker][1] -= 3;
-                                    //play sfx priest skill 0
-                                    cardPlay.soundManager.playSfx(12);
-                                    updateAction(attacker, 0, target);
-                                }
-                            } else if (holdAction == 1 && allHero && !offend && inArea) {
-                                int cls = mapScreen.player[target].job;
-                                if (combatCalculate(attacker, target, 3, 4, "heal", cls - 1)) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    StatusAxival.statusPlayer[attacker][1] -= 3;
-                                    //play sfx mage skill 0
-                                    cardPlay.soundManager.playSfx(12);
-                                    updateAction(attacker, 1, target);
-                                }
-                            } else if (holdAction == 2 && onlyYou) {
-                                if (StatusAxival.statusPlayer[attacker][1] >= 5) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
-                                    //Add attacked time to enemies
-                                    for (Vector2 threat : threats) {
-                                        target = getIndexOfTarget(heroCoordinates, threat);
-                                        mapScreen.player[target].setAttackedTime(frameDuration);
-                                    }
-                                    //Damage to enemies
-                                    if (threats.size() == 2) {
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 2);
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 0);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 5, 5);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 5, 5);
-                                    } else if (threats.size() == 1) {
-                                        showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 2);
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 5, 5);
-                                    }
-                                    //Heal to allies
-                                    int cls;
-                                    if (allies.size() == 2) {
-                                        cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(0))].job;
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2, "heal", cls - 1);
-                                        cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(1))].job;
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(1)), 5, 2, "heal", cls - 1);
-                                    } else if (allies.size() == 1) {
-                                        cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(0))].job;
-                                        combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2, "heal", cls - 1);
-                                    }
-                                    combatCalculate(attacker, attacker, 5, 3, "heal", 2);
-                                    StatusAxival.statusPlayer[attacker][1] -= 5;
-                                    cardPlay.soundManager.playSfx(16);
-                                    updateAction(attacker, 2, target);
+                        } else if (holdAction == 1 && allHero && !offend) {
+                            int cls = mapScreen.player[target].job;
+                            if (combatCalculate(attacker, target, 2, 1, "buff", cls)) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 2;
+                                //play sfx dt skill 1
+                                cardPlay.soundManager.playSfx(10);
+                                updateAction(attacker, 1, target);
+                            }
+                        } else if (holdAction == 2 && offend) {
+                            if (combatCalculate(attacker, target, 4, 3)) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                showPaintAct(attacker, target, 2);
+                                if (StatusAxival.statusPlayer[attacker][0] + 2 > StatusAxival.playerDict[0][0]) {
+                                    StatusAxival.statusPlayer[attacker][0] = StatusAxival.playerDict[0][0];
                                 } else {
-                                    System.out.println("Player " + attacker + " has not enough AP");
+                                    StatusAxival.statusPlayer[attacker][0] += 2;
                                 }
+                                StatusAxival.statusPlayer[attacker][1] -= 4;
+                                //play sfx dt skill 0
+                                cardPlay.soundManager.playSfx(10);
+                                updateAction(attacker, 2, target);
+                            }
+                        } else if (holdAction == 3 && offend) {
+                            //Calculating 3rd skill of Dark Templar
+                            int armor = StatusAxival.statusPlayer[target][4];
+                            double lossHP = Math.ceil(35 - StatusAxival.statusPlayer[attacker][1]);
+                            int damage = (int) Math.ceil(lossHP * 0.4 + StatusAxival.statusPlayer[attacker][4] + armor);
 
-                            } else if (holdAction == 3 && allHero && !onlyYou) {
-                                if (StatusAxival.statusPlayer[attacker][1] >= 7) {
-                                    heroFaceToTheRightSide(rowcol);
-                                    playCardSkill(false);
-                                    int tHP = StatusAxival.statusPlayer[attacker][0];
-                                    if (StatusAxival.statusPlayer[target][0] >= StatusAxival.playerDict[2][0]) {
-                                        StatusAxival.statusPlayer[attacker][0] = StatusAxival.playerDict[2][0];
-                                        StatusAxival.statusPlayer[target][0] = tHP;
-                                    } else {
-                                        StatusAxival.statusPlayer[attacker][0] = StatusAxival.statusPlayer[target][0];
-                                        StatusAxival.statusPlayer[target][0] = tHP;
-                                    }
-                                    StatusAxival.statusPlayer[attacker][1] -= 7;
-                                    cardPlay.soundManager.playSfx(17);
-                                    updateAction(attacker, 3, target);
-                                }
+                            //Calculating animation time
+                            float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
+                            mapScreen.player[target].setAttackedTime(frameDuration);
+
+                            if (combatCalculate(attacker, target, 8, damage)) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                showPaintAct(attacker, target, 3);
+                                StatusAxival.statusPlayer[attacker][1] -= 8;
+                                //play sfx dt skill 3
+                                cardPlay.soundManager.playSfx(11);
+                                updateAction(attacker, 3, target);
                             }
                         }
-                    } else if (3 < holdAction && holdAction < 9) {
-                        if (holdAction == 4 && !offend && allHero) {
-                            int cls = mapScreen.player[target].job;
-                            if (combatCalculate(attacker, target, 2, 2, "heal", job - 1)) {
+                    } else if (job == 2) {
+                        if (holdAction == 0 && offend) {
+                            if (combatCalculate(attacker, target, 3, 6)) {
                                 heroFaceToTheRightSide(rowcol);
-                                playCardSkill(true);
-                                StatusAxival.statusPlayer[attacker][1] -= 2;
-                                //play skill potion
-                                cardPlay.soundManager.playSfx(3);
-                                updateAction(attacker, 4, target);
-                            }
-                        } else if (holdAction == 5 && !offend && allHero) {
-                            int cls = mapScreen.player[target].job;
-                            if (combatCalculate(attacker, target, 4, 6, "heal", job - 1)) {
-                                heroFaceToTheRightSide(rowcol);
-                                playCardSkill(true);
-                                StatusAxival.statusPlayer[attacker][1] -= 4;
-                                //play skill heavy potion
-                                cardPlay.soundManager.playSfx(4);
-                                updateAction(attacker, 5, target);
-                            }
-                        } else if (holdAction == 6 && !offend && allHero) {
-                            int cls = mapScreen.player[target].job;
-                            if (combatCalculate(attacker, target, 1, 3, "buff", job)) {
-                                heroFaceToTheRightSide(rowcol);
-                                playCardSkill(true);
-                                StatusAxival.statusPlayer[attacker][1] -= 1;
-                                //play skill potion
-                                cardPlay.soundManager.playSfx(5);
-                                updateAction(attacker, 6, target);
-
-                            }
-                        } else if (holdAction == 7 && offend) {
-                            int armor = StatusAxival.statusPlayer[target][4];
-                            if (combatCalculate(attacker, target, 3, 3 - armor)) {
-                                heroFaceToTheRightSide(rowcol);
-                                playCardSkill(true);
-                                showPaintAct(attacker, target, 7);
+                                playCardSkill(false);
+                                showPaintAct(attacker, target, 0);
                                 StatusAxival.statusPlayer[attacker][1] -= 3;
-                                //play skill potion
-                                cardPlay.soundManager.playSfx(6);
-                                updateAction(attacker, 7, target);
-
+                                //play sfx mage skill 0
+                                cardPlay.soundManager.playSfx(12);
+                                updateAction(attacker, 0, target);
                             }
-                        } else if (holdAction == 8 && onlyYou) {
-                            int cls = mapScreen.player[target].job;
-                            if (combatCalculate(attacker, target, 4, 20, "buff", job)) {
+                        } else if (holdAction == 1 && offend) { //threats.size() > 0
+                            if (StatusAxival.statusPlayer[attacker][1] >= 4) {
                                 heroFaceToTheRightSide(rowcol);
-                                playCardSkill(true);
+                                playCardSkill(false);
+                                if (threats.size() == 2) {
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 1);
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 1);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 4, 5);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 4, 5);
+                                } else if (threats.size() == 1) {
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 1);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 4, 10);
+                                }
                                 StatusAxival.statusPlayer[attacker][1] -= 4;
-                                //play skill super Armor
-                                cardPlay.soundManager.playSfx(7);
-                                updateAction(attacker, 8, target);
+                                //play sfx mage skill 0
+                                cardPlay.soundManager.playSfx(13);
+                                updateAction(attacker, 1, target);
+                            } else {
+                                System.out.println("Player " + attacker + " has not enough AP");
+                            }
+                        } else if (holdAction == 2 && onlyYou) {
+                            heroFaceToTheRightSide(rowcol);
+                            playCardSkill(false);
+                            if (StatusAxival.statusPlayer[attacker][1] + 2 > StatusAxival.playerDict[2][1]) {
+                                StatusAxival.statusPlayer[attacker][1] = StatusAxival.playerDict[2][1];
+                                updateAction(attacker, 2, target);
+                            } else {
+                                StatusAxival.statusPlayer[attacker][1] += 2;
+                            }
+                        } else if (holdAction == 3 && offend) {
+                            if (StatusAxival.statusPlayer[attacker][1] >= 10) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
+                                for (Vector2 threat : threats) {
+                                    target = getIndexOfTarget(heroCoordinates, threat);
+                                    mapScreen.player[target].setAttackedTime(frameDuration);
+                                }
+                                if (threats.size() == 2) {
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 3);
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 3);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 10, 10);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 10, 10);
+                                } else if (threats.size() == 1) {
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 3);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 10, 10);
+                                }
+                                StatusAxival.statusPlayer[attacker][1] -= 10;
+                                //Storm sound
+                                cardPlay.soundManager.playSfx(14);
+                                updateAction(attacker, 3, target);
+                            } else {
+                                System.out.println("Player " + attacker + " has not enough AP");
+                            }
+                        }
+                    } else if (job == 3) {
+                        if (holdAction == 0 && offend) {
+                            if (combatCalculate(attacker, target, 3, 3)) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                showPaintAct(attacker, target, 0);
+                                StatusAxival.statusPlayer[attacker][1] -= 3;
+                                //play sfx priest skill 0
+                                cardPlay.soundManager.playSfx(12);
+                                updateAction(attacker, 0, target);
+                            }
+                        } else if (holdAction == 1 && allHero && !offend && inArea) {
+                            int cls = mapScreen.player[target].job;
+                            if (combatCalculate(attacker, target, 3, 4, "heal", cls - 1)) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                StatusAxival.statusPlayer[attacker][1] -= 3;
+                                //play sfx mage skill 0
+                                cardPlay.soundManager.playSfx(12);
+                                updateAction(attacker, 1, target);
+                            }
+                        } else if (holdAction == 2 && onlyYou) {
+                            if (StatusAxival.statusPlayer[attacker][1] >= 5) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
+                                //Add attacked time to enemies
+                                for (Vector2 threat : threats) {
+                                    target = getIndexOfTarget(heroCoordinates, threat);
+                                    mapScreen.player[target].setAttackedTime(frameDuration);
+                                }
+                                //Damage to enemies
+                                if (threats.size() == 2) {
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 2);
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 0);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 5, 5);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(1)), 5, 5);
+                                } else if (threats.size() == 1) {
+                                    showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 2);
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 5, 5);
+                                }
+                                //Heal to allies
+                                int cls;
+                                if (allies.size() == 2) {
+                                    cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(0))].job;
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2, "heal", cls - 1);
+                                    cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(1))].job;
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(1)), 5, 2, "heal", cls - 1);
+                                } else if (allies.size() == 1) {
+                                    cls = mapScreen.player[getIndexOfTarget(heroCoordinates, allies.get(0))].job;
+                                    combatCalculate(attacker, getIndexOfTarget(heroCoordinates, allies.get(0)), 5, 2, "heal", cls - 1);
+                                }
+                                combatCalculate(attacker, attacker, 5, 3, "heal", 2);
+                                StatusAxival.statusPlayer[attacker][1] -= 5;
+                                cardPlay.soundManager.playSfx(16);
+                                updateAction(attacker, 2, target);
+                            } else {
+                                System.out.println("Player " + attacker + " has not enough AP");
+                            }
+
+                        } else if (holdAction == 3 && allHero && !onlyYou) {
+                            if (StatusAxival.statusPlayer[attacker][1] >= 7) {
+                                heroFaceToTheRightSide(rowcol);
+                                playCardSkill(false);
+                                int tHP = StatusAxival.statusPlayer[attacker][0];
+                                if (StatusAxival.statusPlayer[target][0] >= StatusAxival.playerDict[2][0]) {
+                                    StatusAxival.statusPlayer[attacker][0] = StatusAxival.playerDict[2][0];
+                                    StatusAxival.statusPlayer[target][0] = tHP;
+                                } else {
+                                    StatusAxival.statusPlayer[attacker][0] = StatusAxival.statusPlayer[target][0];
+                                    StatusAxival.statusPlayer[target][0] = tHP;
+                                }
+                                StatusAxival.statusPlayer[attacker][1] -= 7;
+                                cardPlay.soundManager.playSfx(17);
+                                updateAction(attacker, 3, target);
                             }
                         }
                     }
+                } else if (3 < holdAction && holdAction < 9) {
+                    if (holdAction == 4 && !offend && allHero) {
+                        int cls = mapScreen.player[target].job;
+                        if (combatCalculate(attacker, target, 2, 2, "heal", job - 1)) {
+                            heroFaceToTheRightSide(rowcol);
+                            playCardSkill(true);
+                            StatusAxival.statusPlayer[attacker][1] -= 2;
+                            //play skill potion
+                            cardPlay.soundManager.playSfx(3);
+                            updateAction(attacker, 4, target);
+                        }
+                    } else if (holdAction == 5 && !offend && allHero) {
+                        int cls = mapScreen.player[target].job;
+                        if (combatCalculate(attacker, target, 4, 6, "heal", job - 1)) {
+                            heroFaceToTheRightSide(rowcol);
+                            playCardSkill(true);
+                            StatusAxival.statusPlayer[attacker][1] -= 4;
+                            //play skill heavy potion
+                            cardPlay.soundManager.playSfx(4);
+                            updateAction(attacker, 5, target);
+                        }
+                    } else if (holdAction == 6 && !offend && allHero) {
+                        int cls = mapScreen.player[target].job;
+                        if (combatCalculate(attacker, target, 1, 3, "buff", job)) {
+                            heroFaceToTheRightSide(rowcol);
+                            playCardSkill(true);
+                            StatusAxival.statusPlayer[attacker][1] -= 1;
+                            //play skill potion
+                            cardPlay.soundManager.playSfx(5);
+                            updateAction(attacker, 6, target);
+
+                        }
+                    } else if (holdAction == 7 && offend) {
+                        int armor = StatusAxival.statusPlayer[target][4];
+                        if (combatCalculate(attacker, target, 3, 3 - armor)) {
+                            heroFaceToTheRightSide(rowcol);
+                            playCardSkill(true);
+                            showPaintAct(attacker, target, 7);
+                            StatusAxival.statusPlayer[attacker][1] -= 3;
+                            //play skill potion
+                            cardPlay.soundManager.playSfx(6);
+                            updateAction(attacker, 7, target);
+
+                        }
+                    } else if (holdAction == 8 && onlyYou) {
+                        int cls = mapScreen.player[target].job;
+                        if (combatCalculate(attacker, target, 4, 20, "buff", job)) {
+                            heroFaceToTheRightSide(rowcol);
+                            playCardSkill(true);
+                            StatusAxival.statusPlayer[attacker][1] -= 4;
+                            //play skill super Armor
+                            cardPlay.soundManager.playSfx(7);
+                            updateAction(attacker, 8, target);
+                        }
+                    }
                 }
-                StatusAxival.statusPhase[7] = 0;
-                StatusAxival.statusPhase[8] = 0;
-                StatusAxival.statusPhase[9] = 0;
             }
+            StatusAxival.statusPhase[7] = 0;
+            StatusAxival.statusPhase[8] = 0;
+            StatusAxival.statusPhase[9] = 0;
         }
     }
 
