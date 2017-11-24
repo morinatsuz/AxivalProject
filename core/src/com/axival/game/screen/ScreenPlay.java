@@ -729,7 +729,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     //AP used calculation
 //                    StatusAxival.statusPlayer[mapScreen.idx][1] -= Math.max((Math.ceil(mapScreen.path.size()/mapScreen.player[mapScreen.idx].walkAP)
 //                            * mapScreen.path.size()/mapScreen.player[mapScreen.idx].AP), 0);
-//                    mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
+                    mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                     mapScreen.walker.routing();
                     //send to network animation
                     StatusAxival.statusPhase[10] = SelectHeroScreen.playerNo-1;
