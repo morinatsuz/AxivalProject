@@ -528,7 +528,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         }
                     } else if (holdAction == 7 && offend) {
                         int armor = StatusAxival.statusPlayer[target][4];
-                        if (combatCalculate(attacker, target, 3, 3 - armor)) {
+                        if (combatCalculate(attacker, target, 3, 3 + armor)) {
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(true);
                             showPaintAct(attacker, target, 7);
@@ -792,10 +792,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx dt skill 0
                                     cardPlay.soundManager.playSfx(10);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 0, target);
                                 }
                             } else if (holdAction == 1 && allHero && !offend) {
                                 int cls = mapScreen.player[target].job;
@@ -806,10 +803,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx dt skill 1
                                     cardPlay.soundManager.playSfx(10);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 1, target);
                                 }
                             } else if (holdAction == 2 && offend) {
                                 if (combatCalculate(attacker, target, 4, 3)) {
@@ -825,10 +819,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx dt skill 0
                                     cardPlay.soundManager.playSfx(10);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 2, target);
                                 }
                             } else if (holdAction == 3 && offend) {
                                 //Calculating 3rd skill of Dark Templar
@@ -848,10 +839,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx dt skill 3
                                     cardPlay.soundManager.playSfx(11);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 3, target);
                                 }
                             }
                         } else if (job == 2) {
@@ -864,10 +852,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx mage skill 0
                                     cardPlay.soundManager.playSfx(12);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 0, target);
                                 }
                             } else if (holdAction == 1 && offend) { //threats.size() > 0
                                 if (StatusAxival.statusPlayer[attacker][1] >= 4) {
@@ -886,10 +871,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx mage skill 0
                                     cardPlay.soundManager.playSfx(13);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 1, target);
                                 } else {
                                     System.out.println("Player " + attacker + " has not enough AP");
                                 }
@@ -923,10 +905,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //Storm sound
                                     cardPlay.soundManager.playSfx(14);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 2, target);
                                 } else {
                                     System.out.println("Player " + attacker + " has not enough AP");
                                 }
@@ -941,10 +920,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx priest skill 0
                                     cardPlay.soundManager.playSfx(12);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 3, target);
                                 }
                             } else if (holdAction == 1 && allHero && !offend && inArea) {
                                 int cls = mapScreen.player[target].job;
@@ -955,10 +931,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     //play sfx mage skill 0
                                     cardPlay.soundManager.playSfx(12);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 1, target);
                                 }
                             } else if (holdAction == 2 && onlyYou) {
                                 if (StatusAxival.statusPlayer[attacker][1] >= 5) {
@@ -995,10 +968,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     StatusAxival.statusPlayer[attacker][1] -= 5;
                                     cardPlay.soundManager.playSfx(16);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 2, target);
                                 } else {
                                     System.out.println("Player " + attacker + " has not enough AP");
                                 }
@@ -1018,10 +988,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                     StatusAxival.statusPlayer[attacker][1] -= 7;
                                     cardPlay.soundManager.playSfx(17);
                                     //send to network animation
-                                    StatusAxival.statusPhase[7] = attacker;
-                                    StatusAxival.statusPhase[8] = holdAction;
-                                    StatusAxival.statusPhase[9] = target;
-                                    this.updateStatus();
+                                    updateAction(attacker, 3, target);
                                 }
                             }
                         }
@@ -1035,10 +1002,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 //play skill potion
                                 cardPlay.soundManager.playSfx(3);
                                 //send to network animation
-                                StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] = holdAction;
-                                StatusAxival.statusPhase[9] = target;
-                                this.updateStatus();
+                                updateAction(attacker, 4, target);
                             }
                         } else if (holdAction == 5 && !offend && allHero) {
                             int cls = mapScreen.player[target].job;
@@ -1049,10 +1013,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 //play skill heavy potion
                                 cardPlay.soundManager.playSfx(4);
                                 //send to network animation
-                                StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] = holdAction;
-                                StatusAxival.statusPhase[9] = target;
-                                this.updateStatus();
+                                updateAction(attacker, 5, target);
                             }
                         } else if (holdAction == 6 && !offend && allHero) {
                             int cls = mapScreen.player[target].job;
@@ -1063,10 +1024,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 //play skill potion
                                 cardPlay.soundManager.playSfx(5);
                                 //send to network animation
-                                StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] = holdAction;
-                                StatusAxival.statusPhase[9] = target;
-                                this.updateStatus();
+                                updateAction(attacker, 6, target);
                             }
                         } else if (holdAction == 7 && offend) {
                             int armor = StatusAxival.statusPlayer[target][4];
@@ -1078,10 +1036,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 //play skill potion
                                 cardPlay.soundManager.playSfx(6);
                                 //send to network animation
-                                StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] = holdAction;
-                                StatusAxival.statusPhase[9] = target;
-                                this.updateStatus();
+                                updateAction(attacker, 7, target);
                             }
                         } else if (holdAction == 8 && onlyYou) {
                             int cls = mapScreen.player[target].job;
@@ -1092,10 +1047,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 //play skill super Armor
                                 cardPlay.soundManager.playSfx(7);
                                 //send to network animation
-                                StatusAxival.statusPhase[7] = attacker;
-                                StatusAxival.statusPhase[8] = holdAction;
-                                StatusAxival.statusPhase[9] = target;
-                                this.updateStatus();
+                                updateAction(attacker, 8, target);
                             }
                         }
                     }
