@@ -46,7 +46,7 @@ public class Menu implements Screen {
 
         prototypeM = new ParticleEffect();
         prototypeM = cardPlay.assetManager.get("effect01.party");
-        prototypeM.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+        prototypeM.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2 + 400, Gdx.graphics.getHeight()/2 -20);
         prototypeM.start();
 
         //sound play bgm 0

@@ -108,6 +108,44 @@ public class UIplay implements Screen {
         StatusAxival.genToStatusPlayer(2);
         StatusAxival.genToStatusPlayer(3);
 
+        if(StatusAxival.statusPhase[1]==1){
+            leftPlayer1 = new Texture("UI_Assets/head hero/Player 1 Dark.png");
+        }
+        else if(StatusAxival.statusPhase[1]==2){
+            leftPlayer1 = new Texture("UI_Assets/head hero/Player 1 Mage.png");
+        }
+        else if(StatusAxival.statusPhase[1]==3){
+            leftPlayer1 = new Texture("UI_Assets/head hero/Player 1 Priest.png");
+        }
+        if(StatusAxival.statusPhase[2]==1){
+            leftPlayer2 = new Texture("UI_Assets/head hero/Player 2 Dark.png");
+        }
+        else if(StatusAxival.statusPhase[2]==2){
+            leftPlayer2 = new Texture("UI_Assets/head hero/Player 2 Mage.png");
+        }
+        else if(StatusAxival.statusPhase[2]==3){
+            leftPlayer2 = new Texture("UI_Assets/head hero/Player 2 Priest.png");
+        }
+        if(StatusAxival.statusPhase[3]==1){
+            rightPlayer1 = new Texture("UI_Assets/head hero/Player 3 Dark.png");
+        }
+        else if(StatusAxival.statusPhase[3]==2){
+            rightPlayer1 = new Texture("UI_Assets/head hero/Player 3 Mage.png");
+        }
+        else if(StatusAxival.statusPhase[3]==3){
+            rightPlayer1 = new Texture("UI_Assets/head hero/Player 3 Priest.png");
+        }
+        if(StatusAxival.statusPhase[4]==1){
+            rightPlayer2 = new Texture("UI_Assets/head hero/Player 4 Dark.png");
+        }
+        else if(StatusAxival.statusPhase[4]==2){
+            rightPlayer2 = new Texture("UI_Assets/head hero/Player 4 Mage.png");
+        }
+        else if(StatusAxival.statusPhase[4]==3){
+            rightPlayer2 = new Texture("UI_Assets/head hero/Player 4 Priest.png");
+        }
+
+
         //skill button
         if(StatusAxival.myClass - 1==0){
             skill01 = new Image(cardPlay.assetManager.get("skill Icon/DT_Fortify BW.png", Texture.class));
@@ -608,7 +646,7 @@ public class UIplay implements Screen {
     //draw assets
     public void runningDraw(){
         StatusAxival.genClass();
-        //StatusAxival.updateEquip();
+        StatusAxival.updateEquip();endGameCutIn();
         if(StatusAxival.statusPhase[6]==0){
             System.out.println("Phase draw Bar!!");
             endBar.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor(), Actions.removeActor()));
