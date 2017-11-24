@@ -279,6 +279,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     if (job == 1) {
                         if (holdAction == 0 && offend && inArea) {
                             if (combatCalculate(attacker, target, 2, 4)) {
+                                System.out.println("Job 1 Skill 0 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 showPaintAct(attacker, target, 0);
@@ -290,6 +291,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         } else if (holdAction == 1 && allHero && !offend) {
                             int cls = mapScreen.player[target].job;
                             if (combatCalculate(attacker, target, 2, 1, "buff", cls)) {
+                                System.out.println("Job 1 Skill 1 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 2;
@@ -299,6 +301,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                         } else if (holdAction == 2 && offend) {
                             if (combatCalculate(attacker, target, 4, 3)) {
+                                System.out.println("Job 1 Skill 2 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 showPaintAct(attacker, target, 2);
@@ -323,6 +326,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             mapScreen.player[target].setAttackedTime(frameDuration);
 
                             if (combatCalculate(attacker, target, 8, damage)) {
+                                System.out.println("Job 1 Skill 3 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 showPaintAct(attacker, target, 3);
@@ -335,6 +339,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     } else if (job == 2) {
                         if (holdAction == 0 && offend) {
                             if (combatCalculate(attacker, target, 3, 6)) {
+                                System.out.println("Job 2 Skill 0 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 showPaintAct(attacker, target, 0);
@@ -345,6 +350,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                         } else if (holdAction == 1 && offend) { //threats.size() > 0
                             if (StatusAxival.statusPlayer[attacker][1] >= 4) {
+                                System.out.println("Job 2 Skill 1 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 if (threats.size() == 2) {
@@ -364,6 +370,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 System.out.println("Player " + attacker + " has not enough AP");
                             }
                         } else if (holdAction == 2 && onlyYou) {
+                            System.out.println("Job 2 Skill 2 is used.");
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(false);
                             if (StatusAxival.statusPlayer[attacker][1] + 2 > StatusAxival.playerDict[2][1]) {
@@ -374,6 +381,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                         } else if (holdAction == 3 && offend) {
                             if (StatusAxival.statusPlayer[attacker][1] >= 10) {
+                                System.out.println("Job 2 Skill 3 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
@@ -401,6 +409,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     } else if (job == 3) {
                         if (holdAction == 0 && offend) {
                             if (combatCalculate(attacker, target, 3, 3)) {
+                                System.out.println("Job 2 Skill 0 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 showPaintAct(attacker, target, 0);
@@ -412,6 +421,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                         } else if (holdAction == 1 && allHero && !offend && inArea) {
                             int cls = mapScreen.player[target].job;
                             if (combatCalculate(attacker, target, 3, 4, "heal", cls - 1)) {
+                                System.out.println("Job 2 Skill 1 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 StatusAxival.statusPlayer[attacker][1] -= 3;
@@ -421,6 +431,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             }
                         } else if (holdAction == 2 && onlyYou) {
                             if (StatusAxival.statusPlayer[attacker][1] >= 5) {
+                                System.out.println("Job 2 Skill 2 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
@@ -460,6 +471,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
                         } else if (holdAction == 3 && allHero && !onlyYou) {
                             if (StatusAxival.statusPlayer[attacker][1] >= 7) {
+                                System.out.println("Job 2 Skill 3 is used.");
                                 heroFaceToTheRightSide(rowcol);
                                 playCardSkill(false);
                                 int tHP = StatusAxival.statusPlayer[attacker][0];
@@ -480,6 +492,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     if (holdAction == 4 && !offend && allHero) {
                         int cls = mapScreen.player[target].job;
                         if (combatCalculate(attacker, target, 2, 2, "heal", job - 1)) {
+                            System.out.println("Potion is used.");
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 2;
@@ -490,6 +503,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     } else if (holdAction == 5 && !offend && allHero) {
                         int cls = mapScreen.player[target].job;
                         if (combatCalculate(attacker, target, 4, 6, "heal", job - 1)) {
+                            System.out.println("Mega Potion is used.");
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 4;
@@ -500,6 +514,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     } else if (holdAction == 6 && !offend && allHero) {
                         int cls = mapScreen.player[target].job;
                         if (combatCalculate(attacker, target, 1, 3, "buff", job)) {
+                            System.out.println("Arcane Shield is used.");
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 1;
@@ -511,6 +526,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     } else if (holdAction == 7 && offend) {
                         int armor = StatusAxival.statusPlayer[target][4];
                         if (combatCalculate(attacker, target, 3, 3 + armor)) {
+                            System.out.println("Thunderbolt is used.");
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(true);
                             showPaintAct(attacker, target, 7);
@@ -523,6 +539,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     } else if (holdAction == 8 && onlyYou) {
                         int cls = mapScreen.player[target].job;
                         if (combatCalculate(attacker, target, 4, 20, "buff", job)) {
+                            System.out.println("Super Armor.");
                             heroFaceToTheRightSide(rowcol);
                             playCardSkill(true);
                             StatusAxival.statusPlayer[attacker][1] -= 4;
@@ -771,6 +788,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             if (holdAction == 0 && offend && inArea) {
                                 if (combatCalculate(attacker, target, 2, 4)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     showPaintAct(attacker, target, 0);
                                     StatusAxival.statusPlayer[attacker][1] -= 2;
@@ -783,6 +801,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 int cls = mapScreen.player[target].job;
                                 if (combatCalculate(attacker, target, 2, 1, "buff", cls)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     StatusAxival.statusPlayer[attacker][1] -= 2;
                                     //play sfx dt skill 1
@@ -793,6 +812,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             } else if (holdAction == 2 && offend) {
                                 if (combatCalculate(attacker, target, 4, 3)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     showPaintAct(attacker, target, 2);
                                     if (StatusAxival.statusPlayer[attacker][0] + 2 > StatusAxival.playerDict[0][0]) {
@@ -818,6 +838,7 @@ public class ScreenPlay implements Screen, InputProcessor {
 
                                 if (combatCalculate(attacker, target, 8, damage)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     showPaintAct(attacker, target, 3);
                                     StatusAxival.statusPlayer[attacker][1] -= 8;
@@ -831,6 +852,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             if (holdAction == 0 && offend) {
                                 if (combatCalculate(attacker, target, 3, 6)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     showPaintAct(attacker, target, 0);
                                     StatusAxival.statusPlayer[attacker][1] -= 3;
@@ -842,6 +864,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             } else if (holdAction == 1 && offend) { //threats.size() > 0
                                 if (StatusAxival.statusPlayer[attacker][1] >= 4) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     if (threats.size() == 2) {
                                         showPaintAct(attacker, getIndexOfTarget(heroCoordinates, threats.get(0)), 1);
@@ -862,6 +885,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 }
                             } else if (holdAction == 2 && onlyYou) {
                                 heroFaceToTheRightSide(rowcol);
+                                player.actionUsing = holdAction;
                                 playCardSkill(false);
                                 if (StatusAxival.statusPlayer[attacker][1] + 2 > StatusAxival.playerDict[2][1]) {
                                     StatusAxival.statusPlayer[attacker][1] = StatusAxival.playerDict[2][1];
@@ -871,6 +895,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             } else if (holdAction == 3 && offend) {
                                 if (StatusAxival.statusPlayer[attacker][1] >= 10) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
                                     for (Vector2 threat : threats) {
@@ -899,6 +924,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             if (holdAction == 0 && offend) {
                                 if (combatCalculate(attacker, target, 3, 3)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     showPaintAct(attacker, target, 0);
                                     StatusAxival.statusPlayer[attacker][1] -= 3;
@@ -911,6 +937,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                                 int cls = mapScreen.player[target].job;
                                 if (combatCalculate(attacker, target, 3, 4, "heal", cls - 1)) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     StatusAxival.statusPlayer[attacker][1] -= 3;
                                     //play sfx mage skill 0
@@ -921,6 +948,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             } else if (holdAction == 2 && onlyYou) {
                                 if (StatusAxival.statusPlayer[attacker][1] >= 5) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     float frameDuration = mapScreen.player[attacker].heroAnimation[3].getAnimationDuration();
                                     //Add attacked time to enemies
@@ -961,6 +989,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             } else if (holdAction == 3 && allHero && !onlyYou) {
                                 if (StatusAxival.statusPlayer[attacker][1] >= 7) {
                                     heroFaceToTheRightSide(rowcol);
+                                    player.actionUsing = holdAction;
                                     playCardSkill(false);
                                     int tHP = StatusAxival.statusPlayer[attacker][0];
                                     if (StatusAxival.statusPlayer[target][0] >= StatusAxival.playerDict[2][0]) {
@@ -982,6 +1011,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             int cls = mapScreen.player[target].job;
                             if (combatCalculate(attacker, target, 2, 2, "heal", job - 1)) {
                                 heroFaceToTheRightSide(rowcol);
+                                player.actionUsing = holdAction;
                                 playCardSkill(true);
                                 StatusAxival.statusPlayer[attacker][1] -= 2;
                                 //play skill potion
@@ -993,6 +1023,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             int cls = mapScreen.player[target].job;
                             if (combatCalculate(attacker, target, 4, 6, "heal", job - 1)) {
                                 heroFaceToTheRightSide(rowcol);
+                                player.actionUsing = holdAction;
                                 playCardSkill(true);
                                 StatusAxival.statusPlayer[attacker][1] -= 4;
                                 //play skill heavy potion
@@ -1004,6 +1035,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             int cls = mapScreen.player[target].job;
                             if (combatCalculate(attacker, target, 1, 3, "buff", job)) {
                                 heroFaceToTheRightSide(rowcol);
+                                player.actionUsing = holdAction;
                                 playCardSkill(true);
                                 StatusAxival.statusPlayer[attacker][1] -= 1;
                                 //play skill potion
@@ -1015,6 +1047,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             int armor = StatusAxival.statusPlayer[target][4];
                             if (combatCalculate(attacker, target, 3, 3 - armor)) {
                                 heroFaceToTheRightSide(rowcol);
+                                player.actionUsing = holdAction;
                                 playCardSkill(true);
                                 showPaintAct(attacker, target, 7);
                                 StatusAxival.statusPlayer[attacker][1] -= 3;
@@ -1027,6 +1060,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                             int cls = mapScreen.player[target].job;
                             if (combatCalculate(attacker, target, 4, 20, "buff", job)) {
                                 heroFaceToTheRightSide(rowcol);
+                                player.actionUsing = holdAction;
                                 playCardSkill(true);
                                 StatusAxival.statusPlayer[attacker][1] -= 4;
                                 //play skill super Armor
