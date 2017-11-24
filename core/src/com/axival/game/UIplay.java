@@ -611,24 +611,28 @@ public class UIplay implements Screen {
         //StatusAxival.updateEquip();
         if(StatusAxival.statusPhase[6]==0){
             System.out.println("Phase draw Bar!!");
-            endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
+            endBar.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor(), Actions.removeActor()));
             screenPlay.stage.addActor(drawBar);
         }
         else if(StatusAxival.statusPhase[6]==1){
             System.out.println("Phase Action 1 Bar!!");
-            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(.5f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar1);
         }
         else if(StatusAxival.statusPhase[6]==2){
             System.out.println("Phase Travel Bar!!");
-            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(.5f), Actions.removeActor()));
             screenPlay.stage.addActor(travelBar);
         }
         else if(StatusAxival.statusPhase[6]==3){
             System.out.println("Phase Action 2 Bar!!");
-            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(1f), Actions.removeActor()));
+            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeOut(.5f), Actions.removeActor()));
             screenPlay.stage.addActor(actionBar2);
             endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
         }
         else if(StatusAxival.statusPhase[6]==4){
             actionBar2.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
