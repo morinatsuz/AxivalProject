@@ -1,6 +1,7 @@
 package com.axival.game;
 
 import com.axival.game.screen.ScreenPlay;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -149,7 +150,7 @@ public class UIplay implements Screen {
         //result game
         victoryImg.setScale(.1f);
         defeatImg.setScale(.1f);
-        victoryImg.setPosition(6 - victoryImg.getWidth()/2, 360 - victoryImg.getHeight()/2);
+        victoryImg.setPosition(Gdx.graphics.getWidth()/2 - victoryImg.getWidth()/2, Gdx.graphics.getHeight()/2 - victoryImg.getHeight()/2);
         defeatImg.setPosition(640, 300);
 
         //set action in button next phase
@@ -1007,7 +1008,7 @@ public class UIplay implements Screen {
 
     //show result menu
     public void endGameCutIn(){
-        if (true){
+        if (StatusAxival.statusPlayer[0][0]+StatusAxival.statusPlayer[2][0]==0||StatusAxival.statusPlayer[1][0]+StatusAxival.statusPlayer[3][0]==0){
             victoryCutIn();
         }
         else {
