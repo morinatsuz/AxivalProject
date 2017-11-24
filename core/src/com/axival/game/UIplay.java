@@ -151,7 +151,7 @@ public class UIplay implements Screen {
         victoryImg.setScale(.1f);
         defeatImg.setScale(.1f);
         victoryImg.setPosition(Gdx.graphics.getWidth()/2 - victoryImg.getWidth()/2, Gdx.graphics.getHeight()/2 - victoryImg.getHeight()/2);
-        defeatImg.setPosition(640, 300);
+        defeatImg.setPosition(Gdx.graphics.getWidth()/2 - defeatImg.getWidth()/2, Gdx.graphics.getHeight()/2 - defeatImg.getHeight()/2);
 
         //set action in button next phase
         nextPhaseImg = new Image(nextPhase);
@@ -631,13 +631,16 @@ public class UIplay implements Screen {
             endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
         }
         else if(StatusAxival.statusPhase[6]==4){
+            actionBar2.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+            System.out.println("delete action 2 phase");
+            /*
             System.out.println("Phase End Bar!!");
             endBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
             screenPlay.stage.addActor(endBar);
             actionBar1.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
             actionBar2.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
             travelBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
-            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));
+            drawBar.addAction(Actions.sequence(Actions.alpha(1f), Actions.fadeIn(1f)));*/
         }
         else if(StatusAxival.statusPhase[6]==5){
             endBar.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor(), Actions.removeActor()));
@@ -1010,9 +1013,11 @@ public class UIplay implements Screen {
     public void endGameCutIn(){
         if (StatusAxival.statusPlayer[0][0]+StatusAxival.statusPlayer[2][0]==0||StatusAxival.statusPlayer[1][0]+StatusAxival.statusPlayer[3][0]==0){
             victoryCutIn();
+            cardPlay.setScreen(new Menu(cardPlay));
         }
-        else {
+        else if (StatusAxival.statusPlayer[0][0]+StatusAxival.statusPlayer[2][0]==0){
             defeatCutIn();
+            cardPlay.setScreen(new Menu(cardPlay));
         }
     }
 
@@ -1024,7 +1029,10 @@ public class UIplay implements Screen {
     }
 
     public void defeatCutIn(){
-
+        defeatImg.addAction(Actions.sequence(Actions.parallel(Actions.fadeIn(.2f),
+                Actions.scaleTo(.5f, .5f, .5f)),
+                Actions.delay(1f), Actions.fadeOut(.2f), Actions.removeActor()));
+        screenPlay.stage.addActor(defenceImg);
     }
 
 }
