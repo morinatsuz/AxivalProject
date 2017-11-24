@@ -693,6 +693,9 @@ public class ScreenPlay implements Screen, InputProcessor {
         if (keycode == Input.Keys.S) {
 
         }
+        if (keycode == Input.Keys.ESCAPE){
+            cardPlay.setScreen(new Menu(cardPlay));
+        }
         return false;
     }
 
