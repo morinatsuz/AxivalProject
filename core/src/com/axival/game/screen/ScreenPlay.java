@@ -207,8 +207,10 @@ public class ScreenPlay implements Screen, InputProcessor {
 
         if (StatusAxival.statusPhase[7] == 0 && StatusAxival.statusPhase[8] == 0 && StatusAxival.statusPhase[9] == 0) {
             actionDefault = false;
+            System.out.println("actionDefault = False");
         } else {
             actionDefault = true;
+            System.out.println("actionDefault = Ture");
         }
 
         tempPhrase = StatusAxival.statusPhase[6];
@@ -246,7 +248,8 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.routing();
             }
         }
-        if ((tempPhrase == 1 || tempPhrase == 3) && actionDefault) {
+        if ((tempPhrase == 1 || tempPhrase == 3) && StatusAxival.statusPhase[5] != StatusAxival.myClassPosition && actionDefault) {
+            System.out.println("Action1 or Action2 Dummy Input is Working!!---------------------");
             //Action Phase
             dummyLeftClick = true;
             int attacker = StatusAxival.statusPhase[7]; // Attacker
@@ -288,6 +291,7 @@ public class ScreenPlay implements Screen, InputProcessor {
             int job = player.job;
             int holdAction = chooseAction;
             int target = getIndexOfTarget(heroCoordinates, rowcol);
+            System.out.println("Condition of Play -> !player.isHeroPlaying() = " + !player.isHeroPlaying());
             if (dummyLeftClick && !player.isHeroPlaying() && player.actionUsing == -1) {
                 if (-1 < holdAction && holdAction < 4) {
                     if (job == 1) {
@@ -731,7 +735,7 @@ public class ScreenPlay implements Screen, InputProcessor {
                     mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                     mapScreen.walker.routing();
                     //send to network animation
-                    StatusAxival.statusPhase[10] = SelectHeroScreen.playerNo-1;
+                    StatusAxival.statusPhase[10] = SelectHeroScreen.playerNo - 1;
                     StatusAxival.statusPhase[11] = (int) rowcol.x;
                     StatusAxival.statusPhase[12] = (int) rowcol.y;
                     this.updateStatus();
@@ -1242,7 +1246,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     }
 
     public void phaseAll() {
-        System.out.println("StatusPhase Inturn : "+StatusAxival.statusPhase[5]+", myPosition: "+StatusAxival.myClassPosition);
+        System.out.println("StatusPhase Inturn : " + StatusAxival.statusPhase[5] + ", myPosition: " + StatusAxival.myClassPosition);
         if (StatusAxival.statusPhase[5] == StatusAxival.myClassPosition) {
             System.out.println("You is my turn!!");
             phaseInTurn();
@@ -1340,7 +1344,7 @@ public class ScreenPlay implements Screen, InputProcessor {
         if (StatusAxival.statusPhase[5] > 3) {
             StatusAxival.statusPhase[5] = 0;
         }
-        if(StatusAxival.myClassPosition==3){
+        if (StatusAxival.myClassPosition == 3) {
             StatusAxival.statusPhase[0] += 1;
         }
         System.out.println("StatusPhase Inturn : " + StatusAxival.statusPhase[5]);
